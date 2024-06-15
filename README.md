@@ -32,20 +32,23 @@ We will create a CI/CD pipeline to create and deploy our application through Doc
 
 #### Third Party API
 For this project we are currently planning on using AT LEAST one of the following third-party applications:
-- OpenAI
-- Stripe
-- Google Maps AI
-- Skyscanner API
-- Uber API
+- Google 3D Maps API / Mapbox API
+- Google Review API
+- WeatherStack API
+
+We are going to use the google review api to filter activities depending on where users want to travel. Once they choose what they like,
+we will use the google maps or mapbox api to create a preview for the route of the interary for each day. We will use the WeatherStack API
+to get the real time weather to inform the users on weather and provide suggestions on outer wear.
 
 #### OAuth 2.0 Usage
 This authorization mechanism will be used to create new users and handle user logins and logouts to the platform.
+- Access to export google calendar
+- Access to create google reviews
 
 #### Fulfillment of Additional Requirements:
-- **Webhook Integration**: TBD When a user confirms basic travel information, it will make an external API call to OpenAI’s API to retrieve recommended travel areas and activities to do.
-- **Google Calendar Integration**
+- **Webhook Integration**: As the user builds their itinerary, we will use webhooks to automatically update a users google calendar.
 - **Real-Time Collaboration**: When multiple users edit the same itinerary, those changes are reflected in real-time without the need of refreshing the webpage.
-- **Long-Running Task**: Using OpenAI API to provide recommendations based on user preferences on activities and sites to see.
+- **Long-Running Task**: Generate the route for each day to preview the itinerary for that day
 
 ### Alpha Version Goal:
 - As a user, I want to be able to create an account and login to view the itineraries that I have created and am invited to.
