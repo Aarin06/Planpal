@@ -13,8 +13,7 @@ project-wenduosky created by GitHub Classroom
 PlanPal is a travel planning web app designed to help promote a multiuser planning experience. It offers a range of features to streamline the travel planning process:
 
 - **Trip Planning**: Users can create detailed itineraries for their trips, including activities, accommodations, and transportation.
-- **Collaboration**: The web app allows for collaborative planning, enabling multiple users to contribute to the same itinerary, making it ideal for group travel.
-- **Feature-Based Assistive Planning**: Utilizing AI technology to further help users select activities based on user preference and popular choices.
+- **Collaboration**: The web app allows for collaborative planning, enabling multiple users to contribute to the same itinerary, making it ideal for group travel, in real time. Users will be able to drag and drop, join and leave and delete events.
 
 The overall aim of PlanPal is to simplify the travel planning experience with multiple users, providing suggestions tailored to user likings.
 
