@@ -1,0 +1,19 @@
+<form
+  class="complex-form"
+  id="create-message-form"
+  (submit)="postMessage()"
+  [formGroup]="messageForm"
+>
+  <div class="form-title">Post a message</div>
+  <textarea
+    rows="5"
+    id="post-content"
+    class="form-element"
+    placeholder="Enter your message"
+    formControlName="message"
+    required
+  ></textarea>
+  <button type="submit" class="btn">Post your message</button>
+  <p>Message: {{ messageForm.value.message }}</p>
+  <p>Form Status: {{ messageForm.status }}</p>
+</form>

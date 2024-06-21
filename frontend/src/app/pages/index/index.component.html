@@ -1,0 +1,14 @@
+<p id="error-box">{{ error }}</p>
+<app-new-message
+  (newMessage)="postMessage($event)"
+  *ngIf="isAuth"
+></app-new-message>
+<div class="message-container" *ngFor="let message of messages">
+  <app-message
+    class="row message align-items-center"
+    [message]="message"
+    (upvote)="upvoteMessage($event)"
+    (downvote)="downvoteMessage($event)"
+    (delete)="deleteMessage($event)"
+  ></app-message>
+</div>
