@@ -44,8 +44,7 @@ For this project we are currently planning on using AT LEAST one of the followin
   https://weatherstack.com/
 
 We are going to use the Google My Business API to recommend activities based on reviews on where users want to travel. Once they choose what they like,
-we will use the Google Maps or Mapbox API to create an interactive map to preview the route of their interary for each day. We will use the WeatherStack API
-to get the real time weather to inform the users on weather and provide suggestions on outer wear.
+we will use the Google Maps or Mapbox API to create an interactive map to preview the route of their interary for each day. We will use the WeatherStack API to get the real time weather to inform the users on weather and provide suggestions on outer wear.
 
 #### OAuth 2.0 Usage
 This authorization mechanism will be used to create new users and handle user logins and logouts to the platform.
@@ -60,18 +59,20 @@ This authorization mechanism will be used to create new users and handle user lo
 
 ### Alpha Version Goal:
 - As a user, I want to be able to create an account and login to view the itineraries that I have created and am invited to.
-- As a user, I want to be able to create a trip and a corresponding itinerary.
-- As a user, I want to be able to choose my preferences for each of my upcoming trips.
+- As a user, I want to be able to view all of my trips.
+- As a user, I want to be able to choose my preferences and create a trip.
 - As a user, I want to be able to browse activities for my corresponding trip.
-- As a user, I want to be able to create custom activities for my corresponding trip.
+- As a user, I want to be able to add activities to my itinerary
 
 ### Beta Version Goal:
+- As a user, I want to be able to create custom activities for my corresponding trip.
 - As a user, I want to be able to invite users to my trip.
 - As a user, I want to be able to accept trips from others.
 - As a user, I want to be able to collaborate with others to create and modify an itinerary in real-time.
-- As a user, I want to be able to view the most optimal route/itinerary based on when activities are available, their distance, and transportation methods.
+- As a user, I want to see an overlay of the weather forcase on top of the itenerary
 
 ### Final Version Goal:
+- As a user, I want to be able to view the most optimal route/itinerary based on when activities are available, their distance, and transportation methods.
 - Deploy Application
 - Fix any bugs
 - Record Video Presentation
