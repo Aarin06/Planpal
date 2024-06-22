@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+import { GoogleApiService, UserInfo } from 'src/app/services/google-api.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,11 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-
+  userInfo? : UserInfo
   signInForm: FormGroup;
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {
+  constructor(private fb: FormBuilder, private api: ApiService, private router: Router, private readonly googleApi: GoogleApiService) {
     this.signInForm = this.fb.group({
       username: ['', []],
       password: ['', []]
@@ -25,6 +26,10 @@ export class SignInComponent implements OnInit {
         password: ['', []]
       }
     )
+
+    googleApi.userProfileSubject.subscribe( info => {
+      this.userInfo = info
+    })
   }
 
   ngOnInit(): void {}
@@ -49,5 +54,13 @@ export class SignInComponent implements OnInit {
         console.log(err)
       }
     })
+  }
+
+  isLoggedIn(): boolean {
+    return this.googleApi.isLoggedIn()
+  }
+
+  logout() {
+    this.googleApi.signOut()
   }
 }

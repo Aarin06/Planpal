@@ -1,0 +1,32 @@
+.trip-preview-card {
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: none;
+}
+
+.mat-card-image{
+  height: 300px;
+  object-fit: cover;
+}
+
+.creator-pfp{
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.colab-users-pfp {
+  background-image: url('https://www.wikihow.com/images/thumb/9/90/What_type_of_person_are_you_quiz_pic.png/1200px-What_type_of_person_are_you_quiz_pic.png');
+  width: 25px; /* Adjust based on your design */
+  height: 25px; /* Must be the same as width for a perfect circle */
+  margin: 2px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.extra-members-text{
+  margin: auto 5px;
+  text-align: center;
+}

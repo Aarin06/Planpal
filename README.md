@@ -22,7 +22,7 @@ The overall aim of PlanPal is to simplify the travel planning experience with mu
 
 #### Tech Stack
 - **Frontend Framework**: Angular
-- **Frontned Libraries**: Primeng https://primeng.org/
+- **Frontned Libraries**: Primeng, Angular Material https://primeng.org/ https://material.angular.io/
 - **Drag and Drop Module**: Angular CDK https://material.angular.io/cdk/drag-drop/overview
 - **Backend**: RxJS, Express using Node.js
 - **Database**: Firebase

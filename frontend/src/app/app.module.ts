@@ -11,6 +11,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './api.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material Imports
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import { LoginPopupComponent } from './pages/sign-in/login-popup.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { TripPreviewComponent } from './components/trip-preview/trip-preview.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewMessageComponent,
     MessageComponent,
     HeaderComponent,
+    LoginPopupComponent,
+    HomeComponent,
+    NavBarComponent,
+    TripPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +46,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    OAuthModule.forRoot(),
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     {

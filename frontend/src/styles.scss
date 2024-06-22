@@ -9,7 +9,6 @@ body {
   font-size: 14px;
   color: #3c3d3f;
   text-align: left;
-  max-width: 800px;
   margin: auto;
 }
 
@@ -161,3 +160,6 @@ body {
   color: #ffffff;
   cursor: pointer;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
