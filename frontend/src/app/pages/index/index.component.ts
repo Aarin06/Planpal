@@ -108,6 +108,7 @@ export class IndexComponent implements OnInit {
       next: () => {
         this.isAuth = true
       }, error: (err) =>{
+        console.log(err)
         this.error = err.error.error;
       }
     })
