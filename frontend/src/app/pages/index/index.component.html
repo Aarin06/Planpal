@@ -1,6 +1,17 @@
-<!-- <app-login-popup></app-login-popup> -->
-<app-home></app-home>
-<p id="error-box">{{ error }}</p>
+<app-nav-bar
+  [isAuth]="isAuth"
+  (openLoginForm)="handleOpenLogin($event)"
+></app-nav-bar>
+
+<app-landing *ngIf="!isAuth"></app-landing>
+<app-home *ngIf="isAuth"></app-home>
+
+<app-login-popup
+  *ngIf="isLoginPopupvisible"
+  (openLoginForm)="handleExitLogin($event)"
+></app-login-popup>
+
+<!-- <p id="error-box">{{ error }}</p>
 <app-new-message
   (newMessage)="postMessage($event)"
   *ngIf="isAuth"
@@ -13,4 +24,4 @@
     (downvote)="downvoteMessage($event)"
     (delete)="deleteMessage($event)"
   ></app-message>
-</div>
+</div> -->

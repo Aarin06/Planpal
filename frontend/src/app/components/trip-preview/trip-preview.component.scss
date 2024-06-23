@@ -2,10 +2,11 @@
   margin: 20px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: none;
+  box-shadow: none;
 }
 
 .mat-card-image{
+  border-radius: 10px;
   height: 300px;
   object-fit: cover;
 }
