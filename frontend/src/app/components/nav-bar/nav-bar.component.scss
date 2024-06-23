@@ -1,7 +1,8 @@
 .mat-toolbar{
-  height: 80px;
-  border-radius: 0 0 10px 10px;
-  padding: 10px 20px 20px 20px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding: 20px 20px;
+  background-color: white;
+
 }
 
 .title{
@@ -9,13 +10,8 @@
   margin-left: 20px;
 }
 
-.mat-form-field .trip-search-label {
-  font-size: 16px;
-}
-
-/* Adjusting font size for the input field */
-.mat-form-field .trip-search-input {
-  font-size: 16px;
+.spacer{
+  flex: 1 1 auto;
 }
 
 .mat-button{

@@ -22,10 +22,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { LoginPopupComponent } from './pages/sign-in/login-popup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TripPreviewComponent } from './components/trip-preview/trip-preview.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { TripPreviewComponent } from './components/trip-preview/trip-preview.com
     LoginPopupComponent,
     HomeComponent,
     NavBarComponent,
-    TripPreviewComponent
+    TripPreviewComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +52,14 @@ import { TripPreviewComponent } from './components/trip-preview/trip-preview.com
     AppRoutingModule,
     OAuthModule.forRoot(),
     BrowserAnimationsModule,
+    FontAwesomeModule,
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FontAwesomeModule
   ],
   providers: [
     {
