@@ -20,19 +20,27 @@ import { Message } from '../../classes/message';
 })
 export class IndexComponent implements OnInit {
   messages: Message[] = [];
-  error: string = ''; // string representing the error message
-  isAuth: boolean = false; // boolean representing if the user is authenticated
+  error: string = '';
+  isAuth: boolean = false;
+  isLoginPopupvisible: boolean = false;
 
-  /**
-   * Angular is famous for its dependency injection framework. If we want to use ApiService, we must declare it
-   * in the constructor. This applies for all the non components you want to use in another component, and mostly,
-   * it would be custom services you define.
-   */
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.getMessages();
     this.checkAuth();
+  }
+
+  handleOpenLogin(event: boolean){
+    if(event){
+      this.isLoginPopupvisible = true;
+    }
+  }
+
+  handleExitLogin(event: boolean) {
+    if (!event) {
+      this.isLoginPopupvisible = false;
+    }
   }
 
   getMessages() {

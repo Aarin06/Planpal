@@ -1,34 +1,25 @@
-<mat-toolbar class="row">
-  <span class="title col-1">PlanPal</span>
-  <div class="col-4"></div>
-  <mat-form-field class="example-form-field col-2">
-    <mat-label class="trip-search-label">Search for a trip</mat-label>
-    <input class="trip-search-input" matInput type="text" [(ngModel)]="value" />
-    <button
-      *ngIf="value"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="value = ''"
-    >
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  <div class="col-3"></div>
-  <div class="col-auto">
-    <button
-      mat-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      Sign In
-    </button>
-    <button
-      mat-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      Sign Out
-    </button>
+<mat-toolbar>
+  <div class="title">
+    <fa-icon [icon]="faLocationDot" class="btn-icon"></fa-icon>
+    <span> PlanPal</span>
   </div>
+
+  <div class="spacer"></div>
+  <button
+    *ngIf="!isAuth"
+    mat-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+    (click)="onOpenLogin()"
+  >
+    Sign In
+  </button>
+  <button
+    *ngIf="isAuth"
+    mat-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    Sign Out
+  </button>
 </mat-toolbar>

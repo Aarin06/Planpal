@@ -1,6 +1,24 @@
 <div class="trip-view-container">
-  <div class="header">
-    <div class="title">Upcoming trips</div>
+  <div class="header row">
+    <div class="title col-5">Upcoming trips</div>
+    <mat-form-field class="example-form-field col-2">
+      <mat-label class="trip-search-label">Search for a trip</mat-label>
+      <input
+        class="trip-search-input"
+        matInput
+        type="text"
+        [(ngModel)]="value"
+      />
+      <button
+        *ngIf="value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="value = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
   </div>
   <div class="row">
     <app-trip-preview class="col-3"></app-trip-preview>

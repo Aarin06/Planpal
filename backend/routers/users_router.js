@@ -8,6 +8,7 @@ export const usersRouter = Router();
 const upload = multer({ dest: "uploads/" });
 
 usersRouter.post("/signup", async (req, res) => {
+  console.log("signing up")
   const user = User.build({
     username: req.body.username,
   });
@@ -50,6 +51,8 @@ usersRouter.get("/signout", function (req, res, next) {
 });
 
 usersRouter.get("/me", async (req, res) => {
+  console.log("user me")
+  console.log(req.session)
   if (!req.session.userId) {
     return res.status(401).json({ errors: "Not Authenticaed" });
   }
