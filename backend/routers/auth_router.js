@@ -5,12 +5,13 @@ import {} from "../middleware/auth.js"
 export const authRouter = Router()
 
 authRouter.get("/google", 
-  passport.authenticate('google', { scope: ['email', 'profile']})
+  passport.authenticate('google', { scope: ['email', 'profile']}),
+  (req, res) => {
+    console.log("redirecing to frontend")
+    res.redirect('http://localhost:4200/');
+  }
 )
-// (req, res) => {
-//   console.log("redirecing to frontend")
-//   res.redirect('http://localhost:4200/');
-// }
+
 
 
 authRouter.get('/google/callback',
