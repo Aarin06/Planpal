@@ -1,0 +1,33 @@
+### GET FRIENDs
+GET http://localhost:3000/friends
+
+### GET FRIEND
+GET http://localhost:3000/friends/james
+
+
+### ADD AN ITINERARY
+POST http://localhost:3000/itineraries
+Content-Type: application/json
+
+{
+"name": "banana", "status": "frieind"
+}
+
+### UPDATE STATUS OF A FRIEND
+PATCH http://localhost:3000/changestatus
+Content-Type: application/json
+
+{
+    "name": "tomato",
+    "newStatus": "friend"
+}
+
+
+###DELETE A FRIEND
+DELETE http://localhost:3000/friends
+Content-Type: application/json
+
+{
+    "name": "banana"
+}
+
