@@ -8,7 +8,7 @@ export const usersRouter = Router();
 const upload = multer({ dest: "uploads/" });
 
 usersRouter.post("/signup", async (req, res) => {
-  console.log("signing up")
+  console.log("signing up");
   const user = User.build({
     username: req.body.username,
   });
@@ -52,8 +52,8 @@ usersRouter.get("/signout", function (req, res, next) {
 
 // need to change when we store session id instead of entire user
 usersRouter.get("/me", async (req, res) => {
-  console.log("user me")
-  console.log(req.session?.passport?.user?.id)
+  console.log("user me");
+  console.log(req.session?.passport?.user?.id);
   if (!req.session?.passport?.user?.id) {
     return res.status(401).json({ errors: "Not Authenticaed" });
   }
