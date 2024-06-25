@@ -21,7 +21,7 @@ const corsOptions = {
   origin: "http://localhost:4200",
   credentials: true,
 };
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(
   session({
