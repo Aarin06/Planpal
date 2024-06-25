@@ -3,8 +3,8 @@
   (openLoginForm)="handleOpenLogin($event)"
 ></app-nav-bar>
 
-<app-landing *ngIf="!isAuth"></app-landing>
-<app-home *ngIf="isAuth"></app-home>
+<app-landing *ngIf="isAuth"></app-landing>
+<app-home *ngIf="!isAuth"></app-home>
 
 <app-login-popup
   *ngIf="isLoginPopupvisible"
