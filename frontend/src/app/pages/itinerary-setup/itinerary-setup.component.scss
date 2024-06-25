@@ -1,0 +1,19 @@
+.itinerary-form {
+  padding: 20px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itinerary-form-text{
+  margin: 20px 0;
+}
+
+.mat-datepicker-toggle{
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.mat-form-field{
+  margin: 20px 0;
+}

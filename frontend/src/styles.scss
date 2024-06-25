@@ -26,6 +26,27 @@ body {
   flex-wrap: wrap;
 }
 
+.page-container-padding{
+  padding: 70px 0;
+}
+
+.title{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.subtitle{
+  font-size: 24px;
+}
+
+.content{
+  font-size: 20px;
+}
+
+.subtitle{
+
+}
+
 /* 12 grid bootstrap layout */
 .col-1 {
   flex-basis: calc(1 / 12 * 100%);
