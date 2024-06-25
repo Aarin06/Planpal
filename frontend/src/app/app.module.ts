@@ -13,6 +13,7 @@ import { ApiInterceptor } from './api.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {JsonPipe} from '@angular/common';
 
 // Angular Material Imports
 import {MatCardModule} from '@angular/material/card';
@@ -21,6 +22,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -29,6 +33,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TripPreviewComponent } from './components/trip-preview/trip-preview.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,8 @@ import { LandingComponent } from './pages/landing/landing.component';
     HomeComponent,
     NavBarComponent,
     TripPreviewComponent,
-    LandingComponent
+    LandingComponent,
+    ItinerarySetupComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,11 @@ import { LandingComponent } from './pages/landing/landing.component';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    FontAwesomeModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FontAwesomeModule,
+    JsonPipe
   ],
   providers: [
     {
