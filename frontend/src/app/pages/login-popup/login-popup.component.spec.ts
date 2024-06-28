@@ -8,7 +8,7 @@ describe('LoginPopupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginPopupComponent ]
+      declarations: [LoginPopupComponent]
     })
     .compileComponents();
 
