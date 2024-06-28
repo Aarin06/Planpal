@@ -1,5 +1,5 @@
 import { Router } from "express";
-import db from "../firebase.js";
+// import db from "../firebase.js";
 
 export const itinerariesRouter = Router();
 

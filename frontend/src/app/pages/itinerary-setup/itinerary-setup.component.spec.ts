@@ -8,7 +8,7 @@ describe('ItinerarySetupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItinerarySetupComponent ]
+      declarations: [ItinerarySetupComponent]
     })
     .compileComponents();
 

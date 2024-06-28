@@ -26,6 +26,7 @@ passport.use(
 //In these snippets, the serializeUser and deserializeUser methods are simplified to just pass the user object through without any transformation or database lookup, which might not be practical for most applications. Typically, you would serialize a user identifier (like a user ID) to the session, and during deserialization, you would use that identifier to fetch the user details from a database.
 passport.serializeUser(function (user, done) {
   console.log("logged in");
+  console.log(user)
   done(null, user);
 });
 
