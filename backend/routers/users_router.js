@@ -52,7 +52,7 @@ usersRouter.get("/signout", function (req, res, next) {
 
 // need to change when we store session id instead of entire user
 usersRouter.get("/me", async (req, res) => {
-  console.log("user me");
+  console.log("user me", req.user)
   console.log(req.session?.passport?.user?.id);
   if (!req.session?.passport?.user?.id) {
     return res.status(401).json({ errors: "Not Authenticaed" });
