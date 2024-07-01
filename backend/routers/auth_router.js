@@ -6,17 +6,13 @@ export const authRouter = Router();
 
 authRouter.get(
   "/google",
-  passport.authenticate("google", { scope: ["email", "profile"] }),
-  (req, res) => {
-    console.log("redirecing to frontend");
-    res.redirect("http://localhost:4200/");
-  }
+  passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
 authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "http://localhost:4200",
     failureRedirect: "/auth/google/failure",
   })
 );

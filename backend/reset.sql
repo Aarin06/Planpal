@@ -1,0 +1,1 @@
+ALTER USER jackyji WITH PASSWORD 'postgres';
