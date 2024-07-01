@@ -19,66 +19,67 @@ export class ApiService {
    * @param content The content of the message
    * @returns
    */
-  addMessage(content: string): Observable<Message> {
-    return this.http.post<Message>(this.endpoint + '/api/messages', {
-      content,
-    });
-  }
-
-  deleteMessage(messageId: number): Observable<Message> {
-    return this.http.delete<Message>(
-      this.endpoint + `/api/messages/${messageId}`
-    );
-  }
-
-  upvoteMessage(messageId: number) {
-    return this.http.patch<Message>(
-      this.endpoint + `/api/messages/${messageId}`, {
-        action: "upvote"
-      }
-    )
-  }
-
-  downvoteMessage(messageId: number) {
-    return this.http.patch<Message>(
-      this.endpoint + `/api/messages/${messageId}`, {
-        action: "downvote"
-      }
-    )
-  }
-
-  getMessages(): Observable<{ messages: Message[] }> {
-    return this.http.get<{ messages: Message[] }>(
-      this.endpoint + `/api/messages`
-    );
-  }
-
-  signIn(username: string, password: string) {
-    return this.http.post(
-      this.endpoint + "/users/signin",{
-        username: username,
-        password:password
-      })
-  }
-
-  signUp(username: string, password: string) {
-    return this.http.post(
-      this.endpoint + "/users/signup", {
-        username: username,
-        password: password
-      }
-    )
-  }
-
-  signOut() {
-    return this.http.get(
-      this.endpoint + "/users/signout"
-    )
-  }
 
   me() {
     return this.http.get(
       this.endpoint + "/users/me"
     )
   }
+  
+  // addMessage(content: string): Observable<Message> {
+  //   return this.http.post<Message>(this.endpoint + '/api/messages', {
+  //     content,
+  //   });
+  // }
+
+  // deleteMessage(messageId: number): Observable<Message> {
+  //   return this.http.delete<Message>(
+  //     this.endpoint + `/api/messages/${messageId}`
+  //   );
+  // }
+
+  // upvoteMessage(messageId: number) {
+  //   return this.http.patch<Message>(
+  //     this.endpoint + `/api/messages/${messageId}`, {
+  //       action: "upvote"
+  //     }
+  //   )
+  // }
+
+  // downvoteMessage(messageId: number) {
+  //   return this.http.patch<Message>(
+  //     this.endpoint + `/api/messages/${messageId}`, {
+  //       action: "downvote"
+  //     }
+  //   )
+  // }
+
+  // getMessages(): Observable<{ messages: Message[] }> {
+  //   return this.http.get<{ messages: Message[] }>(
+  //     this.endpoint + `/api/messages`
+  //   );
+  // }
+
+  // signIn(username: string, password: string) {
+  //   return this.http.post(
+  //     this.endpoint + "/users/signin",{
+  //       username: username,
+  //       password:password
+  //     })
+  // }
+
+  // signUp(username: string, password: string) {
+  //   return this.http.post(
+  //     this.endpoint + "/users/signup", {
+  //       username: username,
+  //       password: password
+  //     }
+  //   )
+  // }
+
+  // signOut() {
+  //   return this.http.get(
+  //     this.endpoint + "/users/signout"
+  //   )
+  // }
 }

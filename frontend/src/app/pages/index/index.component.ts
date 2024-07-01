@@ -27,7 +27,6 @@ export class IndexComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.getMessages();
     this.checkAuth();
   }
 
@@ -42,67 +41,7 @@ export class IndexComponent implements OnInit {
       this.isLoginPopupvisible = false;
     }
   }
-
-  getMessages() {
-    /**
-     * Angular uses Observables instead of Promises, but works very similarly to it. Instead of .then(),
-     * we use .subscribe() to listen to the response.
-     */
-    this.api.getMessages().subscribe((response) => {
-      this.messages = response.messages;
-    });
-  }
-
-  /**
-   * Angular uses observables instead of promises, but works very similarly to it.
-   * You can use this as a reference for how to use observables.
-   * @param content The content of the message
-   */
-  postMessage(content: string) {
-    this.api.addMessage(content).subscribe({
-      next: () => {
-        this.getMessages();
-        this.error = '';
-      },
-      error: (err) => {
-        this.error = err.error.error;
-      },
-    });
-  }
-
-  downvoteMessage(messageId: number) {
-    this.api.downvoteMessage(messageId).subscribe({
-      next: () => {
-        this.getMessages();
-        this.error = '';
-      },error: (err) => {
-        this.error = err.error.error;
-      },
-    })
-  }
-
-  upvoteMessage(messageId: number) {
-    this.api.upvoteMessage(messageId).subscribe({
-      next: () => {
-        this.getMessages();
-        this.error = '';
-      },error: (err) => {
-        this.error = err.error.error;
-      },
-    })
-  }
-
-  deleteMessage(messageId: number) {
-    this.api.deleteMessage(messageId).subscribe({
-      next: () => {
-        this.getMessages();
-        this.error = '';
-      },error: (err) => {
-        this.error = err.error.error;
-      },
-    })
-  }
-
+  
   checkAuth() {
     this.api.me().subscribe({
       next: () => {
@@ -113,4 +52,50 @@ export class IndexComponent implements OnInit {
       }
     })
   }
+
+  /**
+   * Angular uses observables instead of promises, but works very similarly to it.
+   * You can use this as a reference for how to use observables.
+   * @param content The content of the message
+   */
+  // postMessage(content: string) {
+  //   this.api.addMessage(content).subscribe({
+  //     next: () => {
+  //       this.error = '';
+  //     },
+  //     error: (err) => {
+  //       this.error = err.error.error;
+  //     },
+  //   });
+  // }
+
+  // downvoteMessage(messageId: number) {
+  //   this.api.downvoteMessage(messageId).subscribe({
+  //     next: () => {
+  //       this.error = '';
+  //     },error: (err) => {
+  //       this.error = err.error.error;
+  //     },
+  //   })
+  // }
+
+  // upvoteMessage(messageId: number) {
+  //   this.api.upvoteMessage(messageId).subscribe({
+  //     next: () => {
+  //       this.error = '';
+  //     },error: (err) => {
+  //       this.error = err.error.error;
+  //     },
+  //   })
+  // }
+
+  // deleteMessage(messageId: number) {
+  //   this.api.deleteMessage(messageId).subscribe({
+  //     next: () => {
+  //       this.error = '';
+  //     },error: (err) => {
+  //       this.error = err.error.error;
+  //     },
+  //   })
+  // }
 }

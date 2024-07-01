@@ -61,8 +61,11 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
     JsonPipe
   ],
   providers: [
-    provideClientHydration(),
-    provideAnimationsAsync()
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

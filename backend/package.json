@@ -28,7 +28,9 @@
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oidc": "^0.1.0",
-    "sequelize": "^6.25.3",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
     "sqlite3": "^5.1.2"
   },
   "devDependencies": {
