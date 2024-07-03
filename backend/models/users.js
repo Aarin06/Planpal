@@ -19,7 +19,10 @@ export const User = sequelize.define("User", {
     unique: true
   },profile: {
     type: DataTypes.JSONB
-  }
+  },
+  sessionId: {
+    type: DataTypes.STRING,
+  },
 }, {
   schema: 'planpal', // Specify the schema name here
 });

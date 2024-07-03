@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -12,13 +12,17 @@ export class NavBarComponent implements OnInit {
   faLocationDot = faLocationDot
   value = '';
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onOpenLogin() {
     this.openLoginForm.emit(true);
+  }
+
+  goToTrips(){
+    this.router.navigate(['/']);
   }
 
 }

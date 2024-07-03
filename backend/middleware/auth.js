@@ -6,6 +6,7 @@ const GOOGLE_CLIENT_ID =
   "407535876944-gj5djdpeqo89vb51hkgjffdlml5td9eu.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "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";
 
+
 passport.use(
   new GoogleStrategy(
     {
@@ -13,15 +14,17 @@ passport.use(
       clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:3000/auth/google/callback",
       passReqToCallback: true,
+      scope: ['profile', 'email'],
+      accessType: 'offline',
+      prompt: 'consent'
     },
     async function (request, accessToken, refreshToken, profile, done) {
-      // create a user in the database
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return done(err, user);
-      // });
-      console.log("fjdklsajf")
-      console.log(accessToken)
-      console.log(refreshToken)
+      console.log("fjdklsajf");
+      console.log(accessToken);
+      console.log("g",refreshToken);  // Ensure this is logging correctly
+      console.log(profile);
+      console.log(done);
+
       try {
         // Find the user by their Google ID
         const user = await User.findOne({ where: { googleId: profile.id } });
@@ -29,7 +32,7 @@ passport.use(
         if (user) {
           // If user exists, update their accessToken
           await user.update({ accessToken: accessToken });
-          console.log("already exists")
+          console.log("already exists");
         } else {
           // If user does not exist, create a new user with the provided details
           const newUser = await User.create({
@@ -52,18 +55,17 @@ passport.use(
   )
 );
 
-//In these snippets, the serializeUser and deserializeUser methods are simplified to just pass the user object through without any transformation or database lookup, which might not be practical for most applications. Typically, you would serialize a user identifier (like a user ID) to the session, and during deserialization, you would use that identifier to fetch the user details from a database.
 passport.serializeUser(function (user, done) {
   console.log("logged in");
-  console.log(user.id)
+  console.log(user.id);
   done(null, user.id);
 });
 
 passport.deserializeUser(function (userId, done) {
-  console.log("the session contains: ", userId)
+  console.log("the session contains: ", userId);
   User.findByPk(userId, function(err, user) {
     if (err) { return done(err); }
-    console.log("the user is {}", user)
+    console.log("the user is {}", user);
     done(null, user); // The user object is attached to the request as req.user
   });
 });
