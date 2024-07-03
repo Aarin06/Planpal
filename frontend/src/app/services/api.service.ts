@@ -54,11 +54,11 @@ export class ApiService {
   //   )
   // }
 
-  // getMessages(): Observable<{ messages: Message[] }> {
-  //   return this.http.get<{ messages: Message[] }>(
-  //     this.endpoint + `/api/messages`
-  //   );
-  // }
+  getMessages(): Observable<{ messages: Message[] }> {
+    return this.http.get<{ messages: Message[] }>(
+      this.endpoint + `/api/messages`
+    );
+  }
 
   // signIn(username: string, password: string) {
   //   return this.http.post(

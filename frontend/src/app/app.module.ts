@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
@@ -29,6 +31,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LoginPopupComponent } from './pages/login-popup/login-popup.component';
 import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
     IndexComponent,
     LandingComponent,
     LoginPopupComponent,
-    ItinerarySetupComponent
+    ItinerarySetupComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
     MatDatepickerModule,
     MatNativeDateModule,
     FontAwesomeModule,
-    JsonPipe
+    JsonPipe,
+    FullCalendarModule
   ],
   providers: [
     {
