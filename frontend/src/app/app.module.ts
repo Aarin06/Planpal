@@ -32,6 +32,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LoginPopupComponent } from './pages/login-popup/login-popup.component';
 import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     LandingComponent,
     LoginPopupComponent,
     ItinerarySetupComponent,
-    CalendarComponent
+    CalendarComponent,
+    ViewItineraryComponent
   ],
   imports: [
     BrowserModule,
