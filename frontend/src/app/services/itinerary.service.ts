@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Itinerary } from '../classes/itinerary';
 import { ItineraryMember } from '../classes/itinerarymember';
+import { placesSearchResult } from '../classes/placesSearchResult';
 
 @Injectable({
   providedIn: 'root',
@@ -38,10 +39,11 @@ export class ItineraryService {
     );
   }
 
-  createItinerary(itineraryData: { title: string, location: string; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
+  createItinerary(itineraryData: { title: string, location: placesSearchResult; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
     console.log("tData",itineraryData)
     return this.http.post<Itinerary>(this.endpoint + '/itineraries', {
-      location: itineraryData.location,
+      location: itineraryData.location.address,
+      locationPhotoUrl: itineraryData.location.imageUrl,
       startDate: itineraryData.startDate,
       endDate: itineraryData.endDate,
       description: itineraryData.description,

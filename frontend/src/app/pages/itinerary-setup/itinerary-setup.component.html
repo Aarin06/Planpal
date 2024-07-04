@@ -12,10 +12,7 @@
       <mat-label>Trip Name</mat-label>
       <input formControlName="title" placeholder="Trip Name" matInput />
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Where to?</mat-label>
-      <input formControlName="location" placeholder="Where to?" matInput />
-    </mat-form-field>
+    <app-place-autocomplete formControlName="location" (placeChanged)="handlePlaceChanged($event)" ></app-place-autocomplete>
 
     <mat-form-field>
       <mat-label>Enter a date range</mat-label>

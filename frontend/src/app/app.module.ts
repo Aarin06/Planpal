@@ -34,6 +34,7 @@ import { LoginPopupComponent } from './pages/login-popup/login-popup.component';
 import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
+import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.co
     ItinerarySetupComponent,
     CalendarComponent,
     ViewItineraryComponent,
+    PlaceAutocompleteComponent,
   ],
   imports: [
     BrowserModule,

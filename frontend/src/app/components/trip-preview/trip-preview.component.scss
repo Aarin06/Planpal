@@ -4,10 +4,10 @@
   box-shadow: none;
 }
 
-.mat-card-image{
-  border-radius: 10px;
-  height: 300px;
-  object-fit: cover;
+.fixed-height-image{
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+  width: 100%; 
 }
 
 .creator-pfp{
@@ -31,3 +31,12 @@
   margin: auto 5px;
   text-align: center;
 }
+
+.location-subtitle {
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Hides any overflowed text */
+  text-overflow: ellipsis; /* Adds an ellipsis (...) to the overflowed text */
+  display: block; /* Ensures the subtitle takes up the full width */
+  max-width: 100%; /* Ensures the subtitle does not exceed the container width */
+}
+
