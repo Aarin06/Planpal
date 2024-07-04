@@ -2,7 +2,29 @@
   padding: 20px;
 }
 
-.header .title{
+.title{
   margin: 20px;
   font-size: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+
+.icon-display {
+  transform: scale(1.5);
+  margin: 0 10px;
+}
+
+.form-field{
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 10px;
 }

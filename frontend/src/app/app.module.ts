@@ -23,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import {MatGridListModule}  from '@angular/material/grid-list';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -44,7 +45,7 @@ import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.co
     LoginPopupComponent,
     ItinerarySetupComponent,
     CalendarComponent,
-    ViewItineraryComponent
+    ViewItineraryComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.co
     MatNativeDateModule,
     FontAwesomeModule,
     JsonPipe,
-    FullCalendarModule
+    FullCalendarModule,
+    MatGridListModule
   ],
   providers: [
     {

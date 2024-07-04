@@ -32,13 +32,16 @@ try {
   console.log("ok")
 }
 
-app.use(
-  session({
-    secret: process.env.SECRET_KEY || "test",
-    resave: false,
-    saveUninitialized: true
-  })
-);
+app.use(session({
+  secret: 'your_secret_key', // Replace with your own secret
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60 * 10000, // 1 minute in milliseconds
+  }
+}));
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());

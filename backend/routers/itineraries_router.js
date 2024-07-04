@@ -1,6 +1,7 @@
 import { Itinerary } from "../models/itineraries.js";
 import { Router } from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
+import { ItineraryMember } from "../models/itineraryMembers.js";
 // import db from "../firebase.js";
 
 
@@ -50,10 +51,18 @@ const ITINERARIES_COLLECTION = "itineraries";
 
 
 itinerariesRouter.post("/", async (req, res, next) => {
-  console.log("this is a test\n\n\n")
   try {
-    console.log(req.body)
-
+    if (!req.isAuthenticated()) {
+      console.log("ERRORRR")
+      return res.status(401).json({ errors: "Not Authenticated" });
+    }
+    // console.log(req.body)
+    if (!req.body.location) {
+      return res.status(422).json({ error: "Location is required." });
+    }
+    if (!req.body.title) {
+      return res.status(422).json({ error: "Title is required." });
+    }
     if (!req.body.startDate) {
       return res.status(422).json({ error: "Start Date is required." });
     }
@@ -63,13 +72,27 @@ itinerariesRouter.post("/", async (req, res, next) => {
     if (!req.body.description) {
       return res.status(422).json({ error: "Description is required." });
     }
+    const userId = req.user.id;
+
     const itinerary = await Itinerary.create({
+      title:req.body.title,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       location: req.body.location,
       description: req.body.description,
-      UserId: 1
+      UserId: userId
     });
+
+    console.log(itinerary.id)
+
+    const itineraryMember = await ItineraryMember.create({
+      UserId: userId,
+      ItineraryId: itinerary.id
+    });
+
+    console.log(itineraryMember)
+
+
     return res.json(itinerary);
 
   }catch (e){
@@ -90,7 +113,47 @@ itinerariesRouter.get("/:id", async (req, res, next) => {
         id: itineraryId,
       }
     });
+    console.log("test")
     return res.json(itinerary);
+
+  }catch (e){
+    return res.status(404).json({ error: "Cannot Find Itinerary" });
+  }
+});
+
+itinerariesRouter.get("/:id/members", async (req, res, next) => {
+  try {
+    if (!req.isAuthenticated()) {
+      console.log("ERRORRR")
+      return res.status(401).json({ errors: "Not Authenticated" });
+    }
+    console.log("test")
+
+    const itineraryId = req.params.id
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+    console.log("help")
+    
+    const itineraryMembers = await ItineraryMember.findAll({
+      where: {
+        ItineraryId: itineraryId,
+      },
+      include: {
+        association:"User"
+      }
+    });
+    console.log("here",itineraryMembers)
+
+    const result = itineraryMembers.map(member => ({
+      userId: member.User.id,
+      username: member.User.username,
+      profile: member.User.profile,
+      itineraryId: member.ItineraryId
+    }));
+    console.log(result)
+    return res.json(result);
 
   }catch (e){
     return res.status(404).json({ error: "Cannot Find Itinerary" });
@@ -129,14 +192,32 @@ itinerariesRouter.get("/", async (req, res, next) => {
     const limit = parseInt(req.query.limit, 10) || 8;
     const page = parseInt(req.query.page, 10) || 1;
     const offset = (page - 1) * limit;
-    
+    const userId = req.user.id;
+
     const itineraries = await Itinerary.findAll({
+      where:{UserId:userId},
       limit: limit,
       offset: offset,
+      include: {
+        association:"User"
+      },
       order: [["createdAt", "ASC"]],
     });
 
-    return res.json({itineraries, length: itineraries.length});
+    const result = itineraries.map(itinerary => ({
+      id:itinerary.id,
+      title:itinerary.title,
+      location:itinerary.location,
+      description:itinerary.description,
+      startDate:itinerary.startDate,
+      endDate:itinerary.endDate,
+      UserId:itinerary.UserId,
+      username: itinerary.User.username,
+      profile: itinerary.User.profile,
+    }));
+    console.log("get results",result)
+
+    return res.json({itineraries:result,length: result.length});
 
   }catch (e){
     return res.status(400).json({ error: "Cannot Find Itineraries" });

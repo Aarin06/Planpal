@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Itinerary } from '../classes/itinerary';
+import { ItineraryMember } from '../classes/itinerarymember';
 
 @Injectable({
   providedIn: 'root',
@@ -25,19 +26,26 @@ export class ItineraryService {
     );
   }
 
+  getItineraryMembers(itineraryId:number): Observable<{ itineraryMembers: ItineraryMember[] }> {
+    return this.http.get<{ itineraryMembers: ItineraryMember[] }>(
+      this.endpoint + `/itineraries/${itineraryId}/members`
+    );
+  }
+
   getItinerary(itineraryId: number): Observable<Itinerary> {
     return this.http.get<Itinerary>(
       this.endpoint + `/itineraries${itineraryId}`
     );
   }
 
-  createItinerary(itineraryData: { location: string; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
+  createItinerary(itineraryData: { title: string, location: string; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
     console.log("tData",itineraryData)
     return this.http.post<Itinerary>(this.endpoint + '/itineraries', {
       location: itineraryData.location,
       startDate: itineraryData.startDate,
       endDate: itineraryData.endDate,
       description: itineraryData.description,
+      title: itineraryData.title
     });
   }
 
