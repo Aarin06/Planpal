@@ -3,6 +3,10 @@ import { DataTypes } from "sequelize";
 import { User } from "./users.js";
 
 export const Itinerary = sequelize.define("Itinerary", {
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   location: {
     type: DataTypes.STRING,
     allowNull: false,

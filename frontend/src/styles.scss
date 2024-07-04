@@ -96,6 +96,12 @@ body {
   max-width: calc(12 / 12 * 100%);
 }
 
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
 /* for mobile */
 @media (max-width: 576px) {
   .col-sm-1 {

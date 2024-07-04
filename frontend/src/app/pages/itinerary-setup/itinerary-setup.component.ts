@@ -26,6 +26,7 @@ export class ItinerarySetupComponent implements OnInit {
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       description: [''],
+      title:['', Validators.required]
     });
   }
 

@@ -19,12 +19,14 @@ const routes: Routes = [
   {
     path: 'create-itinerary',
     component: ItinerarySetupComponent,
-  },
-  {
-    path: 'view-itinerary',
-    component: ViewItineraryComponent,
     canActivate:[authGuard]
   },
+  {
+    path: 'view-itinerary/:itineraryId',
+    component: ViewItineraryComponent,
+    canActivate: [authGuard]
+  },
+  
   {
     path: '**',
     redirectTo: '/',

@@ -7,7 +7,11 @@
       <mat-icon class="icon-display" fontIcon="close" (click)="navigateHome()"></mat-icon>
     </div>
 
-    <div class="subtitle itinerary-form-text">Where to?</div>
+    <br>
+    <mat-form-field>
+      <mat-label>Trip Name</mat-label>
+      <input formControlName="title" placeholder="Trip Name" matInput />
+    </mat-form-field>
     <mat-form-field>
       <mat-label>Where to?</mat-label>
       <input formControlName="location" placeholder="Where to?" matInput />
@@ -40,7 +44,7 @@
       <textarea  formControlName="description" matInput></textarea>
     </mat-form-field>
 
-    <button  type="submit"  mat-stroked-button>Create Trip</button>
+    <button  type="submit" mat-stroked-button>Create Trip</button>
   </form>
   <div class="col-2"></div>
 </div>

@@ -1,14 +1,13 @@
+<div class='row calendar-container'>
 
-<div id="external-events">
-  <p>
-    <strong>Draggable Events</strong>
-  </p>
-  <div class="fc-event" *ngFor="let event of externalEvents" [innerHTML]="event.title" #draggable></div>
-</div>
-
-<div class='demo-app'>
-
-  <div class='demo-app-sidebar'>
+  <div class="col-4" id="external-events">
+    <p>
+      <strong>Draggable Events</strong>
+    </p>
+    <div class="fc-event" *ngFor="let event of externalEvents" [innerHTML]="event.title" #draggable></div>
+  </div>
+  
+  <!-- <div class='demo-app-sidebar'>
     <div class='demo-app-sidebar-section'>
       <h2>Instructions</h2>
       <ul>
@@ -46,9 +45,9 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
-  <div class='demo-app-main'>
+  <div class='demo-app-main col-8'>
     <full-calendar *ngIf='calendarVisible()' [options]='calendarOptions()'>
       <ng-template #eventContent let-arg>
         <b>{{ arg.timeText }}</b>

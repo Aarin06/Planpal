@@ -1,10 +1,9 @@
 <app-nav-bar
-  [isAuth]="isAuth"
   (openLoginForm)="handleOpenLogin($event)"
 ></app-nav-bar>
 
 <app-landing *ngIf="!isAuth"></app-landing>
-<!-- <app-home *ngIf="!isAuth"></app-home> -->
+<app-home *ngIf="isAuth"></app-home>
 
 <app-login-popup
   *ngIf="isLoginPopupvisible"
