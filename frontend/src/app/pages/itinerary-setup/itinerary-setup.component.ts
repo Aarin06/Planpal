@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { ItineraryService } from '../../services/itinerary.service';
 import { Router } from '@angular/router';
+import { placesSearchResult } from '../../classes/placesSearchResult';
 
 @Component({
   selector: 'app-itinerary-setup',
@@ -15,14 +16,13 @@ export class ItinerarySetupComponent implements OnInit {
     startDate: new FormControl<Date | null>(null),
     endDate: new FormControl<Date | null>(null),
   });
-
   
   itineraryForm: FormGroup;
 
 
   constructor(private fb: FormBuilder, private itineraryApi:ItineraryService, private router:Router) {
     this.itineraryForm = this.fb.group({
-      location: ['', Validators.required],
+      location: [null, Validators.required],
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       description: [''],
@@ -54,6 +54,13 @@ export class ItinerarySetupComponent implements OnInit {
 
   navigateHome(){
     this.router.navigate(['/']);
+  }
+
+  handlePlaceChanged(place: placesSearchResult) {
+    this.itineraryForm.patchValue({
+      location: place // Update the location form control
+
+    });
   }
 
 }

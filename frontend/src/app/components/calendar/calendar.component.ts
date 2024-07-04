@@ -112,10 +112,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleExternalDrop(info: any) {
-    // Handle the drop of an external event
     const title = info.draggedEl.innerText;
     const calendarApi = info.view.calendar;
-    console.log("here titiel", title);
+  
+    // Add the event to the calendar
     calendarApi.addEvent({
       id: createEventId(),
       title,
@@ -123,5 +123,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       end: info.endStr,
       allDay: info.allDay
     });
+  
+    // Remove the dragged element from the external events list
+    info.draggedEl.parentNode.removeChild(info.draggedEl);
+    console.log(info)
+    
   }
+  
 }

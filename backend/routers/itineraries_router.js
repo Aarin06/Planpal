@@ -56,7 +56,7 @@ itinerariesRouter.post("/", async (req, res, next) => {
       console.log("ERRORRR")
       return res.status(401).json({ errors: "Not Authenticated" });
     }
-    // console.log(req.body)
+    console.log(req.body)
     if (!req.body.location) {
       return res.status(422).json({ error: "Location is required." });
     }
@@ -72,6 +72,9 @@ itinerariesRouter.post("/", async (req, res, next) => {
     if (!req.body.description) {
       return res.status(422).json({ error: "Description is required." });
     }
+    if (!req.body.locationPhotoUrl) {
+      return res.status(422).json({ error: "locationPhotoUrl is required." });
+    }
     const userId = req.user.id;
 
     const itinerary = await Itinerary.create({
@@ -79,6 +82,7 @@ itinerariesRouter.post("/", async (req, res, next) => {
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       location: req.body.location,
+      locationPhotoUrl: req.body.locationPhotoUrl,
       description: req.body.description,
       UserId: userId
     });
@@ -208,6 +212,7 @@ itinerariesRouter.get("/", async (req, res, next) => {
       id:itinerary.id,
       title:itinerary.title,
       location:itinerary.location,
+      locationPhotoUrl:itinerary.locationPhotoUrl || "",
       description:itinerary.description,
       startDate:itinerary.startDate,
       endDate:itinerary.endDate,

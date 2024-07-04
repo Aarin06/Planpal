@@ -1,7 +1,8 @@
 <mat-card class="trip-preview-card" appearance="outlined" (click)="navigateToItineraryDetails(itinerary.id)">
   <img
     mat-card-image
-    src="https://i.natgeofe.com/k/5b396b5e-59e7-43a6-9448-708125549aa1/new-york-statue-of-liberty.jpg"
+    class="fixed-height-image"
+    [src]="itinerary.locationPhotoUrl"
     alt="Photo of a Shiba Inu"
   />
   <mat-card-header>
@@ -9,7 +10,16 @@
       [ngStyle]="{'background-image': 'url(' + itinerary.profile.picture + ')'}">
     </div>
     <mat-card-title>{{ itinerary.title }}</mat-card-title>
-    <mat-card-subtitle>{{ itinerary.location }}</mat-card-subtitle>
+
+    <mat-card-subtitle class="location-subtitle">
+      <ng-container *ngIf="itinerary.location.length > 30; else fullLocation">
+        {{ itinerary.location.slice(1,30) +"..." }}
+      </ng-container>
+      <ng-template #fullLocation>
+        {{ itinerary.location }}
+      </ng-template>
+    </mat-card-subtitle>
+
     <mat-card-subtitle>{{ itinerary.startDate }} - {{ itinerary.endDate }}</mat-card-subtitle>
   </mat-card-header>
   

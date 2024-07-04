@@ -11,6 +11,10 @@ export const Itinerary = sequelize.define("Itinerary", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  locationPhotoUrl: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
   startDate: {
     type: DataTypes.DATE,
     allowNull: false,
