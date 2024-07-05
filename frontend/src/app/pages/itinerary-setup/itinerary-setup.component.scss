@@ -8,12 +8,15 @@
   margin: 20px 0;
 }
 
-.mat-datepicker-toggle{
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-}
-
 .mat-form-field{
   margin: 20px 0;
+}
+
+.form-header{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-display {
+  transform: scale(2);
 }
