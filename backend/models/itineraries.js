@@ -1,0 +1,34 @@
+import { sequelize } from "../datasource.js";
+import { DataTypes } from "sequelize";
+import { User } from "./users.js";
+
+export const Itinerary = sequelize.define("Itinerary", {
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  location: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  locationPhotoUrl: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  startDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  endDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+  }
+}, {
+  schema: 'planpal', // Specify the schema name here
+});
+
+Itinerary.belongsTo(User, { onDelete: "CASCADE" });
+

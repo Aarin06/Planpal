@@ -3,7 +3,16 @@
     <fa-icon [icon]="faLocationDot" class="btn-icon"></fa-icon>
     <span> PlanPal</span>
   </div>
+  <div class="small-spacer"></div>
 
+  <button
+    *ngIf="isAuth"
+    mat-button
+    (click)="goToTrips()"
+
+  >
+    MyTrips
+  </button>
   <div class="spacer"></div>
   <button
     *ngIf="!isAuth"

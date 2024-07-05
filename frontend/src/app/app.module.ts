@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './pages/index/index.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { NewMessageComponent } from './components/new-message/new-message.component';
-import { MessageComponent } from './components/message/message.component';
-import { HeaderComponent } from './components/header/header.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { TripPreviewComponent } from './components/trip-preview/trip-preview.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './api.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OAuthModule } from 'angular-oauth2-oidc';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {JsonPipe} from '@angular/common';
 
@@ -25,30 +22,32 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import {MatGridListModule}  from '@angular/material/grid-list';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { LoginPopupComponent } from './pages/sign-in/login-popup.component';
 import { HomeComponent } from './pages/home/home.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { TripPreviewComponent } from './components/trip-preview/trip-preview.component';
+import { IndexComponent } from './pages/index/index.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { LoginPopupComponent } from './pages/login-popup/login-popup.component';
 import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
-
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
+import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
-    SignInComponent,
-    NewMessageComponent,
-    MessageComponent,
-    HeaderComponent,
-    LoginPopupComponent,
-    HomeComponent,
     NavBarComponent,
     TripPreviewComponent,
+    HomeComponent,
+    IndexComponent,
     LandingComponent,
-    ItinerarySetupComponent
+    LoginPopupComponent,
+    ItinerarySetupComponent,
+    CalendarComponent,
+    ViewItineraryComponent,
+    PlaceAutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +55,6 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    OAuthModule.forRoot(),
     BrowserAnimationsModule,
     FontAwesomeModule,
     MatCardModule,
@@ -69,7 +67,9 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
     MatDatepickerModule,
     MatNativeDateModule,
     FontAwesomeModule,
-    JsonPipe
+    JsonPipe,
+    FullCalendarModule,
+    MatGridListModule
   ],
   providers: [
     {
@@ -78,6 +78,6 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
       multi: true,
     },
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

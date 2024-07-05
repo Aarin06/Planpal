@@ -1,0 +1,45 @@
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.5em;
+}
+
+li {
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+b { /* used for event dates/times */
+  margin-right: 3px;
+}
+
+.fc { /* the calendar root */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.external-events {
+  padding: 10px;
+  width: 150px;
+  border: 1px solid #ccc;
+  background: #eee;
+  text-align: left;
+}
+
+.fc-event {
+  margin: 10px 0;
+  padding: 5px;
+  background: #3a87ad;
+  color: white;
+  cursor: pointer;
+}
+
+.calendar-container{
+  padding: 20px;
+
+}

@@ -1,0 +1,10 @@
+<app-nav-bar></app-nav-bar>
+<div class="itinerary-container row">
+  <div class="col-2" id="external-events">
+    <div class="add-item">
+      <app-place-autocomplete (placeChanged)="handlePlaceChanged($event)"></app-place-autocomplete>
+      
+    </div>
+  </div>
+  <app-calendar class="col-10"></app-calendar>
+</div>

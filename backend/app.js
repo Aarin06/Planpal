@@ -23,13 +23,25 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(
-  session({
-    secret: process.env.SECRET_KEY || "test",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+try {
+  await sequelize.authenticate();
+  await sequelize.sync({ alter: { drop: false } });
+  console.log("Connection has been established successfully.");
+} catch (error) {
+  console.error("Unable to connect to the database:", error);
+  console.log("ok")
+}
+
+app.use(session({
+  secret: 'your_secret_key', // Replace with your own secret
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60 * 10000, // 1 minute in milliseconds
+  }
+}));
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,13 +62,5 @@ app.listen(PORT, (err) => {
 });
 
 // app.use(express.static("static"));
-
-// try {
-//   await sequelize.authenticate();
-//   await sequelize.sync({ alter: { drop: false } });
-//   console.log("Connection has been established successfully.");
-// } catch (error) {
-//   console.error("Unable to connect to the database:", error);
-// }
 
 // app.use("/api/messages", messagesRouter);

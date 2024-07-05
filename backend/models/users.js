@@ -5,10 +5,21 @@ export const User = sequelize.define("User", {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
   },
-  password: {
+  googleId: {
     type: DataTypes.STRING,
-    allowNull: false,
+    unique: true
   },
+  accessToken: {
+    type: DataTypes.STRING,
+    unique: true
+  },
+  refreshToken: {
+    type: DataTypes.STRING,
+    unique: true
+  },profile: {
+    type: DataTypes.JSONB
+  }
+}, {
+  schema: 'planpal', // Specify the schema name here
 });
