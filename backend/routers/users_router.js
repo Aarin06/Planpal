@@ -55,11 +55,9 @@ usersRouter.get("/me", async (req, res) => {
   console.log(req.session?.passport);
   
   if (!req.isAuthenticated()) {
-    console.log("ERRORRR")
     return res.status(401).json({ errors: "Not Authenticated" });
   }
   const userId = req.user.id;
-  console.log("REAL ID",userId);
   return res.json({
     userId: userId
   });

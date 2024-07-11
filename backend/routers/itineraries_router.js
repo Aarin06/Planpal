@@ -2,7 +2,7 @@ import { Itinerary } from "../models/itineraries.js";
 import { Router } from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
 import { ItineraryMember } from "../models/itineraryMembers.js";
-// import db from "../firebase.js";
+import { Event } from "../models/events.js";
 
 
 
@@ -53,10 +53,8 @@ const ITINERARIES_COLLECTION = "itineraries";
 itinerariesRouter.post("/", async (req, res, next) => {
   try {
     if (!req.isAuthenticated()) {
-      console.log("ERRORRR")
       return res.status(401).json({ errors: "Not Authenticated" });
     }
-    console.log(req.body)
     if (!req.body.location) {
       return res.status(422).json({ error: "Location is required." });
     }
@@ -87,14 +85,10 @@ itinerariesRouter.post("/", async (req, res, next) => {
       UserId: userId
     });
 
-    console.log(itinerary.id)
-
     const itineraryMember = await ItineraryMember.create({
       UserId: userId,
       ItineraryId: itinerary.id
     });
-
-    console.log(itineraryMember)
 
 
     return res.json(itinerary);
@@ -104,23 +98,45 @@ itinerariesRouter.post("/", async (req, res, next) => {
   }
 });
 
-itinerariesRouter.get("/:id", async (req, res, next) => {
+// itinerariesRouter.get("/:id", async (req, res) => {
+//   try {
+//     const itineraryId = req.params.id
+
+//     if (!itineraryId) {
+//       return res.status(422).json({ error: "itineraryId is required." });
+//     }
+    
+//     const itinerary = await Itinerary.findOne({
+//       where: {
+//         id: itineraryId,
+//       }
+//     });
+//     return res.json(itinerary);
+
+//   }catch (e){
+//     return res.status(404).json({ error: "Cannot Find Itinerary" });
+//   }
+// });
+
+itinerariesRouter.get("/:id", async (req, res) => {
   try {
     const itineraryId = req.params.id
-
+    console.log(itineraryId)
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
     
-    const itinerary = await Itinerary.findOne({
-      where: {
-        id: itineraryId,
-      }
+    const itineraryWithEvents = await Itinerary.findOne({
+      where: { id: itineraryId },
+      include: [{
+        model: Event,
+      }]
     });
-    console.log("test")
-    return res.json(itinerary);
+    return res.json(itineraryWithEvents);
 
   }catch (e){
+    console.log("not found")
+    console.log(e)
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });
@@ -128,17 +144,14 @@ itinerariesRouter.get("/:id", async (req, res, next) => {
 itinerariesRouter.get("/:id/members", async (req, res, next) => {
   try {
     if (!req.isAuthenticated()) {
-      console.log("ERRORRR")
       return res.status(401).json({ errors: "Not Authenticated" });
     }
-    console.log("test")
 
     const itineraryId = req.params.id
 
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    console.log("help")
     
     const itineraryMembers = await ItineraryMember.findAll({
       where: {
@@ -148,7 +161,6 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
         association:"User"
       }
     });
-    console.log("here",itineraryMembers)
 
     const result = itineraryMembers.map(member => ({
       userId: member.User.id,
@@ -156,7 +168,6 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
       profile: member.User.profile,
       itineraryId: member.ItineraryId
     }));
-    console.log(result)
     return res.json(result);
 
   }catch (e){
@@ -220,7 +231,6 @@ itinerariesRouter.get("/", async (req, res, next) => {
       username: itinerary.User.username,
       profile: itinerary.User.profile,
     }));
-    console.log("get results",result)
 
     return res.json({itineraries:result,length: result.length});
 

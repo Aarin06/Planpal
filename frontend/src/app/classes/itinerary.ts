@@ -1,5 +1,5 @@
 export interface Itinerary {
-  title:string
+  title:string;
   location: string;
   startDate: Date;
   endDate: Date;

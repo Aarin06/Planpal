@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Itinerary } from '../classes/itinerary';
+import { Event } from '../classes/event';
 import { ItineraryMember } from '../classes/itinerarymember';
 import { placesSearchResult } from '../classes/placesSearchResult';
 
@@ -33,14 +34,13 @@ export class ItineraryService {
     );
   }
 
-  getItinerary(itineraryId: number): Observable<Itinerary> {
-    return this.http.get<Itinerary>(
-      this.endpoint + `/itineraries${itineraryId}`
+  getItinerary(itineraryId: number): Observable<Itinerary & { events: Event[] }> {
+    return this.http.get<Itinerary & { events: Event[] }>(
+      this.endpoint + `/itineraries/${itineraryId}`
     );
   }
 
   createItinerary(itineraryData: { title: string, location: placesSearchResult; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
-    console.log("tData",itineraryData)
     return this.http.post<Itinerary>(this.endpoint + '/itineraries', {
       location: itineraryData.location.address,
       locationPhotoUrl: itineraryData.location.imageUrl,

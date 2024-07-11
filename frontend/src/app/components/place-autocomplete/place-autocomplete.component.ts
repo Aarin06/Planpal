@@ -9,9 +9,8 @@ import { placesSearchResult } from '../../classes/placesSearchResult';
 export class PlaceAutocompleteComponent implements OnInit {
   @ViewChild('inputField')
   inputField!: ElementRef;
-  @Input() placeholder = '';
+  @Input() placeholder: string = '';
   @Output() placeChanged = new EventEmitter<placesSearchResult>();
-
   constructor(){}
 
   autocomplete: google.maps.places.Autocomplete | undefined;
