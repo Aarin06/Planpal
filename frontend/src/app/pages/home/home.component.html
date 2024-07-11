@@ -1,8 +1,12 @@
 <div class="trip-view-container">
   <div class="header row">
-    <div class="title ">Upcoming trips</div>
+    <div class="title">Upcoming trips</div>
     <div class="col-1">
-      <mat-icon class="icon-display" fontIcon="add" (click)="navigateAddItinerary()"></mat-icon>
+      <mat-icon
+        class="icon-display"
+        fontIcon="add"
+        (click)="navigateAddItinerary()"
+      ></mat-icon>
     </div>
   </div>
   <mat-form-field class="form-field col-2">
@@ -11,14 +15,17 @@
       class="trip-search-input"
       matInput
       type="text"
-      [(ngModel)]="value"
+      [(ngModel)]="searchKeyword"
+      (ngModelChange)="onSearchKeywordChange()"
     />
   </mat-form-field>
 
   <div class="row">
-    <app-trip-preview class="col-3" *ngFor="let itinerary of itineraries"
+    <app-trip-preview
+      class="col-3"
+      *ngFor="let itinerary of filteredItineraries"
       [itinerary]="itinerary"
     >
     </app-trip-preview>
-  </div>  
+  </div>
 </div>

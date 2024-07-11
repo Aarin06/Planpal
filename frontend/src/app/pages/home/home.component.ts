@@ -9,8 +9,9 @@ import {format} from 'date-fns'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  value = '';
+  searchKeyword = '';
   itineraries: any[] = []
+  filteredItineraries: any[] = []
   constructor(private itineraryApi: ItineraryService, private router:Router) { }
 
   ngOnInit(): void {
@@ -19,7 +20,6 @@ export class HomeComponent implements OnInit {
 
   getItineraries(){
     this.itineraryApi.getItineraries().subscribe((response) =>{
-      console.log(response)
       this.itineraries = response.itineraries;
 
       this.itineraries.map(itinerary =>{
@@ -31,11 +31,23 @@ export class HomeComponent implements OnInit {
 
         return itinerary;      
       })
-      console.log(this.itineraries)
+      this.filterItineraries();
 
     })
+  }
 
-    
+  filterItineraries() {
+    if (!this.searchKeyword) {
+      this.filteredItineraries = this.itineraries;
+    } else {
+      this.filteredItineraries = this.itineraries.filter(itinerary =>
+        itinerary.title.toLowerCase().includes(this.searchKeyword.toLowerCase())
+      );
+    }
+  }
+
+  onSearchKeywordChange() {
+    this.filterItineraries();
   }
 
   navigateAddItinerary(){

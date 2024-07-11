@@ -43,3 +43,18 @@ b { /* used for event dates/times */
   padding: 20px;
 
 }
+
+.fc .fc-col-header-cell-cushion { /* needs to be same precedence */
+  padding-top: 5px; /* an override! */
+  padding-bottom: 5px; /* an override! */
+}
+
+.fc .fc-button{
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px 10px 20px;
+}

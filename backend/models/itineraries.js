@@ -1,6 +1,7 @@
 import { sequelize } from "../datasource.js";
 import { DataTypes } from "sequelize";
 import { User } from "./users.js";
+import { Event } from "./events.js"
 
 export const Itinerary = sequelize.define("Itinerary", {
   title: {
@@ -31,4 +32,4 @@ export const Itinerary = sequelize.define("Itinerary", {
 });
 
 Itinerary.belongsTo(User, { onDelete: "CASCADE" });
-
+Itinerary.hasMany(Event, { onDelete: "CASCADE" });

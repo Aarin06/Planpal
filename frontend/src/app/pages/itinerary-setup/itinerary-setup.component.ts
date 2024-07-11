@@ -43,7 +43,6 @@ export class ItinerarySetupComponent implements OnInit {
           console.log('Form Submitted', this.itineraryForm.value);
         }, error: (err) =>{
           console.log(err)
-          
         }
       })
 
@@ -59,7 +58,6 @@ export class ItinerarySetupComponent implements OnInit {
   handlePlaceChanged(place: placesSearchResult) {
     this.itineraryForm.patchValue({
       location: place // Update the location form control
-
     });
   }
 

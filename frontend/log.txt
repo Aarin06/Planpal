@@ -1,0 +1,1094 @@
+- Building...
+
+Application bundle generation failed. [1.851 seconds]
+
+✘ [ERROR] NG8001: 'router-outlet' is not a known element:
+1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
+2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/app.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component AppComponent.
+
+    src/app/app.component.ts:5:15:
+      5 │   templateUrl: './app.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS-996002: 'AppModule' does not appear to be an NgModule class. [plugin angular-compiler]
+
+    src/app/app.module.server.ts:9:4:
+      9 │     AppModule,
+        ╵     ~~~~~~~~~
+
+  Is it missing an @NgModule annotation?
+
+    src/app/app.module.ts:87:13:
+      87 │ export class AppModule { }
+         ╵              ~~~~~~~~~
+
+
+✘ [ERROR] TS-991010: Value at position 12 in the NgModule.declarations of AppModule is not a reference
+  Value could not be determined statically. [plugin angular-compiler]
+
+    src/app/app.module.ts:41:16:
+      41 │   declarations: [
+         ╵                 ^
+
+  Unknown reference.
+
+    src/app/app.module.ts:54:4:
+      54 │     EventsComponent,
+         ╵     ~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2304: Cannot find name 'EventsComponent'. [plugin angular-compiler]
+
+    src/app/app.module.ts:54:4:
+      54 │     EventsComponent,
+         ╵     ~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'full-calendar' is not a known element:
+1. If 'full-calendar' is an Angular component, then verify that it is part of this module.
+2. If 'full-calendar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/calendar/calendar.component.html:2:2:
+      2 │   <full-calendar *ngIf="calendarVisible()" [options]="calendarOptio...
+        ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CalendarComponent.
+
+    src/app/components/calendar/calendar.component.ts:12:15:
+      12 │   templateUrl: './calendar.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'options' since it isn't a known property of 'full-calendar'.
+1. If 'full-calendar' is an Angular component and it has 'options' input, then verify that it is part of this module.
+2. If 'full-calendar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/components/calendar/calendar.component.html:2:43:
+      2 │ ...l-calendar *ngIf="calendarVisible()" [options]="calendarOptions()">
+        ╵                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CalendarComponent.
+
+    src/app/components/calendar/calendar.component.ts:12:15:
+      12 │   templateUrl: './calendar.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2561: Object literal may only specify known properties, but 'initalDate' does not exist in type 'CalendarOptions'. Did you mean to write 'initialDate'? [plugin angular-compiler]
+
+    src/app/components/calendar/calendar.component.ts:43:4:
+      43 │     initalDate: this.initalDate,
+         ╵     ~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card' is not a known element:
+1. If 'mat-card' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:2:2:
+      2 │   <mat-card class="event-form-card" appearance="outlined">
+        ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:3:4:
+      3 │     <mat-icon class="exit-btn" (click)="onExitForm()">close</mat-icon>
+        ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:8:6:
+      8 │       [formGroup]="eventForm"
+        ╵       ~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:16:6:
+      16 │       <mat-form-field>
+         ╵       ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:17:8:
+      17 │         <mat-label>Event Name</mat-label>
+         ╵         ~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-place-autocomplete' is not a known element:
+1. If 'app-place-autocomplete' is an Angular component, then verify that it is part of this module.
+2. If 'app-place-autocomplete' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:20:6:
+      20 │       <app-place-autocomplete
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'placesSearchResult'. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:21:43:
+      21 │         (placeChanged)="handlePlaceChanged($event)"
+         ╵                                            ~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:23:6:
+      23 │       <mat-form-field>
+         ╵       ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/custom-event-form/custom-event-form.component.html:24:8:
+      24 │         <mat-label>Description</mat-label>
+         ╵         ~~~~~~~~~~~
+
+  Error occurs in the template of component CustomEventFormComponent.
+
+    src/app/components/custom-event-form/custom-event-form.component.ts:7:15:
+      7 │   templateUrl: './custom-event-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-toolbar' is not a known element:
+1. If 'mat-toolbar' is an Angular component, then verify that it is part of this module.
+2. If 'mat-toolbar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/nav-bar/nav-bar.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component NavBarComponent.
+
+    src/app/components/nav-bar/nav-bar.component.ts:7:15:
+      7 │   templateUrl: './nav-bar.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'fa-icon' is not a known element:
+1. If 'fa-icon' is an Angular component, then verify that it is part of this module.
+2. If 'fa-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/nav-bar/nav-bar.component.html:3:4:
+      3 │     <fa-icon [icon]="faLocationDot" class="btn-icon"></fa-icon>
+        ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component NavBarComponent.
+
+    src/app/components/nav-bar/nav-bar.component.ts:7:15:
+      7 │   templateUrl: './nav-bar.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'icon' since it isn't a known property of 'fa-icon'.
+1. If 'fa-icon' is an Angular component and it has 'icon' input, then verify that it is part of this module.
+2. If 'fa-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/components/nav-bar/nav-bar.component.html:3:13:
+      3 │     <fa-icon [icon]="faLocationDot" class="btn-icon"></fa-icon>
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component NavBarComponent.
+
+    src/app/components/nav-bar/nav-bar.component.ts:7:15:
+      7 │   templateUrl: './nav-bar.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/place-autocomplete/place-autocomplete.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component PlaceAutocompleteComponent.
+
+    src/app/components/place-autocomplete/place-autocomplete.component.ts:6:15:
+      6 │   templateUrl: './place-autocomplete.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card' is not a known element:
+1. If 'mat-card' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-header' is not a known element:
+1. If 'mat-card-header' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:8:2:
+      8 │   <mat-card-header>
+        ╵   ~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'ngStyle' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:10:6:
+      10 │       [ngStyle]="{'background-image': 'url(' + itinerary.profile.p...
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-title' is not a known element:
+1. If 'mat-card-title' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-title' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:12:4:
+      12 │     <mat-card-title>{{ itinerary.title }}</mat-card-title>
+         ╵     ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-subtitle' is not a known element:
+1. If 'mat-card-subtitle' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-subtitle' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:14:4:
+      14 │     <mat-card-subtitle class="location-subtitle">
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-subtitle' is not a known element:
+1. If 'mat-card-subtitle' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-subtitle' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:23:4:
+      23 │     <mat-card-subtitle>{{ itinerary.startDate }} - {{ itinerary.en...
+         ╵     ~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'ngStyle' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/components/trip-preview/trip-preview.component.html:30:8:
+      30 │         [ngStyle]="{'background-image': 'url(' + member?.profile?....
+         ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component TripPreviewComponent.
+
+    src/app/components/trip-preview/trip-preview.component.ts:6:15:
+      6 │   templateUrl: './trip-preview.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:5:6:
+      5 │       <mat-icon
+        ╵       ~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:12:2:
+      12 │   <mat-form-field class="form-field col-2">
+         ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:13:4:
+      13 │     <mat-label class="trip-search-label">Search for a trip</mat-la...
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'ngModel' since it isn't a known property of 'input'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:18:6:
+      18 │       [(ngModel)]="searchKeyword"
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-trip-preview' is not a known element:
+1. If 'app-trip-preview' is an Angular component, then verify that it is part of this module.
+2. If 'app-trip-preview' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:24:4:
+      24 │     <app-trip-preview
+         ╵     ~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'itinerary' since it isn't a known property of 'app-trip-preview'.
+1. If 'app-trip-preview' is an Angular component and it has 'itinerary' input, then verify that it is part of this module.
+2. If 'app-trip-preview' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:27:6:
+      27 │       [itinerary]="itinerary"
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:8:15:
+      8 │   templateUrl: './home.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-nav-bar' is not a known element:
+1. If 'app-nav-bar' is an Angular component, then verify that it is part of this module.
+2. If 'app-nav-bar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'boolean'. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:2:35:
+      2 │   (openLoginForm)="handleOpenLogin($event)"
+        ╵                                    ~~~~~~
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-landing' is not a known element:
+1. If 'app-landing' is an Angular component, then verify that it is part of this module.
+2. If 'app-landing' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:5:0:
+      5 │ <app-landing *ngIf="!isAuth"></app-landing>
+        ╵ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-home' is not a known element:
+1. If 'app-home' is an Angular component, then verify that it is part of this module.
+2. If 'app-home' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:6:0:
+      6 │ <app-home *ngIf="isAuth"></app-home>
+        ╵ ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-login-popup' is not a known element:
+1. If 'app-login-popup' is an Angular component, then verify that it is part of this module.
+2. If 'app-login-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:8:0:
+      8 │ <app-login-popup
+        ╵ ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'boolean'. [plugin angular-compiler]
+
+    src/app/pages/index/index.component.html:10:35:
+      10 │   (openLoginForm)="handleExitLogin($event)"
+         ╵                                    ~~~~~~
+
+  Error occurs in the template of component IndexComponent.
+
+    src/app/pages/index/index.component.ts:18:15:
+      18 │   templateUrl: './index.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:4:93:
+      4 │ ...ary-form" (submit)="createItinerary()" [formGroup]="itineraryForm">
+        ╵                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:7:6:
+      7 │       <mat-icon class="icon-display" fontIcon="close" (click)="navi...
+        ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:11:4:
+      11 │     <mat-form-field>
+         ╵     ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:12:6:
+      12 │       <mat-label>Trip Name</mat-label>
+         ╵       ~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-place-autocomplete' is not a known element:
+1. If 'app-place-autocomplete' is an Angular component, then verify that it is part of this module.
+2. If 'app-place-autocomplete' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:15:4:
+      15 │     <app-place-autocomplete formControlName="location" (placeChang...
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'placesSearchResult'.
+  Type 'Event' is missing the following properties from type 'placesSearchResult': address, location [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:15:90:
+      15 │ ...ceChanged)="handlePlaceChanged($event)" ></app-place-autocomplete>
+         ╵                                   ~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:17:4:
+      17 │     <mat-form-field>
+         ╵     ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:18:6:
+      18 │       <mat-label>Enter a date range</mat-label>
+         ╵       ~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-date-range-input' is not a known element:
+1. If 'mat-date-range-input' is an Angular component, then verify that it is part of this module.
+2. If 'mat-date-range-input' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:20:6:
+      20 │       <mat-date-range-input [rangePicker]="picker">
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'rangePicker' since it isn't a known property of 'mat-date-range-input'.
+1. If 'mat-date-range-input' is an Angular component and it has 'rangePicker' input, then verify that it is part of this module.
+2. If 'mat-date-range-input' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:20:28:
+      20 │       <mat-date-range-input [rangePicker]="picker">
+         ╵                             ~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-datepicker-toggle' is not a known element:
+1. If 'mat-datepicker-toggle' is an Angular component, then verify that it is part of this module.
+2. If 'mat-datepicker-toggle' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:24:6:
+      24 │       <mat-datepicker-toggle
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'htmlFor' since it isn't a known property of 'mat-datepicker-toggle'.
+1. If 'mat-datepicker-toggle' is an Angular component and it has 'htmlFor' input, then verify that it is part of this module.
+2. If 'mat-datepicker-toggle' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:26:8:
+      26 │         [for]="picker"
+         ╵         ~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-date-range-picker' is not a known element:
+1. If 'mat-date-range-picker' is an Angular component, then verify that it is part of this module.
+2. If 'mat-date-range-picker' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:29:6:
+      29 │       <mat-date-range-picker #picker></mat-date-range-picker>
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-error' is not a known element:
+1. If 'mat-error' is an Angular component, then verify that it is part of this module.
+2. If 'mat-error' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:31:6:
+      31 │       <mat-error *ngIf="range.controls.startDate.hasError('matStar...
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-error' is not a known element:
+1. If 'mat-error' is an Angular component, then verify that it is part of this module.
+2. If 'mat-error' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:34:6:
+      34 │       <mat-error *ngIf="range.controls.endDate.hasError('matEndDat...
+         ╵       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-form-field' is not a known element:
+1. If 'mat-form-field' is an Angular component, then verify that it is part of this module.
+2. If 'mat-form-field' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:39:4:
+      39 │     <mat-form-field>
+         ╵     ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-label' is not a known element:
+1. If 'mat-label' is an Angular component, then verify that it is part of this module.
+2. If 'mat-label' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.html:40:6:
+      40 │       <mat-label>Description</mat-label>
+         ╵       ~~~~~~~~~~~
+
+  Error occurs in the template of component ItinerarySetupComponent.
+
+    src/app/pages/itinerary-setup/itinerary-setup.component.ts:9:15:
+      9 │   templateUrl: './itinerary-setup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card' is not a known element:
+1. If 'mat-card' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/landing/landing.component.html:5:4:
+      5 │     <mat-card class="trip-preview-card" appearance="outlined">
+        ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LandingComponent.
+
+    src/app/pages/landing/landing.component.ts:5:15:
+      5 │   templateUrl: './landing.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-header' is not a known element:
+1. If 'mat-card-header' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-header' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/landing/landing.component.html:11:6:
+      11 │       <mat-card-header>
+         ╵       ~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LandingComponent.
+
+    src/app/pages/landing/landing.component.ts:5:15:
+      5 │   templateUrl: './landing.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-title' is not a known element:
+1. If 'mat-card-title' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-title' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/landing/landing.component.html:12:8:
+      12 │         <mat-card-title>A multiplayer planing website</mat-card-ti...
+         ╵         ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LandingComponent.
+
+    src/app/pages/landing/landing.component.ts:5:15:
+      5 │   templateUrl: './landing.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-subtitle' is not a known element:
+1. If 'mat-card-subtitle' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-subtitle' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/landing/landing.component.html:13:8:
+      13 │         <mat-card-subtitle>Dec 25, 2019 - Jan 02, 2020</mat-card-s...
+         ╵         ~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LandingComponent.
+
+    src/app/pages/landing/landing.component.ts:5:15:
+      5 │   templateUrl: './landing.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card' is not a known element:
+1. If 'mat-card' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/login-popup/login-popup.component.html:2:2:
+      2 │   <mat-card class="login-form" appearance="outlined">
+        ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LoginPopupComponent.
+
+    src/app/pages/login-popup/login-popup.component.ts:7:15:
+      7 │   templateUrl: './login-popup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/login-popup/login-popup.component.html:3:4:
+      3 │     <mat-icon class="exit-btn" (click)="onExitLogin()">close</mat-i...
+        ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LoginPopupComponent.
+
+    src/app/pages/login-popup/login-popup.component.ts:7:15:
+      7 │   templateUrl: './login-popup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-card-content' is not a known element:
+1. If 'mat-card-content' is an Angular component, then verify that it is part of this module.
+2. If 'mat-card-content' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/login-popup/login-popup.component.html:6:4:
+      6 │     <mat-card-content>
+        ╵     ~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LoginPopupComponent.
+
+    src/app/pages/login-popup/login-popup.component.ts:7:15:
+      7 │   templateUrl: './login-popup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'fa-icon' is not a known element:
+1. If 'fa-icon' is an Angular component, then verify that it is part of this module.
+2. If 'fa-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/login-popup/login-popup.component.html:8:8:
+      8 │         <fa-icon [icon]="faGoogle"></fa-icon> Continue with Google
+        ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LoginPopupComponent.
+
+    src/app/pages/login-popup/login-popup.component.ts:7:15:
+      7 │   templateUrl: './login-popup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'icon' since it isn't a known property of 'fa-icon'.
+1. If 'fa-icon' is an Angular component and it has 'icon' input, then verify that it is part of this module.
+2. If 'fa-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/login-popup/login-popup.component.html:8:17:
+      8 │         <fa-icon [icon]="faGoogle"></fa-icon> Continue with Google
+        ╵                  ~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component LoginPopupComponent.
+
+    src/app/pages/login-popup/login-popup.component.ts:7:15:
+      7 │   templateUrl: './login-popup.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-nav-bar' is not a known element:
+1. If 'app-nav-bar' is an Angular component, then verify that it is part of this module.
+2. If 'app-nav-bar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-place-autocomplete' is not a known element:
+1. If 'app-place-autocomplete' is an Angular component, then verify that it is part of this module.
+2. If 'app-place-autocomplete' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:5:6:
+      5 │       <app-place-autocomplete
+        ╵       ~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'placesSearchResult'. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:6:43:
+      6 │         (placeChanged)="handlePlaceChanged($event)"
+        ╵                                            ~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-calendar' is not a known element:
+1. If 'app-calendar' is an Angular component, then verify that it is part of this module.
+2. If 'app-calendar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:10:2:
+      10 │   <app-calendar
+         ╵   ~~~~~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'boolean'. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:13:53:
+      13 │     (openCustomEventForm)="handleOpenCustomEventForm($event)"
+         ╵                                                      ~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'initalDate' since it isn't a known property of 'app-calendar'.
+1. If 'app-calendar' is an Angular component and it has 'initalDate' input, then verify that it is part of this module.
+2. If 'app-calendar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:14:4:
+      14 │     [initalDate]="itinerary.startDate"
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:14:28:
+      14 │     [initalDate]="itinerary.startDate"
+         ╵                             ~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-custom-event-form' is not a known element:
+1. If 'app-custom-event-form' is an Angular component, then verify that it is part of this module.
+2. If 'app-custom-event-form' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:16:2:
+      16 │   <app-custom-event-form
+         ╵   ~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'boolean'. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:18:53:
+      18 │     (openCustomEventForm)="handleExitCustomEventForm($event)"
+         ╵                                                      ~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'calendarEventArg' since it isn't a known property of 'app-custom-event-form'.
+1. If 'app-custom-event-form' is an Angular component and it has 'calendarEventArg' input, then verify that it is part of this module.
+2. If 'app-custom-event-form' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. [plugin angular-compiler]
+
+    src/app/pages/view-itinerary/view-itinerary.component.html:19:4:
+      19 │     [calendarEventArg]="calendarEventArgs"
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component ViewItineraryComponent.
+
+    src/app/pages/view-itinerary/view-itinerary.component.ts:10:15:
+      10 │   templateUrl: './view-itinerary.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Watch mode enabled. Watching for file changes...
