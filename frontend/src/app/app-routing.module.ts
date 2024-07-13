@@ -14,17 +14,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path: 'create-itinerary',
     component: ItinerarySetupComponent,
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path: 'view-itinerary/:itineraryId',
     component: ViewItineraryComponent,
-    canActivate: [authGuard]
+    // canActivate: [authGuard]
   },
   
   {
