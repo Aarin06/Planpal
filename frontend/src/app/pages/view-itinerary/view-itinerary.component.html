@@ -8,9 +8,9 @@
     </div>
   </div>
   <app-calendar
-    *ngIf="startDateAsDate"
+    *ngIf="initialItinerary"
     class="col-10"
-    [initialDate]="startDateAsDate"
+    [initialItinerary]="initialItinerary"
     (calendarEventArg)="handleCalendarEvent($event)"
     (openCustomEventForm)="handleOpenCustomEventForm($event)"
   ></app-calendar>
@@ -18,5 +18,6 @@
     *ngIf="isCustomEventFormVisible"
     (openCustomEventForm)="handleExitCustomEventForm($event)"
     [calendarEventArg]="calendarEventArgs"
+    [itineraryId]="itineraryId"
   ></app-custom-event-form>
 </div>

@@ -1,7 +1,8 @@
-export interface Event {
+export interface DBEvent {
+  id: number;
   title: string;
   start:string;
   end: string;
   allDay: boolean;
-  extendedProps: object;
+  location: object;
 }

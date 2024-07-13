@@ -3,7 +3,13 @@
     <ng-template #eventContent let-arg>
       <b>{{ arg.timeText }}</b>
       <br />
-      <i>{{ arg.event.title }}</i>
+      <i>{{ arg.event.title + "lmao" }}</i>
+      <br />
+      <i>{{
+        arg.event.extendedProps.location?.address
+          ? arg.event.extendedProps.location.address
+          : ""
+      }}</i>
     </ng-template>
   </full-calendar>
 </div>

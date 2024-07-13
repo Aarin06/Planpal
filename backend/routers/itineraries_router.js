@@ -48,8 +48,6 @@ const ITINERARIES_COLLECTION = "itineraries";
 //   addDoc();
 // });
 
-
-
 itinerariesRouter.post("/", async (req, res, next) => {
   try {
     if (!req.isAuthenticated()) {
@@ -97,6 +95,31 @@ itinerariesRouter.post("/", async (req, res, next) => {
     return res.status(404).json({ error: "Cannot Create Itinerary" });
   }
 });
+
+itinerariesRouter.post("/:id/event", async (req, res) => {
+  try {
+    const itineraryId = req.params.id
+
+    if (!itineraryId){
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    const event = await Event.create({
+      title: req.body.title,
+      location: req.body.extendedProps.location,
+      start: req.body.start,
+      end: req.body.end,
+      allDay: req.body.allDay,
+      ItineraryId: itineraryId
+    });
+
+    return res.json(event)
+
+  }catch (e){
+    console.log(e)
+    return res.status(404).json({ error: "Cannot Create Event" });
+  }
+})
 
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
