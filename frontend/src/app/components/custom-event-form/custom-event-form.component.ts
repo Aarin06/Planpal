@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createEventId } from '../calendar/event-utils';
 import { placesSearchResult } from '../../classes/placesSearchResult';
+import { ItineraryService } from '../../services/itinerary.service';
 @Component({
   selector: 'app-custom-event-form',
   templateUrl: './custom-event-form.component.html',
@@ -10,10 +11,11 @@ import { placesSearchResult } from '../../classes/placesSearchResult';
 export class CustomEventFormComponent {
   @Output() openCustomEventForm = new EventEmitter<boolean>();
   @Input() calendarEventArg: any = null;
+  @Input() itineraryId: number | null = null;
 
   eventForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private api: ItineraryService) {
     this.eventForm = this.formBuilder.group({
       eventName: ['', Validators.required],
       location: ['', Validators.required],
@@ -28,23 +30,34 @@ export class CustomEventFormComponent {
   createCustomEvent(): void {
     const formValues = this.eventForm.value;
   
-    if (this.eventForm.valid) {
+    if (this.eventForm.valid && this.itineraryId) {
       const calendarApi = this.calendarEventArg?.view?.calendar;
       if (calendarApi) {
         const selectInfo = this.calendarEventArg; // You might need to adjust this based on how selectInfo is passed or stored
-        const eventId = createEventId(); // Assuming createEventId is a function available in your context
-        
-        console.log(formValues.location)
-        // Step 3: Create Event
-        calendarApi.addEvent({
-          id: eventId,
+        const event = {
+          id: -1,
           title: formValues.eventName,
           start: selectInfo.startStr,
           end: selectInfo.endStr,
           allDay: selectInfo.allDay,
-          location: formValues.location,
-          description: formValues.description
-        });
+          extendedProps: {
+            location: formValues.location
+          }
+        }
+        // Step 3: Create Event
+        this.api.createEvent(this.itineraryId, event).subscribe({
+          next: (res) => {
+            event.id = res.id
+            console.log(event)
+            calendarApi.addEvent(event);
+          },
+          error: (err) =>{
+            console.log(err)
+            return
+          }
+        })
+        
+        
   
         // Step 4: Reset Form (optional)
         this.eventForm.reset();
@@ -54,7 +67,7 @@ export class CustomEventFormComponent {
       }
     } else {
       // Handle form invalid case
-      console.error('Form is invalid');
+      console.error('Information is invalid');
     }
   }
 

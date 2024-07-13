@@ -3,7 +3,7 @@ import { placesSearchResult } from '../../classes/placesSearchResult';
 import { ActivatedRoute } from '@angular/router';
 import { ItineraryService } from '../../services/itinerary.service';
 import { Itinerary } from '../../classes/itinerary';
-import { Event } from '../../classes/event';
+import { DBEvent } from '../../classes/dbEvent';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -15,7 +15,7 @@ export class ViewItineraryComponent {
   calendarEventArgs: any = null;
   event: placesSearchResult | null = null
   itineraryId: number | null = null;
-  itinerary: Itinerary & {events: Event[]} | null = null;
+  itinerary: Itinerary & {Events: DBEvent[]} | null = null;
 
   constructor(private renderer: Renderer2, 
     private el: ElementRef, 
@@ -24,24 +24,16 @@ export class ViewItineraryComponent {
 
   ngOnInit(): void {
     this.itineraryId = Number(this.route.snapshot.paramMap.get('itineraryId'));
-    console.log(this.itineraryId)
     if (!this.itineraryId){
-      console.log("no itinerary id in the url")
     } else {
       this.itineraryApi.getItinerary(this.itineraryId).subscribe((response) => {
-        console.log("This is the itinerary object")
-        console.log(response)
-        console.log(typeof response.startDate)
         this.itinerary = response
       })
     }
   }
 
-  get startDateAsDate(): Date | null {
-    if (this.itinerary && this.itinerary.startDate) {
-      return new Date(this.itinerary.startDate);
-    }
-    return null;
+  get initialItinerary(): Itinerary & {Events: DBEvent[]} | null{
+    return this.itinerary ? this.itinerary : null
   }
 
   handlePlaceChanged(place: placesSearchResult) {

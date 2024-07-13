@@ -1,11 +1,16 @@
 import { Output, Input, EventEmitter, Component, signal, ChangeDetectorRef, OnInit, ViewEncapsulation, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi as CalendarEventApi} from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 import { Draggable } from '@fullcalendar/interaction';
+import { Event } from '../../classes/event';
+
+import { Itinerary } from '../../classes/itinerary';
+import { DBEvent } from '../../classes/dbEvent';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-calendar',
@@ -17,7 +22,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   // @ViewChild('draggable', { static: true }) draggable!: ElementRef;
   @Output() openCustomEventForm = new EventEmitter<boolean>();
   @Output() calendarEventArg = new EventEmitter<any>();
-  @Input () initialDate: Date = new Date()
+  @Input () initialItinerary: Itinerary & {Events: DBEvent[]} | null = null
 
   calendarVisible: any
   calendarOptions: any
@@ -27,6 +32,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     { title: 'Event 2' },
     { title: 'Event 3' }
   ];
+
+  constructor(private changeDetector: ChangeDetectorRef, private eventApi: EventService) {}
 
   ngOnInit(): void {
     this.calendarVisible = signal(true);
@@ -43,8 +50,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
       initialView: 'dayGridMonth',
-      initialEvents: INITIAL_EVENTS,
-      initialDate: this.initialDate,
+      initialEvents: this.createInitialEvents(),
+      initialDate: this.initialItinerary?.startDate,
       weekends: true,
       editable: true,
       selectable: true,
@@ -73,10 +80,27 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     });
   }
 
+  createInitialEvents() : Event[] {
+    if (this.initialItinerary && this.initialItinerary.Events){
+      
+      return this.initialItinerary.Events.map((event) => {
+        return {
+          id: event.id,
+          title: event.title,
+          start: event.start,
+          end: event.end,
+          allDay: event.allDay,
+          extendedProps: {
+            location: event.location
+          }
+        }
+      })
+    }
+    return []
+  }
 
-  currentEvents = signal<EventApi[]>([]);
 
-  constructor(private changeDetector: ChangeDetectorRef) {}
+  currentEvents = signal<CalendarEventApi[]>([]);
 
   ngAfterViewInit(): void {
     let draggable = document.getElementById('external-events') || document.createElement("div");
@@ -103,20 +127,28 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    console.log(typeof this.initialDate)
-    console.log(this.initialDate)
-    console.log(new Date(2024, 11, 10))
     this.calendarEventArg.emit(selectInfo)
     this.openCustomEventForm.emit(true);
   }
 
   handleEventClick(clickInfo: EventClickArg) {
     if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove();
+      console.log("deleting event " + clickInfo.event.id)
+      this.eventApi.deleteEvent(+clickInfo.event.id).subscribe(
+        {
+          next() {
+            clickInfo.event.remove();
+          },
+          error(err) {
+              console.log(err)
+          },
+        }
+      )
+      
     }
   }
 
-  handleEvents(events: EventApi[]) {
+  handleEvents(events: CalendarEventApi[]) {
     this.currentEvents.set(events);
     this.changeDetector.detectChanges();
   }

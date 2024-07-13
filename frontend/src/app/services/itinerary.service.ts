@@ -3,9 +3,10 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Itinerary } from '../classes/itinerary';
-import { Event } from '../classes/event';
 import { ItineraryMember } from '../classes/itinerarymember';
 import { placesSearchResult } from '../classes/placesSearchResult';
+import { Event } from '../classes/event';
+import { DBEvent } from '../classes/dbEvent';
 
 @Injectable({
   providedIn: 'root',
@@ -34,8 +35,8 @@ export class ItineraryService {
     );
   }
 
-  getItinerary(itineraryId: number): Observable<Itinerary & { events: Event[] }> {
-    return this.http.get<Itinerary & { events: Event[] }>(
+  getItinerary(itineraryId: number): Observable<Itinerary & { Events: DBEvent[] }> {
+    return this.http.get<Itinerary & { Events: DBEvent[] }>(
       this.endpoint + `/itineraries/${itineraryId}`
     );
   }
@@ -49,6 +50,10 @@ export class ItineraryService {
       description: itineraryData.description,
       title: itineraryData.title
     });
+  }
+
+  createEvent(itineraryId: number, eventData: Event): Observable<DBEvent> {
+    return this.http.post<DBEvent>(this.endpoint + `/itineraries/${itineraryId}/event`, eventData)
   }
 
   deleteItinerary(itineraryId: number): Observable<Itinerary> {
