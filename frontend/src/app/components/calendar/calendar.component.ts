@@ -11,6 +11,7 @@ import { Event } from '../../classes/event';
 import { Itinerary } from '../../classes/itinerary';
 import { DBEvent } from '../../classes/dbEvent';
 import { EventService } from '../../services/event.service';
+import { ItineraryService } from '../../services/itinerary.service';
 
 @Component({
   selector: 'app-calendar',
@@ -23,7 +24,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   @Output() openCustomEventForm = new EventEmitter<boolean>();
   @Output() calendarEventArg = new EventEmitter<any>();
   @Input () initialItinerary: Itinerary & {Events: DBEvent[]} | null = null
-
+  @Input () itineraryId: number | null = null
+  
   calendarVisible: any
   calendarOptions: any
   
@@ -33,7 +35,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     { title: 'Event 3' }
   ];
 
-  constructor(private changeDetector: ChangeDetectorRef, private eventApi: EventService) {}
+  constructor(private changeDetector: ChangeDetectorRef, private eventApi: EventService, private itineraryApi: ItineraryService) {}
 
   ngOnInit(): void {
     this.calendarVisible = signal(true);
@@ -52,6 +54,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       initialView: 'dayGridMonth',
       initialEvents: this.createInitialEvents(),
       initialDate: this.initialItinerary?.startDate,
+      fixedWeekCount: false,
       weekends: true,
       editable: true,
       selectable: true,
@@ -108,9 +111,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     new Draggable(draggable, {
       itemSelector: '.fc-event',
       eventData: (eventEl) => {
-        return {
-          title: eventEl.innerText
-        };
+        const dataProps = eventEl.getAttribute('data-props') ;
+        const dataPropsObject = JSON.parse(dataProps ? dataProps : "");
+        return dataPropsObject;
       }
     });
   }
@@ -149,8 +152,43 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEvents(events: CalendarEventApi[]) {
+    console.log("here are all the events")
+    console.log(events)
+    if (events.length > 0){
+      events.forEach((event) => {
+        const newEvent: Event = {
+          title: event.title,
+          start: event.startStr,
+          end: event.endStr,
+          allDay: event.allDay,
+          extendedProps: event.extendedProps
+        }
+        this.eventApi.getEvent(+event.id).subscribe({
+          next: (value) => {
+            this.eventApi.patchEvent(+event.id, newEvent).subscribe({
+              error(err) {
+                console.log(err)
+              },
+            })
+          },error: (err) => {
+            if (err.status === 404 && this.itineraryId){
+              console.log(newEvent)
+              this.itineraryApi.createEvent(this.itineraryId, newEvent).subscribe({
+                error(err) {
+                  console.log(err)
+                },
+              })
+            }
+          },
+        }
+        )
+        
+      })
+      
+    }
     this.currentEvents.set(events);
     this.changeDetector.detectChanges();
+    
   }
 
   handleExternalDrop(info: any) {

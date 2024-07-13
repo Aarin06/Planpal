@@ -16,6 +16,18 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
+  getEvent(eventId: number): Observable<DBEvent>{
+    return this.http.get<DBEvent>(
+      this.endpoint + `/events/${eventId}`
+    )
+  }
+
+  patchEvent(eventId: number, eventData: Event): Observable<DBEvent> {
+    return this.http.patch<DBEvent>(
+      this.endpoint + `/events/${eventId}`, eventData
+    );
+  }
+
   deleteEvent(eventId: number): Observable<DBEvent> {
     return this.http.delete<DBEvent>(
       this.endpoint + `/events/${eventId}`

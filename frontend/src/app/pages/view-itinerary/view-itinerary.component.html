@@ -11,6 +11,7 @@
     *ngIf="initialItinerary"
     class="col-10"
     [initialItinerary]="initialItinerary"
+    [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"
     (openCustomEventForm)="handleOpenCustomEventForm($event)"
   ></app-calendar>
