@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import { authRouter } from "./routers/auth_router.js";
 import { itinerariesRouter } from "./routers/itineraries_router.js";
 import { protectedRouter } from "./routers/protected.js";
+import { eventsRouter } from "./routers/events_router.js";
 
 import cors from "cors";
 import "./middleware/auth.js";
@@ -29,7 +30,6 @@ try {
   console.log("Connection has been established successfully.");
 } catch (error) {
   console.error("Unable to connect to the database:", error);
-  console.log("ok")
 }
 
 app.use(session({
@@ -49,6 +49,7 @@ app.use(passport.session());
 app.use("/auth", authRouter);
 app.use("/protected", isLoggedIn, protectedRouter);
 app.use("/itineraries", itinerariesRouter);
+app.use("/events", eventsRouter);
 app.use("/users", usersRouter);
 
 app.get("/logout", (req) => {

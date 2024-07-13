@@ -5,6 +5,8 @@ import { environment } from '../../environments/environment';
 import { Itinerary } from '../classes/itinerary';
 import { ItineraryMember } from '../classes/itinerarymember';
 import { placesSearchResult } from '../classes/placesSearchResult';
+import { Event } from '../classes/event';
+import { DBEvent } from '../classes/dbEvent';
 
 @Injectable({
   providedIn: 'root',
@@ -33,14 +35,13 @@ export class ItineraryService {
     );
   }
 
-  getItinerary(itineraryId: number): Observable<Itinerary> {
-    return this.http.get<Itinerary>(
-      this.endpoint + `/itineraries${itineraryId}`
+  getItinerary(itineraryId: number): Observable<Itinerary & { Events: DBEvent[] }> {
+    return this.http.get<Itinerary & { Events: DBEvent[] }>(
+      this.endpoint + `/itineraries/${itineraryId}`
     );
   }
 
   createItinerary(itineraryData: { title: string, location: placesSearchResult; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
-    console.log("tData",itineraryData)
     return this.http.post<Itinerary>(this.endpoint + '/itineraries', {
       location: itineraryData.location.address,
       locationPhotoUrl: itineraryData.location.imageUrl,
@@ -49,6 +50,10 @@ export class ItineraryService {
       description: itineraryData.description,
       title: itineraryData.title
     });
+  }
+
+  createEvent(itineraryId: number, eventData: Event): Observable<DBEvent> {
+    return this.http.post<DBEvent>(this.endpoint + `/itineraries/${itineraryId}/event`, eventData)
   }
 
   deleteItinerary(itineraryId: number): Observable<Itinerary> {

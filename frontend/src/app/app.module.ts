@@ -35,6 +35,8 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
 import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
+import { CustomEventFormComponent } from './components/custom-event-form/custom-event-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import { PlaceAutocompleteComponent } from './components/place-autocomplete/plac
     CalendarComponent,
     ViewItineraryComponent,
     PlaceAutocompleteComponent,
+    CustomEventFormComponent
   ],
   imports: [
     BrowserModule,

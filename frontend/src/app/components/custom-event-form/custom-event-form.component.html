@@ -1,0 +1,31 @@
+<div class="event-form-container">
+  <mat-card class="event-form-card" appearance="outlined">
+    <mat-icon class="exit-btn" (click)="onExitForm()">close</mat-icon>
+    <form
+      class="event-form"
+      id="CreateCustomEventForm"
+      (submit)="createCustomEvent()"
+      [formGroup]="eventForm"
+    >
+      <div class="form-header">
+        <div class="event-form-title">Create a new event</div>
+        <div class="event-form-subtitle">
+          Enter the details for your new event
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-label>Event Name</mat-label>
+        <input formControlName="eventName" matInput />
+      </mat-form-field>
+      <app-place-autocomplete
+        (placeChanged)="handlePlaceChanged($event)"
+      ></app-place-autocomplete>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+      </mat-form-field>
+
+      <button type="submit" mat-stroked-button>Create Event</button>
+    </form>
+  </mat-card>
+</div>
