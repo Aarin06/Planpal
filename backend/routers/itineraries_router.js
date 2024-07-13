@@ -103,7 +103,8 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
     if (!itineraryId){
       return res.status(422).json({ error: "itineraryId is required." });
     }
-
+    console.log("what the")
+    console.log(req.body)
     const event = await Event.create({
       title: req.body.title,
       location: req.body.extendedProps.location,
@@ -112,7 +113,7 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
       allDay: req.body.allDay,
       ItineraryId: itineraryId
     });
-
+    console.log(event)
     return res.json(event)
 
   }catch (e){
@@ -158,8 +159,6 @@ itinerariesRouter.get("/:id", async (req, res) => {
     return res.json(itineraryWithEvents);
 
   }catch (e){
-    console.log("not found")
-    console.log(e)
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });

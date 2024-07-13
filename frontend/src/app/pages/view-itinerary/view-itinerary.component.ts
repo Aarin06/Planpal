@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ItineraryService } from '../../services/itinerary.service';
 import { Itinerary } from '../../classes/itinerary';
 import { DBEvent } from '../../classes/dbEvent';
+import { Event } from '../../classes/event';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -13,7 +14,6 @@ import { DBEvent } from '../../classes/dbEvent';
 export class ViewItineraryComponent {
   isCustomEventFormVisible: boolean = false
   calendarEventArgs: any = null;
-  event: placesSearchResult | null = null
   itineraryId: number | null = null;
   itinerary: Itinerary & {Events: DBEvent[]} | null = null;
 
@@ -37,14 +37,26 @@ export class ViewItineraryComponent {
   }
 
   handlePlaceChanged(place: placesSearchResult) {
-    this.event = place
-    this.createDraggableElement(this.event.address);
+
+    const newEvent = {
+      title: place.name ? place.name : "Event",
+      start: String(new Date),
+      end: String(new Date),
+      allDay: true,
+      extendedProps: {
+        location: place
+      }
+    }
+    this.createDraggableElement(place, newEvent);
   }
 
-  private createDraggableElement(address: string) {
+  private createDraggableElement(place: placesSearchResult, event: Event) {
     const draggableDiv = this.renderer.createElement('div');
     this.renderer.addClass(draggableDiv, 'fc-event');
-    this.renderer.setProperty(draggableDiv, 'innerText', address);
+    this.renderer.setProperty(draggableDiv, 'innerText', 
+      `${place.name}
+      ${place.address}`);
+      this.renderer.setAttribute(draggableDiv, 'data-props', JSON.stringify(event));
     this.renderer.appendChild(this.el.nativeElement.querySelector('.add-item'), draggableDiv);
   }
 
