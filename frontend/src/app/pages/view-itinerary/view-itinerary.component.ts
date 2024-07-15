@@ -13,7 +13,9 @@ import { Event } from '../../classes/event';
 })
 export class ViewItineraryComponent {
   isCustomEventFormVisible: boolean = false
+  isEventPreviewVisible: boolean = false
   calendarEventArgs: any = null;
+  calendarEventClickArgs: any = null
   itineraryId: number | null = null;
   itinerary: Itinerary & {Events: DBEvent[]} | null = null;
 
@@ -64,6 +66,10 @@ export class ViewItineraryComponent {
     this.calendarEventArgs = event
   }
 
+  handleCalendarEventClick(event: any){
+    this.calendarEventClickArgs = event
+  }
+
   handleOpenCustomEventForm(event: boolean){
     if(event){
       this.isCustomEventFormVisible = true;
@@ -73,6 +79,18 @@ export class ViewItineraryComponent {
   handleExitCustomEventForm(event: boolean) {
     if (!event) {
       this.isCustomEventFormVisible = false;
+    }
+  }
+
+  handleOpenEventPreviewForm(event: boolean){
+    if(event){
+      this.isEventPreviewVisible = true;
+    }
+  }
+
+  handleExitEventPreviewForm(event: boolean) {
+    if (!event) {
+      this.isEventPreviewVisible = false;
     }
   }
 

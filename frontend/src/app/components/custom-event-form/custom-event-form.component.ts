@@ -44,6 +44,7 @@ export class CustomEventFormComponent {
             location: formValues.location
           }
         }
+        console.log(formValues.location)
         // Step 3: Create Event
         this.api.createEvent(this.itineraryId, event).subscribe({
           next: (res) => {
@@ -56,12 +57,8 @@ export class CustomEventFormComponent {
             return
           }
         })
-        
-        
-  
         // Step 4: Reset Form (optional)
         this.eventForm.reset();
-  
         // Step 5: Emit Event (if needed, for example, to close the form)
         this.onExitForm();
       }

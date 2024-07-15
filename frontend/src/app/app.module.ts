@@ -36,6 +36,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
 import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
 import { CustomEventFormComponent } from './components/custom-event-form/custom-event-form.component';
+import { EventPreviewFormComponent } from './components/event-preview-form/event-preview-form.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CustomEventFormComponent } from './components/custom-event-form/custom-
     CalendarComponent,
     ViewItineraryComponent,
     PlaceAutocompleteComponent,
-    CustomEventFormComponent
+    CustomEventFormComponent,
+    EventPreviewFormComponent
   ],
   imports: [
     BrowserModule,

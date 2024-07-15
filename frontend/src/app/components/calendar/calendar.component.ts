@@ -158,8 +158,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEvents(events: CalendarEventApi[]) {
-    console.log("here are all the events")
-    console.log(events)
     if (events.length > 0){
       events.forEach((event) => {
         const newEvent: Event = {
@@ -170,8 +168,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           extendedProps: event.extendedProps
         }
         this.eventApi.getEvent(+event.id).subscribe({
-          next: (value) => {
-            this.eventApi.patchEvent(+event.id, newEvent).subscribe({
+          next: () => {
+            this.eventApi.updateEvent(+event.id, newEvent).subscribe({
               error(err) {
                 console.log(err)
               },

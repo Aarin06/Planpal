@@ -22,7 +22,7 @@ export class EventService {
     )
   }
 
-  patchEvent(eventId: number, eventData: Event): Observable<DBEvent> {
+  updateEvent(eventId: number, eventData: any): Observable<DBEvent> {
     return this.http.patch<DBEvent>(
       this.endpoint + `/events/${eventId}`, eventData
     );
