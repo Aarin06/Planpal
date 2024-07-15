@@ -58,3 +58,13 @@ b { /* used for event dates/times */
   border: 1px solid black;
   padding: 10px 20px 10px 20px;
 }
+
+.event-template {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* Additional styling for the tooltip */
+  position: relative;
+  cursor: default;
+}

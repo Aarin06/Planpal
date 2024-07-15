@@ -3,37 +3,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createEventId } from '../calendar/event-utils';
 import { placesSearchResult } from '../../classes/placesSearchResult';
 import { ItineraryService } from '../../services/itinerary.service';
+import { EventService } from '../../services/event.service';
+
 @Component({
-  selector: 'app-custom-event-form',
-  templateUrl: './custom-event-form.component.html',
-  styleUrl: './custom-event-form.component.scss'
+  selector: 'app-event-preview-form',
+  templateUrl: './event-preview-form.component.html',
+  styleUrl: './event-preview-form.component.scss'
 })
-export class CustomEventFormComponent {
-  @Output() openCustomEventForm = new EventEmitter<boolean>();
-  @Input() calendarEventArg: any = null;
+export class EventPreviewFormComponent {
+  @Output() openEventPreview = new EventEmitter<boolean>();
+  @Input() calendarEventClickArgs: any = null;
   @Input() itineraryId: number | null = null;
 
   eventForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api: ItineraryService) {
+  constructor(private formBuilder: FormBuilder, private itineraryApi: ItineraryService, private eventApi: EventService ) {
     this.eventForm = this.formBuilder.group({
       eventName: ['', Validators.required],
       location: ['', Validators.required],
-      // description: [''],
+      // description: ['']
     });
+  }
+  ngOnInit(): void {
+    this.eventApi.getEvent(this.calendarEventClickArgs.event.id).subscribe({
+      next: (value) => {
+        console.log(typeof value.location.address)
+        this.eventForm.get('eventName')?.setValue(value.title)
+        this.eventForm.get('location')?.setValue(value.location.address)
+      }, error(err) {
+        console.log(err)
+      },
+    }
+    )
   }
 
   onExitForm(): void {
-    this.openCustomEventForm.emit(false);
+    this.openEventPreview.emit(false);
   }
 
-  createCustomEvent(): void {
+  updateEvent(): void {
     const formValues = this.eventForm.value;
   
     if (this.eventForm.valid && this.itineraryId) {
-      const calendarApi = this.calendarEventArg?.view?.calendar;
+      const calendarApi = this.calendarEventClickArgs?.view?.calendar;
       if (calendarApi) {
-        const selectInfo = this.calendarEventArg; // You might need to adjust this based on how selectInfo is passed or stored
+        const selectInfo = this.calendarEventClickArgs; // You might need to adjust this based on how selectInfo is passed or stored
         const event = {
           id: -1,
           title: formValues.eventName,
@@ -45,7 +59,7 @@ export class CustomEventFormComponent {
           }
         }
         // Step 3: Create Event
-        this.api.createEvent(this.itineraryId, event).subscribe({
+        this.itineraryApi.createEvent(this.itineraryId, event).subscribe({
           next: (res) => {
             event.id = res.id
             console.log(event)
@@ -56,19 +70,27 @@ export class CustomEventFormComponent {
             return
           }
         })
-        
-        
-  
         // Step 4: Reset Form (optional)
         this.eventForm.reset();
-  
         // Step 5: Emit Event (if needed, for example, to close the form)
-        this.onExitForm();
+        this.openEventPreview.emit(false);
       }
     } else {
       // Handle form invalid case
       console.error('Information is invalid');
     }
+  }
+
+  handleDeleteEvent(){
+    this.eventApi.deleteEvent(this.calendarEventClickArgs.event.id).subscribe({
+      next: () => {
+        this.calendarEventClickArgs.event.remove();
+        this.onExitForm();
+      },
+      error(err) {
+          console.log(err)
+      },
+    })
   }
 
   handlePlaceChanged(place: placesSearchResult) {
