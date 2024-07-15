@@ -22,7 +22,9 @@ import { ItineraryService } from '../../services/itinerary.service';
 export class CalendarComponent implements OnInit, AfterViewInit {
   // @ViewChild('draggable', { static: true }) draggable!: ElementRef;
   @Output() openCustomEventForm = new EventEmitter<boolean>();
+  @Output() openEventPreviewForm = new EventEmitter<boolean>();
   @Output() calendarEventArg = new EventEmitter<any>();
+  @Output() calendarEventClickArg = new EventEmitter<any>();
   @Input () initialItinerary: Itinerary & {Events: DBEvent[]} | null = null
   @Input () itineraryId: number | null = null
   
@@ -135,20 +137,24 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      console.log("deleting event " + clickInfo.event.id)
-      this.eventApi.deleteEvent(+clickInfo.event.id).subscribe(
-        {
-          next() {
-            clickInfo.event.remove();
-          },
-          error(err) {
-              console.log(err)
-          },
-        }
-      )
+    console.log("info here")
+    console.log(clickInfo)
+    this.calendarEventClickArg.emit(clickInfo)
+    this.openEventPreviewForm.emit(true);
+    // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    //   console.log("deleting event " + clickInfo.event.id)
+    //   this.eventApi.deleteEvent(+clickInfo.event.id).subscribe(
+    //     {
+    //       next() {
+    //         clickInfo.event.remove();
+    //       },
+    //       error(err) {
+    //           console.log(err)
+    //       },
+    //     }
+    //   )
       
-    }
+    // }
   }
 
   handleEvents(events: CalendarEventApi[]) {

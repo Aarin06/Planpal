@@ -3,12 +3,12 @@
     <mat-icon class="exit-btn" (click)="onExitForm()">close</mat-icon>
     <form
       class="event-form"
-      id="CreateCustomEventForm"
-      (submit)="createCustomEvent()"
+      id="EventPreviewForm"
+      (submit)="updateEvent()"
       [formGroup]="eventForm"
     >
       <div class="form-header">
-        <div class="event-form-title">Create a new event</div>
+        <div class="event-form-title">Event Details</div>
         <div class="event-form-subtitle">
           Enter the details for your new event
         </div>
@@ -25,7 +25,12 @@
         <textarea formControlName="description" matInput></textarea>
       </mat-form-field> -->
 
-      <button type="submit" mat-raised-button>Create Event</button>
+      <button type="submit" mat-raised-button class="event-btn">
+        Update Event
+      </button>
     </form>
+    <button mat-raised-button class="event-btn" (click)="handleDeleteEvent()">
+      Delete Event
+    </button>
   </mat-card>
 </div>
