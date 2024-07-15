@@ -4,5 +4,10 @@ export interface DBEvent {
   start:string;
   end: string;
   allDay: boolean;
-  location: object;
+  location: {
+    name: string;
+    address: string;
+    iconUrl: string;
+    imageUrl: string;
+  };
 }

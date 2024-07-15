@@ -17,7 +17,16 @@
         <mat-label>Event Name</mat-label>
         <input formControlName="eventName" matInput />
       </mat-form-field>
+      <div class="event-form-subtitle">Current location</div>
+      <div *ngIf="initalEventData" class="event-form-content">
+        {{
+          initalEventData?.location?.address
+            ? initalEventData?.location?.address
+            : ""
+        }}
+      </div>
       <app-place-autocomplete
+        formControlName="location"
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
       <!-- <mat-form-field>

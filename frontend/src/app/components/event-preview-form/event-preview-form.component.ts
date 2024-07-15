@@ -4,6 +4,7 @@ import { createEventId } from '../calendar/event-utils';
 import { placesSearchResult } from '../../classes/placesSearchResult';
 import { ItineraryService } from '../../services/itinerary.service';
 import { EventService } from '../../services/event.service';
+import { DBEvent } from '../../classes/dbEvent';
 
 @Component({
   selector: 'app-event-preview-form',
@@ -16,6 +17,7 @@ export class EventPreviewFormComponent {
   @Input() itineraryId: number | null = null;
 
   eventForm: FormGroup;
+  initalEventData: DBEvent | null = null
 
   constructor(private formBuilder: FormBuilder, private itineraryApi: ItineraryService, private eventApi: EventService ) {
     this.eventForm = this.formBuilder.group({
@@ -29,7 +31,9 @@ export class EventPreviewFormComponent {
       next: (value) => {
         console.log(typeof value.location.address)
         this.eventForm.get('eventName')?.setValue(value.title)
+        // idk why no work
         this.eventForm.get('location')?.setValue(value.location.address)
+        this.initalEventData = value
       }, error(err) {
         console.log(err)
       },
@@ -45,25 +49,24 @@ export class EventPreviewFormComponent {
     const formValues = this.eventForm.value;
   
     if (this.eventForm.valid && this.itineraryId) {
-      const calendarApi = this.calendarEventClickArgs?.view?.calendar;
-      if (calendarApi) {
-        const selectInfo = this.calendarEventClickArgs; // You might need to adjust this based on how selectInfo is passed or stored
-        const event = {
+      const prevEvent = this.calendarEventClickArgs
+      if (prevEvent) {
+        const newEvent = {
           id: -1,
           title: formValues.eventName,
-          start: selectInfo.startStr,
-          end: selectInfo.endStr,
-          allDay: selectInfo.allDay,
           extendedProps: {
             location: formValues.location
           }
         }
         // Step 3: Create Event
-        this.itineraryApi.createEvent(this.itineraryId, event).subscribe({
+        this.eventApi.updateEvent(prevEvent.event.id, newEvent).subscribe({
           next: (res) => {
-            event.id = res.id
-            console.log(event)
-            calendarApi.addEvent(event);
+            newEvent.id = res.id
+            console.log(newEvent)
+            console.log(prevEvent.view)
+            // prevEvent.event.location = newEvent.extendedProps.location
+            prevEvent.event.setProp("title", newEvent.title)
+            prevEvent.event.setExtendedProp("location", newEvent.extendedProps.location)
           },
           error: (err) =>{
             console.log(err)

@@ -32,15 +32,18 @@ eventsRouter.patch("/:id", async (req, res) => {
     if (!event) {
       return res.status(404).json({ error: "Event Cannot Be Found" });
     }
-
+    console.log("here")
+    console.log(req.body)
     // Assuming `req.body` contains the fields to update
     const updatedEvent = await event.update({
-      title: req.body.title,
-      location: req.body.extendedProps.location,
-      start: req.body.start,
-      end: req.body.end,
-      allDay: req.body.allDay
+      title: req.body.title ? req.body.title : event.title,
+      location: req.body.extendedProps.location ? req.body.extendedProps.location : event.location,
+      start: req.body.start ? req.body.start : event.start,
+      end: req.body.end ? req.body.end : event.end,
+      allDay: req.body.allDay ? req.body.allDay : event.allDay
     });
+    console.log("lmao")
+    console.log(updatedEvent)
 
     return res.json(updatedEvent);
   } catch (error) {

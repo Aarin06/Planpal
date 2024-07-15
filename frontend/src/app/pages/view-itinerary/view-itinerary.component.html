@@ -13,7 +13,9 @@
     [initialItinerary]="initialItinerary"
     [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"
+    (calendarEventClickArg)="handleCalendarEventClick($event)"
     (openCustomEventForm)="handleOpenCustomEventForm($event)"
+    (openEventPreviewForm)="handleOpenEventPreviewForm($event)"
   ></app-calendar>
   <app-custom-event-form
     *ngIf="isCustomEventFormVisible"
@@ -21,4 +23,10 @@
     [calendarEventArg]="calendarEventArgs"
     [itineraryId]="itineraryId"
   ></app-custom-event-form>
+  <app-event-preview-form
+    *ngIf="isEventPreviewVisible"
+    (openEventPreview)="handleExitEventPreviewForm($event)"
+    [calendarEventClickArgs]="calendarEventClickArgs"
+    [itineraryId]="itineraryId"
+  ></app-event-preview-form>
 </div>
