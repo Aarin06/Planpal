@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createEventId } from '../calendar/event-utils';
 import { placesSearchResult } from '../../classes/placesSearchResult';
@@ -15,11 +15,12 @@ export class EventPreviewFormComponent {
   @Output() openEventPreview = new EventEmitter<boolean>();
   @Input() calendarEventClickArgs: any = null;
   @Input() itineraryId: number | null = null;
+  newLocation: google.maps.LatLng | undefined
 
   eventForm: FormGroup;
   initalEventData: DBEvent | null = null
 
-  constructor(private formBuilder: FormBuilder, private itineraryApi: ItineraryService, private eventApi: EventService ) {
+  constructor(private formBuilder: FormBuilder, private cdRef: ChangeDetectorRef, private eventApi: EventService ) {
     this.eventForm = this.formBuilder.group({
       eventName: ['', Validators.required],
       location: ['', Validators.required],
@@ -29,7 +30,7 @@ export class EventPreviewFormComponent {
   ngOnInit(): void {
     this.eventApi.getEvent(this.calendarEventClickArgs.event.id).subscribe({
       next: (value) => {
-        console.log(typeof value.location.address)
+        this.newLocation = value.location.location
         this.eventForm.get('eventName')?.setValue(value.title)
         // idk why no work
         this.eventForm.get('location')?.setValue(value.location.address)
@@ -100,5 +101,10 @@ export class EventPreviewFormComponent {
     this.eventForm.patchValue({
       location: place // Update the location form control
     });
+    if (place.location){
+      this.newLocation = place.location
+      console.log(this.newLocation)
+      this.cdRef.markForCheck()
+    }
   }
 }

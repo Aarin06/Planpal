@@ -29,6 +29,10 @@
         formControlName="location"
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
+      <app-google-map
+        *ngIf="newLocation"
+        [location]="newLocation"
+      ></app-google-map>
       <!-- <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea formControlName="description" matInput></textarea>
