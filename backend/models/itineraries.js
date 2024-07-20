@@ -9,11 +9,7 @@ export const Itinerary = sequelize.define("Itinerary", {
     allowNull: false,
   },
   location: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  locationPhotoUrl: {
-    type: DataTypes.TEXT,
+    type: DataTypes.JSONB,
     allowNull: false,
   },
   startDate: {

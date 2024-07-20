@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   getItineraries(){
     this.itineraryApi.getItineraries().subscribe((response) =>{
       this.itineraries = response.itineraries;
-
       this.itineraries.map(itinerary =>{
         this.itineraryApi.getItineraryMembers(itinerary.id).subscribe((res) =>{
           itinerary.members = res

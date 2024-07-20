@@ -8,6 +8,7 @@ import { authRouter } from "./routers/auth_router.js";
 import { itinerariesRouter } from "./routers/itineraries_router.js";
 import { protectedRouter } from "./routers/protected.js";
 import { eventsRouter } from "./routers/events_router.js";
+import { googleRouter } from "./routers/google_router.js";
 
 import cors from "cors";
 import "./middleware/auth.js";
@@ -51,6 +52,7 @@ app.use("/protected", isLoggedIn, protectedRouter);
 app.use("/itineraries", itinerariesRouter);
 app.use("/events", eventsRouter);
 app.use("/users", usersRouter);
+app.use("/google", googleRouter);
 
 app.get("/logout", (req) => {
   req.logout();

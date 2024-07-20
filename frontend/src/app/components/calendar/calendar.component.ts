@@ -109,7 +109,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     let draggable = document.getElementById('external-events') || document.createElement("div");
-
     new Draggable(draggable, {
       itemSelector: '.fc-event',
       eventData: (eventEl) => {
@@ -137,8 +136,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    console.log("info here")
-    console.log(clickInfo)
     this.calendarEventClickArg.emit(clickInfo)
     this.openEventPreviewForm.emit(true);
     // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
@@ -176,8 +173,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
             })
           },error: (err) => {
             if (err.status === 404 && this.itineraryId){
-              console.log(newEvent)
               this.itineraryApi.createEvent(this.itineraryId, newEvent).subscribe({
+                next: (value) => {
+                  event.setProp("id", value.id)
+                },
                 error(err) {
                   console.log(err)
                 },
