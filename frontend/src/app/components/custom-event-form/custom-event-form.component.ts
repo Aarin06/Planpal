@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createEventId } from '../calendar/event-utils';
 import { placesSearchResult } from '../../classes/placesSearchResult';
@@ -12,10 +12,11 @@ export class CustomEventFormComponent {
   @Output() openCustomEventForm = new EventEmitter<boolean>();
   @Input() calendarEventArg: any = null;
   @Input() itineraryId: number | null = null;
+  newLocation: google.maps.LatLng | undefined;
 
   eventForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api: ItineraryService) {
+  constructor(private formBuilder: FormBuilder, private cdRef: ChangeDetectorRef, private api: ItineraryService) {
     this.eventForm = this.formBuilder.group({
       eventName: ['', Validators.required],
       location: ['', Validators.required],
@@ -72,5 +73,10 @@ export class CustomEventFormComponent {
     this.eventForm.patchValue({
       location: place // Update the location form control
     });
+    if (place.location){
+      this.newLocation = place.location
+      console.log(this.newLocation)
+      this.cdRef.markForCheck()
+    }
   }
 }
