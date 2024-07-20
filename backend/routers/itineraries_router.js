@@ -68,9 +68,6 @@ itinerariesRouter.post("/", async (req, res, next) => {
     if (!req.body.description) {
       return res.status(422).json({ error: "Description is required." });
     }
-    if (!req.body.locationPhotoUrl) {
-      return res.status(422).json({ error: "locationPhotoUrl is required." });
-    }
     const userId = req.user.id;
 
     const itinerary = await Itinerary.create({
@@ -78,7 +75,6 @@ itinerariesRouter.post("/", async (req, res, next) => {
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       location: req.body.location,
-      locationPhotoUrl: req.body.locationPhotoUrl,
       description: req.body.description,
       UserId: userId
     });
@@ -103,8 +99,6 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
     if (!itineraryId){
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    console.log("what the")
-    console.log(req.body)
     const event = await Event.create({
       title: req.body.title,
       location: req.body.extendedProps.location,
@@ -113,11 +107,8 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
       allDay: req.body.allDay,
       ItineraryId: itineraryId
     });
-    console.log(event)
     return res.json(event)
-
   }catch (e){
-    console.log(e)
     return res.status(404).json({ error: "Cannot Create Event" });
   }
 })
@@ -245,7 +236,6 @@ itinerariesRouter.get("/", async (req, res, next) => {
       id:itinerary.id,
       title:itinerary.title,
       location:itinerary.location,
-      locationPhotoUrl:itinerary.locationPhotoUrl || "",
       description:itinerary.description,
       startDate:itinerary.startDate,
       endDate:itinerary.endDate,

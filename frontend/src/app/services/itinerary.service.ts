@@ -43,8 +43,7 @@ export class ItineraryService {
 
   createItinerary(itineraryData: { title: string, location: placesSearchResult; startDate: Date; endDate: Date; description?: string }): Observable<Itinerary> {
     return this.http.post<Itinerary>(this.endpoint + '/itineraries', {
-      location: itineraryData.location.address,
-      locationPhotoUrl: itineraryData.location.imageUrl,
+      location: itineraryData.location,
       startDate: itineraryData.startDate,
       endDate: itineraryData.endDate,
       description: itineraryData.description,

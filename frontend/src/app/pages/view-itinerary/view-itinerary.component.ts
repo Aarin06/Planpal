@@ -5,6 +5,7 @@ import { ItineraryService } from '../../services/itinerary.service';
 import { Itinerary } from '../../classes/itinerary';
 import { DBEvent } from '../../classes/dbEvent';
 import { Event } from '../../classes/event';
+import { GoogleService } from '../../services/google.service';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -22,14 +23,18 @@ export class ViewItineraryComponent {
   constructor(private renderer: Renderer2, 
     private el: ElementRef, 
     private route: ActivatedRoute, 
-    private itineraryApi: ItineraryService) {}
+    private itineraryApi: ItineraryService,
+    private googleApi: GoogleService) {}
 
   ngOnInit(): void {
     this.itineraryId = Number(this.route.snapshot.paramMap.get('itineraryId'));
+    
     if (!this.itineraryId){
+      console.log("No itinerary Id provided in url")
     } else {
       this.itineraryApi.getItinerary(this.itineraryId).subscribe((response) => {
         this.itinerary = response
+        this.getRecommendations(this.itinerary.location.location)
       })
     }
   }
@@ -38,26 +43,58 @@ export class ViewItineraryComponent {
     return this.itinerary ? this.itinerary : null
   }
 
-  handlePlaceChanged(place: placesSearchResult) {
-
-    const newEvent = {
-      title: place.name ? place.name : "Event",
-      start: String(new Date),
-      end: String(new Date),
-      allDay: true,
-      extendedProps: {
-        location: place
-      }
-    }
-    this.createDraggableElement(place, newEvent);
+  getRecommendations(location: {lat: number, lng: number}){
+    this.googleApi.getEventRecommendations(
+      location
+    ).subscribe({
+      next: (value) => {
+        value.forEach((event: DBEvent) => {
+          const newEvent = {
+            title: event.title,
+            start: event.start,
+            end: event.end,
+            allDay: event.allDay,
+            extendedProps: {
+              location: event.location
+            }
+          }
+          this.createDraggableElement(newEvent);
+        });
+      },error(err) {
+        console.log(err)
+      },
+    })
   }
 
-  private createDraggableElement(place: placesSearchResult, event: Event) {
+  handlePlaceChanged(place: placesSearchResult) {
+    // const newEvent = {
+    //   title: place.name ? place.name : "Event",
+    //   start: String(new Date),
+    //   end: String(new Date),
+    //   allDay: true,
+    //   extendedProps: {
+    //     location: place
+    //   }
+    // }
+    // this.createDraggableElement(newEvent);
+    const location = {
+      lat: place.location?.lat() ?? 0,
+      lng: place.location?.lng() ?? 0
+    }
+    const addItemElement = this.el.nativeElement.querySelector('.add-item');
+    if (addItemElement) {
+      addItemElement.innerHTML = ""
+    }
+    this.getRecommendations(location)
+
+  }
+
+  private createDraggableElement(event: Event) {
     const draggableDiv = this.renderer.createElement('div');
     this.renderer.addClass(draggableDiv, 'fc-event');
     this.renderer.setProperty(draggableDiv, 'innerText', 
-      `${place.name}
-      ${place.address}`);
+      `${event.title}
+      ${event.extendedProps.location.address}`);
       this.renderer.setAttribute(draggableDiv, 'data-props', JSON.stringify(event));
     this.renderer.appendChild(this.el.nativeElement.querySelector('.add-item'), draggableDiv);
   }

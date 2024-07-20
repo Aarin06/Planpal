@@ -1,6 +1,9 @@
 import passport from "passport";
+import dotenv from 'dotenv';
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { User } from "../models/users.js";
+
+dotenv.config({ path: '../.env'})
 
 const GOOGLE_CLIENT_ID =
   "407535876944-gj5djdpeqo89vb51hkgjffdlml5td9eu.apps.googleusercontent.com";
