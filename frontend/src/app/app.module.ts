@@ -37,6 +37,7 @@ import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.co
 import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
 import { CustomEventFormComponent } from './components/custom-event-form/custom-event-form.component';
 import { EventPreviewFormComponent } from './components/event-preview-form/event-preview-form.component';
+import { GoogleMapComponent } from './components/google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { EventPreviewFormComponent } from './components/event-preview-form/event
     ViewItineraryComponent,
     PlaceAutocompleteComponent,
     CustomEventFormComponent,
-    EventPreviewFormComponent
+    EventPreviewFormComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,

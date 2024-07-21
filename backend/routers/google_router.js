@@ -26,7 +26,6 @@ googleRouter.post("/places", async (req, res) => {
   if (!location){
     return res.status(400).json({ error: "location is required in the body." });
   }
-  console.log("hit once")
   try {
     // uncomment to use google places api
     // const apiResponse = await axios.post('https://places.googleapis.com/v1/places:searchNearby', {
@@ -45,7 +44,7 @@ googleRouter.post("/places", async (req, res) => {
     //     // Any required headers here
     //     'Content-Type': 'application/json',
     //     'X-Goog-Api-Key': 'AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek',
-    //     'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.photos'
+    //     'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.photos,places.location'
     //   }
     // });
     // console.log(apiResponse.data)
@@ -55,7 +54,6 @@ googleRouter.post("/places", async (req, res) => {
     //     return res.status(500).json({ error: "Error writing data to file" });
     //   }
     //   console.log('Data written to file successfully');
-    //   return res.json(apiResponse.data);
     // });
     console.log("here is the final data")
     console.log(testData.places)
@@ -69,7 +67,11 @@ googleRouter.post("/places", async (req, res) => {
           name: place.displayName.text,
           address: place.formattedAddress,
           iconUrl: "",
-          imageUrl: getPhotoUrl(place.photos[0].name, apiKey)
+          imageUrl: getPhotoUrl(place.photos[0].name, apiKey),
+          location: {
+            lat: place.location.latitude,
+            lng: place.location.longitude
+          }
         }
       }
     })
