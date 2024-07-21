@@ -2,13 +2,17 @@
   "places": [
     {
       "formattedAddress": "205 E Houston St, New York, NY 10002, USA",
+      "location": {
+        "latitude": 40.722232999999996,
+        "longitude": -73.98742899999999
+      },
       "displayName": {
         "text": "Katz's Delicatessen",
         "languageCode": "en"
       },
       "photos": [
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXW5B93Th47fg5LXXoqwfH8yczS7WsogHKLS5PEvkeEfM_4Rl0qq4M1EkbA6azFCv8vWgn7nKSQxZJd_ds05dryqxF0aiGlMuaLRmUxRJ0YovZyF4PSjQFHzQgjMEQi-a00k57sd-8VEqVFn-_hylASNohOCZbCyd_Xz",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CvI7buTrn2lmeM6MscbQ4PJgiYa3LRwMT8FbON2-x6HAJvmkR9sbc1fXERsQ0vPjADYIcUTLEbLyNfKfqnlnUaheprhjHVa--xhLk4Cnqkll-NTXBKkUWbF9zHB213dzmn1eX-QAE3CPCFMZJ3BBIHpU9A12ywoLP91",
           "widthPx": 3396,
           "heightPx": 2240,
           "authorAttributions": [
@@ -20,19 +24,7 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXULCHnyPl9Q4zyj2RJ4Y3Jxzh6QCmLLxIfKwLNDWeM28XDoQ1nIqYFhXoSyi9ZU-uOzxSp5lZP72-Rh21u2WWdR3OYV2PilDwOZaADOEHCHvzewTSOGMJHrHMcBeVjemxAwMHylFvU0Ocvz8bNuVB_l634OTzmIYsII",
-          "widthPx": 4800,
-          "heightPx": 3600,
-          "authorAttributions": [
-            {
-              "displayName": "Jean-Christophe Linder",
-              "uri": "//maps.google.com/maps/contrib/114593735221675321434",
-              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU-SFUZaN1Q7KkmmYXy_0WTlVkfotNHdRmMgRwYX5QTZQhdtlIq=s100-p-k-no-mo"
-            }
-          ]
-        },
-        {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXVFxMfy1JhWZwgtaGOPFarzwdXtFhnAQcJGEAsdx9YpNlvXmTUW2kBI8wh4RJavqgooGHSyzZJVbLtKP1-zJc6l5dE3azBrUpI3E73bdKYV7a_MrsyNrfs567nTcflprD8ovQwIA8e9EbCfWBFeULQidwMLMJhHpnIM",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CtfKWg-X5Yj3jcHpTLFOLiUGGl_bRCcZQlgbCbT6ZjKgcOpQJ2O6CJ-d7BnnsSqhTUKFVTZOF2-sYOUmqk1sH87xNUkgnSYPvTEukcS2g3LJa5SOdQa3JPpT8w5jqpjUt626YAks4Elbq_ETViM7V0MYvJ7bILdaS-E",
           "widthPx": 3640,
           "heightPx": 2432,
           "authorAttributions": [
@@ -44,31 +36,19 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXU_ogj707bncWjZtzmfUWQhryACZFOJeD3cgKiYp50DVkZrwT4PRk7aLsDibkyZURNAXlsf_B1DpzhhR48NJlF-O78g1EZTHoHi74J8GDz8EhxVXcNGz3rXUQ-7qFh9YALUIoW07YbgTuPQ1Z0XKeI5wXSKUr9uxFJ3",
-          "widthPx": 4096,
-          "heightPx": 3072,
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Cu5m8FL0ePn-QIGrT91CGV8oDo4WA0cJ3j5iQ1JUZ5w8VlDM_Ij6KIEmntQa0SFNK9AlKx22yyEoDXOyRdr6xltR6BbWo45c_fM8EK_SkRGXyOc1aK4s7ZopO54rX2_BYVm06rQ6EXJd6FiHX8JGDhOedwlxn6ghlji",
+          "widthPx": 4032,
+          "heightPx": 3024,
           "authorAttributions": [
             {
-              "displayName": "Rosa Alegre Grao",
-              "uri": "//maps.google.com/maps/contrib/116364731093861101770",
-              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIm-nUHKLE6ULl7Ousc5VhD7QRApEjrQADhNdOPnc0uzJSaNg=s100-p-k-no-mo"
+              "displayName": "Remerie",
+              "uri": "//maps.google.com/maps/contrib/100130897112425139815",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVAM4D7I8sbubz1lYkfPYJRyjZGtq5Jeo9-SDim98dQbAVsxebYrA=s100-p-k-no-mo"
             }
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXUekCF57XKnlBein5vV5w1AtAzbK4JY20Z3qlz89XOL_bLVchDH3MxIia1pGCelJvyLxugs8Qcc233u6U2wRAeMbyC2zkwhV1SJB4Wj4v7jV-m5GKKzH2_-5ma_p1C18XvF86TSI4sEdxpbaxNuyZa8e174RwCdQ0BD",
-          "widthPx": 4096,
-          "heightPx": 3072,
-          "authorAttributions": [
-            {
-              "displayName": "Prasit Wangboonsang",
-              "uri": "//maps.google.com/maps/contrib/101185479653833055182",
-              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjW5t1zT6NRjKP2LK6A0_LXyk2vm_JmoRGI2MEwg4wAz-iJeKwt3=s100-p-k-no-mo"
-            }
-          ]
-        },
-        {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXWyfCCCoxezzMLoo9SglQomrsGcDsZOgw9r5PC24kgw94HcUnVQD4hdzgGha2ndgZSirmDm43sbNbsiJ2DLh62wmer9R2C0tAsBA9wMUh7nKDDmTsbKQY3lok4A29Rc272ei6iThQUfWbBNHKrdAyNYmtwT5yPiRkTB",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CsDP94JNM8NBjfsSJnncD8GDERVk0G3pwUg864uvXGlaxllAExTi_zkmTNErH2UTRRlJ035klAhjv1EgPoew6HedPTkhw83--8ahCTYUMjzyORG5bET0I7SZwEgngI0lroXpcx8imX2BuTlkBE7Sc2xe4s6qu6IDfAt",
           "widthPx": 4032,
           "heightPx": 2268,
           "authorAttributions": [
@@ -80,7 +60,19 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXV2XYxLUj4VAFZB4z7CDR1P6e96SKEkPk1dPNpbLtJ6VHRQj3FWBwPVEnpsGB_D-2wd_rwTCghKtE3wDFPh0ZE0Va-f0U2jQ8Q5SahPBsqwKkVCRvBlHT_8zirbGOChN8dn_oVR464PKKyWbaACvuSlOJUFRqAbYMIp",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Ct0Vrlk6slAP2paWOtXbkV0SD_gPwQejnYTvtdPZm5-7etlRIaZFb2cux8GalNLWcJ2dIE0iTH2ceABzMXE6B3Y0W1YSq6UvvZI0zm3JuqbU5W7Ek1W6f0Uw61AxWJkhb2DI4_SgA5fnJXg1X3YyMCvkghJSAM5id_i",
+          "widthPx": 4080,
+          "heightPx": 3060,
+          "authorAttributions": [
+            {
+              "displayName": "Luis Alves",
+              "uri": "//maps.google.com/maps/contrib/112502179359191284905",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjUGP_wplMohCXDCIWyvWsgtDXSSsAP8X4IGuHEpK2pwwCCVl4-rLg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CuN0G4et5a7qZiRzVUOaKIWD5pcQjj-jZbO2P_Fbs_MTmm8yyoSp1hQFzuUOx6ff1sHpDu2rWeMv4k3-53OQW0Nr-XNUX5kLKDlEG1e1xV95jhSveAH5Ny_PENYpmaPquGdtwM9qMn-QOzCxs9orQjQoFa7YEWQaKd9",
           "widthPx": 3600,
           "heightPx": 4800,
           "authorAttributions": [
@@ -92,7 +84,7 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXX7w1ntzqq6et9Aln4e7kZQG6Wl_PypwuqijUngIgoHLKsiTvM2a3cgkyIJ-40sqj8uCkeeAEMSUFbsGU7oBGPOcHdHbi0ybpPX6qo2PZuU2yR4dJCBHbUlCrq6k6tPVjG0Wq3LxB9rF3CooPFEFXZ9BAZ2T_jF484P",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CtSK1ypWyMl8c0Bd4uFYFf-w22Gq2NmE57trN3KW6M85zYtPh6udGaRDPKWZYy8oI3HkahIUsE82bm84WhYKf8qiXGi-Ah1pVqFBDF1Z_3hoZ06_PFFa-ajSbB9Mkd5SKanDvvH5JNS4Nix_0OWQXnfAj3LLAC6S15X",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -104,7 +96,7 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXWNGtrQ00CpreZmIGDxQC7QS-C6mVh9XBJwbhWcIEvyq3zviSXynJx2uhRYmkecXHxSVdD6ZIuvDwG8qVQMr8jV8cy_Sl9Ds3jS4RM3dz9YJQwXS0jjZXFsVlIx7gdEKa5Rs13Ho1CquHgWL8xITkEv3lNVUjwS_Ioe",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Cs_2xH-PzlwoF4wG-iV0u5QCP-eGGrKDuIt95A6-XLXFs7RSLY8-CHu0rGpNLO9aKX-vn5xOIjvY_MauJuSps8zmYRBOdCXpyEa4CeGm-bfar96bR0Ni0G7FCc2z8mPqVp4s1m9sUonvl5aUSndiPXfz4rJNqycpjlm",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -116,7 +108,7 @@
           ]
         },
         {
-          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXV6jSv8k8qGt8c54-pLSQk2tbAoaLnerSzzFy08B_xqx549uutio__R-EL--58E-VTVr5fxfaxlPgvrOz6nUQfVTno6euLlCA5rEF_OVpKntz4dBYFHXPrcv2h454b-eYXU6D0_fryWUI1YdLb3U-wJ-FJtYMJNEAV_",
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CsAajPmf2ybtnHZSenBE5HOD5I1BdLpxV4HqvnZgR2YHG9fIlrUovp9B2FKx19mGDkRnKt5OOWMizVkotM3FYszk-FMOeqjNXIfQNpQv5rMK01hylznhBtEBl-N5HtL4QDW4k3V-j7gzBO2oa8_epum-xCU9Qp8Ji22",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -126,18 +118,34 @@
               "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJCRXFdj6o2_2zyVK6IQB84C_P5aDuMeie4PTWSmm4K8VJ3Kw=s100-p-k-no-mo"
             }
           ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CuwShpg8oT5H-MNNq4tFepuV7cgzJp4XMp1HpprZw2hooJ5JgwUsLZRp-d06uQnhmc7Y8_Uo2m17A1yx2HTYSPvLcM7_lJtlNtCEi_L_ogA-lJvE1P17JpB6w3dAlOX37H-bblqznTtD8dZhS9eiQMXrD9M2YLU4J9W",
+          "widthPx": 4000,
+          "heightPx": 2250,
+          "authorAttributions": [
+            {
+              "displayName": "Paula Czaja",
+              "uri": "//maps.google.com/maps/contrib/115367625921233125498",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJ2AcX3VTzJRk6v8r3GxucStd6pOyuCH3bJe1ymeu9IoO0Ieg=s100-p-k-no-mo"
+            }
+          ]
         }
       ]
     },
     {
       "formattedAddress": "55 Water St, Brooklyn, NY 11201, USA",
+      "location": {
+        "latitude": 40.7034205,
+        "longitude": -73.9921457
+      },
       "displayName": {
         "text": "Time Out Market New York",
         "languageCode": "en"
       },
       "photos": [
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXV8AG-N5PjOJvKkhmOBXODBClQXDul7IkOGIUIg_bzwWF6gC-LaRxzacdMOeALdTXIWLGVpwWcFD4QiIH_7IsF92LSZp6WaTKwi4UPZpGx5Y3-vq8IE8XG3wHTQCQQoyMGdpsvy07qVvPASozPMmFNZ_vS0Oq20UF2l",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CuykNRiUWQIWf_Z8aORLxNaYvyydwHigdPYVZBXb51O19shtb6kFSY7BY4CIQsMUfzeyT5ffUkwIonTWkQ3V4LkPK_dWIUS2zTXrBRoMWJMUS3eiIUL9edv2-rSz2ymEtdPQQwz1p_Z1Vn2YLGMc-rUncxNqd-nrBu3",
           "widthPx": 2048,
           "heightPx": 1536,
           "authorAttributions": [
@@ -149,7 +157,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXXM5DC_ZHGwfnIHcesG1Oc7gQuVI8xCDdlPnWr-tiaTojLvT5-95LDOuNkAf1CDPS0ZwF7vUCf3RhLY4LoRkVJbJ58hcU1aLkiIM-h6ttnSiVVq1mj4mZCDO7hhsY5wm69s4Z_Ll2S-ukbqt1iCC_d8yKyejhVbTIz7",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cu1yZQhdEgJTil3AlLcFEpTKcB0f8M1y6vzOOjVKV811y9nxCSZs2Xm4PonO_Tii-hvPsT1E8ZWnqUDodsAKaP6GELHfwqPl0GNNf2p_3T8D5PFqvdHegYZoAtzDF3ZZGwF_A9JLBK9QhezYSBDubdinNreIgD2VIJ3",
           "widthPx": 4800,
           "heightPx": 3599,
           "authorAttributions": [
@@ -161,7 +169,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXV8k9A-BzK85oMVViyL1gOSlcEk3mEvNEZwpZOzYVPO2CQtzdsW9iuy0Ulq3HPef3wQz7Q39Ng_boivEDKgDD7_UYxN8J8Ufaw0Rx2_h80eLXaPrRgNV5ptHd1WozuKRiCqWPNuJTI7BRzJff82WdP9Gm5J0DOnKaPa",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CvuDyQF9AKYARvdLCbgNY8PXfg11-ofVoRLSOK8imfVJIaWQDOn_2VKvV6Sm-BTq_kb4pucwSeDLXeYTK7MBJspACBRPLssNZSFycZzrcS92tzyzIElDmHbLIT0c0Yto3juksDw9aRiBxScFvmzcLvcwMjow_VjMc2d",
           "widthPx": 1310,
           "heightPx": 870,
           "authorAttributions": [
@@ -173,7 +181,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXVOCZ2sxv-9-yxASlUulE_ty_MT9BjaIZz7Diao6rmUqVzZIwKTjMHecUQQy2pRmNq1se_PsYFzhTyffvYvJAVYn_T43994nkjvYGR26DO0_9GiWh4zL-DbQdHuyfxCjeZplNOr8Nh2MKuvph37FbLSxUwfvgJQsyTZ",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CvVPzUNKmvgAEy8FHAboUBIQrd4XV9FHScAAjbH3ZD9oa6-in8FAe3JckPPMc_NONhalJCK90jH1VyvNU6yhuPCTUN3ENVjJkT66Vtsh4kXGof_4TG-WSXoOgsGuzWEiw8BhP4IGzyNa-XHkJoRNzjkHIKYUla3-4DK",
           "widthPx": 4000,
           "heightPx": 2252,
           "authorAttributions": [
@@ -185,7 +193,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXUgdze4-KMaqzNA0L18shJInNPea8bYYSTX6ffN7QEenhy0rke2H7jKan980FU1T85179GszuXdFZv1UkltL6bts0G6PP0NELKuvlGHbPX_2Y5tLx-Q9kXQMGwqDfNGq5Ec9-yNAleYBcAIaUFExPmEr7mc6rlY5q8",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cspq90G_MVLiXhqhOzlOpQZmTyHwdTTO1faYKNG3sYaWfpJAWWnpNT1wL9DHwvi7uCCo5zT2OPeGTl23J5J9tFnV2DCNdijZ8xP1X4hCZy7FazJX6LVnBuIEqhm5sinMJ7xCTaz2TeOjCpBKe9N1-cywKKMM1qF1yA",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -197,7 +205,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXX-wodWZpI9A-pF4OzS_gubrfaT3ve6cOIFOfVM-Do5bX9WWi_c9q2xXW1UL66JDKtp2U_6GBUe45B5PHYbJXBkGAh3mkMKjqpTQ68YquKON9HOHvCLgytR1Kc6jZLcwhWvuUeJHHkE6e1MnilgEq6glZyU8lX5n49o",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Ct6es_6XLJC6q2LEvrlhOr8q-PnZkxE-4jqKAPHK_6DW9IPi09ZObdMcwixAJSqBtxuBsg7mrMAjPPU77ujVXwVg1NrvJs2XI_B255BuZLDGhCuLzYs3XfRen0ZQpJdISQc6_herSBOHTppqYVQODQ_-P2Kaua8IQL4",
           "widthPx": 839,
           "heightPx": 471,
           "authorAttributions": [
@@ -209,7 +217,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXXnDwPy1QzoVbE9BBJyMsO1JrTUozQ8VT4dwpYKgm8cCuhG5g_VLt2oLvZxdjAIjMuNhA5mM0nQYOELB5LYNrYoyO7kPpZzC0LKiCRPPxp_X9oWY1_dM3SHi8cKkDcZGt3Q0-Wetj8r7W0KfSr3hI-G4cmLVGHmp3Oj",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CtBJaWmgBshd_DMg_yAt4Aqya3BMqCad47DCmiX7yjJZ2tp6MagEX0P0KYJMtf-bJjyCx8etJXV0ClJGGqXJEljlB7jqKxbyBqTG5Jc_bb98Nh_mLQVVRXV_zuc4ArNytFndyc8YXdOfN8KAtJlGrHBvft_ioMKN0U0",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -221,7 +229,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXWdEfycqs_O-qJLm8dZau2SVR0iIuPeFr-a2U-hcAbBsYIm5zak8mAWIhMqwr4dfE_Q2SncwiQ7YbFs3zXCxvLSc0T37vzBqiEM0VxNVtpJec18gPyfImsoB0o-fNWeA0sWQQ0xKZ-VtmwTib5g2WWmJ0e5JOYu2t6-",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CtWHyO3daxSSNA7xOdQ3YSRWlwxsSOaL8HsstcPMpYPZRYvwiUQ7EW4o_KydjCGK4LaOKc5QukB8JidRu99K_2-NdD5G6FhJALSSarLZpJScgE4ex5h7eqCbegFcy_s0NqePqcDPrLGyL_byh-U-svYUP0gcaz0_ogg",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -233,7 +241,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXWJOYCtNoeOj2uQqnJ2BzQc31GLsSRjvzdeMbBDtWWdZro__G2A8jSsKyQWIOlX-kTjBlghycG8TyVN_9xl8N76JKjIzMGA45ye9ik62ETNFPsJq0g0WKbF7kNobbDsqkPovkyLi6ZrUswdWxppN5eXVDnHX27HTzo6",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Ctvp_4zXaP4zZVW2XtHJRWDbQn5cEFp_YvqqMi07mkDADEqyW_RPv0pjsgsk49c3alfquvnc-HieKSH4BBuxj5sYOOH9sJ17hPrpVlE4Gb7g3bwuyrB53FnWHRwFcKV95Q10vk80O_SGWNBnVO8bno1kEpOi0fzYWql",
           "widthPx": 4800,
           "heightPx": 3599,
           "authorAttributions": [
@@ -245,7 +253,7 @@
           ]
         },
         {
-          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AUc7tXVG6fxps1RI4TZEXKpVmdX3pZDxlujBP6c94Oh1cvu_EO0mSS4ZUYgege58di5nDrRb2Hve1rW7PfNcJumN8ewiEEOQIGBVQo0J9dwtsKh_PqpiuhKm38jPRGRtHYyhMfxCUdc4j9ZkrY17V2PCsV7kg1pu4IwdXVPt",
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cv1yu1McjvRUHZC5iA-rvlEA20FAHG9yu4UlXpxkDNR9EXwS--pKUX249czTDFB5RIEEw7JXh7T6hUhbXqV3tvCoYSZVn--m0Pq37O0SF-xT0Z1sLkd-QemX_6Tox55b1mFYaQQxZaT5QVVG1_EZcuhp_yZ2lio2bLP",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -260,13 +268,17 @@
     },
     {
       "formattedAddress": "380 Lafayette St, New York, NY 10003, USA",
+      "location": {
+        "latitude": 40.727593399999996,
+        "longitude": -73.9937017
+      },
       "displayName": {
         "text": "Lafayette Grand Café & Bakery",
         "languageCode": "en"
       },
       "photos": [
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXXV7OywiVxqvhjpjD7rhATx1Ipi0VyXUfLjRmTAVXkTpRxkZ1oBq0swuXnPjSAIiqAStVJSTk3vG6INdgyGCuTBHj5GQ4qnLITeputBXlSDAwVHCFL8X1U7CPR6IsV0KzEFwH0FnZHq5U70xPCwkj874E8KBHK_p0E",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_Cvumk9I4MiL-YR0fviSWP1I2AXcPSItPD4ZfwPhErAI_HJ1E6xl7YkHMPWI7zDK1UF63XTF8OedKVz3Pp1WyFBW4XrYY9JVsjOEKo1-YY4voy41cfA1bCJH2rtLcafcNPxPWazTICIBjNBEASNSksLgtWl2KXQF3fQ",
           "widthPx": 4800,
           "heightPx": 3200,
           "authorAttributions": [
@@ -278,7 +290,7 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXU721eHZlHad1h45zeGGEq30o1rDd4sVQ1oPAMHPZc9XFpksooFOd2aVb0HsqgVwuvEv03YEMy3rj6E8rbfONrg_NHYhnSbuw5Xw-QxpXlIS00K68JYCY74GpbeBFMP9k_ev7xAo2EYhqlkVpUqidPeIGan6EULCs0E",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsYeenDoi2B9Dv8VScPweP49TbLvfy_h8AFjKQzYx0KGixCp99sr0TjjqWcULIxo3gmsezrdSLjL7RCIxsHvMGxoCOZtS4b0p4VfT0dGqAfXdzLgP1bfcWw3ZO-z7rBCEni-AzfeMq9o8H4zqs7wlkyaS5npLqKXJsI",
           "widthPx": 3024,
           "heightPx": 4032,
           "authorAttributions": [
@@ -290,43 +302,7 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXXQut-X8ozr5A2Q4xUw1xItIPSRxl9f0kAsFXLBrfWZCk0ql6wrMVvfYFJbVCBf_fCo_h6kq6RUUp55-82wtfSDDWsIoRVC0I3FsmWYVhQLq-EQGn6WOZhPh5BXyHjvfmD0ydR9WelLkTcZA46t3ahKLbo63YDrNfHg",
-          "widthPx": 4000,
-          "heightPx": 1848,
-          "authorAttributions": [
-            {
-              "displayName": "Elmer Matthews",
-              "uri": "//maps.google.com/maps/contrib/111591081863470602615",
-              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXm4scXHjduw-pykP64nGEYfp0ZjFSRBoi-l4YxtmZFoiSm7nWS2g=s100-p-k-no-mo"
-            }
-          ]
-        },
-        {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXW8eQSdu4oXRQ5FT_GC7FGD_WGTYgSSspG54at46u_OHxlOQcxtNXqPfR6MWx18E9-LMjXpxOJDhuWhMbeDcubzOg3mCHU1Al1u2dR0pIUNk4WS2Ecp71USZH3PptCdnK3zhRDAgboK2ale7cDPC_2xW3h-pZoDXpM",
-          "widthPx": 4800,
-          "heightPx": 3199,
-          "authorAttributions": [
-            {
-              "displayName": "Lafayette Grand Café & Bakery",
-              "uri": "//maps.google.com/maps/contrib/101194984184999314647",
-              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjV9KfUABHrN3lhA1mM9tCmHoZCubkLWX3eEo_vVJlCrbMSvAw=s100-p-k-no-mo"
-            }
-          ]
-        },
-        {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXWVIuA2S9xlJEQFFXLdD4Ta6Bbj-YDwIO_UuZl9cVvc7n9jkaE_yGNaJ0dN9U7oBpRcT1p0YYncSB8RU96miHBu1Y8GMxwHNKq-PNPJdYNrSwzuQdaIMmRlzyh2WqrCjwkqRe-ul0n2Nslb6wQFX2pGjy9ehJxWpWyV",
-          "widthPx": 4000,
-          "heightPx": 1848,
-          "authorAttributions": [
-            {
-              "displayName": "Elmer Matthews",
-              "uri": "//maps.google.com/maps/contrib/111591081863470602615",
-              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXm4scXHjduw-pykP64nGEYfp0ZjFSRBoi-l4YxtmZFoiSm7nWS2g=s100-p-k-no-mo"
-            }
-          ]
-        },
-        {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXXpdX2rkvVaNbe4_CHnhwo-1IcV8G6aFWc4qvvzCLt5WKvJwelBpW9n931kd027aCic6zUD1ynN9BCUitNOej2Xv8WlLoD2JxqofJD8KSqDGwTiEA-AOMfSPwfUgJRNyNS6kJKvMl7cyFSUFq28SSjWu_cosZCbspsD",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CtLSCR-4_9uckHhHJumLUs4ngU6-DTDZMnKQY8TFyN6EWOOR8d2o8R1_Sw5jZZZKRUks4s_N8pPYmr-3SDp_4EgZDtVXnaww5bvqzTga9EuwxZXQRWJ_-371aQsxOW-HGHzFcaHlb7QHoO4SjPwoaTM2UDYhhDTPPLb",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -338,7 +314,43 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXXKUivEL8ynLrVxn0aHVzsidp51Fdx0e-vbV7S51hH2-nHOQbR8Pd5Gzyg5WvplMfHUQgs17PvmFgHLN5X4tmElXZ2NvSsO5LQYgaLNFN4YJgR2fuE6ueb0fXCUJlq6bkGAzzMvbkW1I5EVz8LRYeLpRNzPB49llVNw",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsiVDbRCNQPSNsPb1KKsG-P-xfRmuciDuseQS3mypXDSt9XIiMY47QBWIAylr9Lk5I0AWCMJdRX2yEM3xvRI9VFlltwHX85bb3YmilQ9UUOfR2L4RApRjhd-w7Eop1JJheoynPkMkj7p5O_-lTJmMOcLFzg2cUSS7od",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Het Patel",
+              "uri": "//maps.google.com/maps/contrib/116790503847607435934",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjX14rkNlgk4eejaEwX2tk6oKYyNthNO412LcRmy8VgcG5vdg3GmxQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CtLNF7tw26mL1Oo3V6AVs4e1BDSspmcRdTc5CX6wDIct3oL-TFV9nnUMYv53VzJlNXSU0a6z1MZig0UVlzolq0xs4511E7KVwvEjkU_-Uext8H1kDqTdSbQCXH4MYcIZbzvcnW76KByQyV4Uf0OC_p8kIgRq743vVwP",
+          "widthPx": 4000,
+          "heightPx": 3000,
+          "authorAttributions": [
+            {
+              "displayName": "YUNA CHUNG",
+              "uri": "//maps.google.com/maps/contrib/116894404934063158525",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXzvgKmLhLIs0bXtSpN_Jx1dfiELJTpMd17TckNNK_SelNHztWb=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsmC1KeRokj2K8V1x29Q7qVjfoWbRcOmmjbeWKnGJdAdm5ACwZRFc718kHQRgJ-lMzsw78RA-7Zz3jjW-8lO80l3VDGe1bNIc6llK7w5JOBO9XSHj0plm47CMXax3NuDKFSl26_lU72IEm2TAqD0oHXJw0RJaClMwU",
+          "widthPx": 4800,
+          "heightPx": 3199,
+          "authorAttributions": [
+            {
+              "displayName": "Lafayette Grand Café & Bakery",
+              "uri": "//maps.google.com/maps/contrib/101194984184999314647",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjV9KfUABHrN3lhA1mM9tCmHoZCubkLWX3eEo_vVJlCrbMSvAw=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsrQr94OWVdlPRoLLmjJPTXBWQ8tWeDr0qTCJ2dqCGYSqob_S1UUaDPXX2_YaCcVBAIEV7BplMMQGYejvfnhKha9kTmbe2FqEl5GjUq3Q9TgDqiMGD2mODIRqIBJzI3DIO5a7_xal04BHuIvoGvv0j9n4YgtpRZ4xZD",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -350,7 +362,7 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXV-8S0f9Awr9WqoQLpnAi8dl9vBIm0mjzhXjBatyaRDLMhBMPBkEINiCooyQQ7xiDXnNUIY7KSJM1v_prqXYwLrwd7y93fJJA051Kn0qvTehfN9hpcdDPyV4hx40_k-c79Eq977OxvvMAfGNLhIEIE6itgGuw9MTSbH",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CvAF0DqOsQqznCmTEZI-I1250bdCcTgVJw8M8IvJFGvt0gX8AFwKsaX0u_CDgg8re_QNQFWjcomhtoSjKH8-JhRSivu-eP2SDeJ6Di8QPn8eVdN8cZewjE1gBssn-TE9UbToVk2PxTpMxSVmGlp-yKH9kjbkZygdRgI",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -362,7 +374,7 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXViTDuxeoFWvGHb9VbMFJ3NLREKyvVzxYpE1Z5kwsmhm5mxvEJKI0A5TR1rICz8KBwMgce5sNbH5c7ZyWyf7Ydo5Pers-QocbpKzlf9M4IY6ggeDoe6Ltctir4gQLbl4Ji4N9KpLkru8-xtwIqGmpHvuNw3zFCObCQo",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_Ctlhy1wWjxp62a__s7-1NmEpA32b6Me1jBI26fskGSM9dlWDJxFGG1bf06wM20E-8Qns5N42if-6zxY7pazLmkhm3WD-TL50R-rqBwlad79wRBFaCRVFpSFKU1Wn99WgTb86q4budANrWjUaUf6QLaVWPBgn2NO6AM8",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -374,7 +386,7 @@
           ]
         },
         {
-          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AUc7tXX6jRZfJhQSQjrKQJ_Tto4dEglWptIX4nr1e_ki8i3Rk1sVzViJ4EvB8LddhdvIWgAjGu4xKzh6JdwJiV-txjLkujeInrd2iO3T2gNIF9roPfciuUgl0vEzVYa9wX_HdUGVFfuSo2LaoV6V1fIA-EBx7vmz7VMvlLV5",
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CuBDGS3jjZPZYXaXUM41Ljjqoy0zOkdltZVxbmz91RGmr8_DriQJgOQ9EWENnL2MrnNVl8xp7tYVztjMhYT7Pp3uubD3d0tsvhSiprGrHwNiNrdyqKq0TR-C04wDbRVv2OF9LMdm8AAdQCZEAYq3rWqOFOkVtl2Q3OT",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -389,13 +401,17 @@
     },
     {
       "formattedAddress": "89 South St, New York, NY 10038, USA",
+      "location": {
+        "latitude": 40.705573,
+        "longitude": -74.00145669999999
+      },
       "displayName": {
         "text": "Pier 17",
         "languageCode": "en"
       },
       "photos": [
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXWk7xtot1R-m6u-XKICbzOJ2g_blOBuy3BD6K3m7mw5Zur45Uvu8vWt0LHapuGTy_6B-5Kg-IKOSNXVxLxzc2sK-ImO8vFKN4TCLz2XoAOEfvd5RuuPJ6KNq52cRNBF0mUGnZDL_Pc3ld2wC5p-bm3bXKK8MZWPwkId",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CvI9WGkF5EoqX0EtQpMYD_xdheQVjXvBlk7iyU3Z4IcxEkhufih7lLFNrh8U13gBUjwxwg_lQZCMVZZpCAejajhZuIdOtCzis9ru2DegfKYQc2M7NHdE9qb_i0tim-26Lii6DO6GX76QIHtNKY5weqvLS_75AaBXeGx",
           "widthPx": 2801,
           "heightPx": 1575,
           "authorAttributions": [
@@ -407,7 +423,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXXgOW6XJ5L65uTxEDSXngs-leaeEHUEiRW8SNyw9XnzaMizfpC0Gn2uhjb--eC_TINjjNEUiqfxRWeWO_A1dPAuLmFDuHp7MrBCRGvYZOgp6g1es3jWEyjDNaVHf5292Cl1LDuEbp7_66Kz1kfZjK2gKCnbNBExO9wK",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cs2CAB3QanMpNl4D05JxUe8dIdqaS2WuIdXxtRre2t0naGsPGqLPa0jO-S4tQMa59PPm_ocy94jTYAWoheCrZhV83dhn_mAniKk3V_-2lUN-UJF5RA0MN96TMQ_oKfNk6xhgPChhs9FPxIgdsKJGUpNmqRnAKqlJ9qe",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -419,7 +435,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXWYhpOipILXD-qwlQDNEM2zkIgtjTiPq5RmGx-L_MGrN-Khrdo2kv172M8txCVyhlflcXYU5EX9YqfcTwHEr-nJxZY4IHLXoqJwINMNhc9QNRd_nNS_f85t7W9x6RGFNHkGqjEFFRWsYyUltqyk1Qm8Sk_-qUyaT1ah",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CtE_-J2miW6TiFGH4FCQiYyrxnV9Zkn_MkA8TG0jcVV4WJ6YjeW9ST07Ki-72wVdWF6mz3PZUa7xg22NHJFmXe-m1Hud7uZqhbdZzEDC5Z3uTcAjGNzShMe2TIeyL-WX1OQB1pQDEr2kYKP5jDPnyAhV_bndqXdrY22",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -431,7 +447,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXXaVIlsdXl6Ost6NczxLKpJiGRWgAGvvEpTXn5_BvPbaQ4YFKHfkjBppVR-UIcny_7TvWIrp1iQXnNgd3fe-N_C0N2NX4veb_cP9ZSnQaGbk1ffozY24pDj4USF0e2NWV80SFsvy6s--F0vySjIl84B-LycBpBJ9Rwz",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CuU2j7KNwlyGHWmb6zt-_7orU4iVJ7JHZnM6onpZNZI2uFaedMRvDWvYWsIRvppaTqPnwTB-e5xEmULONabEigTYfU_cpKQwU5N5FMn_bArbuL1lp47W31u-gGYNSRy5jzKk8_08DCS-DVpxU-BK-grutKpddWAKN6K",
           "widthPx": 4080,
           "heightPx": 3072,
           "authorAttributions": [
@@ -443,7 +459,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXVq60wVmXLYD_FbTSeIB05IltuFTcCzi6i4uD6557IiZZVRqu2v9Lp204Zh7Bg4iNlSAgJs3v44UjTnot2wnTgWw_hmGHzB-0MI2s0u37x7FbKHmdjuYmsEDV_GS_v0IHVjyeqdDWBxB6lrBZS6qaS9ZwUvxXlLO0SM",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cu9tz-dZA2bVARlLaJEw2kwIvMhORwmXreJlPAAZitiGeigIvjnHXXucEwOtsihSzv13JOnLuye5IkZN9J40ZAIpRt1lFF_Fzh1CWYSY2C6WSSwcCj6cPEQCuZ7hzS8QxHwwzozNbbr--FmCaUi-LZGsgJZhgoPtAZ2",
           "widthPx": 4080,
           "heightPx": 3072,
           "authorAttributions": [
@@ -455,7 +471,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXUEEfPzGhugNjNquCvCiTzeIvOIYv6q3PCWt8Hl9KjKYYZFGpsVu8XBl7OMcsQAVZd7vMpyiPYsehVDtRakGbnYSQxEpjZNyorkiFdyk1R6CsT3IGLVQKDopIyisrDzB8E5_36fZcjjcurtJQYhttR6WyfhTpfRLmcD",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CsFE9x8Vw2oRqQByQfQp3ZsiMnARLSxp1isYXzN9iPY2ZsStYCibaysW_ig8HKfZ3B_n7WKo5weh2YjxqdkHmp-X_0a4SJFGSp4Dwb69QDAp_LQbQ9QCfhdDcf0BFzb6oP35YwBSGbI_yJteKYiplzPzFDxcRy7Z6FX",
           "widthPx": 3024,
           "heightPx": 4032,
           "authorAttributions": [
@@ -467,7 +483,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXWY7L0wDIBgckVZPMHlLAGXYqpFkeHGQodjSog-Td1VUYhFJGqRval-fMZuyqBpCjs5Ccesdr5JEu9fjc9YBO7hVDR7hEjyQ4dLmDiHOHFRuHXBUMyeWUyjKulFi-LKgXU8nJCIH_mUjB4SsAk5sQ8k2Nt9ry8DWp6u",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Ctv47OL_1gFLPW2HygQCBjBFmX4pvGY7OJ4-1PYue8ektJPe-ezVqO2PHVLswTm4VVMC6bE_28Fdk5mF0tkYV_j_om1rQsuKRccfi4phPBd4zBCtTJrL_CftMxzTYy0BkC4ddcPRTnfVDJvebaLRIHikICWU1vl8B5k",
           "widthPx": 3000,
           "heightPx": 4000,
           "authorAttributions": [
@@ -479,7 +495,7 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXXrohhQU4m3ztQEwHwymZYU3idXWx6NEbXCdY6P7k0ZpTBc4xXyBjiHyRjjLVD0W7cMIE8spCOjr0O_ea78Wo1rg-72ooR7mDcgSZ3qnO2FufdiQo1YFAnJwf9qHkmRXwbR3nk05KO2xNV5DSTgGI4JBsnCbyVrnjLf",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cu3dXMLXTIZI6lv3k9KAZgOqQo70frcPHNx3oxYVj8KJcDKhiaW1bJ2p0GUxuU1ATBMeEvgRgn24N7FtbMz9i4QstxpaWs4n4B6yyxJ75ceNkoTwpymdZOux_NOdkuiEoNuYy_7_wj1XWpnURceSrBdAwj7w-mQufMt",
           "widthPx": 4000,
           "heightPx": 2992,
           "authorAttributions": [
@@ -491,7 +507,19 @@
           ]
         },
         {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXV4HqB1mmc6Xjs2ngFRNiuA9dDcO1Kg_SiGRgCD94CXfHT5R8MoU6HAH6Q_yxDTxs1oVMf7si3DOFYDoFPV1Mw_RN07WT-8yOMl0WmeZXaFZioDweLCEByXg1Cf9tJzpnt3_toZWsOolPEDtDdNxGRueOjyK-uWeKdp",
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CufhbChn9ChgKHswYRmD0yHsjZuhTjdQKTJDpKqWLbt0apAgQYdcx3K6mw4j0rSjTQAemxgTfqzj8Bp4V3fErATE8193EKsIwwQcih9tyDHzgKQzAhAYJNF7YEq-tLsWs-rAt2rQP3kEgkwY1vTPSX7GBm8g0CWY7if",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Tammie M Smith",
+              "uri": "//maps.google.com/maps/contrib/118173612414396904048",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLMYsUvnONOqHe0YLSUWxuBK5EIFtXGmHVo2OHBk4RKkvnZPA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Csdit5YNkI_aaXW2hiAqP2cdqqjZkEJBOPvEu9avUwXfPoQFkZVxtCYixql82g6rcd6ScJlurYWCyuQAzAlcEXkMeT-4zr52r7aYxkNhM3rIKOqYSvFl9tDHh9T5OIDng9ZNtBrYT-ngGRYEPstHUehYwxrD9KUtz1y",
           "widthPx": 3000,
           "heightPx": 4000,
           "authorAttributions": [
@@ -501,30 +529,22 @@
               "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjW434BF2XvEt7t-BpQj1aMRdVlG27Rrf39aKh9jSon-rFkNgwPCUw=s100-p-k-no-mo"
             }
           ]
-        },
-        {
-          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AUc7tXWY_U9j-FR-kwJXR6kTB28YK2waHlmWCHVva3EbsJIZKvfTsjpFxq96fKogNg-0yv1otEuopZcfq9p6VyC67Pv_f83upwEHZd5Lj3jY36-trZPJ8QTRW74h-2xZ0tI3XDKvLHmY1dFadfGzk1r7eZ9DBZ2CiRklJl-C",
-          "widthPx": 3456,
-          "heightPx": 3456,
-          "authorAttributions": [
-            {
-              "displayName": "williams rondon",
-              "uri": "//maps.google.com/maps/contrib/109025950059900996144",
-              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIHTV68yj4kK1PhrMmFPqxSdNAYMH15yw5_5oYLpUaJ8Uox6Q=s100-p-k-no-mo"
-            }
-          ]
         }
       ]
     },
     {
       "formattedAddress": "120 Hudson St, New York, NY 10013, USA",
+      "location": {
+        "latitude": 40.719819,
+        "longitude": -74.0083829
+      },
       "displayName": {
         "text": "Bubby's",
         "languageCode": "en"
       },
       "photos": [
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXVBm7AHaAmc2DcjkZ0xYXr4_yh5VsvkUfcdm0fOj28fiRr9176TRKqLamhrC6xEoozJNKvEOt8Nctc0rIClavpgBsepeL8zg5YFJuScWIFAqki1gl5jfucSZ0_i0Z3R27_I4ROqkpJ0i-1OWSdYVv9yk29uvtqCykvC",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CvjawgXgu5oUzpKvqeP5_Em3fZ48-5MMQ5GrK0e5TgLCbcaGC-5qgAecE8kCSr2v-YtsaFzeuqHOlckkc_g-HqCslgC9yoTL1pOjqLGAgkTQ0PWDVlfSwYmc5J04aS1vPZ0N_sD3oTcLV8wwWXTqxCT5ZCuydQNFHXC",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -536,7 +556,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXXqqY6wCJr_BlTG3ADTrvHMY66agpv6R1C5b5dj8jiF6mYNBRj3nD-Cic5FprmtcG9U4bqtjKLk4DkCLfvAlhsSD9f47avVcDj5VpDiQaeaHAb-5Ac7riHpXf4baWIrSrhnIRy58KxW7AboLOW2Wpt6tLb2OptuP1Zo",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Cu9kNjq3e7yHaaXzmoeLAuBREH76pvZtyTXYso3sB_hl_LjNLnBWfPkEnhyOGoSlX4mL3_4K91QxtqwvnXMyd3_9lv6qWZYRdbigm-VYBb_pDgXZHymB7bhPnmkeCcIzlsxbtkPVP3msgKZbNpS9aBiXYBYvap6rJGh",
           "widthPx": 2397,
           "heightPx": 3972,
           "authorAttributions": [
@@ -548,7 +568,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXWhe7J89Tm8W_nS60sAcl9mSwbxP-GPp6LiLLg0-wnpoHbaXWmwz_UYenmzBKaVhza2WP4eg3Psod6Km241a9GUj5-5v_dPldWlSD01798Cp5l8sq99eMuyecP0azFni9wLrnK9YDXR2jpjugxMe8Z6RFoyVg9Ll96n",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Cs4ZOybA2SVE73CJEOZnNh19meUExM-LFm-3s8LbRVmMHqdzoT-zsd_mREK0trZZ2uooX4EQ12X_RcOSnpv2KA1f-MBeH_qtj9_OZGeB_kV6jWzscKqLKvqlO0hbQuD0wc6Ndqin8KQzGHfYN3LAwDRUTjN3s-OwC8P",
           "widthPx": 4800,
           "heightPx": 3600,
           "authorAttributions": [
@@ -560,7 +580,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXWnMxo8VbthlF6rJxgwX2zcbvqAP_sPJZlYYKOj21gnyF1HHuL7gvohbUUWMDGsJtEd-9DZVmLaSF5EX_FttrqqMNiR8v6GpZA7IJfCe54bWfkpa876vX3YU2g1-X-UvKlolvBR1tL5Cztp0YuUnUv09ZjMhorNHg7O",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Ct_XzYVkySUKPIe79gGVbNfwarG1fDtcOJqxPAOOkr2Kf9rSpPmmdDWF_WbtMgkGEGPFjdBa29OCUUWTKJB5Oyfk8q-ZxIf9j2ndk2DzdNHfgUT-ZWpaiY-Y8zYYU3CCMdMrswofmscqQQ99tWPI0i1UetvoN-KD5Ia",
           "widthPx": 4000,
           "heightPx": 3000,
           "authorAttributions": [
@@ -572,7 +592,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXVN2Gx5l4GDPNBOoxnb932jBmrXMePmXq4mcqvD4cAfBYTWwiliCgzSalWsxaaPS4Ugr-4lFR-XhQGgDrMuh_iaXFwe85d2lgkQ9kjyAdZm7et0y3KYnlmfdXqn8ub9PjXtcQbvjRPqxs8yzo4XozPeYw6LCp_ZzJs",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CudeQ3YnyzBc6Em0iod0A6Ugp1213d4UeN5zLuvoSyKVmJX0FTIkBPFEBk-5kJynUFrDTdMrK1_REyLArb84JCuz3RNOMQK5SKXfkMTkzvJaLeG9iAD3jcAyU4pVIDhIwIf96ap_tc9bSUGn0VvJdQmysSwZaAPFnc",
           "widthPx": 2807,
           "heightPx": 2807,
           "authorAttributions": [
@@ -584,7 +604,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXUP7ZhdyTB_ZrVp0jf1GXAfUwFvWMjo5VDUWNUss9muc-JrMKk3DdvrmnTeGck4sWdFZx6An0ZRFX7xtaOUIg7t8Vo1ObRUNzsBJkWExFP6JuDoIYIucbmacm18C0XtZ_R7XOQE7Mch4iS6ypOeNA-ap_5m0Cm0-USq",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CveVSj_jFHc6jVkJgJb7sOPc_dnmQyUzC8M2OvoouteOlKD9ArOo1LkvG_3itfLMWlri_LQfxuXz7xfrlItNDudwvsIXcxV_c_tnOHFYXQg--BnJs7Efcsk1Yq92mDM-0ROFnFe4tpZyJxXTW1SGyapMrrIVdlQnJO4",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -596,7 +616,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXWnnQxfusQ2429owizNrw0J3cDXRM887CyTUwYBsdipvS9dYNab4S0EUbneflO4S2_jlIebrIeYlFljs2VFW1Fhu6gos-PpV9uYfKDbh24oDRTokH72gWG_-arQGWe9hIgqT8v0voI7gze1zrLGZ-W2KMMYhlCbvqe5",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CtdBSxwoS4IP46Z26MctG3tkaeedv4jYMR4fvjNE4Wx5JRyCdWyX9_ez_VDFG31ESdRfltel4gDw32FyXOTA6pnIb7soSQ_hwbO6sD0bWmBKtt0JRe3hypOz2NSI95fpPlSKUpkH6YFjzyZbYRjIhxQIYlkJMthPX_I",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -608,7 +628,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXW2c1F1vzBeVKXpJHuQ_fSpbt2KzwNQepdOJiV9tALL3nUaDWn3E64esm9ZgybT6Skk3dm038wQlhKMrN_K6n8SKzXfMgiPxt2zQ2Rcc-H3VFZsG85JS6skfit2LlaEd5qVBfTK6gymfknBKND32IBGBx6GOUb_PGk9",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Ctxqhp93aY2YhqweppBCUHqDYGRZNXqTF_rDfH42MGxZXmpv-Spuamp4TNUJu_WyIY5gjP9q0RG7ueQQnUdtTN-W0Dnmw348KlygpQIxTJZFZzp-x0enWd4eqJ6xWHVH8N9o22cc1ZNU9PZJHYjjEWDG-uHQrq-NBnt",
           "widthPx": 4032,
           "heightPx": 3024,
           "authorAttributions": [
@@ -620,7 +640,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXUP4rbagnxcDhg_FpFuTzWP01PjNHXePcjC7HzvvA-B7vBzxXR9JVd9e_pxtn5HpefltKY2KOUfRpIcNe2i6F0bZwfnhlRUbvZHCYQuUo4rdgotqxnQQ-qj24__nZMTkuyIOEc8BFnMA1cl3YiPx7WFjv0kaol16hGF",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CsRGf81UWjc9DSKyWSyvXEn_6M-rDGl8wMH7P90jBv2bBYZciBuyYlbKy6ZGwjTzfYUF_86Rq0JRX8kx8GrR2qnGC-UoXexvg9Dv2mdHEpJWvKTe9fl3cTCgB96nQH2MJsDABlvziFfgYIDC-RYoOXoOys63d8Fk7Hp",
           "widthPx": 4000,
           "heightPx": 3000,
           "authorAttributions": [
@@ -632,7 +652,7 @@
           ]
         },
         {
-          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AUc7tXX4OsV1yyTF1YdLn4SIXdHzimFTK_5KqTTKUSvRjmQd4yY5NZFvQd0UbH9PBe9tr7EgFMkoOKDS5temh-nRDLcHyGo5xmN1_FHa7WbEAZMSKyf9ZgUHMm3BTx6RU6iAYaxLeZqWqRWFbZCN1UQ-HzzOPhC2krCZuO02",
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CsA-ZDysWGVTmprtSDoNFqXSsDBDX5zkVMIJFEDFP7YRSvaF7Amr_bB7-yq53tlSxHc0WKg1-sefw3q8cumsdBgh0Rbdpiodj9HVXzaMB0in0064AemvlJHbSX9LzHh3T0Vcnl67PaHwqYOSTJehYgOnT2pZlo_X3VM",
           "widthPx": 3870,
           "heightPx": 2678,
           "authorAttributions": [
