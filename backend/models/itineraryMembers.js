@@ -9,6 +9,5 @@ export const ItineraryMember = sequelize.define("ItineraryMember", {
   schema: 'planpal', // Specify the schema name here
 });
 
-ItineraryMember.belongsTo(Itinerary, { onDelete: "CASCADE" });
-ItineraryMember.belongsTo(User, { onDelete: "CASCADE" }); // Define the relationship
-
+ItineraryMember.belongsTo(Itinerary, { foreignKey: 'ItineraryId', onDelete: "CASCADE" });
+ItineraryMember.belongsTo(User, { foreignKey: 'UserId', onDelete: "CASCADE" });

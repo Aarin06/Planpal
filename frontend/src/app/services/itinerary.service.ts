@@ -55,6 +55,12 @@ export class ItineraryService {
     return this.http.post<DBEvent>(this.endpoint + `/itineraries/${itineraryId}/event`, eventData)
   }
 
+  getEvents(itineraryId: number): Observable<DBEvent>{
+    return this.http.get<DBEvent>(
+      this.endpoint + `/itineraries/${itineraryId}/events`
+    )
+  }
+
   deleteItinerary(itineraryId: number): Observable<Itinerary> {
     return this.http.delete<Itinerary>(
       this.endpoint + `/itineraries/${itineraryId}`

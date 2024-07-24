@@ -28,7 +28,7 @@ export class EventPreviewFormComponent {
     });
   }
   ngOnInit(): void {
-    this.eventApi.getEvent(this.calendarEventClickArgs.event.id).subscribe({
+    this.eventApi.getEvent(this.calendarEventClickArgs.clickInfo.event.id).subscribe({
       next: (value) => {
         this.newLocation = value.location.location
         this.eventForm.get('eventName')?.setValue(value.title)
@@ -44,13 +44,15 @@ export class EventPreviewFormComponent {
 
   onExitForm(): void {
     this.openEventPreview.emit(false);
+    this.calendarEventClickArgs.socket.emit('closeFormEvent',this.calendarEventClickArgs.clickInfo.event)
+
   }
 
   updateEvent(): void {
     const formValues = this.eventForm.value;
   
     if (this.eventForm.valid && this.itineraryId) {
-      const prevEvent = this.calendarEventClickArgs
+      const prevEvent = this.calendarEventClickArgs.clickInfo.event;
       if (prevEvent) {
         const newEvent = {
           id: -1,
@@ -68,6 +70,18 @@ export class EventPreviewFormComponent {
             // prevEvent.event.location = newEvent.extendedProps.location
             prevEvent.event.setProp("title", newEvent.title)
             prevEvent.event.setExtendedProp("location", newEvent.extendedProps.location)
+
+            let sendEvent = {
+              id: newEvent.id,
+              title: newEvent.title,
+              start: prevEvent.event.start,
+              end: prevEvent.event.end,
+              allDay: prevEvent.event.allDay,
+              extendedProps: newEvent.extendedProps
+            }
+
+            this.calendarEventClickArgs.socket.emit('updateEvent', sendEvent)
+
           },
           error: (err) =>{
             console.log(err)
@@ -86,9 +100,10 @@ export class EventPreviewFormComponent {
   }
 
   handleDeleteEvent(){
-    this.eventApi.deleteEvent(this.calendarEventClickArgs.event.id).subscribe({
+    this.eventApi.deleteEvent(this.calendarEventClickArgs.clickInfo.event.id).subscribe({
       next: () => {
-        this.calendarEventClickArgs.event.remove();
+        this.calendarEventClickArgs.clickInfo.event.remove();
+        this.calendarEventClickArgs.socket.emit('deleteEvent', this.calendarEventClickArgs.clickInfo.event)
         this.onExitForm();
       },
       error(err) {

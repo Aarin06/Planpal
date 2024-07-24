@@ -32,9 +32,9 @@ export class CustomEventFormComponent {
     const formValues = this.eventForm.value;
   
     if (this.eventForm.valid && this.itineraryId) {
-      const calendarApi = this.calendarEventArg?.view?.calendar;
+      const calendarApi = this.calendarEventArg?.selectInfo?.view?.calendar;
       if (calendarApi) {
-        const selectInfo = this.calendarEventArg; // You might need to adjust this based on how selectInfo is passed or stored
+        const selectInfo = this.calendarEventArg.selectInfo; // You might need to adjust this based on how selectInfo is passed or stored
         const event = {
           id: -1,
           title: formValues.eventName,
@@ -52,6 +52,16 @@ export class CustomEventFormComponent {
             event.id = res.id
             console.log(event)
             calendarApi.addEvent(event);
+            let sendEvent = {
+              id: event.id,
+              title: event.title,
+              start: event.start,
+              end: event.end,
+              allDay: event.allDay,
+              extendedProps: event.extendedProps
+            }
+
+            this.calendarEventArg.socket.emit('createEvent', event);
           },
           error: (err) =>{
             console.log(err)
