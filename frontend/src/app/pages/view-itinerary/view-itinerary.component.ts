@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Renderer2,Input, Output, EventEmitter  } from '@angular/core';
 import { placesSearchResult } from '../../classes/placesSearchResult';
 import { ActivatedRoute } from '@angular/router';
 import { ItineraryService } from '../../services/itinerary.service';
@@ -13,10 +13,14 @@ import { GoogleService } from '../../services/google.service';
   styleUrl: './view-itinerary.component.scss'
 })
 export class ViewItineraryComponent {
+  @Output() openCollaboratorForm = new EventEmitter<boolean>();
+
+
   isCustomEventFormVisible: boolean = false
   isEventPreviewVisible: boolean = false
+  isCollaboratorsFormVisible: boolean = false
   calendarEventArgs: any = null;
-  calendarEventClickArgs: any = null
+  calendarEventClickArgs: any = null;
   itineraryId: number | null = null;
   itinerary: Itinerary & {Events: DBEvent[]} | null = null;
 
@@ -42,6 +46,11 @@ export class ViewItineraryComponent {
   get initialItinerary(): Itinerary & {Events: DBEvent[]} | null{
     return this.itinerary ? this.itinerary : null
   }
+
+  onOpenLogin() {
+    this.openCollaboratorForm.emit(true);
+  }
+
 
   getRecommendations(location: {lat: number, lng: number}){
     this.googleApi.getEventRecommendations(
@@ -128,6 +137,18 @@ export class ViewItineraryComponent {
   handleExitEventPreviewForm(event: boolean) {
     if (!event) {
       this.isEventPreviewVisible = false;
+    }
+  }
+
+  handleOpenCollaboratorsForm(event: boolean) {
+    if (event) {
+      this.isCollaboratorsFormVisible = true;
+    }
+  }
+
+  handleExitCollaboratorsForm(event: boolean) {
+    if (!event) {
+      this.isCollaboratorsFormVisible = false;
     }
   }
 
