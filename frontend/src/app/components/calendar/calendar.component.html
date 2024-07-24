@@ -1,5 +1,5 @@
 <div>
-  <full-calendar *ngIf="calendarVisible()" [options]="calendarOptions()">
+  <full-calendar  #calendar *ngIf="calendarVisible()" [options]="calendarOptions()">
     <ng-template #eventContent let-arg>
       <div class="event-template">
         <i>{{ arg.event.title }}</i>

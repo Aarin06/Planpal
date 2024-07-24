@@ -1,5 +1,6 @@
-import { Output, Input, EventEmitter, Component, signal, ChangeDetectorRef, OnInit, ViewEncapsulation, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi as CalendarEventApi} from '@fullcalendar/core';
+import { Output, EventEmitter, Component, ChangeDetectorRef, OnInit, ViewEncapsulation, Inject, PLATFORM_ID, ViewChild, AfterViewInit, Input, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi as CalendarEventApi } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -7,11 +8,13 @@ import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 import { Draggable } from '@fullcalendar/interaction';
 import { Event } from '../../classes/event';
-
+import { io, Socket } from "socket.io-client";
 import { Itinerary } from '../../classes/itinerary';
 import { DBEvent } from '../../classes/dbEvent';
 import { EventService } from '../../services/event.service';
 import { ItineraryService } from '../../services/itinerary.service';
+import { FullCalendarComponent } from '@fullcalendar/angular';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
@@ -20,24 +23,32 @@ import { ItineraryService } from '../../services/itinerary.service';
   encapsulation: ViewEncapsulation.None
 })
 export class CalendarComponent implements OnInit, AfterViewInit {
-  // @ViewChild('draggable', { static: true }) draggable!: ElementRef;
+  @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   @Output() openCustomEventForm = new EventEmitter<boolean>();
   @Output() openEventPreviewForm = new EventEmitter<boolean>();
   @Output() calendarEventArg = new EventEmitter<any>();
   @Output() calendarEventClickArg = new EventEmitter<any>();
-  @Input () initialItinerary: Itinerary & {Events: DBEvent[]} | null = null
-  @Input () itineraryId: number | null = null
-  
-  calendarVisible: any
-  calendarOptions: any
-  
+  @Input() initialItinerary: Itinerary & { Events: DBEvent[] } | null = null;
+  @Input() itineraryId: number | null = null;
+  private socket!: Socket;
+  currentEvents = signal<CalendarEventApi[]>([]);
+  calendarVisible: any;
+  calendarOptions: any;
   externalEvents = [
     { title: 'Event 1' },
     { title: 'Event 2' },
     { title: 'Event 3' }
   ];
 
-  constructor(private changeDetector: ChangeDetectorRef, private eventApi: EventService, private itineraryApi: ItineraryService) {}
+  editEventIds = new Set<string>();
+
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private changeDetector: ChangeDetectorRef,
+    private eventApi: EventService,
+    private itineraryApi: ItineraryService
+  ) {}
 
   ngOnInit(): void {
     this.calendarVisible = signal(true);
@@ -62,32 +73,128 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       selectable: true,
       selectMirror: true,
       dayMaxEvents: true,
-      droppable: true, // Enable external event dropping
-      drop: this.handleExternalDrop.bind(this), // Handle external drop
+      droppable: true,
+      drop: this.handleExternalDrop.bind(this),
       select: this.handleDateSelect.bind(this),
       eventClick: this.handleEventClick.bind(this),
       eventsSet: this.handleEvents.bind(this),
-      eventContent: (eventInfo) => {
-        // Custom HTML content for each event
+      eventContent: (eventInfo:any) => {
         return { html: `<b>${eventInfo.event.title + eventInfo.event.title}</b><i class="fas fa-coffee"></i>` };
-      }
+      },
+      eventDragStart: this.handleEventEditStart.bind(this),
+      eventDrop: this.handleEventEditStop.bind(this),
+      eventResizeStart: this.handleEventEditStart.bind(this),
+      eventResize: this.handleEventEditStop.bind(this),
+      // eventDrop: this.handleEventDrop.bind(this),
+    });
+
+    // Initialize socket only if running in the browser
+    if (isPlatformBrowser(this.platformId)) {
+      this.initializeSocket();
+    }
+  }
+
+  handleEventEditStart(info: any) {
+    // this.draggingEventIds.add(info.event.id);
+    // this.updateEventDraggable(info.event.id, false);
+    console.log('Event started edit:', info.event);
+    this.socket.emit('eventEditStart', info.event);
+  }
+
+  handleEventEditStop(info: any) {
+    // this.draggingEventIds.delete(info.event.id);
+    // this.updateEventDraggable(info.event.id, true);
+    console.log('Event stopped edit:', info.event);
+    this.socket.emit('eventEditStop', info.event);
+  }
+
+  initializeSocket(): void {
+    this.socket = io("http://localhost:4001");
+    this.socket.on("eventEditStartListener", (event: any) => {
+      // Handle socket events here
+      this.updateEventDraggable(event.id, false);
+
+      // this.updateEventDraggable(event.id, true);
+
+      console.log("Event received from Socket.IO:", event);
+    });
+    this.socket.on("eventEditStopListener", (event: any) => {
+      // Handle socket events here
+      console.log("Event received from Socket.IO:", event);
+      this.updateEventDraggable(event.id, true);
+
+      this.updateCurrentEvents(event);
+
+    });
+
+    this.socket.on("externalEventDropListener", (event: any) => {
+      // Handle socket events here
+      console.log("externalEventDropListener Socket.IO:", event);
+      this.updateCurrentEvents(event);
+
+    });
+    this.socket.on("deleteEventListener", (event: any) => {
+      // Handle socket events here
+      console.log("delete Socket.IO:", event);
       
-      // dayCellContent: (e) => {
-      //   console.log(e)
-      //   // Check if the cell's date matches the initialDate
-      //   if (e['dateStr'] === this.initialDate.toISOString().slice(0, 10)) {
-      //     // Apply custom styling for matching date
-      //     e.dayNumberText = `<div style="color: red;">${e.dayNumberText}</div>`; // Example: Change the day number color to red
-      //     // For more complex styling, consider adding a class and defining the styles in your component's CSS
-      //   }
-      //   return e
-      // }
+      this.deleteEvent(event);
+
+    });
+
+    this.socket.on("updateEventListener", (event: any) => {
+      // Handle socket events here
+      console.log("updateEvent Socket.IO:", event);
+
+      this.updateEventDraggable(event.id, true);
+      this.updateCurrentEvents(event);
+
+    });
+
+    this.socket.on("closeFormEventListener", (event: any) => {
+      this.updateEventDraggable(event.id, true);
+    });
+
+    this.socket.on("createEventListener", (event: any) => {
+      this.updateCurrentEvents(event);
+    });
+
+    this.socket.on("editEventStartListener", (event: any) => {
+      // Handle socket events here
+      this.updateEventDraggable(event.id, false);
+      console.log("editng event should be blocked", event);
     });
   }
 
+  updateEventDraggable(eventId: string, draggable: boolean) {
+    let calendarApi = this.calendarComponent.getApi();
+    const calendarEvent = calendarApi.getEventById(eventId);
+    
+    if (calendarEvent) {
+      calendarEvent.setProp('startEditable', draggable);      
+      // Change the background color and border color of the event when it becomes draggable
+      if (draggable) {
+        calendarEvent.setProp('backgroundColor', '#3a87ad');
+        calendarEvent.setProp('borderColor', '#3a87ad');
+        this.editEventIds.delete(eventId);
+
+      } else {
+        calendarEvent.setProp('backgroundColor', 'grey');
+        calendarEvent.setProp('borderColor', 'grey');
+        this.editEventIds.add(eventId);
+
+      }
+      
+      this.changeDetector.detectChanges();
+
+    } else {
+      console.warn(`Event with ID ${eventId} not found in the calendar.`);
+    }
+  }
+
+
   createInitialEvents() : Event[] {
     if (this.initialItinerary && this.initialItinerary.Events){
-      
+
       return this.initialItinerary.Events.map((event) => {
         return {
           id: event.id,
@@ -98,64 +205,43 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           extendedProps: {
             location: event.location
           }
-        }
-      })
+        };
+      });
     }
-    return []
+    return [];
   }
-
-
-  currentEvents = signal<CalendarEventApi[]>([]);
-
   ngAfterViewInit(): void {
-    let draggable = document.getElementById('external-events') || document.createElement("div");
-    new Draggable(draggable, {
-      itemSelector: '.fc-event',
-      eventData: (eventEl) => {
-        const dataProps = eventEl.getAttribute('data-props') ;
-        const dataPropsObject = JSON.parse(dataProps ? dataProps : "");
-        return dataPropsObject;
-      }
-    });
-  }
-
-  handleCalendarToggle() {
-    this.calendarVisible.update((bool: boolean) => !bool);
-  }
-
-  handleWeekendsToggle() {
-    this.calendarOptions.update((options: any) => ({
-      ...options,
-      weekends: !options.weekends,
-    }));
+    if (isPlatformBrowser(this.platformId)) {
+      let draggable = document.getElementById('external-events') || document.createElement("div");
+      new Draggable(draggable, {
+        itemSelector: '.fc-event',
+        eventData: (eventEl) => {
+          const dataProps = eventEl.getAttribute('data-props');
+          const dataPropsObject = JSON.parse(dataProps ? dataProps : "");
+          return dataPropsObject;
+        }
+      });
+    }
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    this.calendarEventArg.emit(selectInfo)
+    console.log(selectInfo)
+    this.calendarEventArg.emit({selectInfo, socket: this.socket });
     this.openCustomEventForm.emit(true);
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    this.calendarEventClickArg.emit(clickInfo)
+    if(this.editEventIds.has(clickInfo.event.id)){
+      return;
+    }
+    this.calendarEventClickArg.emit({ clickInfo, socket: this.socket });
     this.openEventPreviewForm.emit(true);
-    // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-    //   console.log("deleting event " + clickInfo.event.id)
-    //   this.eventApi.deleteEvent(+clickInfo.event.id).subscribe(
-    //     {
-    //       next() {
-    //         clickInfo.event.remove();
-    //       },
-    //       error(err) {
-    //           console.log(err)
-    //       },
-    //     }
-    //   )
-      
-    // }
+    this.socket.emit('editEventStart', clickInfo.event);
   }
 
   handleEvents(events: CalendarEventApi[]) {
-    if (events.length > 0){
+    console.log("handling events");
+    if (events.length > 0) {
       events.forEach((event) => {
         const newEvent: Event = {
           title: event.title,
@@ -163,52 +249,120 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           end: event.endStr,
           allDay: event.allDay,
           extendedProps: event.extendedProps
-        }
+        };
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
             this.eventApi.updateEvent(+event.id, newEvent).subscribe({
               error(err) {
-                console.log(err)
+                console.log(err);
               },
-            })
-          },error: (err) => {
-            if (err.status === 404 && this.itineraryId){
+            });
+          },
+          error: (err) => {
+            if (err.status === 404 && this.itineraryId) {
               this.itineraryApi.createEvent(this.itineraryId, newEvent).subscribe({
                 next: (value) => {
-                  event.setProp("id", value.id)
+                  event.setProp("id", value.id);
+                  let eventSend = {
+                    id: value.id,
+                    title: newEvent.title,
+                    start: newEvent.start,
+                    end: newEvent.end,
+                    allDay: newEvent.allDay,
+                    extendedProps: newEvent.extendedProps
+                  }
+                  console.log(eventSend)
+                  this.socket.emit('externalEventDrop', eventSend);
+
                 },
                 error(err) {
-                  console.log(err)
+                  console.log(err);
                 },
-              })
+              });
             }
           },
-        }
-        )
-        
-      })
-      
+        });
+      });
     }
     this.currentEvents.set(events);
     this.changeDetector.detectChanges();
-    
+
   }
 
   handleExternalDrop(info: any) {
     const title = info.draggedEl.innerText;
     const calendarApi = info.view.calendar;
-  
-    // Add the event to the calendar
-    calendarApi.addEvent({
+    console.log(info);
+    const event = {
       id: createEventId(),
-      title,
+      title: title,
       start: info.startStr,
       end: info.endStr,
       allDay: info.allDay
-    });
+    }
+
+    calendarApi.addEvent(event);
+   
+    info.draggedEl.parentNode.removeChild(info.draggedEl);
+  }
+
+  deleteEvent(event: any) {
+    let calendarApi = this.calendarComponent.getApi();
+    const calendarEvent = calendarApi.getEventById(event.id);
+    if (calendarEvent) {
+      calendarEvent.remove();
+    } else {
+      console.warn(`Event with ID ${event.id} not found in the calendar.`);
+    }
+  }
+
+  updateCurrentEvents(event: any) {
+    console.log("Event received from Socket.IO:", event);
   
-    // Remove the dragged element from the external events list
-    info.draggedEl.parentNode.removeChild(info.draggedEl);    
+    // Assuming event is an updated event object with new details
+    const updatedEvent = {
+      id: event.id,
+      title: event.title,
+      start: event.start,
+      end: event.end,
+      allDay: event.allDay,
+      extendedProps: event.extendedProps
+    };
+      
+    // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
+    if (!updatedEvent.allDay && !updatedEvent.end) {
+      const input = updatedEvent.start;
+
+      updatedEvent.end = input.replace(/T(\d{2}):(\d{2}):(\d{2})/, (match:any, hour:any, minute:any, second:any) => {
+        // Increment the hour
+        let incrementedHour = parseInt(hour, 10) + 1;
+        // Format hour with leading zero if needed
+        let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+        // Return the new time string
+        return `T${sIncrementedHour}:${minute}:${second}`;
+      });
+    }
+
+    console.log(updatedEvent);
+  
+    // Find the corresponding event in the calendar and update it
+    let calendarApi = this.calendarComponent.getApi();
+    const calendarEvent = calendarApi.getEventById(updatedEvent.id);
+    
+    if (calendarEvent) {
+      calendarEvent.setProp('title', updatedEvent.title);
+      calendarEvent.setStart(updatedEvent.start);
+      calendarEvent.setEnd(updatedEvent.end);
+      calendarEvent.setAllDay(updatedEvent.allDay);
+      calendarEvent.setExtendedProp('location', updatedEvent.extendedProps.location);
+      
+      // Refresh the calendar to reflect the changes
+      this.changeDetector.detectChanges();
+    } else {
+      calendarApi.addEvent(updatedEvent);
+      console.warn(`Event with ID ${updatedEvent.id} not found in the calendar.`);
+    }
   }
   
+
 }

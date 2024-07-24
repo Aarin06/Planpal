@@ -9,14 +9,16 @@ import { itinerariesRouter } from "./routers/itineraries_router.js";
 import { protectedRouter } from "./routers/protected.js";
 import { eventsRouter } from "./routers/events_router.js";
 import { googleRouter } from "./routers/google_router.js";
-
 import cors from "cors";
 import "./middleware/auth.js";
 import { isLoggedIn } from "./middleware/isLoggedIn.js";
 import passport from "passport";
+import { createServer } from "http";
+import { Server } from "socket.io";
+import DefaultSocket from "./sockets/socket.js";
 
+const app = express();
 const PORT = 3000;
-export const app = express();
 app.use(bodyParser.json());
 
 const corsOptions = {
@@ -42,8 +44,6 @@ app.use(session({
   }
 }));
 
-
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -67,3 +67,32 @@ app.listen(PORT, (err) => {
 // app.use(express.static("static"));
 
 // app.use("/api/messages", messagesRouter);
+
+// Socket.io server configuration
+const httpServer = createServer(app); // Pass the express app to the HTTP server
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
+
+let connected = []
+const connectedInverse = {}
+
+io.on("connection", (socket) => {
+  connected.push(socket);
+  console.log("a user connected" , socket.id);
+  socket.on("disconnect", () => {
+    console.log("a user disconnected" , socket.id);
+    connected = connected.filter((con) => con.id !== socket.id);      
+  });
+
+  DefaultSocket(connected, connectedInverse, socket, io);
+});
+
+httpServer.listen(4001, () => {
+  console.log("Socket.io server is running on http://localhost:4001");
+});
+ 
