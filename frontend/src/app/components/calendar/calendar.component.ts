@@ -1,6 +1,6 @@
 import { Output, EventEmitter, Component, ChangeDetectorRef, OnInit, ViewEncapsulation, Inject, PLATFORM_ID, ViewChild, AfterViewInit, Input, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi as CalendarEventApi } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi as CalendarEventApi,DayCellContentArg } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -67,13 +67,17 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       initialView: 'dayGridMonth',
       initialEvents: this.createInitialEvents(),
       initialDate: this.initialItinerary?.startDate,
+      validRange: {start: this.initialItinerary?.startDate, end: this.initialItinerary?.endDate},
       fixedWeekCount: false,
+      eventBackgroundColor: '#3a87ad',
       weekends: true,
       editable: true,
       selectable: true,
       selectMirror: true,
       dayMaxEvents: true,
       droppable: true,
+      dayCellClassNames: this.dayCellClassNames.bind(this), // Add this line
+
       drop: this.handleExternalDrop.bind(this),
       select: this.handleDateSelect.bind(this),
       eventClick: this.handleEventClick.bind(this),
@@ -92,6 +96,17 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeSocket();
     }
+  }
+
+  dayCellClassNames(arg: DayCellContentArg) {
+    const validRangeStart = new Date('0001-07-26'); // Replace with your start date
+    const validRangeEnd = new Date('9999-12-31'); // Replace with your end date
+
+    const date = arg.date;
+    if (date >= validRangeStart && date <= validRangeEnd) {
+      return ['valid-range'];
+    }
+    return [];
   }
 
   handleEventEditStart(info: any) {

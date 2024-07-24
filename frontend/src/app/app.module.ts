@@ -38,6 +38,7 @@ import { PlaceAutocompleteComponent } from './components/place-autocomplete/plac
 import { CustomEventFormComponent } from './components/custom-event-form/custom-event-form.component';
 import { EventPreviewFormComponent } from './components/event-preview-form/event-preview-form.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
+import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
     PlaceAutocompleteComponent,
     CustomEventFormComponent,
     EventPreviewFormComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    AddCollaboratorsComponent
   ],
   imports: [
     BrowserModule,

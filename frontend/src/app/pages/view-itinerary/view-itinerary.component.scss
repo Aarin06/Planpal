@@ -1,5 +1,4 @@
 .search-recommendation{
-  width: 100%;
   border: solid grey 1px;
   padding: 10px;
   min-height: 50%;
@@ -7,6 +6,7 @@
 }
 .itinerary-container{
   padding: 40px;
+  // gap: 20px;
 }
 
 .fc-event {
@@ -16,4 +16,17 @@
   color: white;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.add-users {
+  width: 100%;
+  border: solid grey 1px;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#external-events {
+  width: 100%; 
 }

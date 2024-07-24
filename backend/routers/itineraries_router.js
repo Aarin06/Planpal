@@ -140,6 +140,17 @@ itinerariesRouter.get("/:id", async (req, res) => {
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
+
+    const itineraryMember = await ItineraryMember.findOne({
+      where: {
+        ItineraryId: itineraryId,
+        UserId: req.user.id
+      }
+    });
+
+    if (!itineraryMember) {
+      return res.status(401).json({ error: "Not Authorized" });
+    }
     
     const itineraryWithEvents = await Itinerary.findOne({
       where: { id: itineraryId },
