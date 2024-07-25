@@ -1,0 +1,23 @@
+<div class="collaborators-container">
+  <mat-card class="collaborators-form" appearance="outlined">
+    <mat-icon class="exit-btn" (click)="onExitCollaboratorsForm()">close</mat-icon>
+    <div class="collaborators-title">Add Collaborators</div>
+    <div class="collaborators-subtitle">Select users to add as collaborators</div>
+    <mat-card-content>
+      <mat-form-field class="collaborators-select">
+        <mat-select placeholder="Select User" (selectionChange)="onUserSelected($event)">
+          <mat-option *ngFor="let user of users" [value]="user">{{user.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="selectedUsers.length > 0" class="selected-users-list">
+        <h3>Added Users</h3>
+        <ul>
+          <li *ngFor="let user of selectedUsers">
+            {{user.name}}
+            <mat-icon class="remove-user-icon" (click)="removeUser(user)">close</mat-icon>
+          </li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

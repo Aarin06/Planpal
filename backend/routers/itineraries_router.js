@@ -137,6 +137,17 @@ itinerariesRouter.get("/:id", async (req, res) => {
       return res.status(422).json({ error: "itineraryId is required." });
     }
 
+    const itineraryMember = await ItineraryMember.findOne({
+      where: {
+        ItineraryId: itineraryId,
+        UserId: req.user.id
+      }
+    });
+
+    if (!itineraryMember) {
+      return res.status(401).json({ error: "Not Authorized" });
+    }
+    
     const itineraryWithEvents = await Itinerary.findOne({
       where: { id: itineraryId },
       include: [
@@ -217,33 +228,108 @@ itinerariesRouter.get("/", async (req, res, next) => {
     const offset = (page - 1) * limit;
     const userId = req.user.id;
 
-    const itineraries = await Itinerary.findAll({
+    const itineraryMembers = await ItineraryMember.findAll({
       where: { UserId: userId },
       limit: limit,
       offset: offset,
-      include: {
-        association: "User",
-      },
+      include: [
+        {
+          association: "Itinerary",
+          include: [
+            {
+              association: "User",
+            },
+          ],
+        },
+      ],
       order: [["createdAt", "ASC"]],
     });
+    
 
-    const result = itineraries.map((itinerary) => ({
-      id: itinerary.id,
-      title: itinerary.title,
-      location: itinerary.location,
-      description: itinerary.description,
-      startDate: itinerary.startDate,
-      endDate: itinerary.endDate,
-      UserId: itinerary.UserId,
-      username: itinerary.User.username,
-      profile: itinerary.User.profile,
+    // Check if data is retrieved correctly
+    if (!itineraryMembers || itineraryMembers.length === 0) {
+      console.log("No itinerary members found");
+      return res.status(404).json({ error: "No itineraries found" });
+    }
+
+    console.log("Fetched itinerary members:", itineraryMembers);
+
+    const result = itineraryMembers.map((member) => ({
+      id: member.Itinerary.id,
+      title: member.Itinerary.title,
+      location: member.Itinerary.location,
+      description: member.Itinerary.description,
+      startDate: member.Itinerary.startDate,
+      endDate: member.Itinerary.endDate,
+      UserId: member.Itinerary.UserId,
+      username: member.Itinerary.User.username,
+      profile: member.Itinerary.User.profile,
     }));
+
+    console.log("Processed result:", result);
 
     return res.json({ itineraries: result, length: result.length });
   } catch (e) {
+    console.error("Error fetching itineraries:", e);
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
+
+
+
+itinerariesRouter.get("/:id/events", async (req, res, next) => {
+  try {
+    console.log("Fetched itinerary members:");
+    const itineraryId = req.params.id;
+    const userId = req.user.id;
+
+    const itineraryMembers = await ItineraryMember.findAll({
+      where: { UserId: userId, ItineraryId: itineraryId },
+      limit: limit,
+      offset: offset,
+      include: [
+        {
+          association: "Itinerary",
+          include: [
+            {
+              association: "Event",
+            },
+          ],
+        },
+      ],
+      order: [["createdAt", "ASC"]],
+    });
+    
+
+    // Check if data is retrieved correctly
+    if (!itineraryMembers || itineraryMembers.length === 0) {
+      console.log("No itinerary members found");
+      return res.status(404).json({ error: "No itineraries found" });
+    }
+
+    console.log("Fetched itinerary members:", itineraryMembers);
+
+    const result = itineraryMembers.map((member) => ({
+      id: member.Itinerary.id,
+      title: member.Itinerary.title,
+      location: member.Itinerary.location,
+      description: member.Itinerary.description,
+      startDate: member.Itinerary.startDate,
+      endDate: member.Itinerary.endDate,
+      UserId: member.Itinerary.UserId,
+      username: member.Itinerary.User.username,
+      profile: member.Itinerary.User.profile,
+    }));
+
+    console.log("Processed result:", result);
+
+    return res.json({ itineraries: result, length: result.length });
+  } catch (e) {
+    console.error("Error fetching itineraries:", e);
+    return res.status(400).json({ error: "Cannot Find Itineraries" });
+  }
+});
+
 
 // itinerariesRouter.patch("/:id/", isAuthenticated, async (req, res, next) => {
 //   const message = await Message.findByPk(req.params.id);

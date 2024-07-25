@@ -11,5 +11,5 @@ export const ItineraryMember = sequelize.define(
   },
 );
 
-ItineraryMember.belongsTo(Itinerary, { onDelete: "CASCADE" });
-ItineraryMember.belongsTo(User, { onDelete: "CASCADE" }); // Define the relationship
+ItineraryMember.belongsTo(Itinerary, { foreignKey: 'ItineraryId', onDelete: "CASCADE" });
+ItineraryMember.belongsTo(User, { foreignKey: 'UserId', onDelete: "CASCADE" });

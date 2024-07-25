@@ -42,6 +42,7 @@ import { EventPreviewFormComponent } from './components/event-preview-form/event
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
 import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
+import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PaymentErrorComponent } from './pages/payment-error/payment-error.compo
     GoogleMapComponent,
     TierDetailsComponent,
     PaymentErrorComponent,
+    AddCollaboratorsComponent
   ],
   imports: [
     BrowserModule,
