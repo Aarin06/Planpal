@@ -14,7 +14,7 @@ export const basicAuthGuard: CanActivateFn = (route, state) => {
     catchError((err) => {
       console.error('Authentication check failed:', err);
       return of(router.createUrlTree(['/'])); // If not authenticated or error, emit UrlTree for redirection
-    })
+    }),
   );
 };
 
@@ -34,7 +34,7 @@ export const pageAuthGuard: CanActivateFn = (route, state) => {
           catchError((err) => {
             console.error('Itinerary check failed:', err);
             return of(router.createUrlTree(['/'])); // If itinerary does not exist or error, emit UrlTree for redirection
-          })
+          }),
         );
       } else {
         return of(router.createUrlTree(['/'])); // If no itineraryId, redirect to root
@@ -43,6 +43,6 @@ export const pageAuthGuard: CanActivateFn = (route, state) => {
     catchError((err) => {
       console.error('Authentication check failed:', err);
       return of(router.createUrlTree(['/'])); // If not authenticated or error, emit UrlTree for redirection
-    })
+    }),
   );
 };

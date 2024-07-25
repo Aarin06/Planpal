@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Itinerary } from '../../classes/itinerary';
 import { ItineraryService } from '../../services/itinerary.service';
 import { Router } from '@angular/router';
 import { format } from 'date-fns';
+import { ApiService } from '../../services/api.service';
+import { user } from '../../classes/user';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,13 +13,29 @@ export class HomeComponent implements OnInit {
   searchKeyword = '';
   itineraries: any[] = [];
   filteredItineraries: any[] = [];
+  user: user | undefined;
   constructor(
+    private api: ApiService,
     private itineraryApi: ItineraryService,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
+    this.getUser();
     this.getItineraries();
+  }
+
+  getUser() {
+    this.api.me().subscribe({
+      next: (value) => {
+        this.user = value;
+        console.log('im getting the user here');
+        console.log(this.user);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
   }
 
   getItineraries() {

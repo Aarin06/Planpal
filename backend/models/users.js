@@ -24,8 +24,8 @@ export const User = sequelize.define(
       type: DataTypes.JSONB,
     },
     tier: {
-      type: DataTypes.INTEGER
-    }
+      type: DataTypes.INTEGER,
+    },
   },
   {
     schema: "planpal", // Specify the schema name here

@@ -1,15 +1,27 @@
 <app-nav-bar></app-nav-bar>
 <div class="trip-view-container">
-  <div class="header row">
+  <div class="header">
     <div class="title">Upcoming trips</div>
-    <div class="col-1">
+    <div>
       <mat-icon
+        *ngIf="
+          user &&
+          ((user.tier === 1 && itineraries.length < 3) || user.tier === 2)
+        "
         class="icon-display"
         fontIcon="add"
         (click)="navigateAddItinerary()"
       ></mat-icon>
     </div>
   </div>
+  <div
+    class="limit-msg"
+    *ngIf="user && user.tier === 1 && itineraries.length === 3"
+  >
+    You have reached your 3 itinerary limit. Upgrade to Travel Master to unlock
+    more!
+  </div>
+
   <mat-form-field class="form-field col-2">
     <mat-label class="trip-search-label">Search for a trip</mat-label>
     <input

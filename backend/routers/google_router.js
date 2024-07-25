@@ -28,14 +28,14 @@ googleRouter.post("/places", async (req, res) => {
   try {
     // uncomment to use google places api
     // const apiResponse = await axios.post('https://places.googleapis.com/v1/places:searchNearby', {
-    //   "includedTypes": ["restaurant"],
+    //   "includedTypes": ["restaurant", "shopping_mall", "amusement_park", "casino", "aquarium", "historical_landmark"],
     //   "maxResultCount": 5,
     //   "locationRestriction": {
     //     "circle": {
     //       "center": {
     //         "latitude": location.lat,
     //         "longitude": location.lng},
-    //       "radius": 3000.0
+    //       "radius": 1500.0
     //     }
     //   }
     // },{
@@ -55,7 +55,7 @@ googleRouter.post("/places", async (req, res) => {
     //   console.log('Data written to file successfully');
     // });
     console.log("here is the final data");
-    console.log(testData.places);
+    // const newData = apiResponse.data.places.map((place) => {
     const newData = testData.places.map((place) => {
       return {
         title: place.displayName.text,
@@ -74,7 +74,6 @@ googleRouter.post("/places", async (req, res) => {
         },
       };
     });
-    console.log(newData);
     return res.json(newData);
   } catch (error) {
     console.log(error);

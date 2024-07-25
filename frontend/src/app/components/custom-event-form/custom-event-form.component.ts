@@ -68,8 +68,8 @@ export class CustomEventFormComponent {
               start: event.start,
               end: event.end,
               allDay: event.allDay,
-              extendedProps: event.extendedProps
-            }
+              extendedProps: event.extendedProps,
+            };
 
             this.calendarEventArg.socket.emit('createEvent', event);
           },

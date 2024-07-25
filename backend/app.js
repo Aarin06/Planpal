@@ -77,19 +77,19 @@ const io = new Server(httpServer, {
   cors: {
     origin: "http://localhost:4200",
     methods: ["GET", "POST"],
-    credentials: true
-  }
+    credentials: true,
+  },
 });
 
-let connected = []
-const connectedInverse = {}
+let connected = [];
+const connectedInverse = {};
 
 io.on("connection", (socket) => {
   connected.push(socket);
-  console.log("a user connected" , socket.id);
+  console.log("a user connected", socket.id);
   socket.on("disconnect", () => {
-    console.log("a user disconnected" , socket.id);
-    connected = connected.filter((con) => con.id !== socket.id);      
+    console.log("a user disconnected", socket.id);
+    connected = connected.filter((con) => con.id !== socket.id);
   });
 
   DefaultSocket(connected, connectedInverse, socket, io);
@@ -98,4 +98,3 @@ io.on("connection", (socket) => {
 httpServer.listen(4001, () => {
   console.log("Socket.io server is running on http://localhost:4001");
 });
- 

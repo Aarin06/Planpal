@@ -1,4 +1,11 @@
-import { Component, ElementRef, Renderer2,Input, Output, EventEmitter  } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Renderer2,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { placesSearchResult } from '../../classes/placesSearchResult';
 import { ActivatedRoute } from '@angular/router';
 import { ItineraryService } from '../../services/itinerary.service';
@@ -6,6 +13,8 @@ import { Itinerary } from '../../classes/itinerary';
 import { DBEvent } from '../../classes/dbEvent';
 import { Event } from '../../classes/event';
 import { GoogleService } from '../../services/google.service';
+import { ApiService } from '../../services/api.service';
+import { user } from '../../classes/user';
 
 @Component({
   selector: 'app-view-itinerary',
@@ -15,10 +24,10 @@ import { GoogleService } from '../../services/google.service';
 export class ViewItineraryComponent {
   @Output() openCollaboratorForm = new EventEmitter<boolean>();
 
-
-  isCustomEventFormVisible: boolean = false
-  isEventPreviewVisible: boolean = false
-  isCollaboratorsFormVisible: boolean = false
+  user: user | undefined;
+  isCustomEventFormVisible: boolean = false;
+  isEventPreviewVisible: boolean = false;
+  isCollaboratorsFormVisible: boolean = false;
   calendarEventArgs: any = null;
   calendarEventClickArgs: any = null;
   itineraryId: number | null = null;
@@ -30,11 +39,12 @@ export class ViewItineraryComponent {
     private route: ActivatedRoute,
     private itineraryApi: ItineraryService,
     private googleApi: GoogleService,
+    private api: ApiService,
   ) {}
 
   ngOnInit(): void {
     this.itineraryId = Number(this.route.snapshot.paramMap.get('itineraryId'));
-
+    this.getUser();
     if (!this.itineraryId) {
       console.log('No itinerary Id provided in url');
     } else {
@@ -45,6 +55,19 @@ export class ViewItineraryComponent {
     }
   }
 
+  getUser() {
+    this.api.me().subscribe({
+      next: (value) => {
+        this.user = value;
+        console.log('im getting the user here');
+        console.log(this.user);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+  }
+
   get initialItinerary(): (Itinerary & { Events: DBEvent[] }) | null {
     return this.itinerary ? this.itinerary : null;
   }
@@ -53,11 +76,8 @@ export class ViewItineraryComponent {
     this.openCollaboratorForm.emit(true);
   }
 
-
-  getRecommendations(location: {lat: number, lng: number}){
-    this.googleApi.getEventRecommendations(
-      location
-    ).subscribe({
+  getRecommendations(location: { lat: number; lng: number }) {
+    this.googleApi.getEventRecommendations(location).subscribe({
       next: (value) => {
         value.forEach((event: DBEvent) => {
           const newEvent = {
@@ -163,5 +183,4 @@ export class ViewItineraryComponent {
       this.isCollaboratorsFormVisible = false;
     }
   }
-
 }

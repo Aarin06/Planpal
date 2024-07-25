@@ -9,14 +9,17 @@ interface User {
 @Component({
   selector: 'app-add-collaborators',
   templateUrl: './add-collaborators.component.html',
-  styleUrls: ['./add-collaborators.component.scss']
+  styleUrls: ['./add-collaborators.component.scss'],
 })
 export class AddCollaboratorsComponent implements OnInit {
   @Output() openCollaboratorForm = new EventEmitter<boolean>();
-  users: User[] = [{id: 1, name: "aarin"},{id: 2, name: "jade"}];
+  users: User[] = [
+    { id: 1, name: 'aarin' },
+    { id: 2, name: 'jade' },
+  ];
   selectedUsers: User[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     this.fetchUsers();
@@ -37,7 +40,7 @@ export class AddCollaboratorsComponent implements OnInit {
   }
 
   removeUser(user: User): void {
-    this.selectedUsers = this.selectedUsers.filter(u => u.id !== user.id);
+    this.selectedUsers = this.selectedUsers.filter((u) => u.id !== user.id);
   }
 
   onExitCollaboratorsForm(): void {

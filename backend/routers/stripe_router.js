@@ -3,9 +3,8 @@ import { User } from "../models/users.js";
 import Stripe from "stripe";
 import express from "express";
 
-console.log(process.env['STRIPE_SECRET_KEY'])
 const stripe = Stripe(
-  process.env['STRIPE_SECRET_KEY'],
+  "sk_test_51O2E02LQcW3FBSVStOzg3W2vQdER2unzsBBvtS1YCupSySUaaGoZ1mLNQFfj2tlNr8lCHF6hSKIvgGIl2ZMs7iXP003vwIuwaD",
 );
 export const stripeRouter = Router();
 
@@ -26,7 +25,6 @@ stripeRouter.post(
       res.status(400).send(`Webhook Error: ${err.message}`);
       return;
     }
-    console.log("charge captured ");
 
     // Handle the event
     switch (event.type) {
@@ -34,15 +32,15 @@ stripeRouter.post(
         const session = event.data.object;
         const userId = session.metadata.userId;
         console.log("Payment was successful for user ID:", userId);
-        const user = await User.findByPk(userId)
-        if (!user){
-          return res.status(404).json({error: "No user found"})
+        const user = await User.findByPk(userId);
+        if (!user) {
+          return res.status(404).json({ error: "No user found" });
         }
-        user.tier = 2
-        await user.save()
-        console.log("here is the updated user")
-        console.log(user)
-        break
+        user.tier = 2;
+        await user.save();
+        console.log("here is the updated user");
+        console.log(user);
+        break;
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
@@ -59,6 +57,9 @@ stripeRouter.post(
     try {
       const product = await stripe.products.create({
         name: "Travel Master",
+        images: [
+          "https://media.self.com/photos/5f0885ffef7a10ffa6640daa/4:3/w_5240,h_3929,c_limit/travel_plane_corona.jpeg",
+        ],
       });
 
       const price = await stripe.prices.create({

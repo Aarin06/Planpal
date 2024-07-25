@@ -1,22 +1,21 @@
-.error-container{
+.error-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
 }
 
-.error-content{
+.error-content {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.title{
+.title {
   margin-bottom: 30px;
 }
 
-.subtitle{
+.subtitle {
   margin-bottom: 30px;
 }
-
