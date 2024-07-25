@@ -59,8 +59,8 @@ usersRouter.get("/me", async (req, res) => {
   const userId = req.user.id;
   console.log("the user id is ", userId);
   const user = await User.findByPk(userId);
-  if (!user){
-    return res.status(404).json({error: "User not found"})
+  if (!user) {
+    return res.status(404).json({ error: "User not found" });
   }
   return res.json(user);
 });

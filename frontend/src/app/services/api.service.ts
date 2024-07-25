@@ -20,7 +20,7 @@ export class ApiService {
    * @returns
    */
 
-  me(): Observable<user>{
+  me(): Observable<user> {
     return this.http.get<user>(this.endpoint + '/users/me');
   }
 

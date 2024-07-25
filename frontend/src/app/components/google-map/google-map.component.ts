@@ -14,7 +14,7 @@ export class GoogleMapComponent implements OnChanges {
       document.getElementById('map') as HTMLElement,
       {
         center: { lat: 0, lng: 0 },
-        zoom: 8,
+        zoom: 16,
         mapId: '6449a671c2187789',
       },
     );

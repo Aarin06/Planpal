@@ -41,7 +41,7 @@ passport.use(
             accessToken: accessToken,
             refreshToken: refreshToken,
             profile: profile._json,
-            tier: 1
+            tier: 1,
           });
           return done(null, newUser);
         }

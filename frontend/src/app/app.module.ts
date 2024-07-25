@@ -62,7 +62,7 @@ import { AddCollaboratorsComponent } from './components/add-collaborators/add-co
     GoogleMapComponent,
     TierDetailsComponent,
     PaymentErrorComponent,
-    AddCollaboratorsComponent
+    AddCollaboratorsComponent,
   ],
   imports: [
     BrowserModule,

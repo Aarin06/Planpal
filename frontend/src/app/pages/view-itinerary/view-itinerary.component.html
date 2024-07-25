@@ -6,21 +6,23 @@
       mat-button
       class="add-users"
       aria-label="Example icon-button with heart icon"
-      (click)="handleOpenCollaboratorsForm(true)"  
+      (click)="handleOpenCollaboratorsForm(true)"
     >
       Add Collaborators
     </button>
-    <div class="search-recommendation">
+    <div class="search-recommendation" *ngIf="user && user.tier === 2">
       <app-place-autocomplete
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
       <div class="add-item"></div>
     </div>
+    <div class="upgrade-msg" *ngIf="user && user.tier === 1">
+      Upgrade to Travel Master to unlock Google places recommendations.
+    </div>
   </div>
-  <div class="col-1 sperator"></div>
   <app-calendar
     *ngIf="initialItinerary"
-    class="col-8"
+    class="col-9"
     [initialItinerary]="initialItinerary"
     [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"

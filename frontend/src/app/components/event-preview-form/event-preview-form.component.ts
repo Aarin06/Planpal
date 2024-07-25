@@ -38,24 +38,28 @@ export class EventPreviewFormComponent {
     });
   }
   ngOnInit(): void {
-    this.eventApi.getEvent(this.calendarEventClickArgs.clickInfo.event.id).subscribe({
-      next: (value) => {
-        this.newLocation = value.location.location;
-        this.eventForm.get('eventName')?.setValue(value.title);
-        // idk why no work
-        this.eventForm.get('location')?.setValue(value.location.address);
-        this.initalEventData = value;
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    this.eventApi
+      .getEvent(this.calendarEventClickArgs.clickInfo.event.id)
+      .subscribe({
+        next: (value) => {
+          this.newLocation = value.location.location;
+          this.eventForm.get('eventName')?.setValue(value.title);
+          // idk why no work
+          this.eventForm.get('location')?.setValue(value.location.address);
+          this.initalEventData = value;
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
   }
 
   onExitForm(): void {
     this.openEventPreview.emit(false);
-    this.calendarEventClickArgs.socket.emit('closeFormEvent',this.calendarEventClickArgs.clickInfo.event)
-
+    this.calendarEventClickArgs.socket.emit(
+      'closeFormEvent',
+      this.calendarEventClickArgs.clickInfo.event,
+    );
   }
 
   updateEvent(): void {
@@ -78,8 +82,11 @@ export class EventPreviewFormComponent {
             console.log(newEvent);
             console.log(prevEvent.view);
             // prevEvent.event.location = newEvent.extendedProps.location
-            prevEvent.event.setProp("title", newEvent.title)
-            prevEvent.event.setExtendedProp("location", newEvent.extendedProps.location)
+            prevEvent.event.setProp('title', newEvent.title);
+            prevEvent.event.setExtendedProp(
+              'location',
+              newEvent.extendedProps.location,
+            );
 
             let sendEvent = {
               id: newEvent.id,
@@ -87,11 +94,10 @@ export class EventPreviewFormComponent {
               start: prevEvent.event.start,
               end: prevEvent.event.end,
               allDay: prevEvent.event.allDay,
-              extendedProps: newEvent.extendedProps
-            }
+              extendedProps: newEvent.extendedProps,
+            };
 
-            this.calendarEventClickArgs.socket.emit('updateEvent', sendEvent)
-
+            this.calendarEventClickArgs.socket.emit('updateEvent', sendEvent);
           },
           error: (err) => {
             console.log(err);
@@ -109,17 +115,22 @@ export class EventPreviewFormComponent {
     }
   }
 
-  handleDeleteEvent(){
-    this.eventApi.deleteEvent(this.calendarEventClickArgs.clickInfo.event.id).subscribe({
-      next: () => {
-        this.calendarEventClickArgs.clickInfo.event.remove();
-        this.calendarEventClickArgs.socket.emit('deleteEvent', this.calendarEventClickArgs.clickInfo.event)
-        this.onExitForm();
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+  handleDeleteEvent() {
+    this.eventApi
+      .deleteEvent(this.calendarEventClickArgs.clickInfo.event.id)
+      .subscribe({
+        next: () => {
+          this.calendarEventClickArgs.clickInfo.event.remove();
+          this.calendarEventClickArgs.socket.emit(
+            'deleteEvent',
+            this.calendarEventClickArgs.clickInfo.event,
+          );
+          this.onExitForm();
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
   }
 
   handlePlaceChanged(place: placesSearchResult) {

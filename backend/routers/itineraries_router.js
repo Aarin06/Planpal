@@ -140,14 +140,14 @@ itinerariesRouter.get("/:id", async (req, res) => {
     const itineraryMember = await ItineraryMember.findOne({
       where: {
         ItineraryId: itineraryId,
-        UserId: req.user.id
-      }
+        UserId: req.user.id,
+      },
     });
 
     if (!itineraryMember) {
       return res.status(401).json({ error: "Not Authorized" });
     }
-    
+
     const itineraryWithEvents = await Itinerary.findOne({
       where: { id: itineraryId },
       include: [
@@ -244,7 +244,6 @@ itinerariesRouter.get("/", async (req, res, next) => {
       ],
       order: [["createdAt", "ASC"]],
     });
-    
 
     // Check if data is retrieved correctly
     if (!itineraryMembers || itineraryMembers.length === 0) {
@@ -274,8 +273,6 @@ itinerariesRouter.get("/", async (req, res, next) => {
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
-
-
 
 itinerariesRouter.get("/:id/events", async (req, res, next) => {
   try {
@@ -299,7 +296,6 @@ itinerariesRouter.get("/:id/events", async (req, res, next) => {
       ],
       order: [["createdAt", "ASC"]],
     });
-    
 
     // Check if data is retrieved correctly
     if (!itineraryMembers || itineraryMembers.length === 0) {
@@ -329,7 +325,6 @@ itinerariesRouter.get("/:id/events", async (req, res, next) => {
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
-
 
 // itinerariesRouter.patch("/:id/", isAuthenticated, async (req, res, next) => {
 //   const message = await Message.findByPk(req.params.id);

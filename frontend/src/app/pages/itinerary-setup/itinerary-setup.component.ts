@@ -32,7 +32,7 @@ export class ItinerarySetupComponent implements OnInit {
       location: [null, Validators.required],
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
-      description: [''],
+      description: ['', Validators.required],
       title: ['', Validators.required],
     });
   }
@@ -44,7 +44,7 @@ export class ItinerarySetupComponent implements OnInit {
       // Handle form submission logic here
       this.itineraryApi.createItinerary(this.itineraryForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
           console.log('Form Submitted', this.itineraryForm.value);
         },
         error: (err) => {
@@ -57,7 +57,7 @@ export class ItinerarySetupComponent implements OnInit {
   }
 
   navigateHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   handlePlaceChanged(place: placesSearchResult) {
