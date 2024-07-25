@@ -8,9 +8,8 @@ describe('TripPreviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TripPreviewComponent]
-    })
-    .compileComponents();
+      declarations: [TripPreviewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TripPreviewComponent);
     component = fixture.componentInstance;

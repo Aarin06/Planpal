@@ -3,7 +3,7 @@ import { Message } from '../classes/message';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-
+import { user } from '../classes/user';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,12 +20,14 @@ export class ApiService {
    * @returns
    */
 
-  me() {
-    return this.http.get(
-      this.endpoint + "/users/me"
-    )
+  me(): Observable<user> {
+    return this.http.get<user>(this.endpoint + '/users/me');
   }
-  
+
+  signOut() {
+    return this.http.get(this.endpoint + '/users/signout');
+  }
+
   // addMessage(content: string): Observable<Message> {
   //   return this.http.post<Message>(this.endpoint + '/api/messages', {
   //     content,
@@ -56,7 +58,7 @@ export class ApiService {
 
   getMessages(): Observable<{ messages: Message[] }> {
     return this.http.get<{ messages: Message[] }>(
-      this.endpoint + `/api/messages`
+      this.endpoint + `/api/messages`,
     );
   }
 

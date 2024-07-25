@@ -1,5 +1,5 @@
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
-@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
 /* You can add global styles to this file, and also import other style files */
 html {
   overflow: -moz-scrollbars-vertical;
@@ -25,25 +25,24 @@ body {
   flex-wrap: wrap;
 }
 
-.page-container-padding{
+.page-container-padding {
   padding: 70px 0;
 }
 
-.title{
+.title {
   font-size: 40px;
   font-weight: bold;
 }
 
-.subtitle{
+.subtitle {
   font-size: 24px;
 }
 
-.content{
+.content {
   font-size: 20px;
 }
 
-.subtitle{
-
+.subtitle {
 }
 
 /* 12 grid bootstrap layout */
@@ -198,5 +197,11 @@ body {
   cursor: pointer;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

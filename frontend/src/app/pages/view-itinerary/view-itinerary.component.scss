@@ -1,12 +1,18 @@
-.add-item{
-  width: 100%;
+.search-recommendation {
   border: solid grey 1px;
   padding: 10px;
   min-height: 50%;
   border-radius: 10px;
 }
-.itinerary-container{
+
+.upgrade-msg {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.itinerary-container {
   padding: 40px;
+  // gap: 20px;
 }
 
 .fc-event {
@@ -14,5 +20,19 @@
   padding: 5px;
   background: #3a87ad;
   color: white;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+.add-users {
+  width: 100%;
+  border: solid grey 1px;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#external-events {
+  width: 100%;
 }

@@ -1,0 +1,669 @@
+{
+  "places": [
+    {
+      "formattedAddress": "205 E Houston St, New York, NY 10002, USA",
+      "location": {
+        "latitude": 40.722232999999996,
+        "longitude": -73.98742899999999
+      },
+      "displayName": {
+        "text": "Katz's Delicatessen",
+        "languageCode": "en"
+      },
+      "photos": [
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CvI7buTrn2lmeM6MscbQ4PJgiYa3LRwMT8FbON2-x6HAJvmkR9sbc1fXERsQ0vPjADYIcUTLEbLyNfKfqnlnUaheprhjHVa--xhLk4Cnqkll-NTXBKkUWbF9zHB213dzmn1eX-QAE3CPCFMZJ3BBIHpU9A12ywoLP91",
+          "widthPx": 3396,
+          "heightPx": 2240,
+          "authorAttributions": [
+            {
+              "displayName": "Katz's Delicatessen",
+              "uri": "//maps.google.com/maps/contrib/103429166294766916333",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXip49YUJ_qR81enyBZujdzcakGDx4hyKiajqZqp9IQjkjdexg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CtfKWg-X5Yj3jcHpTLFOLiUGGl_bRCcZQlgbCbT6ZjKgcOpQJ2O6CJ-d7BnnsSqhTUKFVTZOF2-sYOUmqk1sH87xNUkgnSYPvTEukcS2g3LJa5SOdQa3JPpT8w5jqpjUt626YAks4Elbq_ETViM7V0MYvJ7bILdaS-E",
+          "widthPx": 3640,
+          "heightPx": 2432,
+          "authorAttributions": [
+            {
+              "displayName": "Katz's Delicatessen",
+              "uri": "//maps.google.com/maps/contrib/103429166294766916333",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXip49YUJ_qR81enyBZujdzcakGDx4hyKiajqZqp9IQjkjdexg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Cu5m8FL0ePn-QIGrT91CGV8oDo4WA0cJ3j5iQ1JUZ5w8VlDM_Ij6KIEmntQa0SFNK9AlKx22yyEoDXOyRdr6xltR6BbWo45c_fM8EK_SkRGXyOc1aK4s7ZopO54rX2_BYVm06rQ6EXJd6FiHX8JGDhOedwlxn6ghlji",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Remerie",
+              "uri": "//maps.google.com/maps/contrib/100130897112425139815",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVAM4D7I8sbubz1lYkfPYJRyjZGtq5Jeo9-SDim98dQbAVsxebYrA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CsDP94JNM8NBjfsSJnncD8GDERVk0G3pwUg864uvXGlaxllAExTi_zkmTNErH2UTRRlJ035klAhjv1EgPoew6HedPTkhw83--8ahCTYUMjzyORG5bET0I7SZwEgngI0lroXpcx8imX2BuTlkBE7Sc2xe4s6qu6IDfAt",
+          "widthPx": 4032,
+          "heightPx": 2268,
+          "authorAttributions": [
+            {
+              "displayName": "Jose Gisbert",
+              "uri": "//maps.google.com/maps/contrib/106971806891868370316",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLIERvb7vG9on-b5Qp6bkXomNhK7-14sfKQgd7YVaqLKIlUQQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Ct0Vrlk6slAP2paWOtXbkV0SD_gPwQejnYTvtdPZm5-7etlRIaZFb2cux8GalNLWcJ2dIE0iTH2ceABzMXE6B3Y0W1YSq6UvvZI0zm3JuqbU5W7Ek1W6f0Uw61AxWJkhb2DI4_SgA5fnJXg1X3YyMCvkghJSAM5id_i",
+          "widthPx": 4080,
+          "heightPx": 3060,
+          "authorAttributions": [
+            {
+              "displayName": "Luis Alves",
+              "uri": "//maps.google.com/maps/contrib/112502179359191284905",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjUGP_wplMohCXDCIWyvWsgtDXSSsAP8X4IGuHEpK2pwwCCVl4-rLg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CuN0G4et5a7qZiRzVUOaKIWD5pcQjj-jZbO2P_Fbs_MTmm8yyoSp1hQFzuUOx6ff1sHpDu2rWeMv4k3-53OQW0Nr-XNUX5kLKDlEG1e1xV95jhSveAH5Ny_PENYpmaPquGdtwM9qMn-QOzCxs9orQjQoFa7YEWQaKd9",
+          "widthPx": 3600,
+          "heightPx": 4800,
+          "authorAttributions": [
+            {
+              "displayName": "Stefan Radu",
+              "uri": "//maps.google.com/maps/contrib/117239663331118146908",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWAmRmQm0WthMXu2FqHFiQ4EsiR2kAmRvq1G0tK6YRMiEZr9YLJ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CtSK1ypWyMl8c0Bd4uFYFf-w22Gq2NmE57trN3KW6M85zYtPh6udGaRDPKWZYy8oI3HkahIUsE82bm84WhYKf8qiXGi-Ah1pVqFBDF1Z_3hoZ06_PFFa-ajSbB9Mkd5SKanDvvH5JNS4Nix_0OWQXnfAj3LLAC6S15X",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Avijeet Sen",
+              "uri": "//maps.google.com/maps/contrib/117541567004086369769",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU2O-Ka2qb-gc-yeDiMN99jHPTtgbAMroDxss7J3Zu7wwUmlKob=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_Cs_2xH-PzlwoF4wG-iV0u5QCP-eGGrKDuIt95A6-XLXFs7RSLY8-CHu0rGpNLO9aKX-vn5xOIjvY_MauJuSps8zmYRBOdCXpyEa4CeGm-bfar96bR0Ni0G7FCc2z8mPqVp4s1m9sUonvl5aUSndiPXfz4rJNqycpjlm",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Thamarat Chokwatana",
+              "uri": "//maps.google.com/maps/contrib/113740394545732670441",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjUlZNCVQ8i-LahsT30GOdj9i_EDEXAFmTgDfVzlbuxAgcx84VZz=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CsAajPmf2ybtnHZSenBE5HOD5I1BdLpxV4HqvnZgR2YHG9fIlrUovp9B2FKx19mGDkRnKt5OOWMizVkotM3FYszk-FMOeqjNXIfQNpQv5rMK01hylznhBtEBl-N5HtL4QDW4k3V-j7gzBO2oa8_epum-xCU9Qp8Ji22",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "ary goldsch",
+              "uri": "//maps.google.com/maps/contrib/102359126508486203065",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJCRXFdj6o2_2zyVK6IQB84C_P5aDuMeie4PTWSmm4K8VJ3Kw=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AelY_CuwShpg8oT5H-MNNq4tFepuV7cgzJp4XMp1HpprZw2hooJ5JgwUsLZRp-d06uQnhmc7Y8_Uo2m17A1yx2HTYSPvLcM7_lJtlNtCEi_L_ogA-lJvE1P17JpB6w3dAlOX37H-bblqznTtD8dZhS9eiQMXrD9M2YLU4J9W",
+          "widthPx": 4000,
+          "heightPx": 2250,
+          "authorAttributions": [
+            {
+              "displayName": "Paula Czaja",
+              "uri": "//maps.google.com/maps/contrib/115367625921233125498",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJ2AcX3VTzJRk6v8r3GxucStd6pOyuCH3bJe1ymeu9IoO0Ieg=s100-p-k-no-mo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "formattedAddress": "55 Water St, Brooklyn, NY 11201, USA",
+      "location": {
+        "latitude": 40.7034205,
+        "longitude": -73.9921457
+      },
+      "displayName": {
+        "text": "Time Out Market New York",
+        "languageCode": "en"
+      },
+      "photos": [
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CuykNRiUWQIWf_Z8aORLxNaYvyydwHigdPYVZBXb51O19shtb6kFSY7BY4CIQsMUfzeyT5ffUkwIonTWkQ3V4LkPK_dWIUS2zTXrBRoMWJMUS3eiIUL9edv2-rSz2ymEtdPQQwz1p_Z1Vn2YLGMc-rUncxNqd-nrBu3",
+          "widthPx": 2048,
+          "heightPx": 1536,
+          "authorAttributions": [
+            {
+              "displayName": "Time Out Market New York",
+              "uri": "//maps.google.com/maps/contrib/116916789191377156975",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLLkAxm7yf2KyzYjaouF7b-ZKsscClBX2rmBfQA6MZtq91zsg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cu1yZQhdEgJTil3AlLcFEpTKcB0f8M1y6vzOOjVKV811y9nxCSZs2Xm4PonO_Tii-hvPsT1E8ZWnqUDodsAKaP6GELHfwqPl0GNNf2p_3T8D5PFqvdHegYZoAtzDF3ZZGwF_A9JLBK9QhezYSBDubdinNreIgD2VIJ3",
+          "widthPx": 4800,
+          "heightPx": 3599,
+          "authorAttributions": [
+            {
+              "displayName": "JJ Jones",
+              "uri": "//maps.google.com/maps/contrib/111139605921648680928",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU-ynwbX_SquJreIm-8ohIBKxYDvaiV6kOakZhk6TRev8Jwbari=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CvuDyQF9AKYARvdLCbgNY8PXfg11-ofVoRLSOK8imfVJIaWQDOn_2VKvV6Sm-BTq_kb4pucwSeDLXeYTK7MBJspACBRPLssNZSFycZzrcS92tzyzIElDmHbLIT0c0Yto3juksDw9aRiBxScFvmzcLvcwMjow_VjMc2d",
+          "widthPx": 1310,
+          "heightPx": 870,
+          "authorAttributions": [
+            {
+              "displayName": "Time Out Market New York",
+              "uri": "//maps.google.com/maps/contrib/116916789191377156975",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLLkAxm7yf2KyzYjaouF7b-ZKsscClBX2rmBfQA6MZtq91zsg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CvVPzUNKmvgAEy8FHAboUBIQrd4XV9FHScAAjbH3ZD9oa6-in8FAe3JckPPMc_NONhalJCK90jH1VyvNU6yhuPCTUN3ENVjJkT66Vtsh4kXGof_4TG-WSXoOgsGuzWEiw8BhP4IGzyNa-XHkJoRNzjkHIKYUla3-4DK",
+          "widthPx": 4000,
+          "heightPx": 2252,
+          "authorAttributions": [
+            {
+              "displayName": "Alvaro Bravo",
+              "uri": "//maps.google.com/maps/contrib/101028760890667739703",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIa7cO16eJ2vFIFzu5NQt41SHHCgbuCdcGJML-BuLDhiJyntA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cspq90G_MVLiXhqhOzlOpQZmTyHwdTTO1faYKNG3sYaWfpJAWWnpNT1wL9DHwvi7uCCo5zT2OPeGTl23J5J9tFnV2DCNdijZ8xP1X4hCZy7FazJX6LVnBuIEqhm5sinMJ7xCTaz2TeOjCpBKe9N1-cywKKMM1qF1yA",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Rachii Fuentes",
+              "uri": "//maps.google.com/maps/contrib/105291866453854308769",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWwdKCNHrwTopb-6lNgs_cqsRLd1tZD50MLi_-dvEOI3QGMr2PW=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Ct6es_6XLJC6q2LEvrlhOr8q-PnZkxE-4jqKAPHK_6DW9IPi09ZObdMcwixAJSqBtxuBsg7mrMAjPPU77ujVXwVg1NrvJs2XI_B255BuZLDGhCuLzYs3XfRen0ZQpJdISQc6_herSBOHTppqYVQODQ_-P2Kaua8IQL4",
+          "widthPx": 839,
+          "heightPx": 471,
+          "authorAttributions": [
+            {
+              "displayName": "Time Out Market New York",
+              "uri": "//maps.google.com/maps/contrib/116916789191377156975",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLLkAxm7yf2KyzYjaouF7b-ZKsscClBX2rmBfQA6MZtq91zsg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CtBJaWmgBshd_DMg_yAt4Aqya3BMqCad47DCmiX7yjJZ2tp6MagEX0P0KYJMtf-bJjyCx8etJXV0ClJGGqXJEljlB7jqKxbyBqTG5Jc_bb98Nh_mLQVVRXV_zuc4ArNytFndyc8YXdOfN8KAtJlGrHBvft_ioMKN0U0",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Kat Floria",
+              "uri": "//maps.google.com/maps/contrib/107046634713342195460",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjV22ZF7EKzdnRIc56980XX7B7BtiKPq5QDnLHthOYZEItFyY9BK=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_CtWHyO3daxSSNA7xOdQ3YSRWlwxsSOaL8HsstcPMpYPZRYvwiUQ7EW4o_KydjCGK4LaOKc5QukB8JidRu99K_2-NdD5G6FhJALSSarLZpJScgE4ex5h7eqCbegFcy_s0NqePqcDPrLGyL_byh-U-svYUP0gcaz0_ogg",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Roberto Procaccianti",
+              "uri": "//maps.google.com/maps/contrib/112499852364197099941",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJLw8C6OQbAAyEWbnZRXZ-5SLSE_JF0vj8okYqLvBMPRLESQg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Ctvp_4zXaP4zZVW2XtHJRWDbQn5cEFp_YvqqMi07mkDADEqyW_RPv0pjsgsk49c3alfquvnc-HieKSH4BBuxj5sYOOH9sJ17hPrpVlE4Gb7g3bwuyrB53FnWHRwFcKV95Q10vk80O_SGWNBnVO8bno1kEpOi0fzYWql",
+          "widthPx": 4800,
+          "heightPx": 3599,
+          "authorAttributions": [
+            {
+              "displayName": "JJ Jones",
+              "uri": "//maps.google.com/maps/contrib/111139605921648680928",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU-ynwbX_SquJreIm-8ohIBKxYDvaiV6kOakZhk6TRev8Jwbari=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJ9aMCWaxbwokRZHJGmTBxFtQ/photos/AelY_Cv1yu1McjvRUHZC5iA-rvlEA20FAHG9yu4UlXpxkDNR9EXwS--pKUX249czTDFB5RIEEw7JXh7T6hUhbXqV3tvCoYSZVn--m0Pq37O0SF-xT0Z1sLkd-QemX_6Tox55b1mFYaQQxZaT5QVVG1_EZcuhp_yZ2lio2bLP",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Ezequiel Castillo hidalgo",
+              "uri": "//maps.google.com/maps/contrib/106232472422749666491",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjX8FLLaqlOhg5EA0uf9d2VHopREu2IjZn55OLjHbjGCBhINkk3-=s100-p-k-no-mo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "formattedAddress": "380 Lafayette St, New York, NY 10003, USA",
+      "location": {
+        "latitude": 40.727593399999996,
+        "longitude": -73.9937017
+      },
+      "displayName": {
+        "text": "Lafayette Grand Café & Bakery",
+        "languageCode": "en"
+      },
+      "photos": [
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_Cvumk9I4MiL-YR0fviSWP1I2AXcPSItPD4ZfwPhErAI_HJ1E6xl7YkHMPWI7zDK1UF63XTF8OedKVz3Pp1WyFBW4XrYY9JVsjOEKo1-YY4voy41cfA1bCJH2rtLcafcNPxPWazTICIBjNBEASNSksLgtWl2KXQF3fQ",
+          "widthPx": 4800,
+          "heightPx": 3200,
+          "authorAttributions": [
+            {
+              "displayName": "Lafayette Grand Café & Bakery",
+              "uri": "//maps.google.com/maps/contrib/101194984184999314647",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjV9KfUABHrN3lhA1mM9tCmHoZCubkLWX3eEo_vVJlCrbMSvAw=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsYeenDoi2B9Dv8VScPweP49TbLvfy_h8AFjKQzYx0KGixCp99sr0TjjqWcULIxo3gmsezrdSLjL7RCIxsHvMGxoCOZtS4b0p4VfT0dGqAfXdzLgP1bfcWw3ZO-z7rBCEni-AzfeMq9o8H4zqs7wlkyaS5npLqKXJsI",
+          "widthPx": 3024,
+          "heightPx": 4032,
+          "authorAttributions": [
+            {
+              "displayName": "M L.",
+              "uri": "//maps.google.com/maps/contrib/116957634202707188902",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLUwnPsrlRULlPN2Dv1YC6sx599a9vIkjuad4Nm0RQmS77KeQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CtLSCR-4_9uckHhHJumLUs4ngU6-DTDZMnKQY8TFyN6EWOOR8d2o8R1_Sw5jZZZKRUks4s_N8pPYmr-3SDp_4EgZDtVXnaww5bvqzTga9EuwxZXQRWJ_-371aQsxOW-HGHzFcaHlb7QHoO4SjPwoaTM2UDYhhDTPPLb",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Julie Xiao",
+              "uri": "//maps.google.com/maps/contrib/114918897175635007309",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVrRrGE8kYdCw2I38Do_lo7n-KwauvoflcrQLJqdoZKNuTUxXl6ZQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsiVDbRCNQPSNsPb1KKsG-P-xfRmuciDuseQS3mypXDSt9XIiMY47QBWIAylr9Lk5I0AWCMJdRX2yEM3xvRI9VFlltwHX85bb3YmilQ9UUOfR2L4RApRjhd-w7Eop1JJheoynPkMkj7p5O_-lTJmMOcLFzg2cUSS7od",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Het Patel",
+              "uri": "//maps.google.com/maps/contrib/116790503847607435934",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjX14rkNlgk4eejaEwX2tk6oKYyNthNO412LcRmy8VgcG5vdg3GmxQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CtLNF7tw26mL1Oo3V6AVs4e1BDSspmcRdTc5CX6wDIct3oL-TFV9nnUMYv53VzJlNXSU0a6z1MZig0UVlzolq0xs4511E7KVwvEjkU_-Uext8H1kDqTdSbQCXH4MYcIZbzvcnW76KByQyV4Uf0OC_p8kIgRq743vVwP",
+          "widthPx": 4000,
+          "heightPx": 3000,
+          "authorAttributions": [
+            {
+              "displayName": "YUNA CHUNG",
+              "uri": "//maps.google.com/maps/contrib/116894404934063158525",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXzvgKmLhLIs0bXtSpN_Jx1dfiELJTpMd17TckNNK_SelNHztWb=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsmC1KeRokj2K8V1x29Q7qVjfoWbRcOmmjbeWKnGJdAdm5ACwZRFc718kHQRgJ-lMzsw78RA-7Zz3jjW-8lO80l3VDGe1bNIc6llK7w5JOBO9XSHj0plm47CMXax3NuDKFSl26_lU72IEm2TAqD0oHXJw0RJaClMwU",
+          "widthPx": 4800,
+          "heightPx": 3199,
+          "authorAttributions": [
+            {
+              "displayName": "Lafayette Grand Café & Bakery",
+              "uri": "//maps.google.com/maps/contrib/101194984184999314647",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjV9KfUABHrN3lhA1mM9tCmHoZCubkLWX3eEo_vVJlCrbMSvAw=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CsrQr94OWVdlPRoLLmjJPTXBWQ8tWeDr0qTCJ2dqCGYSqob_S1UUaDPXX2_YaCcVBAIEV7BplMMQGYejvfnhKha9kTmbe2FqEl5GjUq3Q9TgDqiMGD2mODIRqIBJzI3DIO5a7_xal04BHuIvoGvv0j9n4YgtpRZ4xZD",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Leo Hidalgo",
+              "uri": "//maps.google.com/maps/contrib/105330994423847217131",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXoRWLbsDv2dlB6-ChwopbnpyUUt1USKlbgYACmO0aNDUTP2KFkYw=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CvAF0DqOsQqznCmTEZI-I1250bdCcTgVJw8M8IvJFGvt0gX8AFwKsaX0u_CDgg8re_QNQFWjcomhtoSjKH8-JhRSivu-eP2SDeJ6Di8QPn8eVdN8cZewjE1gBssn-TE9UbToVk2PxTpMxSVmGlp-yKH9kjbkZygdRgI",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Pyetro Curvelo",
+              "uri": "//maps.google.com/maps/contrib/113294614288583371006",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU48LR34pPHt6HTWe1CrH4iSu-SlulJcOcLn3UHVRkPXe-dCK5l=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_Ctlhy1wWjxp62a__s7-1NmEpA32b6Me1jBI26fskGSM9dlWDJxFGG1bf06wM20E-8Qns5N42if-6zxY7pazLmkhm3WD-TL50R-rqBwlad79wRBFaCRVFpSFKU1Wn99WgTb86q4budANrWjUaUf6QLaVWPBgn2NO6AM8",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Pyetro Curvelo",
+              "uri": "//maps.google.com/maps/contrib/113294614288583371006",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU48LR34pPHt6HTWe1CrH4iSu-SlulJcOcLn3UHVRkPXe-dCK5l=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJBVtTt5pZwokR48CgdYqHma8/photos/AelY_CuBDGS3jjZPZYXaXUM41Ljjqoy0zOkdltZVxbmz91RGmr8_DriQJgOQ9EWENnL2MrnNVl8xp7tYVztjMhYT7Pp3uubD3d0tsvhSiprGrHwNiNrdyqKq0TR-C04wDbRVv2OF9LMdm8AAdQCZEAYq3rWqOFOkVtl2Q3OT",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "D. M-P",
+              "uri": "//maps.google.com/maps/contrib/105476757798113687105",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLfBkT1KQVgNztH0exgH8RvRA7Lf6kFEfqRHZKnghA7IaqFgQ=s100-p-k-no-mo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "formattedAddress": "89 South St, New York, NY 10038, USA",
+      "location": {
+        "latitude": 40.705573,
+        "longitude": -74.00145669999999
+      },
+      "displayName": {
+        "text": "Pier 17",
+        "languageCode": "en"
+      },
+      "photos": [
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CvI9WGkF5EoqX0EtQpMYD_xdheQVjXvBlk7iyU3Z4IcxEkhufih7lLFNrh8U13gBUjwxwg_lQZCMVZZpCAejajhZuIdOtCzis9ru2DegfKYQc2M7NHdE9qb_i0tim-26Lii6DO6GX76QIHtNKY5weqvLS_75AaBXeGx",
+          "widthPx": 2801,
+          "heightPx": 1575,
+          "authorAttributions": [
+            {
+              "displayName": "Pier 17",
+              "uri": "//maps.google.com/maps/contrib/110644808048080808242",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVtX75MNiUFcIMzZ7tdcDsZChDrbu0Bw6CycCheNbncaUZFkmo=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cs2CAB3QanMpNl4D05JxUe8dIdqaS2WuIdXxtRre2t0naGsPGqLPa0jO-S4tQMa59PPm_ocy94jTYAWoheCrZhV83dhn_mAniKk3V_-2lUN-UJF5RA0MN96TMQ_oKfNk6xhgPChhs9FPxIgdsKJGUpNmqRnAKqlJ9qe",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Mario Adamo",
+              "uri": "//maps.google.com/maps/contrib/102805297835617828311",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjU65jENHveyoJM5g32QwdWH5LsX1Q3c7maY6_Y0IJr5PIz804njyQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CtE_-J2miW6TiFGH4FCQiYyrxnV9Zkn_MkA8TG0jcVV4WJ6YjeW9ST07Ki-72wVdWF6mz3PZUa7xg22NHJFmXe-m1Hud7uZqhbdZzEDC5Z3uTcAjGNzShMe2TIeyL-WX1OQB1pQDEr2kYKP5jDPnyAhV_bndqXdrY22",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Mir “Miirkat” Khan",
+              "uri": "//maps.google.com/maps/contrib/115767123126429480434",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXnktPM5X4ZpPEyTkfKeKP9j8NtsIxJWnEFSBReQnslDxEypt0WNQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CuU2j7KNwlyGHWmb6zt-_7orU4iVJ7JHZnM6onpZNZI2uFaedMRvDWvYWsIRvppaTqPnwTB-e5xEmULONabEigTYfU_cpKQwU5N5FMn_bArbuL1lp47W31u-gGYNSRy5jzKk8_08DCS-DVpxU-BK-grutKpddWAKN6K",
+          "widthPx": 4080,
+          "heightPx": 3072,
+          "authorAttributions": [
+            {
+              "displayName": "Fernando Kuhn",
+              "uri": "//maps.google.com/maps/contrib/113665446487979326887",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIt6u-pKk7a81J-6ux6w7HJhXuKFXH4VUT95Xf8mACPhpzEug=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cu9tz-dZA2bVARlLaJEw2kwIvMhORwmXreJlPAAZitiGeigIvjnHXXucEwOtsihSzv13JOnLuye5IkZN9J40ZAIpRt1lFF_Fzh1CWYSY2C6WSSwcCj6cPEQCuZ7hzS8QxHwwzozNbbr--FmCaUi-LZGsgJZhgoPtAZ2",
+          "widthPx": 4080,
+          "heightPx": 3072,
+          "authorAttributions": [
+            {
+              "displayName": "Derrick Dover",
+              "uri": "//maps.google.com/maps/contrib/117763565972426792815",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWZe-Np839Kj3hz1OlR8u8MHzYrXWALQtGnInTbfOjNqwyQjFSUQA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CsFE9x8Vw2oRqQByQfQp3ZsiMnARLSxp1isYXzN9iPY2ZsStYCibaysW_ig8HKfZ3B_n7WKo5weh2YjxqdkHmp-X_0a4SJFGSp4Dwb69QDAp_LQbQ9QCfhdDcf0BFzb6oP35YwBSGbI_yJteKYiplzPzFDxcRy7Z6FX",
+          "widthPx": 3024,
+          "heightPx": 4032,
+          "authorAttributions": [
+            {
+              "displayName": "Amita Gandhi",
+              "uri": "//maps.google.com/maps/contrib/113960792418846423447",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXL-Lrlak6WTD5lUGRw_1WtGzf5LgsUbwpeo7S-uWaChoUh1aDbyQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Ctv47OL_1gFLPW2HygQCBjBFmX4pvGY7OJ4-1PYue8ektJPe-ezVqO2PHVLswTm4VVMC6bE_28Fdk5mF0tkYV_j_om1rQsuKRccfi4phPBd4zBCtTJrL_CftMxzTYy0BkC4ddcPRTnfVDJvebaLRIHikICWU1vl8B5k",
+          "widthPx": 3000,
+          "heightPx": 4000,
+          "authorAttributions": [
+            {
+              "displayName": "Ian Chesnut",
+              "uri": "//maps.google.com/maps/contrib/104046621033082344552",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWO0h7GObjLUuXzC9_cgkOFsebTmlp90899kpa_EufIXyFEboG9_Q=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Cu3dXMLXTIZI6lv3k9KAZgOqQo70frcPHNx3oxYVj8KJcDKhiaW1bJ2p0GUxuU1ATBMeEvgRgn24N7FtbMz9i4QstxpaWs4n4B6yyxJ75ceNkoTwpymdZOux_NOdkuiEoNuYy_7_wj1XWpnURceSrBdAwj7w-mQufMt",
+          "widthPx": 4000,
+          "heightPx": 2992,
+          "authorAttributions": [
+            {
+              "displayName": "damien guesdon",
+              "uri": "//maps.google.com/maps/contrib/103536431354863552168",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocJCe2CKEY8YR35GBu7d9PSZHKzp8agzp2bBaKhkzR3wDnU-OA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_CufhbChn9ChgKHswYRmD0yHsjZuhTjdQKTJDpKqWLbt0apAgQYdcx3K6mw4j0rSjTQAemxgTfqzj8Bp4V3fErATE8193EKsIwwQcih9tyDHzgKQzAhAYJNF7YEq-tLsWs-rAt2rQP3kEgkwY1vTPSX7GBm8g0CWY7if",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Tammie M Smith",
+              "uri": "//maps.google.com/maps/contrib/118173612414396904048",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocLMYsUvnONOqHe0YLSUWxuBK5EIFtXGmHVo2OHBk4RKkvnZPA=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJR1pTRTxawokRyzoX5XQ_alI/photos/AelY_Csdit5YNkI_aaXW2hiAqP2cdqqjZkEJBOPvEu9avUwXfPoQFkZVxtCYixql82g6rcd6ScJlurYWCyuQAzAlcEXkMeT-4zr52r7aYxkNhM3rIKOqYSvFl9tDHh9T5OIDng9ZNtBrYT-ngGRYEPstHUehYwxrD9KUtz1y",
+          "widthPx": 3000,
+          "heightPx": 4000,
+          "authorAttributions": [
+            {
+              "displayName": "Nataliya Hudkova",
+              "uri": "//maps.google.com/maps/contrib/114515653030653459909",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjW434BF2XvEt7t-BpQj1aMRdVlG27Rrf39aKh9jSon-rFkNgwPCUw=s100-p-k-no-mo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "formattedAddress": "120 Hudson St, New York, NY 10013, USA",
+      "location": {
+        "latitude": 40.719819,
+        "longitude": -74.0083829
+      },
+      "displayName": {
+        "text": "Bubby's",
+        "languageCode": "en"
+      },
+      "photos": [
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CvjawgXgu5oUzpKvqeP5_Em3fZ48-5MMQ5GrK0e5TgLCbcaGC-5qgAecE8kCSr2v-YtsaFzeuqHOlckkc_g-HqCslgC9yoTL1pOjqLGAgkTQ0PWDVlfSwYmc5J04aS1vPZ0N_sD3oTcLV8wwWXTqxCT5ZCuydQNFHXC",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "LUMA I ROGA",
+              "uri": "//maps.google.com/maps/contrib/112050007369528673212",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVv5BJrrAOQEyLfwj6loM5zgsYzn12_BCD-ZZ8mfY4dkvPZCi2Rlg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Cu9kNjq3e7yHaaXzmoeLAuBREH76pvZtyTXYso3sB_hl_LjNLnBWfPkEnhyOGoSlX4mL3_4K91QxtqwvnXMyd3_9lv6qWZYRdbigm-VYBb_pDgXZHymB7bhPnmkeCcIzlsxbtkPVP3msgKZbNpS9aBiXYBYvap6rJGh",
+          "widthPx": 2397,
+          "heightPx": 3972,
+          "authorAttributions": [
+            {
+              "displayName": "Mr. Ant",
+              "uri": "//maps.google.com/maps/contrib/111237103982088577549",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjUTUBAmzd7Vu3lji4tOAupGB5pzGgu7jHbJQgH_s9krTUwQFivu=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Cs4ZOybA2SVE73CJEOZnNh19meUExM-LFm-3s8LbRVmMHqdzoT-zsd_mREK0trZZ2uooX4EQ12X_RcOSnpv2KA1f-MBeH_qtj9_OZGeB_kV6jWzscKqLKvqlO0hbQuD0wc6Ndqin8KQzGHfYN3LAwDRUTjN3s-OwC8P",
+          "widthPx": 4800,
+          "heightPx": 3600,
+          "authorAttributions": [
+            {
+              "displayName": "Riley",
+              "uri": "//maps.google.com/maps/contrib/104603151514772716341",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWRCPDB2I7EHZQiuJenpcVxzGYwk9UFDoTuPOgGKgjGeXNuGqI=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Ct_XzYVkySUKPIe79gGVbNfwarG1fDtcOJqxPAOOkr2Kf9rSpPmmdDWF_WbtMgkGEGPFjdBa29OCUUWTKJB5Oyfk8q-ZxIf9j2ndk2DzdNHfgUT-ZWpaiY-Y8zYYU3CCMdMrswofmscqQQ99tWPI0i1UetvoN-KD5Ia",
+          "widthPx": 4000,
+          "heightPx": 3000,
+          "authorAttributions": [
+            {
+              "displayName": "Anas Shebli",
+              "uri": "//maps.google.com/maps/contrib/114078008670275981962",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjVkOhs1OXwZfHrt74BHekLVOCSBdSHQidsVZHluw7NQhggC5Fpu=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CudeQ3YnyzBc6Em0iod0A6Ugp1213d4UeN5zLuvoSyKVmJX0FTIkBPFEBk-5kJynUFrDTdMrK1_REyLArb84JCuz3RNOMQK5SKXfkMTkzvJaLeG9iAD3jcAyU4pVIDhIwIf96ap_tc9bSUGn0VvJdQmysSwZaAPFnc",
+          "widthPx": 2807,
+          "heightPx": 2807,
+          "authorAttributions": [
+            {
+              "displayName": "Sifrah Hewis",
+              "uri": "//maps.google.com/maps/contrib/100536439829389204717",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIQSh8-2DR8p_nmfzPeDPqmMXRdb8buw7jnnagwnOhEWOFzWQ=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CveVSj_jFHc6jVkJgJb7sOPc_dnmQyUzC8M2OvoouteOlKD9ArOo1LkvG_3itfLMWlri_LQfxuXz7xfrlItNDudwvsIXcxV_c_tnOHFYXQg--BnJs7Efcsk1Yq92mDM-0ROFnFe4tpZyJxXTW1SGyapMrrIVdlQnJO4",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Stephan Lendi (Sprecher & Moderator)",
+              "uri": "//maps.google.com/maps/contrib/114192950982698280559",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXtx3zXcRygBMZaqEfx3zb6ZKdx-2LzzHJ05Oa4PjmgNJnJqH11=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CtdBSxwoS4IP46Z26MctG3tkaeedv4jYMR4fvjNE4Wx5JRyCdWyX9_ez_VDFG31ESdRfltel4gDw32FyXOTA6pnIb7soSQ_hwbO6sD0bWmBKtt0JRe3hypOz2NSI95fpPlSKUpkH6YFjzyZbYRjIhxQIYlkJMthPX_I",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Adriana De Pitkin",
+              "uri": "//maps.google.com/maps/contrib/112869942406938056114",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjWBTTxK0GoYh2DPhdI7S6CmfD-tCEW_KYmrrwOGOtPHP6fMZlPH=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_Ctxqhp93aY2YhqweppBCUHqDYGRZNXqTF_rDfH42MGxZXmpv-Spuamp4TNUJu_WyIY5gjP9q0RG7ueQQnUdtTN-W0Dnmw348KlygpQIxTJZFZzp-x0enWd4eqJ6xWHVH8N9o22cc1ZNU9PZJHYjjEWDG-uHQrq-NBnt",
+          "widthPx": 4032,
+          "heightPx": 3024,
+          "authorAttributions": [
+            {
+              "displayName": "Stephan Lendi (Sprecher & Moderator)",
+              "uri": "//maps.google.com/maps/contrib/114192950982698280559",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXtx3zXcRygBMZaqEfx3zb6ZKdx-2LzzHJ05Oa4PjmgNJnJqH11=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CsRGf81UWjc9DSKyWSyvXEn_6M-rDGl8wMH7P90jBv2bBYZciBuyYlbKy6ZGwjTzfYUF_86Rq0JRX8kx8GrR2qnGC-UoXexvg9Dv2mdHEpJWvKTe9fl3cTCgB96nQH2MJsDABlvziFfgYIDC-RYoOXoOys63d8Fk7Hp",
+          "widthPx": 4000,
+          "heightPx": 3000,
+          "authorAttributions": [
+            {
+              "displayName": "501Learay",
+              "uri": "//maps.google.com/maps/contrib/109182155809221309935",
+              "photoUri": "//lh3.googleusercontent.com/a/ACg8ocIUzJDLntcFGfKCBqKia9g4OW7GQlP2MaThVK4mlviW2hQNxg=s100-p-k-no-mo"
+            }
+          ]
+        },
+        {
+          "name": "places/ChIJETquaPVZwokRVYYGSKrg4E0/photos/AelY_CsA-ZDysWGVTmprtSDoNFqXSsDBDX5zkVMIJFEDFP7YRSvaF7Amr_bB7-yq53tlSxHc0WKg1-sefw3q8cumsdBgh0Rbdpiodj9HVXzaMB0in0064AemvlJHbSX9LzHh3T0Vcnl67PaHwqYOSTJehYgOnT2pZlo_X3VM",
+          "widthPx": 3870,
+          "heightPx": 2678,
+          "authorAttributions": [
+            {
+              "displayName": "Jess M",
+              "uri": "//maps.google.com/maps/contrib/116124428502312347790",
+              "photoUri": "//lh3.googleusercontent.com/a-/ALV-UjXgf6PQeU2h1xbApZxu-D7zh3f4ciCvUlMvEEYiKFQZ_XTBcIFWHA=s100-p-k-no-mo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

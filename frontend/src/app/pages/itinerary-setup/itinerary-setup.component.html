@@ -1,24 +1,40 @@
 <div class="itinerary-form-container page-container-padding row">
   <div class="col-2"></div>
 
-  <form class="itinerary-form col-8" id="create-itinerary-form" (submit)="createItinerary()" [formGroup]="itineraryForm">
+  <form
+    class="itinerary-form col-8"
+    id="create-itinerary-form"
+    (submit)="createItinerary()"
+    [formGroup]="itineraryForm"
+  >
     <div class="row form-header">
       <div class="title itinerary-form-text">Create a new itinerary</div>
-      <mat-icon class="icon-display" fontIcon="close" (click)="navigateHome()"></mat-icon>
+      <mat-icon
+        class="icon-display"
+        fontIcon="close"
+        (click)="navigateHome()"
+      ></mat-icon>
     </div>
 
-    <br>
+    <br />
     <mat-form-field>
       <mat-label>Trip Name</mat-label>
       <input formControlName="title" placeholder="Trip Name" matInput />
     </mat-form-field>
-    <app-place-autocomplete formControlName="location" (placeChanged)="handlePlaceChanged($event)" ></app-place-autocomplete>
+    <app-place-autocomplete
+      formControlName="location"
+      (placeChanged)="handlePlaceChanged($event)"
+    ></app-place-autocomplete>
 
     <mat-form-field>
       <mat-label>Enter a date range</mat-label>
 
       <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate formControlName="startDate" placeholder="Start date" />
+        <input
+          matStartDate
+          formControlName="startDate"
+          placeholder="Start date"
+        />
         <input matEndDate formControlName="endDate" placeholder="End date" />
       </mat-date-range-input>
       <mat-datepicker-toggle
@@ -28,7 +44,8 @@
 
       <mat-date-range-picker #picker></mat-date-range-picker>
 
-      <mat-error *ngIf="range.controls.startDate.hasError('matStartDateInvalid')"
+      <mat-error
+        *ngIf="range.controls.startDate.hasError('matStartDateInvalid')"
         >Invalid startDate date</mat-error
       >
       <mat-error *ngIf="range.controls.endDate.hasError('matEndDateInvalid')"
@@ -38,10 +55,10 @@
 
     <mat-form-field>
       <mat-label>Description</mat-label>
-      <textarea  formControlName="description" matInput></textarea>
+      <textarea formControlName="description" matInput></textarea>
     </mat-form-field>
 
-    <button  type="submit" mat-stroked-button>Create Trip</button>
+    <button type="submit" mat-raised-button>Create Trip</button>
   </form>
   <div class="col-2"></div>
 </div>

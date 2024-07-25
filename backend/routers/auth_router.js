@@ -6,15 +6,15 @@ export const authRouter = Router();
 
 authRouter.get(
   "/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
+  passport.authenticate("google", { scope: ["email", "profile"] }),
 );
 
 authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:4200",
+    successRedirect: "http://localhost:4200/home",
     failureRedirect: "/auth/google/failure",
-  })
+  }),
 );
 
 authRouter.get("/google/failure", (req, res) => {

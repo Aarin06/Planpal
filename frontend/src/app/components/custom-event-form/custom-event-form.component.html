@@ -20,12 +20,13 @@
       <app-place-autocomplete
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
-      <mat-form-field>
+      <app-google-map [location]="newLocation"></app-google-map>
+      <!-- <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea formControlName="description" matInput></textarea>
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <button type="submit" mat-stroked-button>Create Event</button>
+      <button type="submit" mat-raised-button>Create Event</button>
     </form>
   </mat-card>
 </div>

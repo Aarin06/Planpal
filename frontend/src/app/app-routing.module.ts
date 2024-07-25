@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
 import { HomeComponent } from './pages/home/home.component';
+import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
+import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
 import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
-import { authGuard } from './services/auth.guard';
+import { pageAuthGuard, basicAuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -14,19 +16,29 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [basicAuthGuard],
+  },
+  {
+    path: 'tier',
+    component: TierDetailsComponent,
+    // canActivate:[authGuard]
+  },
+  {
+    path: 'payment/error',
+    component: PaymentErrorComponent,
     // canActivate:[authGuard]
   },
   {
     path: 'create-itinerary',
     component: ItinerarySetupComponent,
-    // canActivate:[authGuard]
+    canActivate: [basicAuthGuard],
   },
   {
     path: 'view-itinerary/:itineraryId',
     component: ViewItineraryComponent,
-    // canActivate: [authGuard]
+    canActivate: [pageAuthGuard],
   },
-  
+
   {
     path: '**',
     redirectTo: '/',
@@ -35,6 +47,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

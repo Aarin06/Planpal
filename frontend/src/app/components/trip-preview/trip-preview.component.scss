@@ -4,30 +4,31 @@
   box-shadow: none;
 }
 
-.fixed-height-image{
+.fixed-height-image {
   height: 200px; /* Set a fixed height for the images */
   object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
-  width: 100%; 
+  width: 100%;
 }
 
-.creator-pfp{
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+.creator-pfp {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
   margin-top: 10px;
 }
 
 .colab-users-pfp {
-  background-image: url('https://www.wikihow.com/images/thumb/9/90/What_type_of_person_are_you_quiz_pic.png/1200px-What_type_of_person_are_you_quiz_pic.png');
+  background-image: url("https://www.wikihow.com/images/thumb/9/90/What_type_of_person_are_you_quiz_pic.png/1200px-What_type_of_person_are_you_quiz_pic.png");
   width: 25px; /* Adjust based on your design */
   height: 25px; /* Must be the same as width for a perfect circle */
-  margin: 2px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.extra-members-text{
+.extra-members-text {
   margin: auto 5px;
   text-align: center;
 }
@@ -39,4 +40,3 @@
   display: block; /* Ensures the subtitle takes up the full width */
   max-width: 100%; /* Ensures the subtitle does not exceed the container width */
 }
-
