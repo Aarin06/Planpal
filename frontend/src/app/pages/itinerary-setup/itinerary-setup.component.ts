@@ -1,5 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 import { ItineraryService } from '../../services/itinerary.service';
 import { Router } from '@angular/router';
 import { placesSearchResult } from '../../classes/placesSearchResult';
@@ -11,54 +16,53 @@ import { placesSearchResult } from '../../classes/placesSearchResult';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItinerarySetupComponent implements OnInit {
-
   readonly range = new FormGroup({
     startDate: new FormControl<Date | null>(null),
     endDate: new FormControl<Date | null>(null),
   });
-  
+
   itineraryForm: FormGroup;
 
-
-  constructor(private fb: FormBuilder, private itineraryApi:ItineraryService, private router:Router) {
+  constructor(
+    private fb: FormBuilder,
+    private itineraryApi: ItineraryService,
+    private router: Router,
+  ) {
     this.itineraryForm = this.fb.group({
       location: [null, Validators.required],
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       description: [''],
-      title:['', Validators.required]
+      title: ['', Validators.required],
     });
   }
 
-  
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createItinerary() {
     if (this.itineraryForm.valid) {
       // Handle form submission logic here
       this.itineraryApi.createItinerary(this.itineraryForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/'])
+          this.router.navigate(['/']);
           console.log('Form Submitted', this.itineraryForm.value);
-        }, error: (err) =>{
-          console.log(err)
-        }
-      })
-
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     } else {
-      console.log('Form is invalid',this.itineraryForm.value)
+      console.log('Form is invalid', this.itineraryForm.value);
     }
   }
 
-  navigateHome(){
+  navigateHome() {
     this.router.navigate(['/']);
   }
 
   handlePlaceChanged(place: placesSearchResult) {
     this.itineraryForm.patchValue({
-      location: place // Update the location form control
+      location: place, // Update the location form control
     });
   }
-
 }

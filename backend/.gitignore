@@ -2,3 +2,4 @@ microblog.sqlite
 node_modules/
 .idea/
 uploads/
+.env

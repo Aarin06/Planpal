@@ -18,7 +18,7 @@ export class ApiInterceptor implements HttpInterceptor {
    */
   intercept(
     request: HttpRequest<unknown>,
-    next: HttpHandler
+    next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
     const newReq = request.clone({
       withCredentials: true,

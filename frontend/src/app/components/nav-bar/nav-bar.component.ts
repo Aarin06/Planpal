@@ -5,15 +5,19 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
   @Output() openLoginForm = new EventEmitter<boolean>();
-  faLocationDot = faLocationDot
+  faLocationDot = faLocationDot;
   value = '';
   isAuth: boolean = false;
-  
-  constructor(private router: Router, private api:ApiService) { }
+  tier: number = 1;
+
+  constructor(
+    private router: Router,
+    private api: ApiService,
+  ) {}
 
   ngOnInit(): void {
     this.checkAuth();
@@ -23,18 +27,36 @@ export class NavBarComponent implements OnInit {
     this.openLoginForm.emit(true);
   }
 
-  goToTrips(){
-    this.router.navigate(['/']);
+  onOpenUpgrade() {
+    this.router.navigate(['tier']);
+  }
+
+  onSignOut() {
+    this.api.signOut().subscribe({
+      next: () => {
+        this.isAuth = false;
+        this.router.navigate(['/']);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+  }
+
+  goToTrips() {
+    this.router.navigate(['/home']);
   }
 
   checkAuth() {
     this.api.me().subscribe({
-      next: () => {
-        this.isAuth = true
-      }, error: (err) =>{
-        console.log(err)
-      }
-    })
+      next: (res) => {
+        console.log("current user is ", res)
+        this.isAuth = true;
+        this.tier = res.tier
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-
 }

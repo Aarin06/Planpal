@@ -4,8 +4,6 @@ import { isAuthenticated } from "../middleware/helpers.js";
 import { ItineraryMember } from "../models/itineraryMembers.js";
 import { Event } from "../models/events.js";
 
-
-
 export const itinerariesRouter = Router();
 
 const ITINERARIES_COLLECTION = "itineraries";
@@ -71,32 +69,30 @@ itinerariesRouter.post("/", async (req, res, next) => {
     const userId = req.user.id;
 
     const itinerary = await Itinerary.create({
-      title:req.body.title,
+      title: req.body.title,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       location: req.body.location,
       description: req.body.description,
-      UserId: userId
+      UserId: userId,
     });
 
     const itineraryMember = await ItineraryMember.create({
       UserId: userId,
-      ItineraryId: itinerary.id
+      ItineraryId: itinerary.id,
     });
 
-
     return res.json(itinerary);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Create Itinerary" });
   }
 });
 
 itinerariesRouter.post("/:id/event", async (req, res) => {
   try {
-    const itineraryId = req.params.id
+    const itineraryId = req.params.id;
 
-    if (!itineraryId){
+    if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
     const event = await Event.create({
@@ -105,13 +101,13 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
       start: req.body.start,
       end: req.body.end,
       allDay: req.body.allDay,
-      ItineraryId: itineraryId
+      ItineraryId: itineraryId,
     });
-    return res.json(event)
-  }catch (e){
+    return res.json(event);
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Create Event" });
   }
-})
+});
 
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
@@ -120,7 +116,7 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
 //     if (!itineraryId) {
 //       return res.status(422).json({ error: "itineraryId is required." });
 //     }
-    
+
 //     const itinerary = await Itinerary.findOne({
 //       where: {
 //         id: itineraryId,
@@ -135,21 +131,22 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
 
 itinerariesRouter.get("/:id", async (req, res) => {
   try {
-    const itineraryId = req.params.id
-    console.log(itineraryId)
+    const itineraryId = req.params.id;
+    console.log(itineraryId);
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    
+
     const itineraryWithEvents = await Itinerary.findOne({
       where: { id: itineraryId },
-      include: [{
-        model: Event,
-      }]
+      include: [
+        {
+          model: Event,
+        },
+      ],
     });
     return res.json(itineraryWithEvents);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });
@@ -160,30 +157,29 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
       return res.status(401).json({ errors: "Not Authenticated" });
     }
 
-    const itineraryId = req.params.id
+    const itineraryId = req.params.id;
 
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    
+
     const itineraryMembers = await ItineraryMember.findAll({
       where: {
         ItineraryId: itineraryId,
       },
       include: {
-        association:"User"
-      }
+        association: "User",
+      },
     });
 
-    const result = itineraryMembers.map(member => ({
+    const result = itineraryMembers.map((member) => ({
       userId: member.User.id,
       username: member.User.username,
       profile: member.User.profile,
-      itineraryId: member.ItineraryId
+      itineraryId: member.ItineraryId,
     }));
     return res.json(result);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });
@@ -198,7 +194,7 @@ itinerariesRouter.get("/users/:id", async (req, res, next) => {
     if (!userId) {
       return res.status(422).json({ error: "userId is required." });
     }
-    
+
     const itineraries = await Itinerary.findAll({
       where: {
         UserId: userId,
@@ -208,9 +204,8 @@ itinerariesRouter.get("/users/:id", async (req, res, next) => {
       order: [["createdAt", "ASC"]],
     });
 
-    return res.json({itineraries, length: itineraries.length});
-
-  }catch (e){
+    return res.json({ itineraries, length: itineraries.length });
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Users Itineraries" });
   }
 });
@@ -223,30 +218,29 @@ itinerariesRouter.get("/", async (req, res, next) => {
     const userId = req.user.id;
 
     const itineraries = await Itinerary.findAll({
-      where:{UserId:userId},
+      where: { UserId: userId },
       limit: limit,
       offset: offset,
       include: {
-        association:"User"
+        association: "User",
       },
       order: [["createdAt", "ASC"]],
     });
 
-    const result = itineraries.map(itinerary => ({
-      id:itinerary.id,
-      title:itinerary.title,
-      location:itinerary.location,
-      description:itinerary.description,
-      startDate:itinerary.startDate,
-      endDate:itinerary.endDate,
-      UserId:itinerary.UserId,
+    const result = itineraries.map((itinerary) => ({
+      id: itinerary.id,
+      title: itinerary.title,
+      location: itinerary.location,
+      description: itinerary.description,
+      startDate: itinerary.startDate,
+      endDate: itinerary.endDate,
+      UserId: itinerary.UserId,
       username: itinerary.User.username,
       profile: itinerary.User.profile,
     }));
 
-    return res.json({itineraries:result,length: result.length});
-
-  }catch (e){
+    return res.json({ itineraries: result, length: result.length });
+  } catch (e) {
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
@@ -284,4 +278,3 @@ itinerariesRouter.get("/", async (req, res, next) => {
 //       .json({ error: `Message(id=${req.params.id}) not found.` });
 //   }
 // });
-
