@@ -7,6 +7,7 @@ import { ItineraryMember } from '../classes/itinerarymember';
 import { placesSearchResult } from '../classes/placesSearchResult';
 import { Event } from '../classes/event';
 import { DBEvent } from '../classes/dbEvent';
+import { user } from '../classes/user';
 
 @Injectable({
   providedIn: 'root',
@@ -95,4 +96,27 @@ export class ItineraryService {
       },
     );
   }
+
+  addItineraryMember(user: user, itineraryId: number): Observable<user> {
+    return this.http.post<user>(
+      this.endpoint + `/itineraries/${itineraryId}/members`,
+      user,
+    );
+  }
+
+  removeItineraryMember(userId: number, itineraryId: number): Observable<user> {
+    return this.http.delete<user>(
+      this.endpoint + `/itineraries/${itineraryId}/members/${userId}`,
+    );
+  }
+
+  isItineraryOwner(itineraryId: number): Observable<boolean> {
+    return this.http.get<boolean>(
+      this.endpoint + `/itineraries/${itineraryId}/owner`,
+    );
+  }
+
+  
+
+
 }

@@ -7,7 +7,8 @@
       class="add-users"
       aria-label="Example icon-button with heart icon"
       (click)="handleOpenCollaboratorsForm(true)"
-    >
+      [hidden]="!isOwner"
+      >
       Add Collaborators
     </button>
     <div class="search-recommendation" *ngIf="user && user.tier === 2">
@@ -20,9 +21,10 @@
       Upgrade to Travel Master to unlock Google places recommendations.
     </div>
   </div>
+  <div class="col-1"></div>
   <app-calendar
     *ngIf="initialItinerary"
-    class="col-9"
+    class="col-8"
     [initialItinerary]="initialItinerary"
     [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"
@@ -47,5 +49,6 @@
   <app-add-collaborators
     *ngIf="isCollaboratorsFormVisible"
     (openCollaboratorForm)="handleExitCollaboratorsForm($event)"
+    [itineraryId]="itineraryId"
   ></app-add-collaborators>
 </div>
