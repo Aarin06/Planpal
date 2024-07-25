@@ -109,6 +109,63 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
   }
 });
 
+itinerariesRouter.post("/:id/members", async (req, res) => {
+  try {
+    const itineraryId = req.params.id;
+    const userId = req.body.id;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    if (!userId) {
+      return res.status(422).json({ error: "userId is required." });
+    }
+
+    const itineraryMember = await ItineraryMember.create({
+      ItineraryId: itineraryId,
+      UserId: userId,
+    });
+
+    return res.json(itineraryMember);
+  } catch (e) {
+    return res.status(404).json({ error: "Cannot Add User" });
+  }
+});
+
+itinerariesRouter.delete("/:id/members/:userId", async (req, res) => {
+  try {
+    const itineraryId = req.params.id;
+    const userId = req.params.userId;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    if (!userId) {
+      return res.status(422).json({ error: "userId is required." });
+    }
+
+    const deletedMember = await ItineraryMember.destroy({
+      where: {
+        ItineraryId: itineraryId,
+        UserId: userId,
+      },
+    });
+
+    console.log("Deleted member:", deletedMember);
+
+    if (deletedMember === 0) {
+      return res.status(404).json({ error: "Member not found." });
+    }
+
+    return res.json({ message: "User removed from itinerary." });
+  } catch (e) {
+    return res.status(500).json({ error: "Cannot remove user from itinerary." });
+  }
+});
+
+
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
 //     const itineraryId = req.params.id
@@ -184,12 +241,41 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
     });
 
     const result = itineraryMembers.map((member) => ({
-      userId: member.User.id,
+      id: member.User.id,
       username: member.User.username,
       profile: member.User.profile,
       itineraryId: member.ItineraryId,
     }));
     return res.json(result);
+  } catch (e) {
+    return res.status(404).json({ error: "Cannot Find Itinerary" });
+  }
+});
+
+
+itinerariesRouter.get("/:id/owner", async (req, res, next) => {
+  try {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ errors: "Not Authenticated" });
+    }
+
+    const itineraryId = req.params.id;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+    const itinerary = await Itinerary.findOne({
+      where: {
+        id: itineraryId,
+      }
+    });
+    console.log("working here",itinerary)
+    if (itinerary.UserId !== req.user.id) {
+      return res.json(false);
+    }
+    console.log("true")
+
+    return res.json(true);
   } catch (e) {
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }

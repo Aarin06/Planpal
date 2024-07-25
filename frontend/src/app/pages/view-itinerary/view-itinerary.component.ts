@@ -28,6 +28,7 @@ export class ViewItineraryComponent {
   isCustomEventFormVisible: boolean = false;
   isEventPreviewVisible: boolean = false;
   isCollaboratorsFormVisible: boolean = false;
+  isOwner: boolean = false;
   calendarEventArgs: any = null;
   calendarEventClickArgs: any = null;
   itineraryId: number | null = null;
@@ -53,6 +54,17 @@ export class ViewItineraryComponent {
         this.getRecommendations(this.itinerary.location.location);
       });
     }
+
+    this.itineraryApi.isItineraryOwner(this.itineraryId).subscribe({
+      next: (value) => {
+        console.log("owner",value);
+        this.isOwner = value;
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+
   }
 
   getUser() {

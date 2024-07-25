@@ -33,7 +33,7 @@ export const pageAuthGuard: CanActivateFn = (route, state) => {
           switchMap(() => of(true)), // If itinerary exists, emit true
           catchError((err) => {
             console.error('Itinerary check failed:', err);
-            return of(router.createUrlTree(['/'])); // If itinerary does not exist or error, emit UrlTree for redirection
+            return of(router.createUrlTree(['/home'])); // If itinerary does not exist or error, emit UrlTree for redirection
           }),
         );
       } else {

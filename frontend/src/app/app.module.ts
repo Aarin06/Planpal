@@ -26,7 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {MatGridListModule}  from '@angular/material/grid-list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
@@ -85,6 +86,7 @@ import { AddCollaboratorsComponent } from './components/add-collaborators/add-co
     JsonPipe,
     FullCalendarModule,
     MatGridListModule,
+    MatAutocompleteModule
   ],
   providers: [
     {
