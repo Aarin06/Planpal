@@ -1,11 +1,8 @@
 import { User } from "../models/users.js";
 import { Router } from "express";
-import multer from "multer";
 import bcrypt from "bcrypt";
-import path from "path";
 
 export const usersRouter = Router();
-const upload = multer({ dest: "uploads/" });
 
 usersRouter.post("/signup", async (req, res) => {
   const user = User.build({
@@ -43,7 +40,8 @@ usersRouter.post("/signin", async (req, res) => {
   return res.json(user);
 });
 
-usersRouter.get("/signout", function (req, res, next) {
+usersRouter.get("/signout", function (req, res) {
+  console.log("signing out");
   req.session.destroy();
   return res.json({ message: "Signed out." });
 });
@@ -53,24 +51,16 @@ usersRouter.get("/me", async (req, res) => {
   console.log("user me, ", req.session?.passport?.userId);
   console.log(req.session);
   console.log(req.session?.passport);
-  
+  console.log(req.isAuthenticated());
+
   if (!req.isAuthenticated()) {
     return res.status(401).json({ errors: "Not Authenticated" });
   }
   const userId = req.user.id;
-  return res.json({
-    userId: userId
-  });
+  console.log("the user id is ", userId);
+  const user = await User.findByPk(userId);
+  if (!user){
+    return res.status(404).json({error: "User not found"})
+  }
+  return res.json(user);
 });
-
-// old version from lab
-// usersRouter.get("/me", async (req, res) => {
-//   console.log("user me")
-//   console.log(req.session)
-//   if (!req.session.userId) {
-//     return res.status(401).json({ errors: "Not Authenticaed" });
-//   }
-//   return res.json({
-//     userId: req.session.userId,
-//   });
-// });

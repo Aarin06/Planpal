@@ -8,9 +8,8 @@ describe('CustomEventFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomEventFormComponent]
-    })
-    .compileComponents();
+      declarations: [CustomEventFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CustomEventFormComponent);
     component = fixture.componentInstance;

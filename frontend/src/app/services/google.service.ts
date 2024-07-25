@@ -9,19 +9,19 @@ import { placesSearchResult } from '../classes/placesSearchResult';
 import { DBEvent } from '../classes/dbEvent';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GoogleService {
   endpoint = environment.apiEndpoint;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getEventRecommendations(location: {lat: number, lng: number}): Observable<any>{
-    return this.http.post(
-      this.endpoint + `/google/places`,
-      {
-        location: location
-      }
-    )
+  getEventRecommendations(location: {
+    lat: number;
+    lng: number;
+  }): Observable<any> {
+    return this.http.post(this.endpoint + `/google/places`, {
+      location: location,
+    });
   }
 }

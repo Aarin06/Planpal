@@ -2,28 +2,27 @@ import { Event } from "../models/events.js";
 import { Router } from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
 import { ItineraryMember } from "../models/itineraryMembers.js";
-import axios from 'axios';
+import axios from "axios";
 
 export const googleRouter = Router();
 
-import fs from 'fs'
-import testData from "../test_data/data.json" with {type: "json"}
+import fs from "fs";
+import testData from "../test_data/data.json" with { type: "json" };
 
-const apiKey = "AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek"
+const apiKey = "AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek";
 
 function getPhotoUrl(name) {
   // Example name format: "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXXk_7VfIu9O-WlQdEPsT1FDJmcKbBvAj82DwijlcL4u6B_28usS3yDLWrayklDa8qm8kzZORwPx1DRd7fuLp24HhEuaEtt6vq7-Ab0OCd3XCzwxt7epHKD2GrAte-XsrVZ2JNVGPcCGfAAR8dzDyAdAQiG3FwsiRvSG"
-  const parts = name.split('/');
+  const parts = name.split("/");
   const photoReference = parts[parts.length - 1];
 
   const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${apiKey}`;
   return photoUrl;
 }
 
-
 googleRouter.post("/places", async (req, res) => {
-  const location = req.body.location
-  if (!location){
+  const location = req.body.location;
+  if (!location) {
     return res.status(400).json({ error: "location is required in the body." });
   }
   try {
@@ -55,8 +54,8 @@ googleRouter.post("/places", async (req, res) => {
     //   }
     //   console.log('Data written to file successfully');
     // });
-    console.log("here is the final data")
-    console.log(testData.places)
+    console.log("here is the final data");
+    console.log(testData.places);
     const newData = testData.places.map((place) => {
       return {
         title: place.displayName.text,
@@ -70,17 +69,16 @@ googleRouter.post("/places", async (req, res) => {
           imageUrl: getPhotoUrl(place.photos[0].name, apiKey),
           location: {
             lat: place.location.latitude,
-            lng: place.location.longitude
-          }
-        }
-      }
-    })
-    console.log(newData)
-    return res.json(newData)
+            lng: place.location.longitude,
+          },
+        },
+      };
+    });
+    console.log(newData);
+    return res.json(newData);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     // Handle potential errors, such as validation errors or database errors
     return res.status(500).json({ error: "Cannot recommend events" });
   }
-})
-
+});

@@ -10,43 +10,43 @@ import { GoogleService } from '../../services/google.service';
 @Component({
   selector: 'app-view-itinerary',
   templateUrl: './view-itinerary.component.html',
-  styleUrl: './view-itinerary.component.scss'
+  styleUrl: './view-itinerary.component.scss',
 })
 export class ViewItineraryComponent {
-  isCustomEventFormVisible: boolean = false
-  isEventPreviewVisible: boolean = false
+  isCustomEventFormVisible: boolean = false;
+  isEventPreviewVisible: boolean = false;
   calendarEventArgs: any = null;
-  calendarEventClickArgs: any = null
+  calendarEventClickArgs: any = null;
   itineraryId: number | null = null;
-  itinerary: Itinerary & {Events: DBEvent[]} | null = null;
+  itinerary: (Itinerary & { Events: DBEvent[] }) | null = null;
 
-  constructor(private renderer: Renderer2, 
-    private el: ElementRef, 
-    private route: ActivatedRoute, 
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private route: ActivatedRoute,
     private itineraryApi: ItineraryService,
-    private googleApi: GoogleService) {}
+    private googleApi: GoogleService,
+  ) {}
 
   ngOnInit(): void {
     this.itineraryId = Number(this.route.snapshot.paramMap.get('itineraryId'));
-    
-    if (!this.itineraryId){
-      console.log("No itinerary Id provided in url")
+
+    if (!this.itineraryId) {
+      console.log('No itinerary Id provided in url');
     } else {
       this.itineraryApi.getItinerary(this.itineraryId).subscribe((response) => {
-        this.itinerary = response
-        this.getRecommendations(this.itinerary.location.location)
-      })
+        this.itinerary = response;
+        this.getRecommendations(this.itinerary.location.location);
+      });
     }
   }
 
-  get initialItinerary(): Itinerary & {Events: DBEvent[]} | null{
-    return this.itinerary ? this.itinerary : null
+  get initialItinerary(): (Itinerary & { Events: DBEvent[] }) | null {
+    return this.itinerary ? this.itinerary : null;
   }
 
-  getRecommendations(location: {lat: number, lng: number}){
-    this.googleApi.getEventRecommendations(
-      location
-    ).subscribe({
+  getRecommendations(location: { lat: number; lng: number }) {
+    this.googleApi.getEventRecommendations(location).subscribe({
       next: (value) => {
         value.forEach((event: DBEvent) => {
           const newEvent = {
@@ -55,15 +55,16 @@ export class ViewItineraryComponent {
             end: event.end,
             allDay: event.allDay,
             extendedProps: {
-              location: event.location
-            }
-          }
+              location: event.location,
+            },
+          };
           this.createDraggableElement(newEvent);
         });
-      },error(err) {
-        console.log(err)
       },
-    })
+      error(err) {
+        console.log(err);
+      },
+    });
   }
 
   handlePlaceChanged(place: placesSearchResult) {
@@ -79,36 +80,45 @@ export class ViewItineraryComponent {
     // this.createDraggableElement(newEvent);
     const location = {
       lat: place.location?.lat() ?? 0,
-      lng: place.location?.lng() ?? 0
-    }
+      lng: place.location?.lng() ?? 0,
+    };
     const addItemElement = this.el.nativeElement.querySelector('.add-item');
     if (addItemElement) {
-      addItemElement.innerHTML = ""
+      addItemElement.innerHTML = '';
     }
-    this.getRecommendations(location)
-
+    this.getRecommendations(location);
   }
 
   private createDraggableElement(event: Event) {
     const draggableDiv = this.renderer.createElement('div');
     this.renderer.addClass(draggableDiv, 'fc-event');
-    this.renderer.setProperty(draggableDiv, 'innerText', 
+    this.renderer.setProperty(
+      draggableDiv,
+      'innerText',
       `${event.title}
-      ${event.extendedProps.location.address}`);
-      this.renderer.setAttribute(draggableDiv, 'data-props', JSON.stringify(event));
-    this.renderer.appendChild(this.el.nativeElement.querySelector('.add-item'), draggableDiv);
+      ${event.extendedProps.location.address}`,
+    );
+    this.renderer.setAttribute(
+      draggableDiv,
+      'data-props',
+      JSON.stringify(event),
+    );
+    this.renderer.appendChild(
+      this.el.nativeElement.querySelector('.add-item'),
+      draggableDiv,
+    );
   }
 
-  handleCalendarEvent(event: any){
-    this.calendarEventArgs = event
+  handleCalendarEvent(event: any) {
+    this.calendarEventArgs = event;
   }
 
-  handleCalendarEventClick(event: any){
-    this.calendarEventClickArgs = event
+  handleCalendarEventClick(event: any) {
+    this.calendarEventClickArgs = event;
   }
 
-  handleOpenCustomEventForm(event: boolean){
-    if(event){
+  handleOpenCustomEventForm(event: boolean) {
+    if (event) {
       this.isCustomEventFormVisible = true;
     }
   }
@@ -119,8 +129,8 @@ export class ViewItineraryComponent {
     }
   }
 
-  handleOpenEventPreviewForm(event: boolean){
-    if(event){
+  handleOpenEventPreviewForm(event: boolean) {
+    if (event) {
       this.isEventPreviewVisible = true;
     }
   }
@@ -130,5 +140,4 @@ export class ViewItineraryComponent {
       this.isEventPreviewVisible = false;
     }
   }
-
 }

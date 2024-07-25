@@ -5,20 +5,24 @@
   </div>
   <div class="small-spacer"></div>
 
-  <button
-    *ngIf="isAuth"
-    mat-button
-    (click)="goToTrips()"
-
-  >
+  <button *ngIf="isAuth" mat-button (click)="goToTrips()" aria-label="My Trips">
     MyTrips
   </button>
   <div class="spacer"></div>
   <button
+    *ngIf="tier === 2 && isAuth"
+    mat-button
+    class="nav-btn"
+    aria-label="Updgrade"
+    (click)="onOpenUpgrade()"
+  >
+    Upgrade
+  </button>
+  <button
     *ngIf="!isAuth"
     mat-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
+    class="nav-btn"
+    aria-label="Sign In"
     (click)="onOpenLogin()"
   >
     Sign In
@@ -26,8 +30,9 @@
   <button
     *ngIf="isAuth"
     mat-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
+    class="nav-btn"
+    aria-label="Sign Out"
+    (click)="onSignOut()"
   >
     Sign Out
   </button>

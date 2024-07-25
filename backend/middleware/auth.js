@@ -1,9 +1,9 @@
 import passport from "passport";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { User } from "../models/users.js";
 
-dotenv.config({ path: '../.env'})
+dotenv.config({ path: "../.env" });
 
 const GOOGLE_CLIENT_ID =
   "407535876944-gj5djdpeqo89vb51hkgjffdlml5td9eu.apps.googleusercontent.com";
@@ -24,11 +24,11 @@ passport.use(
       // });
       console.log("fjdklsajf");
       console.log(accessToken);
-      console.log(refreshToken);  // Ensure this is logging correctly
+      console.log(refreshToken); // Ensure this is logging correctly
       try {
         // Find the user by their Google ID
         const user = await User.findOne({ where: { googleId: profile.id } });
-    
+
         if (user) {
           // If user exists, update their accessToken
           await user.update({ accessToken: accessToken });
@@ -40,19 +40,20 @@ passport.use(
             googleId: profile.id,
             accessToken: accessToken,
             refreshToken: refreshToken,
-            profile: profile._json
+            profile: profile._json,
+            tier: 1
           });
           return done(null, newUser);
         }
-    
+
         // Return the updated or newly created user
         return done(null, user);
       } catch (error) {
         // Handle any errors
         return done(error);
       }
-    }
-  )
+    },
+  ),
 );
 
 //In these snippets, the serializeUser and deserializeUser methods are simplified to just pass the user object through without any transformation or database lookup, which might not be practical for most applications. Typically, you would serialize a user identifier (like a user ID) to the session, and during deserialization, you would use that identifier to fetch the user details from a database.
@@ -66,13 +67,10 @@ passport.deserializeUser(async function (userId, done) {
     console.log("Deserializing user with ID:", userId);
     const user = await User.findByPk(userId);
     if (!user) {
-      console.log("User not found:", userId);
       return done(new Error("User not found"));
     }
-    console.log("Deserialized user:", user);
     done(null, user);
   } catch (err) {
-    console.error("Error deserializing user:", err);
     done(err);
   }
 });
