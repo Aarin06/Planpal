@@ -1,37 +1,58 @@
-<mat-card class="trip-preview-card" appearance="outlined" (click)="navigateToItineraryDetails(itinerary.id)">
+<mat-card
+  class="trip-preview-card"
+  appearance="outlined"
+  (click)="navigateToItineraryDetails(itinerary.id)"
+>
   <img
     mat-card-image
     class="fixed-height-image"
-    [src]="itinerary.locationPhotoUrl"
-    alt="Photo of a Shiba Inu"
+    [src]="itinerary.location.imageUrl"
+    alt="Photo of the trip location"
   />
   <mat-card-header>
-    <div mat-card-avatar class="creator-pfp"
-      [ngStyle]="{'background-image': 'url(' + itinerary.profile.picture + ')'}">
-    </div>
+    <div
+      mat-card-avatar
+      class="creator-pfp"
+      [ngStyle]="{
+        'background-image': 'url(' + itinerary.profile.picture + ')',
+      }"
+    ></div>
     <mat-card-title>{{ itinerary.title }}</mat-card-title>
 
     <mat-card-subtitle class="location-subtitle">
-      <ng-container *ngIf="itinerary.location.length > 30; else fullLocation">
-        {{ itinerary.location.slice(1,30) +"..." }}
+      <ng-container
+        *ngIf="itinerary.location.address.length > 30; else fullLocation"
+      >
+        {{ itinerary.location.address.slice(1, 30) + "..." }}
       </ng-container>
       <ng-template #fullLocation>
-        {{ itinerary.location }}
+        {{ itinerary.location.address }}
       </ng-template>
     </mat-card-subtitle>
 
-    <mat-card-subtitle>{{ itinerary.startDate }} - {{ itinerary.endDate }}</mat-card-subtitle>
+    <mat-card-subtitle
+      >{{ itinerary.startDate }} - {{ itinerary.endDate }}</mat-card-subtitle
+    >
   </mat-card-header>
-  
+
   <!-- Conditionally apply *ngFor and *ngIf based on itinerary.members length -->
   <ng-container *ngIf="itinerary.members?.length > 1">
-    <div class="row" *ngFor="let member of itinerary.members.slice(1, 4); let i = index">
-      <div mat-card-avatar class="colab-users-pfp"
-        [ngStyle]="{'background-image': 'url(' + member?.profile?.picture + ')'}">
-      </div>
+    <div
+      class="row"
+      *ngFor="let member of itinerary.members.slice(1, 4); let i = index"
+    >
+      <div
+        mat-card-avatar
+        class="colab-users-pfp"
+        [ngStyle]="{
+          'background-image': 'url(' + member?.profile?.picture + ')',
+        }"
+      ></div>
     </div>
     <div class="row" *ngIf="itinerary.members.length > 4">
-      <div class="extra-members-text">+ {{ itinerary.members.length - 4 }} more</div>
+      <div class="extra-members-text">
+        + {{ itinerary.members.length - 4 }} more
+      </div>
     </div>
   </ng-container>
 </mat-card>

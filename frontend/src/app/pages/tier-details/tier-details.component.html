@@ -1,0 +1,75 @@
+<app-nav-bar></app-nav-bar>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 tier-info-container">
+    <div class="title">Select the tier that is right for you</div>
+    <div class="row">
+      <div class="col-6">
+        <mat-card class="tier-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title class="card-title">Travel Trainee</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="card-content">
+            <p>For newcomers who want to get started planning with friends</p>
+          </mat-card-content>
+          <mat-card-header>
+            <mat-card-title class="card-title">$0</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content class="mat-card-content">
+            <mat-card-subtitle class="card-subtitle">
+              Includes:
+            </mat-card-subtitle>
+            <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> 3
+            itineraries <br />
+            <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> Unlimited
+            friend sharing <br />
+            <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> Create
+            custom events <br />
+            <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> View event
+            locations on Google Maps
+            <br />
+            <button class="start-btn" (click)="redirectHome()">
+              Get started
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-6">
+        <mat-card class="tier-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title class="card-title">Travel Master</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="card-content">
+            <p>For newcomers who want to get started planning with friends</p>
+          </mat-card-content>
+          <mat-card-header>
+            <mat-card-title class="card-title">$4.99</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div>
+              <mat-card-subtitle> Includes: </mat-card-subtitle>
+              <fa-icon class="star-icon" [icon]="faStar"></fa-icon> Unlimited
+              itineraries <br />
+              <fa-icon class="star-icon" [icon]="faStar"></fa-icon> Google
+              recommendations based on itinerary location <br />
+              <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> Unlimited
+              friend sharing <br />
+              <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> Create
+              custom events <br />
+              <fa-icon class="check-icon" [icon]="faCheck"></fa-icon> View event
+              locations on Google Maps
+              <br />
+            </div>
+            <button class="pay-btn" (click)="redirectToPayment()">
+              Get now
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2"></div>
+</div>

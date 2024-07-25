@@ -1,0 +1,49 @@
+<div class="event-form-container">
+  <mat-card class="event-form-card" appearance="outlined">
+    <mat-icon class="exit-btn" (click)="onExitForm()">close</mat-icon>
+    <form
+      class="event-form"
+      id="EventPreviewForm"
+      (submit)="updateEvent()"
+      [formGroup]="eventForm"
+    >
+      <div class="form-header">
+        <div class="event-form-title">Event Details</div>
+        <div class="event-form-subtitle">
+          Enter the details for your new event
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-label>Event Name</mat-label>
+        <input formControlName="eventName" matInput />
+      </mat-form-field>
+      <div class="event-form-subtitle">Current location</div>
+      <div *ngIf="initalEventData" class="event-form-content">
+        {{
+          initalEventData?.location?.address
+            ? initalEventData?.location?.address
+            : ""
+        }}
+      </div>
+      <app-place-autocomplete
+        formControlName="location"
+        (placeChanged)="handlePlaceChanged($event)"
+      ></app-place-autocomplete>
+      <app-google-map
+        *ngIf="newLocation"
+        [location]="newLocation"
+      ></app-google-map>
+      <!-- <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+      </mat-form-field> -->
+
+      <button type="submit" mat-raised-button class="event-btn">
+        Update Event
+      </button>
+    </form>
+    <button mat-raised-button class="event-btn" (click)="handleDeleteEvent()">
+      Delete Event
+    </button>
+  </mat-card>
+</div>

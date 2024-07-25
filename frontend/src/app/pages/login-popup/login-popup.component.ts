@@ -5,15 +5,14 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-login-popup',
   templateUrl: './login-popup.component.html',
-  styleUrls: ['./login-popup.component.scss']
+  styleUrls: ['./login-popup.component.scss'],
 })
 export class LoginPopupComponent implements OnInit {
   @Output() openLoginForm = new EventEmitter<boolean>();
-  faGoogle = faGoogle
-  constructor(private api: ApiService) { }
+  faGoogle = faGoogle;
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onGoogleLogin() {
     window.location.href = 'http://localhost:3000/auth/google';
@@ -22,5 +21,4 @@ export class LoginPopupComponent implements OnInit {
   onExitLogin(): void {
     this.openLoginForm.emit(false);
   }
-
 }

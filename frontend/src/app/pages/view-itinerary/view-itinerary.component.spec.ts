@@ -8,9 +8,8 @@ describe('ViewItineraryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ViewItineraryComponent]
-    })
-    .compileComponents();
+      declarations: [ViewItineraryComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ViewItineraryComponent);
     component = fixture.componentInstance;

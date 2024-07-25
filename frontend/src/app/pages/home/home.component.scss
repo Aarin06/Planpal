@@ -1,8 +1,12 @@
-.trip-view-container{
+.trip-view-container {
   padding: 20px;
 }
 
-.title{
+.limit-msg {
+  margin-left: 20px;
+}
+
+.title {
   margin: 20px;
   font-size: 32px;
 }
@@ -22,9 +26,9 @@ mat-grid-tile {
   margin: 0 10px;
 }
 
-.form-field{
+.form-field {
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: 10px;
 }

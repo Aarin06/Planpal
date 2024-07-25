@@ -4,8 +4,6 @@ import { isAuthenticated } from "../middleware/helpers.js";
 import { ItineraryMember } from "../models/itineraryMembers.js";
 import { Event } from "../models/events.js";
 
-
-
 export const itinerariesRouter = Router();
 
 const ITINERARIES_COLLECTION = "itineraries";
@@ -68,59 +66,48 @@ itinerariesRouter.post("/", async (req, res, next) => {
     if (!req.body.description) {
       return res.status(422).json({ error: "Description is required." });
     }
-    if (!req.body.locationPhotoUrl) {
-      return res.status(422).json({ error: "locationPhotoUrl is required." });
-    }
     const userId = req.user.id;
 
     const itinerary = await Itinerary.create({
-      title:req.body.title,
+      title: req.body.title,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
       location: req.body.location,
-      locationPhotoUrl: req.body.locationPhotoUrl,
       description: req.body.description,
-      UserId: userId
+      UserId: userId,
     });
 
     const itineraryMember = await ItineraryMember.create({
       UserId: userId,
-      ItineraryId: itinerary.id
+      ItineraryId: itinerary.id,
     });
 
-
     return res.json(itinerary);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Create Itinerary" });
   }
 });
 
 itinerariesRouter.post("/:id/event", async (req, res) => {
   try {
-    const itineraryId = req.params.id
+    const itineraryId = req.params.id;
 
-    if (!itineraryId){
+    if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    console.log("what the")
-    console.log(req.body)
     const event = await Event.create({
       title: req.body.title,
       location: req.body.extendedProps.location,
       start: req.body.start,
       end: req.body.end,
       allDay: req.body.allDay,
-      ItineraryId: itineraryId
+      ItineraryId: itineraryId,
     });
-    console.log(event)
-    return res.json(event)
-
-  }catch (e){
-    console.log(e)
+    return res.json(event);
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Create Event" });
   }
-})
+});
 
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
@@ -129,7 +116,7 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
 //     if (!itineraryId) {
 //       return res.status(422).json({ error: "itineraryId is required." });
 //     }
-    
+
 //     const itinerary = await Itinerary.findOne({
 //       where: {
 //         id: itineraryId,
@@ -144,21 +131,33 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
 
 itinerariesRouter.get("/:id", async (req, res) => {
   try {
-    const itineraryId = req.params.id
-    console.log(itineraryId)
+    const itineraryId = req.params.id;
+    console.log(itineraryId);
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    
+
+    const itineraryMember = await ItineraryMember.findOne({
+      where: {
+        ItineraryId: itineraryId,
+        UserId: req.user.id,
+      },
+    });
+
+    if (!itineraryMember) {
+      return res.status(401).json({ error: "Not Authorized" });
+    }
+
     const itineraryWithEvents = await Itinerary.findOne({
       where: { id: itineraryId },
-      include: [{
-        model: Event,
-      }]
+      include: [
+        {
+          model: Event,
+        },
+      ],
     });
     return res.json(itineraryWithEvents);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });
@@ -169,30 +168,29 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
       return res.status(401).json({ errors: "Not Authenticated" });
     }
 
-    const itineraryId = req.params.id
+    const itineraryId = req.params.id;
 
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
-    
+
     const itineraryMembers = await ItineraryMember.findAll({
       where: {
         ItineraryId: itineraryId,
       },
       include: {
-        association:"User"
-      }
+        association: "User",
+      },
     });
 
-    const result = itineraryMembers.map(member => ({
+    const result = itineraryMembers.map((member) => ({
       userId: member.User.id,
       username: member.User.username,
       profile: member.User.profile,
-      itineraryId: member.ItineraryId
+      itineraryId: member.ItineraryId,
     }));
     return res.json(result);
-
-  }catch (e){
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Itinerary" });
   }
 });
@@ -207,7 +205,7 @@ itinerariesRouter.get("/users/:id", async (req, res, next) => {
     if (!userId) {
       return res.status(422).json({ error: "userId is required." });
     }
-    
+
     const itineraries = await Itinerary.findAll({
       where: {
         UserId: userId,
@@ -217,9 +215,8 @@ itinerariesRouter.get("/users/:id", async (req, res, next) => {
       order: [["createdAt", "ASC"]],
     });
 
-    return res.json({itineraries, length: itineraries.length});
-
-  }catch (e){
+    return res.json({ itineraries, length: itineraries.length });
+  } catch (e) {
     return res.status(404).json({ error: "Cannot Find Users Itineraries" });
   }
 });
@@ -231,32 +228,100 @@ itinerariesRouter.get("/", async (req, res, next) => {
     const offset = (page - 1) * limit;
     const userId = req.user.id;
 
-    const itineraries = await Itinerary.findAll({
-      where:{UserId:userId},
+    const itineraryMembers = await ItineraryMember.findAll({
+      where: { UserId: userId },
       limit: limit,
       offset: offset,
-      include: {
-        association:"User"
-      },
+      include: [
+        {
+          association: "Itinerary",
+          include: [
+            {
+              association: "User",
+            },
+          ],
+        },
+      ],
       order: [["createdAt", "ASC"]],
     });
 
-    const result = itineraries.map(itinerary => ({
-      id:itinerary.id,
-      title:itinerary.title,
-      location:itinerary.location,
-      locationPhotoUrl:itinerary.locationPhotoUrl || "",
-      description:itinerary.description,
-      startDate:itinerary.startDate,
-      endDate:itinerary.endDate,
-      UserId:itinerary.UserId,
-      username: itinerary.User.username,
-      profile: itinerary.User.profile,
+    // Check if data is retrieved correctly
+    if (!itineraryMembers || itineraryMembers.length === 0) {
+      console.log("No itinerary members found");
+      return res.status(404).json({ error: "No itineraries found" });
+    }
+
+    console.log("Fetched itinerary members:", itineraryMembers);
+
+    const result = itineraryMembers.map((member) => ({
+      id: member.Itinerary.id,
+      title: member.Itinerary.title,
+      location: member.Itinerary.location,
+      description: member.Itinerary.description,
+      startDate: member.Itinerary.startDate,
+      endDate: member.Itinerary.endDate,
+      UserId: member.Itinerary.UserId,
+      username: member.Itinerary.User.username,
+      profile: member.Itinerary.User.profile,
     }));
 
-    return res.json({itineraries:result,length: result.length});
+    console.log("Processed result:", result);
 
-  }catch (e){
+    return res.json({ itineraries: result, length: result.length });
+  } catch (e) {
+    console.error("Error fetching itineraries:", e);
+    return res.status(400).json({ error: "Cannot Find Itineraries" });
+  }
+});
+
+itinerariesRouter.get("/:id/events", async (req, res, next) => {
+  try {
+    console.log("Fetched itinerary members:");
+    const itineraryId = req.params.id;
+    const userId = req.user.id;
+
+    const itineraryMembers = await ItineraryMember.findAll({
+      where: { UserId: userId, ItineraryId: itineraryId },
+      limit: limit,
+      offset: offset,
+      include: [
+        {
+          association: "Itinerary",
+          include: [
+            {
+              association: "Event",
+            },
+          ],
+        },
+      ],
+      order: [["createdAt", "ASC"]],
+    });
+
+    // Check if data is retrieved correctly
+    if (!itineraryMembers || itineraryMembers.length === 0) {
+      console.log("No itinerary members found");
+      return res.status(404).json({ error: "No itineraries found" });
+    }
+
+    console.log("Fetched itinerary members:", itineraryMembers);
+
+    const result = itineraryMembers.map((member) => ({
+      id: member.Itinerary.id,
+      title: member.Itinerary.title,
+      location: member.Itinerary.location,
+      description: member.Itinerary.description,
+      startDate: member.Itinerary.startDate,
+      endDate: member.Itinerary.endDate,
+      UserId: member.Itinerary.UserId,
+      username: member.Itinerary.User.username,
+      profile: member.Itinerary.User.profile,
+    }));
+
+    console.log("Processed result:", result);
+
+    return res.json({ itineraries: result, length: result.length });
+  } catch (e) {
+    console.error("Error fetching itineraries:", e);
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
@@ -294,4 +359,3 @@ itinerariesRouter.get("/", async (req, res, next) => {
 //       .json({ error: `Message(id=${req.params.id}) not found.` });
 //   }
 // });
-

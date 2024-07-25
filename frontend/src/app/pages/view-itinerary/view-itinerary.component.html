@@ -1,19 +1,34 @@
 <app-nav-bar></app-nav-bar>
 <div class="itinerary-container row">
-  <div class="col-2" id="external-events">
-    <div class="add-item">
+  <div class="col-3" id="external-events">
+    <button
+      *ngIf="!isCollaboratorsFormVisible"
+      mat-button
+      class="add-users"
+      aria-label="Example icon-button with heart icon"
+      (click)="handleOpenCollaboratorsForm(true)"
+    >
+      Add Collaborators
+    </button>
+    <div class="search-recommendation" *ngIf="user && user.tier === 2">
       <app-place-autocomplete
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
+      <div class="add-item"></div>
+    </div>
+    <div class="upgrade-msg" *ngIf="user && user.tier === 1">
+      Upgrade to Travel Master to unlock Google places recommendations.
     </div>
   </div>
   <app-calendar
     *ngIf="initialItinerary"
-    class="col-10"
+    class="col-9"
     [initialItinerary]="initialItinerary"
     [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"
+    (calendarEventClickArg)="handleCalendarEventClick($event)"
     (openCustomEventForm)="handleOpenCustomEventForm($event)"
+    (openEventPreviewForm)="handleOpenEventPreviewForm($event)"
   ></app-calendar>
   <app-custom-event-form
     *ngIf="isCustomEventFormVisible"
@@ -21,4 +36,16 @@
     [calendarEventArg]="calendarEventArgs"
     [itineraryId]="itineraryId"
   ></app-custom-event-form>
+  <app-event-preview-form
+    *ngIf="isEventPreviewVisible"
+    (openEventPreview)="handleExitEventPreviewForm($event)"
+    [calendarEventClickArgs]="calendarEventClickArgs"
+    [itineraryId]="itineraryId"
+  ></app-event-preview-form>
+
+  <!-- Collaborators Form -->
+  <app-add-collaborators
+    *ngIf="isCollaboratorsFormVisible"
+    (openCollaboratorForm)="handleExitCollaboratorsForm($event)"
+  ></app-add-collaborators>
 </div>

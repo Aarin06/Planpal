@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,21 +13,20 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './api.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {JsonPipe} from '@angular/common';
+import { JsonPipe } from '@angular/common';
 
 // Angular Material Imports
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import {MatGridListModule}  from '@angular/material/grid-list';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
@@ -36,6 +38,11 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
 import { PlaceAutocompleteComponent } from './components/place-autocomplete/place-autocomplete.component';
 import { CustomEventFormComponent } from './components/custom-event-form/custom-event-form.component';
+import { EventPreviewFormComponent } from './components/event-preview-form/event-preview-form.component';
+import { GoogleMapComponent } from './components/google-map/google-map.component';
+import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
+import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
+import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +57,12 @@ import { CustomEventFormComponent } from './components/custom-event-form/custom-
     CalendarComponent,
     ViewItineraryComponent,
     PlaceAutocompleteComponent,
-    CustomEventFormComponent
+    CustomEventFormComponent,
+    EventPreviewFormComponent,
+    GoogleMapComponent,
+    TierDetailsComponent,
+    PaymentErrorComponent,
+    AddCollaboratorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +84,7 @@ import { CustomEventFormComponent } from './components/custom-event-form/custom-
     FontAwesomeModule,
     JsonPipe,
     FullCalendarModule,
-    MatGridListModule
+    MatGridListModule,
   ],
   providers: [
     {
@@ -81,6 +93,6 @@ import { CustomEventFormComponent } from './components/custom-event-form/custom-
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
