@@ -1,6 +1,15 @@
 <app-nav-bar></app-nav-bar>
 <div class="itinerary-container row">
-  <div class="col-2" id="external-events">
+  <div class="col-3" id="external-events">
+    <button
+      *ngIf="!isCollaboratorsFormVisible"
+      mat-button
+      class="add-users"
+      aria-label="Example icon-button with heart icon"
+      (click)="handleOpenCollaboratorsForm(true)"  
+    >
+      Add Collaborators
+    </button>
     <div class="search-recommendation">
       <app-place-autocomplete
         (placeChanged)="handlePlaceChanged($event)"
@@ -8,9 +17,10 @@
       <div class="add-item"></div>
     </div>
   </div>
+  <div class="col-1 sperator"></div>
   <app-calendar
     *ngIf="initialItinerary"
-    class="col-10"
+    class="col-8"
     [initialItinerary]="initialItinerary"
     [itineraryId]="itineraryId"
     (calendarEventArg)="handleCalendarEvent($event)"
@@ -30,4 +40,10 @@
     [calendarEventClickArgs]="calendarEventClickArgs"
     [itineraryId]="itineraryId"
   ></app-event-preview-form>
+
+  <!-- Collaborators Form -->
+  <app-add-collaborators
+    *ngIf="isCollaboratorsFormVisible"
+    (openCollaboratorForm)="handleExitCollaboratorsForm($event)"
+  ></app-add-collaborators>
 </div>
