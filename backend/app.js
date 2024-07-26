@@ -25,8 +25,8 @@ const PORT = 3000;
 export const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:4200",
-  credentials: true, 
+  origin: "https://planpal.tech/",
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
