@@ -31,12 +31,13 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres
+    restart: always
     environment:
       POSTGRES_DB: PlanPalDB
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - ./scripts/init-schema.sql:/docker-entrypoint-initdb.d/init-schema.sql
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 

@@ -15,7 +15,7 @@ export class LoginPopupComponent implements OnInit {
   ngOnInit(): void {}
 
   onGoogleLogin() {
-    window.location.href = 'https://planpal.tech/auth/google';
+    window.location.href = 'https://api.planpal.tech/auth/google';
   }
 
   onExitLogin(): void {
