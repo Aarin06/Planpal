@@ -36,7 +36,6 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "/",
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
