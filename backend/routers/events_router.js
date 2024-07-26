@@ -5,7 +5,7 @@ import { ItineraryMember } from "../models/itineraryMembers.js";
 
 export const eventsRouter = Router();
 
-eventsRouter.get("/:id", async (req, res) => {
+eventsRouter.get("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });
@@ -22,7 +22,7 @@ eventsRouter.get("/:id", async (req, res) => {
   }
 });
 
-eventsRouter.patch("/:id", async (req, res) => {
+eventsRouter.patch("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });
@@ -50,7 +50,7 @@ eventsRouter.patch("/:id", async (req, res) => {
   }
 });
 
-eventsRouter.delete("/:id", async (req, res) => {
+eventsRouter.delete("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });

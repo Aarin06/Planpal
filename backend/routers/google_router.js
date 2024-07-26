@@ -20,7 +20,7 @@ function getPhotoUrl(name) {
   return photoUrl;
 }
 
-googleRouter.post("/places", async (req, res) => {
+googleRouter.post("/places", isAuthenticated, async (req, res) => {
   const location = req.body.location;
   if (!location) {
     return res.status(400).json({ error: "location is required in the body." });
