@@ -7,7 +7,7 @@ import axios from "axios";
 export const googleRouter = Router();
 
 import fs from "fs";
-import testData from "../test_data/data.json" with { type: "json" };
+import testData from "../test_data/data.json" assert { type: "json" };
 
 const apiKey = "AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek";
 
