@@ -268,6 +268,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   handleEvents(events: CalendarEventApi[]) {
     console.log('handling events');
     if (events.length > 0) {
+      
       events.forEach((event) => {
         const newEvent: Event = {
           title: event.title,
@@ -276,9 +277,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           allDay: event.allDay,
           extendedProps: event.extendedProps,
         };
+        console.log(newEvent);
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
             this.eventApi.updateEvent(+event.id, newEvent).subscribe({
+              next: () => {
+                
+              },
               error(err) {
                 console.log(err);
               },
