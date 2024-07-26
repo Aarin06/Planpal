@@ -1,4 +1,3 @@
-
 version: "3.7"
 
 services:
@@ -39,6 +38,7 @@ services:
     restart: always
     expose:
       - 3000
+      - 4001
     environment:
       - VIRTUAL_HOST=api.aarinjasikumar.me
       - LETSENCRYPT_HOST=api.aarinjasikumar.me
