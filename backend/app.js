@@ -25,7 +25,7 @@ const PORT = 3000;
 export const app = express();
 
 const corsOptions = {
-  origin: "https://planpal.tech/",
+  origin: "https://planpal.tech",
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
 };
