@@ -34,6 +34,11 @@ eventsRouter.patch("/:id", isAuthenticated, async (req, res) => {
       return res.status(404).json({ error: "Event Cannot Be Found" });
     }
     // Assuming `req.body` contains the fields to update
+    console.log("updated event", req.body);
+
+    // if (!allDay and)
+
+
     const updatedEvent = await event.update({
       title: req.body.title ? req.body.title : event.title,
       location: req.body.extendedProps.location

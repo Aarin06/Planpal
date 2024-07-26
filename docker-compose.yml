@@ -31,8 +31,8 @@ services:
     expose:
       - 80
     environment:
-      - VIRTUAL_HOST=aarinjasikumar.me
-      - LETSENCRYPT_HOST=aarinjasikumar.me
+      - VIRTUAL_HOST=planpal.tech
+      - LETSENCRYPT_HOST=planpal.tech
   backend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/backend-planpal
     container_name: backend
@@ -40,5 +40,5 @@ services:
     expose:
       - 3000
     environment:
-      - VIRTUAL_HOST=api.aarinjasikumar.me
-      - LETSENCRYPT_HOST=api.aarinjasikumar.me
+      - VIRTUAL_HOST=api.planpal.tech
+      - LETSENCRYPT_HOST=api.planpal.tech
