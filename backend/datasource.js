@@ -5,7 +5,7 @@ export const sequelize = new Sequelize({
   database: "PlanPalDB",
   username: "postgres",
   password: "postgres",
-  host: "localhost",
+  host: "postgres",
   port: 5432,
   // ssl: true,
   clientMinMessages: "notice",

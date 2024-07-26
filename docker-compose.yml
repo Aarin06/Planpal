@@ -11,7 +11,9 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs
       - ./vhost:/etc/nginx/vhost.d
-      - ./html:/usr/share/nginx/html/browser
+      - ./html:/usr/share/nginx/html
+      - ./acme-challenges:/usr/share/nginx/html/.well-known/acme-challenge
+  
   nginx-proxy-acme:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
@@ -21,9 +23,11 @@ services:
       - ./vhost:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./acme:/etc/acme.sh
+      - ./acme-challenges:/usr/share/nginx/html/.well-known/acme-challenge
     environment:
       - DEFAULT_EMAIL=aarinjasikumar@gmail.com
       - NGINX_PROXY_CONTAINER=nginx-proxy
+
   frontend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/frontend-planpal
     container_name: frontend
@@ -35,6 +39,7 @@ services:
     environment:
       - VIRTUAL_HOST=planpal.tech
       - LETSENCRYPT_HOST=planpal.tech
+
   backend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/backend-planpal
     container_name: backend
@@ -45,3 +50,11 @@ services:
     environment:
       - VIRTUAL_HOST=api.planpal.tech
       - LETSENCRYPT_HOST=api.planpal.tech
+      - DB_HOST=your_postgres_host
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=PlanPalDB
+
+volumes:
+  postgres_data:
