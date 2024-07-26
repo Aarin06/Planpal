@@ -1,6 +1,8 @@
 import { User } from "../models/users.js";
 import { Router } from "express";
 import bcrypt from "bcrypt";
+import { Op } from "sequelize";
+import { isAuthenticated } from "../middleware/helpers.js";
 
 export const usersRouter = Router();
 
@@ -40,7 +42,7 @@ usersRouter.post("/signin", async (req, res) => {
   return res.json(user);
 });
 
-usersRouter.get("/signout", function (req, res) {
+usersRouter.get("/signout", isAuthenticated, function (req, res) {
   console.log("signing out");
   req.session.destroy();
   return res.json({ message: "Signed out." });
@@ -58,9 +60,28 @@ usersRouter.get("/me", async (req, res) => {
   }
   const userId = req.user.id;
   console.log("the user id is ", userId);
-  const user = await User.findByPk(userId);
+  const user = await User.findByPk(userId, {
+    attributes: ['username', 'profile', 'tier', 'id']
+  });
   if (!user) {
     return res.status(404).json({ error: "User not found" });
   }
   return res.json(user);
+});
+
+
+usersRouter.get("/", isAuthenticated, async (req, res) => {
+  console.log("jade ally",  req.user.id)
+  const users = await User.findAll({
+    where: {
+      id: {
+        [Op.ne]:  req.user.id
+      }
+    },
+    attributes: ['id','username', 'profile', 'tier']
+  });
+
+  console.log(users);
+  
+  return res.json(users);
 });
