@@ -13,7 +13,7 @@ services:
       - ./vhost:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./acme-challenges:/usr/share/nginx/html/.well-known/acme-challenge
-  
+
   nginx-proxy-acme:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
@@ -27,6 +27,18 @@ services:
     environment:
       - DEFAULT_EMAIL=aarinjasikumar@gmail.com
       - NGINX_PROXY_CONTAINER=nginx-proxy
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: PlanPalDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./scripts/init-schema.sql:/docker-entrypoint-initdb.d/init-schema.sql
+    ports:
+      - "5432:5432"
 
   frontend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/frontend-planpal
@@ -50,7 +62,7 @@ services:
     environment:
       - VIRTUAL_HOST=api.planpal.tech
       - LETSENCRYPT_HOST=api.planpal.tech
-      - DB_HOST=your_postgres_host
+      - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgres
