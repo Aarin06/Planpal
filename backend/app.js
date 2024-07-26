@@ -26,6 +26,7 @@ export const app = express();
 
 const corsOptions = {
   origin: "https://planpal.tech/",
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
 };
 app.use(cors(corsOptions));
