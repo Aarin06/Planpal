@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,Input, EventEmitter } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-
-interface User {
-  id: number;
-  name: string;
-}
+import { FormControl } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { user } from '../../classes/user';
+import { ItineraryService } from '../../services/itinerary.service';
 
 @Component({
   selector: 'app-add-collaborators',
@@ -13,34 +13,79 @@ interface User {
 })
 export class AddCollaboratorsComponent implements OnInit {
   @Output() openCollaboratorForm = new EventEmitter<boolean>();
-  users: User[] = [
-    { id: 1, name: 'aarin' },
-    { id: 2, name: 'jade' },
-  ];
-  selectedUsers: User[] = [];
+  @Input() itineraryId: number | null = null;
 
-  constructor(private api: ApiService) {}
+  users: user[] = [];
+  selectedUsers: user[] = [];
+  userSearchControl = new FormControl();
+  filteredUsers: Observable<user[]> = of([]); // Initialize to an empty observable
+
+  constructor(private api: ApiService, private itineraryApi: ItineraryService) {}
 
   ngOnInit(): void {
     this.fetchUsers();
+
+    this.filteredUsers = this.userSearchControl.valueChanges.pipe(
+      startWith(''),
+      map(value => typeof value === 'string' ? this._filterUsers(value) : this._filterUsers(''))
+    );
   }
 
   fetchUsers(): void {
     // Fetch the users from the API
-    // this.api.getUsers().subscribe((response: User[]) => {
-    //   this.users = response;
-    // });
+    this.api.getUsers().subscribe((response: any) => {
+      console.log(response);
+      this.users = response;
+    });
+    this.api.me().subscribe((user: user) => {
+      console.log(user)
+      if (this.itineraryId) {
+        this.itineraryApi.getItineraryMembers(this.itineraryId).subscribe((response: any) => {
+          console.log(response);
+          this.selectedUsers = response.filter((member: any) => member.id !== user.id);
+        });
+      }
+  });
+  }
+
+  private _filterUsers(value: string): user[] {
+    const filterValue = value.toLowerCase();
+    return this.users.filter(user => user.username.toLowerCase().includes(filterValue));
   }
 
   onUserSelected(event: any): void {
-    const selectedUser = event.value;
-    if (!this.selectedUsers.includes(selectedUser)) {
-      this.selectedUsers.push(selectedUser);
+    const user = event.option.value;
+    console.log(user)
+    if (user && !this.selectedUsers.includes(user)) {
+      this.selectedUsers.push(user);
     }
+    this.userSearchControl.setValue(''); // Clear the input field after selection
+    if (this.itineraryId) {
+      this.itineraryApi.addItineraryMember(user, this.itineraryId).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
+    }
+
   }
 
-  removeUser(user: User): void {
+  removeUser(user: any): void {
     this.selectedUsers = this.selectedUsers.filter((u) => u.id !== user.id);
+    console.log(user, this.itineraryId);
+    if (this.itineraryId) {
+      this.itineraryApi.removeItineraryMember(user.id, this.itineraryId).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
+    }
   }
 
   onExitCollaboratorsForm(): void {

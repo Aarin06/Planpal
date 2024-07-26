@@ -46,11 +46,8 @@ const ITINERARIES_COLLECTION = "itineraries";
 //   addDoc();
 // });
 
-itinerariesRouter.post("/", async (req, res, next) => {
+itinerariesRouter.post("/", isAuthenticated, async (req, res, next) => {
   try {
-    if (!req.isAuthenticated()) {
-      return res.status(401).json({ errors: "Not Authenticated" });
-    }
     if (!req.body.location) {
       return res.status(422).json({ error: "Location is required." });
     }
@@ -88,7 +85,7 @@ itinerariesRouter.post("/", async (req, res, next) => {
   }
 });
 
-itinerariesRouter.post("/:id/event", async (req, res) => {
+itinerariesRouter.post("/:id/event", isAuthenticated,async (req, res) => {
   try {
     const itineraryId = req.params.id;
 
@@ -108,6 +105,63 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
     return res.status(404).json({ error: "Cannot Create Event" });
   }
 });
+
+itinerariesRouter.post("/:id/members", isAuthenticated,async (req, res) => {
+  try {
+    const itineraryId = req.params.id;
+    const userId = req.body.id;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    if (!userId) {
+      return res.status(422).json({ error: "userId is required." });
+    }
+
+    const itineraryMember = await ItineraryMember.create({
+      ItineraryId: itineraryId,
+      UserId: userId,
+    });
+
+    return res.json(itineraryMember);
+  } catch (e) {
+    return res.status(404).json({ error: "Cannot Add User" });
+  }
+});
+
+itinerariesRouter.delete("/:id/members/:userId", isAuthenticated,async (req, res) => {
+  try {
+    const itineraryId = req.params.id;
+    const userId = req.params.userId;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    if (!userId) {
+      return res.status(422).json({ error: "userId is required." });
+    }
+
+    const deletedMember = await ItineraryMember.destroy({
+      where: {
+        ItineraryId: itineraryId,
+        UserId: userId,
+      },
+    });
+
+    console.log("Deleted member:", deletedMember);
+
+    if (deletedMember === 0) {
+      return res.status(404).json({ error: "Member not found." });
+    }
+
+    return res.json({ message: "User removed from itinerary." });
+  } catch (e) {
+    return res.status(500).json({ error: "Cannot remove user from itinerary." });
+  }
+});
+
 
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
@@ -129,7 +183,7 @@ itinerariesRouter.post("/:id/event", async (req, res) => {
 //   }
 // });
 
-itinerariesRouter.get("/:id", async (req, res) => {
+itinerariesRouter.get("/:id", isAuthenticated, async (req, res) => {
   try {
     const itineraryId = req.params.id;
     console.log(itineraryId);
@@ -162,11 +216,8 @@ itinerariesRouter.get("/:id", async (req, res) => {
   }
 });
 
-itinerariesRouter.get("/:id/members", async (req, res, next) => {
+itinerariesRouter.get("/:id/members", isAuthenticated, async (req, res, next) => {
   try {
-    if (!req.isAuthenticated()) {
-      return res.status(401).json({ errors: "Not Authenticated" });
-    }
 
     const itineraryId = req.params.id;
 
@@ -184,7 +235,7 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
     });
 
     const result = itineraryMembers.map((member) => ({
-      userId: member.User.id,
+      id: member.User.id,
       username: member.User.username,
       profile: member.User.profile,
       itineraryId: member.ItineraryId,
@@ -195,7 +246,32 @@ itinerariesRouter.get("/:id/members", async (req, res, next) => {
   }
 });
 
-itinerariesRouter.get("/users/:id", async (req, res, next) => {
+itinerariesRouter.get("/:id/owner", isAuthenticated, async (req, res, next) => {
+  try {
+
+     const itineraryId = req.params.id;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+    const itinerary = await Itinerary.findOne({
+      where: {
+        id: itineraryId,
+      }
+    });
+    console.log("working here",itinerary)
+    if (itinerary.UserId !== req.user.id) {
+      return res.json(false);
+    }
+    console.log("true")
+
+    return res.json(true);
+  } catch (e) {
+    return res.status(404).json({ error: "Cannot Find Itinerary" });
+  }
+});
+
+itinerariesRouter.get("/users/:id", isAuthenticated, async (req, res, next) => {
   try {
     const userId = req.params.id;
     const limit = parseInt(req.query.limit, 10) || 8;
@@ -221,7 +297,7 @@ itinerariesRouter.get("/users/:id", async (req, res, next) => {
   }
 });
 
-itinerariesRouter.get("/", async (req, res, next) => {
+itinerariesRouter.get("/",isAuthenticated,  async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit, 10) || 8;
     const page = parseInt(req.query.page, 10) || 1;
@@ -274,7 +350,7 @@ itinerariesRouter.get("/", async (req, res, next) => {
   }
 });
 
-itinerariesRouter.get("/:id/events", async (req, res, next) => {
+itinerariesRouter.get("/:id/events", isAuthenticated, async (req, res, next) => {
   try {
     console.log("Fetched itinerary members:");
     const itineraryId = req.params.id;
@@ -325,37 +401,3 @@ itinerariesRouter.get("/:id/events", async (req, res, next) => {
     return res.status(400).json({ error: "Cannot Find Itineraries" });
   }
 });
-
-// itinerariesRouter.patch("/:id/", isAuthenticated, async (req, res, next) => {
-//   const message = await Message.findByPk(req.params.id);
-//   if (!message) {
-//     return res
-//       .status(404)
-//       .json({ error: `Message(id=${req.params.id}) not found.` });
-//   }
-//   if (req.body.action === "upvote") {
-//     await message.increment({ upvote: 1 });
-//   } else if (req.body.action === "downvote") {
-//     await message.increment({ downvote: 1 });
-//   }
-//   await message.reload();
-//   return res.json(message);
-// });
-
-// itinerariesRouter.delete("/:id/", isAuthenticated, async (req, res, next) => {
-//   const message = await Message.findByPk(req.params.id);
-//   if (message) {
-//     if (message.UserId !== req.session.userId) {
-//       res
-//         .status(403)
-//         .json({ error: "You are not authorized to delete this message." });
-//     } else {
-//       await message.destroy();
-//       return res.json(message);
-//     }
-//   } else {
-//     return res
-//       .status(404)
-//       .json({ error: `Message(id=${req.params.id}) not found.` });
-//   }
-// });
