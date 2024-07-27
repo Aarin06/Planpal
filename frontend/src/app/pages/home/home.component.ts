@@ -29,8 +29,6 @@ export class HomeComponent implements OnInit {
     this.api.me().subscribe({
       next: (value) => {
         this.user = value;
-        console.log('im getting the user here');
-        console.log(this.user);
       },
       error(err) {
         console.log(err);

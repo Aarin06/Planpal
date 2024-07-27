@@ -40,7 +40,7 @@ try {
 
 app.use(
   session({
-    secret: "your_secret_key", // Replace with your own secret
+    secret: process.env.SESSION_SECRET, // Replace with your own secret
     resave: false,
     saveUninitialized: true,
     cookie: {

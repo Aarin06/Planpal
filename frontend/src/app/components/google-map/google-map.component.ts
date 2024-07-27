@@ -21,7 +21,6 @@ export class GoogleMapComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['location']);
     if (changes['location']) {
       this.changeLocation();
     }

@@ -7,7 +7,6 @@ import { user } from '../classes/user';
   providedIn: 'root',
 })
 export class ApiService {
-  // endpoint = 'http://localhost:3000';
   endpoint = environment.apiEndpoint;
 
   constructor(private http: HttpClient) {}
@@ -28,7 +27,6 @@ export class ApiService {
   }
 
   getUsers(): Observable<{ users: user[] }> {
-    console.log('getting users');
     return this.http.get<{ users: user[] }>(
       this.endpoint + `/users`
     );

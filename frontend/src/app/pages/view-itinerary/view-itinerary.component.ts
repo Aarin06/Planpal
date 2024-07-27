@@ -36,7 +36,6 @@ export class ViewItineraryComponent {
   user: user | undefined;
   isCustomEventFormVisible: boolean = false;
   isEventPreviewVisible: boolean = false;
-  isEditItineraryFormVisible: boolean = false;
   isCollaboratorsFormVisible: boolean = false;
   isOwner: boolean = false;
   calendarEventArgs: any = null;
@@ -57,7 +56,7 @@ export class ViewItineraryComponent {
     this.itineraryId = Number(this.route.snapshot.paramMap.get('itineraryId'));
     this.getUser();
     if (!this.itineraryId) {
-      console.log('No itinerary Id provided in url');
+      return
     } else {
       this.itineraryApi.getItinerary(this.itineraryId).subscribe((response) => {
         this.itinerary = response;
@@ -68,7 +67,6 @@ export class ViewItineraryComponent {
 
     this.itineraryApi.isItineraryOwner(this.itineraryId).subscribe({
       next: (value) => {
-        console.log("owner",value);
         this.isOwner = value;
       },
       error(err) {
@@ -199,15 +197,6 @@ export class ViewItineraryComponent {
       this.isEventPreviewVisible = true;
     } else {
       this.isEventPreviewVisible = false;
-    }
-  }
-
-  handleEditItineraryForm(event: boolean) {
-    if (event) {
-      this.isEditItineraryFormVisible = true;
-      console.log("true here")
-    } else {
-      this.isEditItineraryFormVisible = false;
     }
   }
 
