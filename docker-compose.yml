@@ -28,6 +28,19 @@ services:
       - DEFAULT_EMAIL=aarinjasikumar@gmail.com
       - NGINX_PROXY_CONTAINER=nginx-proxy
 
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: PlanPalDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+      
   frontend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/frontend-planpal
     container_name: frontend
@@ -55,7 +68,7 @@ services:
       - VIRTUAL_PORT=3000
       - VIRTUAL_PORT=4001
       - LETSENCRYPT_HOST=api.planpal.tech
-      - DB_HOST=your_postgres_host
+      - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgres
