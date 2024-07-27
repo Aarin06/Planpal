@@ -277,9 +277,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           allDay: event.allDay,
           extendedProps: event.extendedProps,
         };
-        console.log(newEvent);
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
+            console.log(newEvent);
             this.eventApi.updateEvent(+event.id, newEvent).subscribe({
               next: () => {
                 
@@ -392,14 +392,19 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         'location',
         updatedEvent.extendedProps.location,
       );
+      console.log('Event updated:', updatedEvent);
 
       // Refresh the calendar to reflect the changes
       this.changeDetector.detectChanges();
     } else {
+      console.log('Event updated:', updatedEvent);
+
       calendarApi.addEvent(updatedEvent);
       console.warn(
         `Event with ID ${updatedEvent.id} not found in the calendar.`,
       );
     }
+    console.log("save this",calendarApi.getEvents());
+    this.handleEvents(calendarApi.getEvents());
   }
 }
