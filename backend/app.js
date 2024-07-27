@@ -76,8 +76,8 @@ app.listen(PORT, (err) => {
 const httpServer = createServer(app); // Pass the express app to the HTTP server
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:4200",
-    methods: ["GET", "POST"],
+    origin: "https://planpal.tech",
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true,
   },
 });
