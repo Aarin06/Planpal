@@ -30,9 +30,9 @@
       </ng-template>
     </mat-card-subtitle>
 
-    <mat-card-subtitle
-      >{{ itinerary.startDate }} - {{ itinerary.endDate }}</mat-card-subtitle
-    >
+    <mat-card-subtitle>
+      {{ itinerary.startDate }} - {{ itinerary.endDate }}
+    </mat-card-subtitle>
   </mat-card-header>
 
   <!-- Conditionally apply *ngFor and *ngIf based on itinerary.members length -->
@@ -54,5 +54,14 @@
         + {{ itinerary.members.length - 4 }} more
       </div>
     </div>
+  </ng-container>
+
+  <!-- Add the garbage can icon -->
+  <ng-container *ngIf="isOwner">
+    <mat-icon
+      class="delete-icon"
+      (click)="deleteItinerary($event, itinerary.id)"
+      >delete</mat-icon
+    >
   </ng-container>
 </mat-card>

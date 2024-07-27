@@ -163,6 +163,54 @@ itinerariesRouter.delete("/:id/members/:userId", isAuthenticated,async (req, res
 });
 
 
+
+
+itinerariesRouter.delete("/:id", isAuthenticated,async (req, res) => {
+  try {
+    const itineraryId = req.params.id;
+    const userId = req.user.id;
+
+    if (!itineraryId) {
+      return res.status(422).json({ error: "itineraryId is required." });
+    }
+
+    if (!userId) {
+      return res.status(422).json({ error: "userId is required." });
+    }
+
+    const itinerary = await Itinerary.findOne({
+      where: {
+        id: itineraryId,
+        UserId: userId,
+      },
+    });
+
+    if (!itinerary) {
+      return res.status(401).json({ error: "Not Authorized" });
+    }
+
+
+    const deletedItinerary = await Itinerary.destroy({
+      where: {
+        id: itineraryId,
+        UserId: userId,
+      },
+    });
+    
+
+    console.log("Deleted member:", deletedItinerary);
+
+    if (deletedItinerary === 0) {
+      return res.status(404).json({ error: "Itinerary not found." });
+    }
+
+    return res.json({ message: "Itinerary deleted." });
+  } catch (e) {
+    return res.status(500).json({ error: "Cannot remove itinerary." });
+  }
+});
+
+
 // itinerariesRouter.get("/:id", async (req, res) => {
 //   try {
 //     const itineraryId = req.params.id
