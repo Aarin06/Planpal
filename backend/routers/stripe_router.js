@@ -80,8 +80,8 @@ stripeRouter.post(
             },
           ],
           mode: "payment",
-          success_url: `http://localhost:4200/home`,
-          cancel_url: `http://localhost:4200/payment/error`,
+          success_url: `https://planpal.tech/home`,
+          cancel_url: `https://planpal.tech/payment/error`,
           metadata: {
             userId: req.user.id,
           },
