@@ -24,7 +24,8 @@ const PORT = 3000;
 export const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:4200",
+  origin: "https://planpal.tech",
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -72,8 +73,8 @@ app.listen(PORT, (err) => {
 const httpServer = createServer(app); // Pass the express app to the HTTP server
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:4200",
-    methods: ["GET", "POST"],
+    origin: "https://planpal.tech",
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true,
   },
 });

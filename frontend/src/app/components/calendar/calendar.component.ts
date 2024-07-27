@@ -142,7 +142,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   initializeSocket(): void {
-    this.socket = io('http://localhost:4001');
+    this.socket = io('https://api.planpal.tech');
     this.socket.on('eventEditStartListener', (event: any) => {
       // Handle socket events here
       this.updateEventDraggable(event.id, false);
@@ -268,6 +268,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   handleEvents(events: CalendarEventApi[]) {
     console.log('handling events');
     if (events.length > 0) {
+      
       events.forEach((event) => {
         const newEvent: Event = {
           title: event.title,
@@ -278,7 +279,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         };
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
+            console.log(newEvent);
             this.eventApi.updateEvent(+event.id, newEvent).subscribe({
+              next: () => {
+                
+              },
               error(err) {
                 console.log(err);
               },
@@ -387,14 +392,19 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         'location',
         updatedEvent.extendedProps.location,
       );
+      console.log('Event updated:', updatedEvent);
 
       // Refresh the calendar to reflect the changes
       this.changeDetector.detectChanges();
     } else {
+      console.log('Event updated:', updatedEvent);
+
       calendarApi.addEvent(updatedEvent);
       console.warn(
         `Event with ID ${updatedEvent.id} not found in the calendar.`,
       );
     }
+    console.log("save this",calendarApi.getEvents());
+    this.handleEvents(calendarApi.getEvents());
   }
 }

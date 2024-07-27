@@ -2,6 +2,7 @@ import { Router } from "express";
 import { User } from "../models/users.js";
 import Stripe from "stripe";
 import express from "express";
+import { isAuthenticated } from "../middleware/helpers.js";
 
 const stripe = Stripe(
   "sk_test_51O2E02LQcW3FBSVStOzg3W2vQdER2unzsBBvtS1YCupSySUaaGoZ1mLNQFfj2tlNr8lCHF6hSKIvgGIl2ZMs7iXP003vwIuwaD",
@@ -13,7 +14,7 @@ const endpointSecret =
 
 stripeRouter.post(
   "/webhook",
-  express.raw({ type: "application/json" }),
+  express.raw({ type: "application/json" }), isAuthenticated,
   async (req, res) => {
     const sig = req.headers["stripe-signature"];
 
@@ -53,6 +54,7 @@ stripeRouter.post(
 stripeRouter.post(
   "/create-checkout-session",
   express.json(),
+  isAuthenticated,
   async (req, res) => {
     try {
       const product = await stripe.products.create({
