@@ -1,20 +1,48 @@
 <app-nav-bar></app-nav-bar>
 <div class="itinerary-container row">
   <div class="col-3" id="external-events">
+    <div class="itinerary-title">{{ itinerary?.title }}</div>
+    <div class="itinerary-description">
+      {{ itinerary?.description }}
+    </div>
+    <button
+      mat-button
+      class="left-panel-btn"
+      aria-label="Edit itinerary button"
+      (click)="handleEditItineraryForm(true)"
+      [hidden]="!isOwner"
+    >
+      Edit Itinerary
+    </button>
     <button
       *ngIf="!isCollaboratorsFormVisible"
       mat-button
-      class="add-users"
-      aria-label="Example icon-button with heart icon"
-      (click)="handleOpenCollaboratorsForm(true)"
+      class="left-panel-btn"
+      aria-label="Add collaborators button"
+      (click)="handleCollaboratorsForm(true)"
       [hidden]="!isOwner"
-      >
+    >
       Add Collaborators
     </button>
     <div class="search-recommendation" *ngIf="user && user.tier === 2">
       <app-place-autocomplete
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
+      <mat-chip-set class="filter-chips" aria-label="Recommendation filters">
+        <mat-chip
+          *ngFor="let chip of eventTypes"
+          [ngClass]="{ 'selected-chip': isChipSelected(chip) }"
+          (click)="handleChipClick(chip)"
+        >
+          {{ chip }}
+        </mat-chip>
+      </mat-chip-set>
+      <div class="recommendation-msg" *ngIf="loadingRecommendations">
+        Loading recommendations
+      </div>
+      <div class="recommendation-msg" *ngIf="noRecommendations">
+        No recommendations
+      </div>
       <div class="add-item"></div>
     </div>
     <div class="upgrade-msg" *ngIf="user && user.tier === 1">
@@ -30,7 +58,7 @@
     (calendarEventArg)="handleCalendarEvent($event)"
     (calendarEventClickArg)="handleCalendarEventClick($event)"
     (openCustomEventForm)="handleOpenCustomEventForm($event)"
-    (openEventPreviewForm)="handleOpenEventPreviewForm($event)"
+    (openEventPreviewForm)="handleEventPreviewForm($event)"
   ></app-calendar>
   <app-custom-event-form
     *ngIf="isCustomEventFormVisible"
@@ -40,15 +68,18 @@
   ></app-custom-event-form>
   <app-event-preview-form
     *ngIf="isEventPreviewVisible"
-    (openEventPreview)="handleExitEventPreviewForm($event)"
+    (openEventPreview)="handleEventPreviewForm($event)"
     [calendarEventClickArgs]="calendarEventClickArgs"
     [itineraryId]="itineraryId"
   ></app-event-preview-form>
-
-  <!-- Collaborators Form -->
+  <app-edit-itinerary-form
+    *ngIf="isEditItineraryFormVisible"
+    (openItineraryPreview)="handleEditItineraryForm($event)"
+    [itineraryId]="itineraryId"
+  ></app-edit-itinerary-form>
   <app-add-collaborators
     *ngIf="isCollaboratorsFormVisible"
-    (openCollaboratorForm)="handleExitCollaboratorsForm($event)"
+    (openCollaboratorForm)="handleCollaboratorsForm($event)"
     [itineraryId]="itineraryId"
   ></app-add-collaborators>
 </div>

@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatGridListModule}  from '@angular/material/grid-list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
@@ -44,6 +45,7 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
 import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
 import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
+import { EditItineraryFormComponent } from './components/edit-itinerary-form/edit-itinerary-form.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { AddCollaboratorsComponent } from './components/add-collaborators/add-co
     TierDetailsComponent,
     PaymentErrorComponent,
     AddCollaboratorsComponent,
+    EditItineraryFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ import { AddCollaboratorsComponent } from './components/add-collaborators/add-co
     JsonPipe,
     FullCalendarModule,
     MatGridListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatChipsModule
   ],
   providers: [
     {

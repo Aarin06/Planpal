@@ -1,18 +1,74 @@
 <div class="landing-page-container page-container-padding row">
-  <div class="col-2"></div>
-  <div class="content col-8">
-    <div class="title landing-title">Welcome to PlanPal</div>
-    <mat-card class="details-card" appearance="outlined">
-      <img
-        mat-card-image
-        src="https://i.natgeofe.com/k/5b396b5e-59e7-43a6-9448-708125549aa1/new-york-statue-of-liberty.jpg"
-        alt="Photo of New York City"
-      />
-      <mat-card-header>
-        <mat-card-title>A multiplayer planing website</mat-card-title>
-      </mat-card-header>
-    </mat-card>
+  <div class="col-1"></div>
+  <div class="landing-page-content col-10">
+    <div class="section-1 row">
+      <div class="section-1-text-content col-5">
+        <div class="section-1-content">Welcome to PlanPal</div>
+        <div class="section-1-title">
+          A multiplayer travel planning tool to help schedule your next
+          itinerary
+        </div>
+        <button
+          (click)="handleGetStarted()"
+          mat-raised-button
+          class="get-started-btn"
+        >
+          Get Started
+        </button>
+      </div>
+      <div class="image-container col-7">
+        <img
+          class="main-img"
+          src="https://i.natgeofe.com/k/5b396b5e-59e7-43a6-9448-708125549aa1/new-york-statue-of-liberty.jpg"
+          alt="Photo of New York City"
+        />
+        <img
+          class="main-img"
+          src="https://media-cdn.tripadvisor.com/media/photo-m/1280/2c/07/a8/2c/caption.jpg"
+          alt="Photo of Paris"
+        />
+        <img
+          class="main-img"
+          src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg"
+          alt="Photo of Japan"
+        />
+      </div>
+    </div>
+    <div class="section-2">
+      <div class="section-2-title">
+        Invite all your friends to help with planning
+      </div>
+      <div class="group-photo"></div>
+      <div class="feature-description row">
+        <div class="feature-description-card col-4">
+          <div class="feature-description-title">
+            Preview location through Google Maps
+          </div>
+          <div class="feature-description-content">
+            View event locations using the built-in Google Maps viewer.
+          </div>
+        </div>
+        <div class="feature-description-card col-4">
+          <div class="feature-description-title">
+            Google Places search recommendation
+          </div>
+          <div class="feature-description-content">
+            Receive recommendations for restaurants, hotels, activities, and
+            museums through Google Places.
+          </div>
+        </div>
+        <div class="feature-description-card col-4">
+          <div class="feature-description-title">
+            Real-time itinerary updates
+          </div>
+          <div class="feature-description-content">
+            See real-time updates from friends and family as they edit the
+            itinerary, ensuring it is always up to date.
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="col-2"></div>
+  <div class="col-1"></div>
 </div>

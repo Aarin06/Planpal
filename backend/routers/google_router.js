@@ -22,13 +22,31 @@ function getPhotoUrl(name) {
 
 googleRouter.post("/places", isAuthenticated, async (req, res) => {
   const location = req.body.location;
-  if (!location) {
-    return res.status(400).json({ error: "location is required in the body." });
+  const includedTypes = req.body.includedTypes
+  if (!location || !includedTypes) {
+    return res.status(400).json({ error: "location and includedTypes is required in the body." });
+  }
+  let googleIncludedTypes = ["restaurant"]
+  ['Restaurants', 'Hotels', 'Things to do', 'Museum']
+  switch (includedTypes) {
+    case "Restaurants":
+      googleIncludedTypes=["restaurant"]
+      break;
+    case "Hotels":
+      googleIncludedTypes=["hotel", "lodging", "motel", "resort_hotel"]
+      break;
+    case "Things to do":
+      googleIncludedTypes=["shopping_mall", "amusement_park", "casino", "aquarium", "night_club", "zoo", "park"]
+      break;
+    case "Museum":
+      googleIncludedTypes=["museum", "art_gallery", "historical_landmark"]
+      break;
+    default:
   }
   try {
     // uncomment to use google places api
     // const apiResponse = await axios.post('https://places.googleapis.com/v1/places:searchNearby', {
-    //   "includedTypes": ["restaurant", "shopping_mall", "amusement_park", "casino", "aquarium", "historical_landmark"],
+    //   "includedTypes": googleIncludedTypes,
     //   "maxResultCount": 5,
     //   "locationRestriction": {
     //     "circle": {
@@ -46,7 +64,6 @@ googleRouter.post("/places", isAuthenticated, async (req, res) => {
     //     'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.photos,places.location'
     //   }
     // });
-    // console.log(apiResponse.data)
     // fs.writeFile('data.json', JSON.stringify(apiResponse.data, null, 2), (err) => {
     //   if (err) {
     //     console.error('Error writing file:', err);
@@ -54,7 +71,6 @@ googleRouter.post("/places", isAuthenticated, async (req, res) => {
     //   }
     //   console.log('Data written to file successfully');
     // });
-    console.log("here is the final data");
     // const newData = apiResponse.data.places.map((place) => {
     const newData = testData.places.map((place) => {
       return {

@@ -6,7 +6,11 @@ export const authRouter = Router();
 
 authRouter.get(
   "/google",
-  passport.authenticate("google", { scope: ["email", "profile"] }),
+  passport.authenticate("google", { 
+    scope: ["email", "profile"],
+    accessType: 'offline',
+    prompt: 'consent' 
+  }),
 );
 
 authRouter.get(

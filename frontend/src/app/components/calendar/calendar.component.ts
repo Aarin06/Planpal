@@ -85,7 +85,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         end: this.initialItinerary?.endDate,
       },
       fixedWeekCount: false,
-      eventBackgroundColor: '#3a87ad',
+      eventBackgroundColor: '#049be5',
       weekends: true,
       editable: true,
       selectable: true,
@@ -202,8 +202,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       calendarEvent.setProp('startEditable', draggable);
       // Change the background color and border color of the event when it becomes draggable
       if (draggable) {
-        calendarEvent.setProp('backgroundColor', '#3a87ad');
-        calendarEvent.setProp('borderColor', '#3a87ad');
+        calendarEvent.setProp('backgroundColor', '#049be5 ');
+        calendarEvent.setProp('borderColor', '#049be5 ');
         this.editEventIds.delete(eventId);
       } else {
         calendarEvent.setProp('backgroundColor', 'grey');

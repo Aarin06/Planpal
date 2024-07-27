@@ -19,9 +19,10 @@ export class GoogleService {
   getEventRecommendations(location: {
     lat: number;
     lng: number;
-  }): Observable<any> {
+  }, selectedChip: string): Observable<any> {
     return this.http.post(this.endpoint + `/google/places`, {
       location: location,
+      includedTypes: selectedChip
     });
   }
 }

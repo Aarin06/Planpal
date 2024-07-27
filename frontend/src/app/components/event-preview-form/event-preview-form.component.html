@@ -10,7 +10,7 @@
       <div class="form-header">
         <div class="event-form-title">Event Details</div>
         <div class="event-form-subtitle">
-          Enter the details for your new event
+          Enter the details for your updated event
         </div>
       </div>
       <mat-form-field>
@@ -29,10 +29,7 @@
         formControlName="location"
         (placeChanged)="handlePlaceChanged($event)"
       ></app-place-autocomplete>
-      <app-google-map
-        *ngIf="newLocation"
-        [location]="newLocation"
-      ></app-google-map>
+      <app-google-map [location]="newLocation"></app-google-map>
       <!-- <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea formControlName="description" matInput></textarea>
