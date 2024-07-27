@@ -31,8 +31,7 @@ passport.use(
 
         if (user) {
           // If user exists, update their accessToken
-          await user.update({ accessToken: accessToken });
-          console.log("already exists");
+          await user.update({ accessToken: accessToken, refreshToken: refreshToken });
         } else {
           // If user does not exist, create a new user with the provided details
           const newUser = await User.create({

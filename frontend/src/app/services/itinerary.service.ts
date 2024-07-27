@@ -83,17 +83,11 @@ export class ItineraryService {
 
   updateItinerary(
     itineraryId: number,
-    startDate: Date,
-    endDate: Date,
-    description: string,
+    itineraryData: Itinerary
   ) {
     return this.http.patch<Itinerary>(
       this.endpoint + `/itineraries/${itineraryId}`,
-      {
-        startDate,
-        endDate,
-        description,
-      },
+      itineraryData,
     );
   }
 

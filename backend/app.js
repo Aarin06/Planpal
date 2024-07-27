@@ -1,5 +1,4 @@
 import { sequelize } from "./datasource.js";
-import { messagesRouter } from "./routers/messages_router.js";
 import { usersRouter } from "./routers/users_router.js";
 import session from "express-session";
 import express from "express";
@@ -68,8 +67,6 @@ app.listen(PORT, (err) => {
 });
 
 // app.use(express.static("static"));
-
-// app.use("/api/messages", messagesRouter);
 
 // Socket.io server configuration
 const httpServer = createServer(app); // Pass the express app to the HTTP server

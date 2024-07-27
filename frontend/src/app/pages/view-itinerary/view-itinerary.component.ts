@@ -24,9 +24,19 @@ import { user } from '../../classes/user';
 export class ViewItineraryComponent {
   @Output() openCollaboratorForm = new EventEmitter<boolean>();
 
+  eventTypes: string[] = ['Restaurants', 'Hotels', 'Things to do', 'Museum']
+  location = {
+    lat: 0,
+    lng: 0
+  }
+  
+  selectedChip: string = this.eventTypes[0]
+  loadingRecommendations: boolean = false;
+  noRecommendations: boolean = false
   user: user | undefined;
   isCustomEventFormVisible: boolean = false;
   isEventPreviewVisible: boolean = false;
+  isEditItineraryFormVisible: boolean = false;
   isCollaboratorsFormVisible: boolean = false;
   isOwner: boolean = false;
   calendarEventArgs: any = null;
@@ -51,7 +61,8 @@ export class ViewItineraryComponent {
     } else {
       this.itineraryApi.getItinerary(this.itineraryId).subscribe((response) => {
         this.itinerary = response;
-        this.getRecommendations(this.itinerary.location.location);
+        this.location = this.itinerary.location.location
+        this.getRecommendations();
       });
     }
 
@@ -64,15 +75,12 @@ export class ViewItineraryComponent {
         console.log(err);
       },
     });
-
   }
 
   getUser() {
     this.api.me().subscribe({
       next: (value) => {
         this.user = value;
-        console.log('im getting the user here');
-        console.log(this.user);
       },
       error(err) {
         console.log(err);
@@ -84,13 +92,29 @@ export class ViewItineraryComponent {
     return this.itinerary ? this.itinerary : null;
   }
 
+  handleChipClick(chip: string) {
+    this.selectedChip = chip
+    this.getRecommendations();
+  }
+
+  isChipSelected(chip: string): boolean {
+    return this.selectedChip === chip
+  }
+
   onOpenLogin() {
     this.openCollaboratorForm.emit(true);
   }
 
-  getRecommendations(location: { lat: number; lng: number }) {
-    this.googleApi.getEventRecommendations(location).subscribe({
+  getRecommendations() {
+    const addItemElement = this.el.nativeElement.querySelector('.add-item');
+    if (addItemElement) {
+      addItemElement.innerHTML = '';
+    }
+    this.loadingRecommendations = true
+    this.noRecommendations = false
+    this.googleApi.getEventRecommendations(this.location, this.selectedChip).subscribe({
       next: (value) => {
+        this.loadingRecommendations = false
         value.forEach((event: DBEvent) => {
           const newEvent = {
             title: event.title,
@@ -104,7 +128,9 @@ export class ViewItineraryComponent {
           this.createDraggableElement(newEvent);
         });
       },
-      error(err) {
+      error: (err) => {
+        this.loadingRecommendations = false
+        this.noRecommendations = true
         console.log(err);
       },
     });
@@ -121,15 +147,11 @@ export class ViewItineraryComponent {
     //   }
     // }
     // this.createDraggableElement(newEvent);
-    const location = {
+    this.location = {
       lat: place.location?.lat() ?? 0,
       lng: place.location?.lng() ?? 0,
     };
-    const addItemElement = this.el.nativeElement.querySelector('.add-item');
-    if (addItemElement) {
-      addItemElement.innerHTML = '';
-    }
-    this.getRecommendations(location);
+    this.getRecommendations();
   }
 
   private createDraggableElement(event: Event) {
@@ -172,26 +194,27 @@ export class ViewItineraryComponent {
     }
   }
 
-  handleOpenEventPreviewForm(event: boolean) {
+  handleEventPreviewForm(event: boolean) {
     if (event) {
       this.isEventPreviewVisible = true;
-    }
-  }
-
-  handleExitEventPreviewForm(event: boolean) {
-    if (!event) {
+    } else {
       this.isEventPreviewVisible = false;
     }
   }
 
-  handleOpenCollaboratorsForm(event: boolean) {
+  handleEditItineraryForm(event: boolean) {
     if (event) {
-      this.isCollaboratorsFormVisible = true;
+      this.isEditItineraryFormVisible = true;
+      console.log("true here")
+    } else {
+      this.isEditItineraryFormVisible = false;
     }
   }
 
-  handleExitCollaboratorsForm(event: boolean) {
-    if (!event) {
+  handleCollaboratorsForm(event: boolean) {
+    if (event) {
+      this.isCollaboratorsFormVisible = true;
+    } else {
       this.isCollaboratorsFormVisible = false;
     }
   }

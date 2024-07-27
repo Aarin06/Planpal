@@ -12,14 +12,10 @@ export class IndexComponent {
 
   constructor() {}
 
-  handleOpenLogin(event: boolean) {
+  handleLoginForm(event: boolean) {
     if (event) {
       this.isLoginPopupvisible = true;
-    }
-  }
-
-  handleExitLogin(event: boolean) {
-    if (!event) {
+    } else {
       this.isLoginPopupvisible = false;
     }
   }
