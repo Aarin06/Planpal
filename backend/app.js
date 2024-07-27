@@ -96,6 +96,6 @@ io.on("connection", (socket) => {
   DefaultSocket(connected, connectedInverse, socket, io);
 });
 
-httpServer.listen(8443, () => {
+httpServer.listen(4001, () => {
   console.log("Socket.io server is running on http://localhost:4001");
 });
