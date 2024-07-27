@@ -43,23 +43,16 @@ usersRouter.post("/signin", async (req, res) => {
 });
 
 usersRouter.get("/signout", isAuthenticated, function (req, res) {
-  console.log("signing out");
   req.session.destroy();
   return res.json({ message: "Signed out." });
 });
 
 // need to change when we store session id instead of entire user
 usersRouter.get("/me", async (req, res) => {
-  console.log("user me, ", req.session?.passport?.userId);
-  console.log(req.session);
-  console.log(req.session?.passport);
-  console.log(req.isAuthenticated());
-
   if (!req.isAuthenticated()) {
     return res.status(401).json({ errors: "Not Authenticated" });
   }
   const userId = req.user.id;
-  console.log("the user id is ", userId);
   const user = await User.findByPk(userId, {
     attributes: ['username', 'profile', 'tier', 'id']
   });

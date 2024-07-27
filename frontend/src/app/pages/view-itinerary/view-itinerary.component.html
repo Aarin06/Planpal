@@ -6,15 +6,6 @@
       {{ itinerary?.description }}
     </div>
     <button
-      mat-button
-      class="left-panel-btn"
-      aria-label="Edit itinerary button"
-      (click)="handleEditItineraryForm(true)"
-      [hidden]="!isOwner"
-    >
-      Edit Itinerary
-    </button>
-    <button
       *ngIf="!isCollaboratorsFormVisible"
       mat-button
       class="left-panel-btn"
@@ -72,11 +63,6 @@
     [calendarEventClickArgs]="calendarEventClickArgs"
     [itineraryId]="itineraryId"
   ></app-event-preview-form>
-  <app-edit-itinerary-form
-    *ngIf="isEditItineraryFormVisible"
-    (openItineraryPreview)="handleEditItineraryForm($event)"
-    [itineraryId]="itineraryId"
-  ></app-edit-itinerary-form>
   <app-add-collaborators
     *ngIf="isCollaboratorsFormVisible"
     (openCollaboratorForm)="handleCollaboratorsForm($event)"

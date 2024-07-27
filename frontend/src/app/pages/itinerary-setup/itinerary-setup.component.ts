@@ -51,7 +51,6 @@ export class ItinerarySetupComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         error: (err) => {
-          console.log(err.error)
           this.snackBar.open(err.error.error)
         },
       });
