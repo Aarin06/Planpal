@@ -2,6 +2,7 @@ import { User } from "../models/users.js";
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import { Op } from "sequelize";
+import { isAuthenticated } from "../middleware/helpers.js";
 
 export const usersRouter = Router();
 
@@ -41,7 +42,7 @@ usersRouter.post("/signin", async (req, res) => {
   return res.json(user);
 });
 
-usersRouter.get("/signout", function (req, res) {
+usersRouter.get("/signout", isAuthenticated, function (req, res) {
   console.log("signing out");
   req.session.destroy();
   return res.json({ message: "Signed out." });
@@ -69,7 +70,7 @@ usersRouter.get("/me", async (req, res) => {
 });
 
 
-usersRouter.get("/", async (req, res) => {
+usersRouter.get("/", isAuthenticated, async (req, res) => {
   console.log("jade ally",  req.user.id)
   const users = await User.findAll({
     where: {

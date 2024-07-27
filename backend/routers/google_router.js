@@ -7,7 +7,7 @@ import axios from "axios";
 export const googleRouter = Router();
 
 import fs from "fs";
-import testData from "../test_data/data.json" with { type: "json" };
+import testData from "../test_data/data.json" assert { type: "json" };
 
 const apiKey = "AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek";
 
@@ -20,7 +20,7 @@ function getPhotoUrl(name) {
   return photoUrl;
 }
 
-googleRouter.post("/places", async (req, res) => {
+googleRouter.post("/places", isAuthenticated, async (req, res) => {
   const location = req.body.location;
   const includedTypes = req.body.includedTypes
   if (!location || !includedTypes) {

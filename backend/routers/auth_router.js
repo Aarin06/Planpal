@@ -16,7 +16,7 @@ authRouter.get(
 authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:4200/home",
+    successRedirect: "https://planpal.tech/home",
     failureRedirect: "/auth/google/failure",
   }),
 );

@@ -5,7 +5,7 @@ import { ItineraryMember } from "../models/itineraryMembers.js";
 
 export const eventsRouter = Router();
 
-eventsRouter.get("/:id", async (req, res) => {
+eventsRouter.get("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });
@@ -22,7 +22,7 @@ eventsRouter.get("/:id", async (req, res) => {
   }
 });
 
-eventsRouter.patch("/:id", async (req, res) => {
+eventsRouter.patch("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });
@@ -34,7 +34,6 @@ eventsRouter.patch("/:id", async (req, res) => {
       return res.status(404).json({ error: "Event Cannot Be Found" });
     }
     // Assuming `req.body` contains the fields to update
-    console.log(req.body)
     const updatedEvent = await event.update({
       title: req.body.title ? req.body.title : event.title,
       location: req.body.extendedProps.location
@@ -51,7 +50,7 @@ eventsRouter.patch("/:id", async (req, res) => {
   }
 });
 
-eventsRouter.delete("/:id", async (req, res) => {
+eventsRouter.delete("/:id", isAuthenticated, async (req, res) => {
   const eventId = req.params.id;
   if (!eventId) {
     return res.status(422).json({ error: "eventId is required." });

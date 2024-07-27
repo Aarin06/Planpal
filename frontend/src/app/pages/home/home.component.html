@@ -38,6 +38,7 @@
       class="col-3"
       *ngFor="let itinerary of filteredItineraries"
       [itinerary]="itinerary"
+      (itineraryDeleted)="removeItinerary($event)"
     >
     </app-trip-preview>
   </div>
