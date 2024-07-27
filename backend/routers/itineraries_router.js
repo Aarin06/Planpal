@@ -171,8 +171,6 @@ itinerariesRouter.delete("/:id/members/:userId", isAuthenticated,async (req, res
       },
     });
 
-    console.log("Deleted member:", deletedMember);
-
     if (deletedMember === 0) {
       return res.status(404).json({ error: "Member not found." });
     }
@@ -219,8 +217,6 @@ itinerariesRouter.delete("/:id", isAuthenticated,async (req, res) => {
     });
     
 
-    console.log("Deleted member:", deletedItinerary);
-
     if (deletedItinerary === 0) {
       return res.status(404).json({ error: "Itinerary not found." });
     }
@@ -255,7 +251,6 @@ itinerariesRouter.delete("/:id", isAuthenticated,async (req, res) => {
 itinerariesRouter.get("/:id", isAuthenticated, async (req, res) => {
   try {
     const itineraryId = req.params.id;
-    console.log(itineraryId);
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
     }
@@ -328,11 +323,9 @@ itinerariesRouter.get("/:id/owner", isAuthenticated, async (req, res, next) => {
         id: itineraryId,
       }
     });
-    console.log("working here",itinerary)
     if (itinerary.UserId !== req.user.id) {
       return res.json(false);
     }
-    console.log("true")
 
     return res.json(true);
   } catch (e) {
@@ -392,11 +385,8 @@ itinerariesRouter.get("/",isAuthenticated,  async (req, res, next) => {
 
     // Check if data is retrieved correctly
     if (!itineraryMembers || itineraryMembers.length === 0) {
-      console.log("No itinerary members found");
       return res.status(404).json({ error: "No itineraries found" });
     }
-
-    console.log("Fetched itinerary members:", itineraryMembers);
 
     const result = itineraryMembers.map((member) => ({
       id: member.Itinerary.id,
@@ -410,8 +400,6 @@ itinerariesRouter.get("/",isAuthenticated,  async (req, res, next) => {
       profile: member.Itinerary.User.profile,
     }));
 
-    console.log("Processed result:", result);
-
     return res.json({ itineraries: result, length: result.length });
   } catch (e) {
     console.error("Error fetching itineraries:", e);
@@ -421,7 +409,6 @@ itinerariesRouter.get("/",isAuthenticated,  async (req, res, next) => {
 
 itinerariesRouter.get("/:id/events", isAuthenticated, async (req, res, next) => {
   try {
-    console.log("Fetched itinerary members:");
     const itineraryId = req.params.id;
     const userId = req.user.id;
 
@@ -444,11 +431,8 @@ itinerariesRouter.get("/:id/events", isAuthenticated, async (req, res, next) => 
 
     // Check if data is retrieved correctly
     if (!itineraryMembers || itineraryMembers.length === 0) {
-      console.log("No itinerary members found");
       return res.status(404).json({ error: "No itineraries found" });
     }
-
-    console.log("Fetched itinerary members:", itineraryMembers);
 
     const result = itineraryMembers.map((member) => ({
       id: member.Itinerary.id,
@@ -461,8 +445,6 @@ itinerariesRouter.get("/:id/events", isAuthenticated, async (req, res, next) => 
       username: member.Itinerary.User.username,
       profile: member.Itinerary.User.profile,
     }));
-
-    console.log("Processed result:", result);
 
     return res.json({ itineraries: result, length: result.length });
   } catch (e) {

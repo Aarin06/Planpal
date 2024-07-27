@@ -50,7 +50,6 @@ export class NavBarComponent implements OnInit {
   checkAuth() {
     this.api.me().subscribe({
       next: (res) => {
-        console.log('current user is ', res);
         this.isAuth = true;
         this.tier = res.tier;
       },

@@ -45,7 +45,6 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
 import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
 import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
-import { EditItineraryFormComponent } from './components/edit-itinerary-form/edit-itinerary-form.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +65,6 @@ import { EditItineraryFormComponent } from './components/edit-itinerary-form/edi
     TierDetailsComponent,
     PaymentErrorComponent,
     AddCollaboratorsComponent,
-    EditItineraryFormComponent,
   ],
   imports: [
     BrowserModule,

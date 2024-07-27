@@ -1,18 +1,15 @@
-import { Event } from "../models/events.js";
 import { Router } from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
-import { ItineraryMember } from "../models/itineraryMembers.js";
-import axios from "axios";
+import { config } from "dotenv";
 
 export const googleRouter = Router();
 
-import fs from "fs";
-import testData from "../test_data/data.json" assert { type: "json" };
+// import testData from "../test_data/data.json" assert { type: "json" };
 
-const apiKey = "AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek";
+config();
+const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
 function getPhotoUrl(name) {
-  // Example name format: "places/ChIJCar0f49ZwokR6ozLV-dHNTE/photos/AUc7tXXk_7VfIu9O-WlQdEPsT1FDJmcKbBvAj82DwijlcL4u6B_28usS3yDLWrayklDa8qm8kzZORwPx1DRd7fuLp24HhEuaEtt6vq7-Ab0OCd3XCzwxt7epHKD2GrAte-XsrVZ2JNVGPcCGfAAR8dzDyAdAQiG3FwsiRvSG"
   const parts = name.split("/");
   const photoReference = parts[parts.length - 1];
 
@@ -45,34 +42,27 @@ googleRouter.post("/places", isAuthenticated, async (req, res) => {
   }
   try {
     // uncomment to use google places api
-    // const apiResponse = await axios.post('https://places.googleapis.com/v1/places:searchNearby', {
-    //   "includedTypes": googleIncludedTypes,
-    //   "maxResultCount": 5,
-    //   "locationRestriction": {
-    //     "circle": {
-    //       "center": {
-    //         "latitude": location.lat,
-    //         "longitude": location.lng},
-    //       "radius": 1500.0
-    //     }
-    //   }
-    // },{
-    //   headers: {
-    //     // Any required headers here
-    //     'Content-Type': 'application/json',
-    //     'X-Goog-Api-Key': 'AIzaSyBdj6gMDTgiD2Fybki9EUwbXYKi1oKFtek',
-    //     'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.photos,places.location'
-    //   }
-    // });
-    // fs.writeFile('data.json', JSON.stringify(apiResponse.data, null, 2), (err) => {
-    //   if (err) {
-    //     console.error('Error writing file:', err);
-    //     return res.status(500).json({ error: "Error writing data to file" });
-    //   }
-    //   console.log('Data written to file successfully');
-    // });
-    // const newData = apiResponse.data.places.map((place) => {
-    const newData = testData.places.map((place) => {
+    const apiResponse = await axios.post('https://places.googleapis.com/v1/places:searchNearby', {
+      "includedTypes": googleIncludedTypes,
+      "maxResultCount": 5,
+      "locationRestriction": {
+        "circle": {
+          "center": {
+            "latitude": location.lat,
+            "longitude": location.lng},
+          "radius": 1500.0
+        }
+      }
+    },{
+      headers: {
+        // Any required headers here
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.photos,places.location'
+      }
+    });
+    const newData = apiResponse.data.places.map((place) => {
+    // const newData = testData.places.map((place) => {
       return {
         title: place.displayName.text,
         start: new Date(),
@@ -92,7 +82,6 @@ googleRouter.post("/places", isAuthenticated, async (req, res) => {
     });
     return res.json(newData);
   } catch (error) {
-    console.log(error);
     // Handle potential errors, such as validation errors or database errors
     return res.status(500).json({ error: "Cannot recommend events" });
   }

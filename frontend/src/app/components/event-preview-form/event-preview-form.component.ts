@@ -78,8 +78,6 @@ export class EventPreviewFormComponent {
         this.eventApi.updateEvent(prevEvent.event.id, newEvent).subscribe({
           next: (res) => {
             newEvent.id = res.id;
-            console.log(newEvent);
-            console.log(prevEvent.view);
             // prevEvent.event.location = newEvent.extendedProps.location
             prevEvent.event.setProp('title', newEvent.title);
             prevEvent.event.setExtendedProp(
@@ -138,7 +136,6 @@ export class EventPreviewFormComponent {
     });
     if (place.location) {
       this.newLocation = place.location;
-      console.log(this.newLocation);
       this.cdRef.markForCheck();
     }
   }

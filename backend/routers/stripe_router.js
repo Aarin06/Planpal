@@ -3,9 +3,11 @@ import { User } from "../models/users.js";
 import Stripe from "stripe";
 import express from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
+import { config } from "dotenv";
 
+config();
 const stripe = Stripe(
-  "sk_test_51O2E02LQcW3FBSVStOzg3W2vQdER2unzsBBvtS1YCupSySUaaGoZ1mLNQFfj2tlNr8lCHF6hSKIvgGIl2ZMs7iXP003vwIuwaD",
+  process.env.STRIPE_SECRET_KEY,
 );
 export const stripeRouter = Router();
 
@@ -32,15 +34,12 @@ stripeRouter.post(
       case "checkout.session.completed":
         const session = event.data.object;
         const userId = session.metadata.userId;
-        console.log("Payment was successful for user ID:", userId);
         const user = await User.findByPk(userId);
         if (!user) {
           return res.status(404).json({ error: "No user found" });
         }
         user.tier = 2;
         await user.save();
-        console.log("here is the updated user");
-        console.log(user);
         break;
       default:
         console.log(`Unhandled event type ${event.type}`);
@@ -71,8 +70,6 @@ stripeRouter.post(
       });
 
       if (req.user?.id) {
-        console.log("i am here for");
-        console.log(req.user.id);
         const session = await stripe.checkout.sessions.create({
           line_items: [
             {

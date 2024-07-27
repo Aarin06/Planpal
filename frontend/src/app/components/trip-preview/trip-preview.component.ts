@@ -29,7 +29,6 @@ export class TripPreviewComponent implements OnInit {
       next: () => {
         // Handle successful deletion
         this.itineraryDeleted.emit(itineraryId);
-        console.log(`Itinerary ${itineraryId} deleted`);
       },
       error: (err) => {
         // Handle error
