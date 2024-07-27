@@ -16,6 +16,8 @@
   position: relative;
   padding: 70px;
   border-radius: 10px;
+  max-height: 80vh;
+  overflow: auto;
 }
 
 .event-form-card .event-form-title {

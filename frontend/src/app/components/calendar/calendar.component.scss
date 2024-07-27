@@ -34,7 +34,7 @@ b {
 
 .fc-event {
   padding: 5px;
-  background: #3a87ad;
+  background: #049be5;
   color: white;
   cursor: pointer;
 }
@@ -55,8 +55,20 @@ b {
   font-size: 14px;
   background: white;
   color: black;
-  border: 1px solid black;
   padding: 10px 20px 10px 20px;
+}
+
+.fc .fc-button:hover{
+  background-color: #049be5;
+}
+
+.fc .fc-button-primary:disabled{
+  background: #343d3f;
+  cursor: not-allowed;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active{
+  background-color: #049be5;
 }
 
 .event-template {
@@ -70,5 +82,5 @@ b {
 }
 
 .valid-range {
-  background-color: rgb(189, 244, 189) !important;
+  background-color: white !important;
 }

@@ -19,13 +19,21 @@
     <br />
     <mat-form-field>
       <mat-label>Trip Name</mat-label>
-      <input formControlName="title" placeholder="Trip Name" matInput />
+      <input
+        formControlName="title"
+        placeholder="Trip Name"
+        matInput
+        maxlength="75"
+      />
+      <mat-hint align="end"
+        >{{ itineraryForm?.get("title")?.value?.length || 0 }}/75</mat-hint
+      >
     </mat-form-field>
     <app-place-autocomplete
       formControlName="location"
       (placeChanged)="handlePlaceChanged($event)"
     ></app-place-autocomplete>
-
+    <app-google-map [location]="newLocation"></app-google-map>
     <mat-form-field>
       <mat-label>Enter a date range</mat-label>
 
@@ -51,11 +59,20 @@
       <mat-error *ngIf="range.controls.endDate.hasError('matEndDateInvalid')"
         >Invalid endDate date</mat-error
       >
+      <mat-hint align="end">MM/DD/YY</mat-hint>
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>Description</mat-label>
-      <textarea formControlName="description" matInput></textarea>
+      <textarea
+        formControlName="description"
+        matInput
+        maxlength="250"
+      ></textarea>
+      <mat-hint align="end"
+        >{{
+          itineraryForm?.get("description")?.value?.length || 0
+        }}/250</mat-hint
+      >
     </mat-form-field>
 
     <button type="submit" mat-raised-button>Create Trip</button>

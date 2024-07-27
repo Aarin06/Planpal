@@ -1,7 +1,108 @@
-.landing-title {
-  margin-bottom: 30px;
+.landing-page-content {
+  margin-top: 50px;
+}
+
+.section-1{
+  height: 700px;
+}
+
+.section-1-text-content{
+  padding-right: 100px;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.section-1-content{
+  margin-top: 100px;
+  line-height: 1.1;
+  font-size: 24px;
+  font-weight: bold;
+  color: #f5385d;
+  margin-bottom: 5px;
+}
+
+.section-1-title {
+  line-height: 1.1;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  position: relative;
+  height: 300px; /* Adjust height as needed */
+}
+
+.image-container .main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.image-container .main-img:nth-child(1) {
+  transform: rotate(-9deg);
+  z-index: -3;
+}
+
+.image-container .main-img:nth-child(2) {
+  transform: rotate(3deg);
+  z-index: -2;
+}
+
+.image-container .main-img:nth-child(3) {
+  transform: rotate(-2deg);
+  z-index: -1;
 }
 
 .details-card {
   border: none;
+}
+
+.section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.section-2-title{
+  line-height: 1.1;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.group-photo {
+  background-image: url('../../../assets/group-photo.png'); /* Path to your image */
+  background-size: contain; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  width: 85%; /* Set the width to 500px */
+  height: 70%; /* Set the height to 200px */
+  margin: 20px auto;
+}
+
+.feature-description-card{
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+
+
+.feature-description{
+  width: 85%;
+}
+
+.feature-description-title{
+  line-height: 1.1;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.feature-description-content{
+  font-size: 16px;
+  margin-top: 10px;
 }

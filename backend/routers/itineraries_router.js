@@ -3,6 +3,7 @@ import { Router } from "express";
 import { isAuthenticated } from "../middleware/helpers.js";
 import { ItineraryMember } from "../models/itineraryMembers.js";
 import { Event } from "../models/events.js";
+import { User } from "../models/users.js";
 
 export const itinerariesRouter = Router();
 
@@ -66,8 +67,28 @@ itinerariesRouter.post("/", async (req, res, next) => {
     if (!req.body.description) {
       return res.status(422).json({ error: "Description is required." });
     }
-    const userId = req.user.id;
 
+    if (req.body.title.length > 75 || req.body.description > 250){
+      return res.status(422).json({ error: "Title must be less than 15 characters and Description must be less than 250 characters." });
+    }
+
+    const userId = req.user.id;
+    
+    const user = await User.findByPk(userId)
+
+    if (!user){
+      return res.status(404).json({ error: "User is not found"})
+    }
+
+    if (user.tier === 1){
+      const itineraryCount = await Itinerary.count({
+        where: { UserId: userId }
+      });
+      if (itineraryCount === 3){
+        return res.status(403).json({ error: "You have reached the maximum number of itinerary creations for Travel Trainee. Please return to home page." });
+      }
+    }
+    
     const itinerary = await Itinerary.create({
       title: req.body.title,
       startDate: req.body.startDate,
@@ -84,7 +105,7 @@ itinerariesRouter.post("/", async (req, res, next) => {
 
     return res.json(itinerary);
   } catch (e) {
-    return res.status(404).json({ error: "Cannot Create Itinerary" });
+    return res.status(500).json({ error: "Cannot Create Itinerary" });
   }
 });
 

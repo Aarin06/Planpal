@@ -1,8 +1,8 @@
-<app-nav-bar (openLoginForm)="handleOpenLogin($event)"></app-nav-bar>
+<app-nav-bar (openLoginForm)="handleLoginForm($event)"></app-nav-bar>
 
-<app-landing></app-landing>
+<app-landing (openLoginForm)="handleLoginForm($event)"></app-landing>
 
 <app-login-popup
   *ngIf="isLoginPopupvisible"
-  (openLoginForm)="handleExitLogin($event)"
+  (openLoginForm)="handleLoginForm($event)"
 ></app-login-popup>

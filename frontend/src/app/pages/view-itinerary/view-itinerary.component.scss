@@ -1,8 +1,44 @@
+.itinerary-title{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.itinerary-description{
+  font-size: 16px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
 .search-recommendation {
+  position: relative;
   border: solid grey 1px;
   padding: 10px;
   min-height: 50%;
   border-radius: 10px;
+}
+
+.mat-mdc-standard-chip.selected-chip {
+  background-color: #049be5; /* Example color */
+}
+
+.mat-mdc-standard-chip.selected-chip .mat-mdc-standard-chip{
+  color: white;
+}
+
+.filter-chips{
+  margin-top: -12px;
+}
+
+.recommendation-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
 }
 
 .upgrade-msg {
@@ -18,13 +54,13 @@
 .fc-event {
   margin: 10px 0;
   padding: 5px;
-  background: #3a87ad;
+  background: #049be5 ;
   color: white;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.add-users {
+.left-panel-btn{
   width: 100%;
   border: solid grey 1px;
   padding: 10px;

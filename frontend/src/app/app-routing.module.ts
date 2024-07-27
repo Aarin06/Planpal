@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'view-itinerary/:itineraryId',
     component: ViewItineraryComponent,
-    canActivate: [pageAuthGuard],
+    // canActivate: [pageAuthGuard],
   },
 
   {

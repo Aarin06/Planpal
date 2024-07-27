@@ -21,7 +21,7 @@ export class EventPreviewFormComponent {
   @Output() openEventPreview = new EventEmitter<boolean>();
   @Input() calendarEventClickArgs: any = null;
   @Input() itineraryId: number | null = null;
-  newLocation: google.maps.LatLng | undefined;
+  newLocation: google.maps.LatLng = new google.maps.LatLng(0 ,0);
 
   eventForm: FormGroup;
   initalEventData: DBEvent | null = null;
@@ -44,7 +44,6 @@ export class EventPreviewFormComponent {
         next: (value) => {
           this.newLocation = value.location.location;
           this.eventForm.get('eventName')?.setValue(value.title);
-          // idk why no work
           this.eventForm.get('location')?.setValue(value.location.address);
           this.initalEventData = value;
         },
