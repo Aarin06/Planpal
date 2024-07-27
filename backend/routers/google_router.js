@@ -7,6 +7,12 @@ export const googleRouter = Router();
 // import testData from "../test_data/data.json" assert { type: "json" };
 
 config();
+console.log("google_router.js")
+console.log(process.env.GOOGLE_CLIENT_ID)
+console.log(process.env.GOOGLE_CLIENT_SECRET)
+console.log(process.env.GOOGLE_PLACES_API_KEY)
+console.log(process.env.STRIPE_SECRET_KEY)
+console.log(process.env.SESSION_SECRET)
 const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
 function getPhotoUrl(name) {
