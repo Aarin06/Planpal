@@ -64,10 +64,10 @@ services:
       - "3000:3000"
       - "4001:4001"
     environment:
-      - VIRTUAL_HOST=api.planpal.tech
+      - VIRTUAL_HOST=apis.planpal.tech
       - VIRTUAL_PORT=3000
       - VIRTUAL_PORT=4001
-      - LETSENCRYPT_HOST=api.planpal.tech
+      - LETSENCRYPT_HOST=apis.planpal.tech
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USER=postgres
