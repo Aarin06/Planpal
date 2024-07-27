@@ -76,4 +76,10 @@ export class HomeComponent implements OnInit {
   navigateAddItinerary() {
     this.router.navigate(['/create-itinerary']);
   }
+
+  removeItinerary(itineraryId: number): void {
+    this.itineraries = this.itineraries.filter(itinerary => itinerary.id !== itineraryId);
+    this.filteredItineraries = this.filteredItineraries.filter(itinerary => itinerary.id !== itineraryId);
+  }
+  
 }

@@ -40,3 +40,17 @@
   display: block; /* Ensures the subtitle takes up the full width */
   max-width: 100%; /* Ensures the subtitle does not exceed the container width */
 }
+
+.display-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.delete-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  color: red;
+}
