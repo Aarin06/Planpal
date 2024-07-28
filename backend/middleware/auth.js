@@ -4,12 +4,6 @@ import { User } from "../models/users.js";
 import { config } from "dotenv";
 
 config();
-console.log("auth.js")
-console.log(process.env.GOOGLE_CLIENT_ID)
-console.log(process.env.GOOGLE_CLIENT_SECRET)
-console.log(process.env.GOOGLE_PLACES_API_KEY)
-console.log(process.env.STRIPE_SECRET_KEY)
-console.log(process.env.SESSION_SECRET)
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 

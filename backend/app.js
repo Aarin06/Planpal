@@ -38,12 +38,6 @@ try {
   console.error("Unable to connect to the database:", error);
 }
 
-console.log("app.js")
-console.log(process.env.GOOGLE_CLIENT_ID)
-console.log(process.env.GOOGLE_CLIENT_SECRET)
-console.log(process.env.GOOGLE_PLACES_API_KEY)
-console.log(process.env.STRIPE_SECRET_KEY)
-console.log(process.env.SESSION_SECRET)
 app.use(
   session({
     secret: process.env.SESSION_SECRET, // Replace with your own secret
