@@ -36,9 +36,9 @@
   </mat-card-header>
 
   <!-- Conditionally apply *ngFor and *ngIf based on itinerary.members length -->
-  <ng-container *ngIf="itinerary.members?.length > 1">
+  <ng-container class="row" *ngIf="itinerary.members?.length > 1">
     <div
-      class="row"
+      class="col-2"
       *ngFor="let member of itinerary.members.slice(1, 4); let i = index"
     >
       <div
@@ -49,7 +49,7 @@
         }"
       ></div>
     </div>
-    <div class="row" *ngIf="itinerary.members.length > 4">
+    <div class="col-2" *ngIf="itinerary.members.length > 4">
       <div class="extra-members-text">
         + {{ itinerary.members.length - 4 }} more
       </div>
@@ -58,10 +58,8 @@
 
   <!-- Add the garbage can icon -->
   <ng-container *ngIf="isOwner">
-    <mat-icon
-      class="delete-icon"
-      (click)="deleteItinerary($event, itinerary.id)"
-      >delete</mat-icon
-    >
+    <div class="delete-btn" (click)="deleteItinerary($event, itinerary.id)">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </div>
   </ng-container>
 </mat-card>

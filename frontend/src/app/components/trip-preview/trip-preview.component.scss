@@ -2,6 +2,7 @@
   margin: 20px;
   border-radius: 10px;
   box-shadow: none;
+  min-height: 500px;
 }
 
 .fixed-height-image {
@@ -45,12 +46,4 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.delete-icon {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  cursor: pointer;
-  color: red;
 }
