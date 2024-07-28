@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItineraryService } from '../../services/itinerary.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-trip-preview',
@@ -10,6 +11,7 @@ import { ItineraryService } from '../../services/itinerary.service';
 export class TripPreviewComponent implements OnInit {
   @Input() itinerary!: any;
   @Output() itineraryDeleted = new EventEmitter<number>();
+  faTrash = faTrash
 
 
   isOwner:boolean = true; // Placeholder value
