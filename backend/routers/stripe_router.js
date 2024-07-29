@@ -11,7 +11,7 @@ const stripe = Stripe(
 );
 export const stripeRouter = Router();
 
-process.env.STRIPE_ENDPOINT_SECRET;
+const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 
 stripeRouter.post(
   "/webhook",
