@@ -1,0 +1,87 @@
+body {
+  background-color: white;
+  font-family: Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #3c3d3f;
+}
+
+header {
+  padding: 15px;
+  border-bottom: 2px solid rgb(204, 204, 204);
+}
+
+.credits-container{
+  padding: 20px;
+}
+
+.title {
+  color: black;
+  font-weight: bold;
+  margin: 0px;
+  font-size: 32px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.text-padding {
+  padding: 15px;
+}
+
+.user-welcome-text {
+  font-size: 16px;
+}
+
+.nav-bar-btn {
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #3c3d3f;
+  background: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  max-width: 200px;
+}
+
+.nav-bar-btn:disabled,
+.nav-bar-btn:disabled:hover {
+  color: #3c3d3f;
+  background: #ffffff;
+  cursor: not-allowed;
+}
+
+.nav-bar-btn:hover {
+  background: #3c3d3f;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn {
+  display: block;
+  margin: 15px auto;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #3c3d3f;
+  background: #ffffff;
+  border: 2px solid black;
+  padding: 10px 20px;
+  width: 70%;
+}
+
+.btn:disabled,
+.btn:disabled:hover {
+  color: #3c3d3f;
+  background: #ffffff;
+  cursor: not-allowed;
+}
+
+.btn:hover {
+  background: #3c3d3f;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  margin: 10px;
+}
