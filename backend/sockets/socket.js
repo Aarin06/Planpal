@@ -1,30 +1,28 @@
 const DefaultSocket = (connected, connectedInverse, socket, io) => {
   let draggingEventIds = new Set();
-
-  // socket.emit("me", socket.id);
-  // connections.push(socket);
-
-  // socket.on("join", (data) => {
-  //     connected[data.name] =  socket.id
-  //     connectedInverse[socket.id] = data.name
-  //     console.log(connected,"here");
-  // });
-
-  // socket.on("dragEvent", (data) => {
-  //   connections.map((con) => {
-  //     if (con.id !== socket.id) {
-  //       con.emit("disableEvent", data);
-  //     }
-  //   });
-  //   // connected[data.name] =  socket.id
-  //   // connectedInverse[socket.id] = data.name
-  //   // console.log(connected,"here");
-  // });
-
-  // Add the new socket to the connections list
+  let editEventTimeouts = new Map(); // To store timeouts for events
 
   socket.on("eventEditStart", (event) => {
     draggingEventIds.add(event);
+    
+    // Clear any existing timeout for the event
+    if (editEventTimeouts.has(event.id)) {
+      clearTimeout(editEventTimeouts.get(event.id));
+    }
+
+    // Set a timeout to automatically trigger eventEditStop after 5 seconds
+    const timeout = setTimeout(() => {
+      draggingEventIds.delete(event);
+      connected.forEach((con) => {
+        if (con.id !== socket.id) {
+          con.emit("eventEditStopListener", event); // Emit to all clients except the sender
+        }
+      });
+      editEventTimeouts.delete(event.id); // Remove the timeout entry
+    }, 10000);
+
+    editEventTimeouts.set(event.id, timeout);
+
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("eventEditStartListener", event); // Emit to all clients except the sender
@@ -34,6 +32,13 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
 
   socket.on("eventEditStop", (event) => {
     draggingEventIds.delete(event);
+
+    // Clear the timeout when eventEditStop is called
+    if (editEventTimeouts.has(event.id)) {
+      clearTimeout(editEventTimeouts.get(event.id));
+      editEventTimeouts.delete(event.id);
+    }
+
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("eventEditStopListener", event); // Emit to all clients except the sender
@@ -94,20 +99,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
       }
     });
   });
-
-  // socket.on("disconnect", () => {
-  //     io.emit("left", { type: "left", user: connectedInverse[socket.id] });
-  //     delete connected[connectedInverse[socket.id]]
-  //     delete connectedInverse[socket.id]
-  //     console.log(connected)
-  // });
-
-  // socket.on("logout", (data) => {
-  //     io.emit("left", { type: "left", user: connectedInverse[socket.id] });
-  //     delete connected[connectedInverse[socket.id]]
-  //     delete connectedInverse[socket.id]
-  //     console.log(connected)
-  // })
 };
 
 export default DefaultSocket;
