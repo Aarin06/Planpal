@@ -13,7 +13,7 @@ services:
       - ./vhost:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./acme-challenges:/usr/share/nginx/html/.well-known/acme-challenge
-  
+
   nginx-proxy-acme:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
@@ -40,7 +40,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-      
+
   frontend:
     image: ghcr.io/utsc-cscc09-programming-on-the-web/frontend-planpal
     container_name: frontend
@@ -65,8 +65,7 @@ services:
       - "4001:4001"
     environment:
       - VIRTUAL_HOST=apis.planpal.tech
-      - VIRTUAL_PORT=3000
-      - VIRTUAL_PORT=4001
+      - VIRTUAL_PORT=3000  # Primary API port
       - LETSENCRYPT_HOST=apis.planpal.tech
       - DB_HOST=postgres
       - DB_PORT=5432

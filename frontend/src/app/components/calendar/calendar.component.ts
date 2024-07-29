@@ -182,7 +182,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   initializeSocket(): void {
-    this.socket = io('http://localhost:4001');
+    this.socket = io('https://apis.planpal.tech');
     this.socket.on('eventEditStartListener', (event: any) => {
       // Handle socket events here
       this.updateEventDraggable(event.id, false);
