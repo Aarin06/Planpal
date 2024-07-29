@@ -8,6 +8,7 @@ import { ItinerarySetupComponent } from './pages/itinerary-setup/itinerary-setup
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ViewItineraryComponent } from './pages/view-itinerary/view-itinerary.component';
 import { pageAuthGuard, basicAuthGuard } from './services/auth.guard';
+import { CreditsComponent } from './pages/credits/credits.component';
 const routes: Routes = [
   {
     path: '',
@@ -38,7 +39,10 @@ const routes: Routes = [
     component: ViewItineraryComponent,
     canActivate: [pageAuthGuard],
   },
-
+  {
+    path: 'credits',
+    component: CreditsComponent,
+  },
   {
     path: '**',
     redirectTo: '/',

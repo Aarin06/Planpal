@@ -45,6 +45,8 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { TierDetailsComponent } from './pages/tier-details/tier-details.component';
 import { PaymentErrorComponent } from './pages/payment-error/payment-error.component';
 import { AddCollaboratorsComponent } from './components/add-collaborators/add-collaborators.component';
+import { CreditsComponent } from './pages/credits/credits.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { AddCollaboratorsComponent } from './components/add-collaborators/add-co
     TierDetailsComponent,
     PaymentErrorComponent,
     AddCollaboratorsComponent,
+    CreditsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
