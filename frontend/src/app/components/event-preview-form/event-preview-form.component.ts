@@ -75,12 +75,13 @@ export class EventPreviewFormComponent {
           },
         };
         // Step 3: Create Event
-        this.eventApi.updateEvent(prevEvent.event.id, newEvent).subscribe({
+        console.log('Updating event', prevEvent.id, newEvent);
+        this.eventApi.updateEvent(prevEvent.id, newEvent).subscribe({
           next: (res) => {
             newEvent.id = res.id;
             // prevEvent.event.location = newEvent.extendedProps.location
-            prevEvent.event.setProp('title', newEvent.title);
-            prevEvent.event.setExtendedProp(
+            prevEvent.setProp('title', newEvent.title);
+            prevEvent.setExtendedProp(
               'location',
               newEvent.extendedProps.location,
             );
@@ -88,9 +89,9 @@ export class EventPreviewFormComponent {
             let sendEvent = {
               id: newEvent.id,
               title: newEvent.title,
-              start: prevEvent.event.start,
-              end: prevEvent.event.end,
-              allDay: prevEvent.event.allDay,
+              start: prevEvent.start,
+              end: prevEvent.end,
+              allDay: prevEvent.allDay,
               extendedProps: newEvent.extendedProps,
             };
 
