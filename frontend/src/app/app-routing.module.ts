@@ -16,17 +16,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    // canActivate: [basicAuthGuard],
+    canActivate: [basicAuthGuard],
   },
   {
     path: 'tier',
     component: TierDetailsComponent,
-    // canActivate:[authGuard]
+    canActivate:[basicAuthGuard]
   },
   {
     path: 'payment/error',
     component: PaymentErrorComponent,
-    // canActivate:[authGuard]
+    canActivate:[basicAuthGuard]
   },
   {
     path: 'create-itinerary',
@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'view-itinerary/:itineraryId',
     component: ViewItineraryComponent,
-    // canActivate: [pageAuthGuard],
+    canActivate: [pageAuthGuard],
   },
 
   {
