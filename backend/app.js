@@ -84,9 +84,7 @@ const connectedInverse = {};
 
 io.on("connection", (socket) => {
   connected.push(socket);
-  console.log("a user connected", socket.id);
   socket.on("disconnect", () => {
-    console.log("a user disconnected", socket.id);
     connected = connected.filter((con) => con.id !== socket.id);
   });
 

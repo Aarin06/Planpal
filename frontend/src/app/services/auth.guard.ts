@@ -12,7 +12,6 @@ export const basicAuthGuard: CanActivateFn = (route, state) => {
   return api.me().pipe(
     switchMap(() => of(true)), // If authenticated, emit true
     catchError((err) => {
-      console.error('Authentication check failed:', err);
       return of(router.createUrlTree(['/'])); // If not authenticated or error, emit UrlTree for redirection
     }),
   );
@@ -32,7 +31,6 @@ export const pageAuthGuard: CanActivateFn = (route, state) => {
         return itineraryApi.getItinerary(itineraryId).pipe(
           switchMap(() => of(true)), // If itinerary exists, emit true
           catchError((err) => {
-            console.error('Itinerary check failed:', err);
             return of(router.createUrlTree(['/home'])); // If itinerary does not exist or error, emit UrlTree for redirection
           }),
         );
@@ -41,7 +39,6 @@ export const pageAuthGuard: CanActivateFn = (route, state) => {
       }
     }),
     catchError((err) => {
-      console.error('Authentication check failed:', err);
       return of(router.createUrlTree(['/'])); // If not authenticated or error, emit UrlTree for redirection
     }),
   );

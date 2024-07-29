@@ -69,17 +69,11 @@ export class CustomEventFormComponent {
             };
 
             this.calendarEventArg.socket.emit('createEvent', event);
-          },
-          error: (err) => {
-            console.log(err);
-            return;
-          },
+          }
         });
         this.eventForm.reset();
         this.onExitForm();
       }
-    } else {
-      console.error('Information is invalid');
     }
   }
 

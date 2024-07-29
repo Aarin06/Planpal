@@ -68,10 +68,7 @@ export class ViewItineraryComponent {
     this.itineraryApi.isItineraryOwner(this.itineraryId).subscribe({
       next: (value) => {
         this.isOwner = value;
-      },
-      error(err) {
-        console.log(err);
-      },
+      }
     });
   }
 
@@ -79,10 +76,7 @@ export class ViewItineraryComponent {
     this.api.me().subscribe({
       next: (value) => {
         this.user = value;
-      },
-      error(err) {
-        console.log(err);
-      },
+      }
     });
   }
 
@@ -125,12 +119,7 @@ export class ViewItineraryComponent {
           };
           this.createDraggableElement(newEvent);
         });
-      },
-      error: (err) => {
-        this.loadingRecommendations = false
-        this.noRecommendations = true
-        console.log(err);
-      },
+      }
     });
   }
 

@@ -46,10 +46,7 @@ export class EventPreviewFormComponent {
           this.eventForm.get('eventName')?.setValue(value.title);
           this.eventForm.get('location')?.setValue(value.location.address);
           this.initalEventData = value;
-        },
-        error(err) {
-          console.log(err);
-        },
+        }
       });
   }
 
@@ -75,7 +72,6 @@ export class EventPreviewFormComponent {
           },
         };
         // Step 3: Create Event
-        console.log('Updating event', prevEvent.id, newEvent);
         this.eventApi.updateEvent(prevEvent.id, newEvent).subscribe({
           next: (res) => {
             newEvent.id = res.id;
@@ -96,11 +92,7 @@ export class EventPreviewFormComponent {
             };
 
             this.calendarEventClickArgs.socket.emit('updateEvent', sendEvent);
-          },
-          error: (err) => {
-            console.log(err);
-            return;
-          },
+          }
         });
         // Step 4: Reset Form (optional)
         this.eventForm.reset();
@@ -109,7 +101,6 @@ export class EventPreviewFormComponent {
       }
     } else {
       // Handle form invalid case
-      console.error('Information is invalid');
     }
   }
 
@@ -124,10 +115,7 @@ export class EventPreviewFormComponent {
             this.calendarEventClickArgs.clickInfo.event,
           );
           this.onExitForm();
-        },
-        error(err) {
-          console.log(err);
-        },
+        }
       });
   }
 

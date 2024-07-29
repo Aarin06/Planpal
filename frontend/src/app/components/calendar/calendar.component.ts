@@ -134,15 +134,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEventEditStart(info: any) {
-    // this.draggingEventIds.add(info.event.id);
-    // this.updateEventDraggable(info.event.id, false);
-    console.log('Event started edit:', info.event);
+   
     this.socket.emit('eventEditStart', info.event);
   }
 
   handleEventEditStop(info: any) {
-    // this.draggingEventIds.delete(info.event.id);
-    // this.updateEventDraggable(info.event.id, true);
     const newEvent = {
       id: info.event.id,
       title: info.event.title,
@@ -151,33 +147,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       allDay: info.event.allDay,
       extendedProps: info.event.extendedProps,
     }
-    console.log("the new event is ", newEvent)
-    // if (!info.event.allDay && !info.event.end) {
-    //   const input = info.event.start.toISOString();
-    //   console.log(input.replace(
-    //     /T(\d{2}):(\d{2}):(\d{2})/,
-    //     (match: any, hour: any, minute: any, second: any) => {
-    //       // Increment the hour
-    //       let incrementedHour = parseInt(hour, 10) + 1;
-    //       // Format hour with leading zero if needed
-    //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-    //       // Return the new time string
-    //       return `T${sIncrementedHour}:${minute}:${second}`;
-    //     },
-    //   ))
-    //   newEvent.end = new Date(input.replace(
-    //     /T(\d{2}):(\d{2}):(\d{2})/,
-    //     (match: any, hour: any, minute: any, second: any) => {
-    //       // Increment the hour
-    //       let incrementedHour = parseInt(hour, 10) + 1;
-    //       // Format hour with leading zero if needed
-    //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-    //       // Return the new time string
-    //       return `T${sIncrementedHour}:${minute}:${second}`;
-    //     },
-    //   ));
-    // }
-    console.log('Event stopped edit:', newEvent);
+   
     this.socket.emit('eventEditStop', newEvent);
   }
 
@@ -189,11 +159,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
       // this.updateEventDraggable(event.id, true);
 
-      console.log('Event received from Socket.IO 1 :', event);
     });
     this.socket.on('eventEditStopListener', (event: any) => {
       // Handle socket events here
-      console.log('Event received from Socket.IO 2 :', event);
       this.updateEventDraggable(event.id, true);
 
       this.updateCurrentEvents(event);
@@ -201,19 +169,16 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
     this.socket.on('externalEventDropListener', (event: any) => {
       // Handle socket events here
-      console.log('externalEventDropListener Socket.IO:', event);
       this.updateCurrentEvents(event);
     });
     this.socket.on('deleteEventListener', (event: any) => {
       // Handle socket events here
-      console.log('delete Socket.IO:', event);
 
       this.deleteEvent(event);
     });
 
     this.socket.on('updateEventListener', (event: any) => {
       // Handle socket events here
-      console.log('updateEvent Socket.IO:', event);
 
       this.updateEventDraggable(event.id, true);
       this.updateCurrentEvents(event);
@@ -230,7 +195,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.socket.on('editEventStartListener', (event: any) => {
       // Handle socket events here
       this.updateEventDraggable(event.id, false);
-      console.log('editng event should be blocked', event);
     });
   }
 
@@ -291,7 +255,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    console.log(selectInfo);
     this.calendarEventArg.emit({ selectInfo, socket: this.socket });
     this.openCustomEventForm.emit(true);
   }
@@ -306,7 +269,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   handleEvents(events: CalendarEventApi[]) {
-    console.log('handling events');
     if (events.length > 0) {
       
       events.forEach((event) => {
@@ -317,34 +279,10 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           allDay: event.allDay,
           extendedProps: event.extendedProps,
         };
-        // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
-        // if (!newEvent.allDay && !newEvent.end) {
-        //   console.log("updating date before storing")
-        //   const input = newEvent.start;
-
-        //   newEvent.end = input.replace(
-        //     /T(\d{2}):(\d{2}):(\d{2})/,
-        //     (match: any, hour: any, minute: any, second: any) => {
-        //       // Increment the hour
-        //       let incrementedHour = parseInt(hour, 10) + 1;
-        //       // Format hour with leading zero if needed
-        //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-        //       // Return the new time string
-        //       return `T${sIncrementedHour}:${minute}:${second}`;
-        //     },
-        //   );
-        // }
-        console.log("data storage of new event is ", newEvent)
+       
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
-            console.log(newEvent);
             this.eventApi.updateEvent(+event.id, newEvent).subscribe({
-              next: () => {
-                
-              },
-              error(err) {
-                console.log(err);
-              },
             });
           },
           error: (err) => {
@@ -362,12 +300,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
                       allDay: newEvent.allDay,
                       extendedProps: newEvent.extendedProps,
                     };
-                    console.log(eventSend);
                     this.socket.emit('externalEventDrop', eventSend);
-                  },
-                  error(err) {
-                    console.log(err);
-                  },
+                  }
                 });
             }
           },
@@ -381,7 +315,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   handleExternalDrop(info: any) {
     const title = info.draggedEl.innerText;
     const calendarApi = info.view.calendar;
-    console.log(info);
     const event = {
       id: createEventId(),
       title: title,
@@ -406,7 +339,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   updateCurrentEvents(event: any) {
-    console.log('Event received from Socket.IO 3 :', event);
 
     // Assuming event is an updated event object with new details
     const updatedEvent = {
@@ -431,17 +363,14 @@ export class CalendarComponent implements OnInit, AfterViewInit {
         'location',
         updatedEvent.extendedProps.location,
       );
-      console.log('Event updated: 1', updatedEvent);
       // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
       if (!updatedEvent.allDay && !updatedEvent.end) {
-        console.log("ccccccccccccccccc")
 
         updatedEvent.start = new Date(updatedEvent.start)
         updatedEvent.end = new Date(updatedEvent.end)
         calendarEvent.setDates(updatedEvent.start, updatedEvent.end)
       }
       else{
-        console.log("dddddddddddddddddd")
 
         calendarEvent.setStart(updatedEvent.start);
         calendarEvent.setEnd(updatedEvent.end);
@@ -450,15 +379,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       // Refresh the calendar to reflect the changes
       this.changeDetector.detectChanges();
     } else {
-      console.log('Event updated: 2', updatedEvent);
 
       calendarApi.addEvent(updatedEvent);
       console.warn(
         `Event with ID ${updatedEvent.id} not found in the calendar.`,
       );
     }
-    console.log("the newly updated event is here: ", calendarEvent)
-    console.log("save this",calendarApi.getEvents());
     this.handleEvents(calendarApi.getEvents());
   }
 }

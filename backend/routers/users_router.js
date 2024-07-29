@@ -64,7 +64,6 @@ usersRouter.get("/me", async (req, res) => {
 
 
 usersRouter.get("/", isAuthenticated, async (req, res) => {
-  console.log("jade ally",  req.user.id)
   const users = await User.findAll({
     where: {
       id: {
@@ -74,7 +73,5 @@ usersRouter.get("/", isAuthenticated, async (req, res) => {
     attributes: ['id','username', 'profile', 'tier']
   });
 
-  console.log(users);
-  
   return res.json(users);
 });

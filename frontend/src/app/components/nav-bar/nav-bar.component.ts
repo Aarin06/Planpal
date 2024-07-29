@@ -36,10 +36,7 @@ export class NavBarComponent implements OnInit {
       next: () => {
         this.isAuth = false;
         this.router.navigate(['/']);
-      },
-      error(err) {
-        console.log(err);
-      },
+      }
     });
   }
 
@@ -52,10 +49,7 @@ export class NavBarComponent implements OnInit {
       next: (res) => {
         this.isAuth = true;
         this.tier = res.tier;
-      },
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 }

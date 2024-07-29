@@ -47,7 +47,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("externalEventDrop", (event) => {
-    console.log("externalEventDrop", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("externalEventDropListener", event); // Emit to all clients except the sender
@@ -56,7 +55,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("deleteEvent", (event) => {
-    console.log("delete", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("deleteEventListener", event); // Emit to all clients except the sender
@@ -65,7 +63,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("updateEvent", (event) => {
-    console.log("updateEvent", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("updateEventListener", event); // Emit to all clients except the sender
@@ -74,7 +71,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("createEvent", (event) => {
-    console.log("createEvent", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("createEventListener", event); // Emit to all clients except the sender
@@ -83,7 +79,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("editEventStart", (event) => {
-    console.log("editEventStart", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("editEventStartListener", event); // Emit to all clients except the sender
@@ -92,7 +87,6 @@ const DefaultSocket = (connected, connectedInverse, socket, io) => {
   });
 
   socket.on("closeFormEvent", (event) => {
-    console.log("closeFormEvent", event);
     connected.forEach((con) => {
       if (con.id !== socket.id) {
         con.emit("closeFormEventListener", event); // Emit to all clients except the sender

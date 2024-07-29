@@ -34,14 +34,11 @@ export class AddCollaboratorsComponent implements OnInit {
   fetchUsers(): void {
     // Fetch the users from the API
     this.api.getUsers().subscribe((response: any) => {
-      console.log(response);
       this.users = response;
     });
     this.api.me().subscribe((user: user) => {
-      console.log(user)
       if (this.itineraryId) {
         this.itineraryApi.getItineraryMembers(this.itineraryId).subscribe((response: any) => {
-          console.log(response);
           this.selectedUsers = response.filter((member: any) => member.id !== user.id);
         });
       }
@@ -55,19 +52,12 @@ export class AddCollaboratorsComponent implements OnInit {
 
   onUserSelected(event: any): void {
     const user = event.option.value;
-    console.log(user)
     if (user && !this.selectedUsers.includes(user)) {
       this.selectedUsers.push(user);
     }
     this.userSearchControl.setValue(''); // Clear the input field after selection
     if (this.itineraryId) {
       this.itineraryApi.addItineraryMember(user, this.itineraryId).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.error(err);
-        },
       });
     }
 
@@ -75,15 +65,8 @@ export class AddCollaboratorsComponent implements OnInit {
 
   removeUser(user: any): void {
     this.selectedUsers = this.selectedUsers.filter((u) => u.id !== user.id);
-    console.log(user, this.itineraryId);
     if (this.itineraryId) {
       this.itineraryApi.removeItineraryMember(user.id, this.itineraryId).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.error(err);
-        },
       });
     }
   }
