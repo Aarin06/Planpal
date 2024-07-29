@@ -82,7 +82,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       initialDate: this.initialItinerary?.startDate,
       validRange: {
         start: this.initialItinerary?.startDate,
-        end: this.initialItinerary?.endDate,
+        end: this.addOneDay(this.initialItinerary?.endDate),
       },
       fixedWeekCount: false,
       eventBackgroundColor: '#049be5',
@@ -116,6 +116,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     }
   }
 
+  private addOneDay(date: any): string {
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + 1);
+    return newDate.toISOString().split('T')[0];
+  }
+
   dayCellClassNames(arg: DayCellContentArg) {
     const validRangeStart = new Date('0001-07-26'); // Replace with your start date
     const validRangeEnd = new Date('9999-12-31'); // Replace with your end date
@@ -146,37 +152,37 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       extendedProps: info.event.extendedProps,
     }
     console.log("the new event is ", newEvent)
-    if (!info.event.allDay && !info.event.end) {
-      const input = info.event.start.toISOString();
-      console.log(input.replace(
-        /T(\d{2}):(\d{2}):(\d{2})/,
-        (match: any, hour: any, minute: any, second: any) => {
-          // Increment the hour
-          let incrementedHour = parseInt(hour, 10) + 1;
-          // Format hour with leading zero if needed
-          let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-          // Return the new time string
-          return `T${sIncrementedHour}:${minute}:${second}`;
-        },
-      ))
-      newEvent.end = new Date(input.replace(
-        /T(\d{2}):(\d{2}):(\d{2})/,
-        (match: any, hour: any, minute: any, second: any) => {
-          // Increment the hour
-          let incrementedHour = parseInt(hour, 10) + 1;
-          // Format hour with leading zero if needed
-          let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-          // Return the new time string
-          return `T${sIncrementedHour}:${minute}:${second}`;
-        },
-      ));
-    }
+    // if (!info.event.allDay && !info.event.end) {
+    //   const input = info.event.start.toISOString();
+    //   console.log(input.replace(
+    //     /T(\d{2}):(\d{2}):(\d{2})/,
+    //     (match: any, hour: any, minute: any, second: any) => {
+    //       // Increment the hour
+    //       let incrementedHour = parseInt(hour, 10) + 1;
+    //       // Format hour with leading zero if needed
+    //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+    //       // Return the new time string
+    //       return `T${sIncrementedHour}:${minute}:${second}`;
+    //     },
+    //   ))
+    //   newEvent.end = new Date(input.replace(
+    //     /T(\d{2}):(\d{2}):(\d{2})/,
+    //     (match: any, hour: any, minute: any, second: any) => {
+    //       // Increment the hour
+    //       let incrementedHour = parseInt(hour, 10) + 1;
+    //       // Format hour with leading zero if needed
+    //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+    //       // Return the new time string
+    //       return `T${sIncrementedHour}:${minute}:${second}`;
+    //     },
+    //   ));
+    // }
     console.log('Event stopped edit:', newEvent);
     this.socket.emit('eventEditStop', newEvent);
   }
 
   initializeSocket(): void {
-    this.socket = io('https://apis.planpal.tech');
+    this.socket = io('http://localhost:4001');
     this.socket.on('eventEditStartListener', (event: any) => {
       // Handle socket events here
       this.updateEventDraggable(event.id, false);
@@ -312,22 +318,22 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           extendedProps: event.extendedProps,
         };
         // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
-        if (!newEvent.allDay && !newEvent.end) {
-          console.log("updating date before storing")
-          const input = newEvent.start;
+        // if (!newEvent.allDay && !newEvent.end) {
+        //   console.log("updating date before storing")
+        //   const input = newEvent.start;
 
-          newEvent.end = input.replace(
-            /T(\d{2}):(\d{2}):(\d{2})/,
-            (match: any, hour: any, minute: any, second: any) => {
-              // Increment the hour
-              let incrementedHour = parseInt(hour, 10) + 1;
-              // Format hour with leading zero if needed
-              let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-              // Return the new time string
-              return `T${sIncrementedHour}:${minute}:${second}`;
-            },
-          );
-        }
+        //   newEvent.end = input.replace(
+        //     /T(\d{2}):(\d{2}):(\d{2})/,
+        //     (match: any, hour: any, minute: any, second: any) => {
+        //       // Increment the hour
+        //       let incrementedHour = parseInt(hour, 10) + 1;
+        //       // Format hour with leading zero if needed
+        //       let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+        //       // Return the new time string
+        //       return `T${sIncrementedHour}:${minute}:${second}`;
+        //     },
+        //   );
+        // }
         console.log("data storage of new event is ", newEvent)
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
@@ -411,40 +417,35 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       allDay: event.allDay,
       extendedProps: event.extendedProps,
     };
-
-    // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
-    if (!updatedEvent.allDay && !updatedEvent.end) {
-      const input = updatedEvent.start;
-
-      updatedEvent.end = input.replace(
-        /T(\d{2}):(\d{2}):(\d{2})/,
-        (match: any, hour: any, minute: any, second: any) => {
-          // Increment the hour
-          let incrementedHour = parseInt(hour, 10) + 1;
-          // Format hour with leading zero if needed
-          let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
-          // Return the new time string
-          return `T${sIncrementedHour}:${minute}:${second}`;
-        },
-      );
-    }
-
-    // Find the corresponding event in the calendar and update it
     let calendarApi = this.calendarComponent.getApi();
     const calendarEvent = calendarApi.getEventById(updatedEvent.id);
-
-    updatedEvent.start = new Date(updatedEvent.start)
-    updatedEvent.end = new Date(updatedEvent.end)
+    // Find the corresponding event in the calendar and update it
+   
+    // updatedEvent.start = new Date(updatedEvent.start)
+    // updatedEvent.end = new Date(updatedEvent.end)
 
     if (calendarEvent) {
       calendarEvent.setProp('title', updatedEvent.title);
-      calendarEvent.setDates(updatedEvent.start, updatedEvent.end)
       calendarEvent.setAllDay(updatedEvent.allDay);
       calendarEvent.setExtendedProp(
         'location',
         updatedEvent.extendedProps.location,
       );
       console.log('Event updated: 1', updatedEvent);
+      // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
+      if (!updatedEvent.allDay && !updatedEvent.end) {
+        console.log("ccccccccccccccccc")
+
+        updatedEvent.start = new Date(updatedEvent.start)
+        updatedEvent.end = new Date(updatedEvent.end)
+        calendarEvent.setDates(updatedEvent.start, updatedEvent.end)
+      }
+      else{
+        console.log("dddddddddddddddddd")
+
+        calendarEvent.setStart(updatedEvent.start);
+        calendarEvent.setEnd(updatedEvent.end);
+      }
 
       // Refresh the calendar to reflect the changes
       this.changeDetector.detectChanges();
