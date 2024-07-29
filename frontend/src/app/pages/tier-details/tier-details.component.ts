@@ -16,7 +16,7 @@ export class TierDetailsComponent {
 
   async redirectToPayment() {
     const res = await fetch(
-      'http://localhost:3000/stripe/create-checkout-session',
+      'https://apis.planpal.tech/stripe/create-checkout-session',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
