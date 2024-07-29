@@ -275,7 +275,7 @@ itinerariesRouter.get("/:id/members", isAuthenticated, async (req, res, next) =>
 itinerariesRouter.get("/:id/owner", isAuthenticated, async (req, res, next) => {
   try {
 
-     const itineraryId = req.params.id;
+    const itineraryId = req.params.id;
 
     if (!itineraryId) {
       return res.status(422).json({ error: "itineraryId is required." });
@@ -298,9 +298,6 @@ itinerariesRouter.get("/:id/owner", isAuthenticated, async (req, res, next) => {
 itinerariesRouter.get("/users/:id", isAuthenticated, async (req, res, next) => {
   try {
     const userId = req.params.id;
-    const limit = parseInt(req.query.limit, 10) || 8;
-    const page = parseInt(req.query.page, 10) || 1;
-    const offset = (page - 1) * limit;
 
     if (!userId) {
       return res.status(422).json({ error: "userId is required." });
@@ -310,8 +307,6 @@ itinerariesRouter.get("/users/:id", isAuthenticated, async (req, res, next) => {
       where: {
         UserId: userId,
       },
-      limit: limit,
-      offset: offset,
       order: [["createdAt", "ASC"]],
     });
 
@@ -323,15 +318,10 @@ itinerariesRouter.get("/users/:id", isAuthenticated, async (req, res, next) => {
 
 itinerariesRouter.get("/",isAuthenticated,  async (req, res, next) => {
   try {
-    const limit = parseInt(req.query.limit, 10) || 8;
-    const page = parseInt(req.query.page, 10) || 1;
-    const offset = (page - 1) * limit;
     const userId = req.user.id;
 
     const itineraryMembers = await ItineraryMember.findAll({
       where: { UserId: userId },
-      limit: limit,
-      offset: offset,
       include: [
         {
           association: "Itinerary",
@@ -376,8 +366,6 @@ itinerariesRouter.get("/:id/events", isAuthenticated, async (req, res, next) => 
 
     const itineraryMembers = await ItineraryMember.findAll({
       where: { UserId: userId, ItineraryId: itineraryId },
-      limit: limit,
-      offset: offset,
       include: [
         {
           association: "Itinerary",

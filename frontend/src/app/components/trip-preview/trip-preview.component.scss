@@ -5,6 +5,7 @@
   min-height: 361px;
 }
 
+
 .fixed-height-image {
   height: 250px; /* Set a fixed height for the images */
   object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
@@ -43,9 +44,11 @@
   background-repeat: no-repeat;
 }
 
+
 .extra-members-text {
   margin: auto 0 auto 5px;
 }
+
 
 .location-subtitle {
   white-space: nowrap; /* Prevents text from wrapping to the next line */
@@ -59,4 +62,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  font-size: 20px;
 }
