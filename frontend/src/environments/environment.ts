@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiEndpoint: 'https://apis.planpal.tech',
+  apiEndpoint: 'http://localhost:3000',
 };
