@@ -2,13 +2,18 @@
   margin: 20px;
   border-radius: 10px;
   box-shadow: none;
-  min-height: 500px;
+  min-height: 361px;
 }
 
+
 .fixed-height-image {
-  height: 200px; /* Set a fixed height for the images */
+  height: 250px; /* Set a fixed height for the images */
   object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
   width: 100%;
+}
+
+.mat-mdc-card-header{
+  padding-top: 10px;
 }
 
 .creator-pfp {
@@ -17,22 +22,33 @@
   margin-top: 10px;
 }
 
+.colab-user-container{
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 10px 10px 10px;
+}
+
+.no-colab-text{
+  box-sizing: border-box;
+  padding: 0 10px 10px 10px;
+}
+
 .colab-users-pfp {
   background-image: url("https://www.wikihow.com/images/thumb/9/90/What_type_of_person_are_you_quiz_pic.png/1200px-What_type_of_person_are_you_quiz_pic.png");
   width: 25px; /* Adjust based on your design */
   height: 25px; /* Must be the same as width for a perfect circle */
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin-right: 5px;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+
 .extra-members-text {
-  margin: auto 5px;
-  text-align: center;
+  margin: auto 0 auto 5px;
 }
+
 
 .location-subtitle {
   white-space: nowrap; /* Prevents text from wrapping to the next line */
@@ -46,4 +62,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  font-size: 20px;
 }

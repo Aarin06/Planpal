@@ -14,8 +14,8 @@
       mat-card-avatar
       class="creator-pfp"
       [ngStyle]="{
-        'background-image': 'url(' + itinerary.profile.picture + ')',
-      }"
+      'background-image': 'url(' + itinerary.profile.picture + ')',
+    }"
     ></div>
     <mat-card-title>{{ itinerary.title }}</mat-card-title>
 
@@ -36,30 +36,26 @@
   </mat-card-header>
 
   <!-- Conditionally apply *ngFor and *ngIf based on itinerary.members length -->
-  <ng-container class="row" *ngIf="itinerary.members?.length > 1">
-    <div
-      class="col-2"
-      *ngFor="let member of itinerary.members.slice(1, 4); let i = index"
-    >
+  <div class="colab-user-container" *ngIf="itinerary.members?.length > 1">
+    <div *ngFor="let member of itinerary.members.slice(1, 4); let i = index">
       <div
-        mat-card-avatar
         class="colab-users-pfp"
         [ngStyle]="{
-          'background-image': 'url(' + member?.profile?.picture + ')',
-        }"
+        'background-image': 'url(' + member?.profile?.picture + ')',
+      }"
       ></div>
     </div>
-    <div class="col-2" *ngIf="itinerary.members.length > 4">
-      <div class="extra-members-text">
-        + {{ itinerary.members.length - 4 }} more
-      </div>
+    <div class="extra-members-text" *ngIf="itinerary.members.length > 4">
+      +{{ itinerary.members.length - 4 }} more
     </div>
-  </ng-container>
+  </div>
+  <div class="no-colab-text" *ngIf="itinerary.members?.length <= 1">
+    Add friends to itinerary!
+  </div>
 
-  <!-- Add the garbage can icon -->
-  <ng-container *ngIf="isOwner">
+  <div *ngIf="isOwner">
     <div class="delete-btn" (click)="deleteItinerary($event, itinerary.id)">
       <fa-icon [icon]="faTrash"></fa-icon>
     </div>
-  </ng-container>
+  </div>
 </mat-card>

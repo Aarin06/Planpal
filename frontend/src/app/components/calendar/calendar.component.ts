@@ -137,8 +137,42 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   handleEventEditStop(info: any) {
     // this.draggingEventIds.delete(info.event.id);
     // this.updateEventDraggable(info.event.id, true);
-    console.log('Event stopped edit:', info.event);
-    this.socket.emit('eventEditStop', info.event);
+    const newEvent = {
+      id: info.event.id,
+      title: info.event.title,
+      start: info.event.start,
+      end: info.event.end,
+      allDay: info.event.allDay,
+      extendedProps: info.event.extendedProps,
+    }
+    console.log("the new event is ", newEvent)
+    if (!info.event.allDay && !info.event.end) {
+      const input = info.event.start.toISOString();
+      console.log(input.replace(
+        /T(\d{2}):(\d{2}):(\d{2})/,
+        (match: any, hour: any, minute: any, second: any) => {
+          // Increment the hour
+          let incrementedHour = parseInt(hour, 10) + 1;
+          // Format hour with leading zero if needed
+          let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+          // Return the new time string
+          return `T${sIncrementedHour}:${minute}:${second}`;
+        },
+      ))
+      newEvent.end = new Date(input.replace(
+        /T(\d{2}):(\d{2}):(\d{2})/,
+        (match: any, hour: any, minute: any, second: any) => {
+          // Increment the hour
+          let incrementedHour = parseInt(hour, 10) + 1;
+          // Format hour with leading zero if needed
+          let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+          // Return the new time string
+          return `T${sIncrementedHour}:${minute}:${second}`;
+        },
+      ));
+    }
+    console.log('Event stopped edit:', newEvent);
+    this.socket.emit('eventEditStop', newEvent);
   }
 
   initializeSocket(): void {
@@ -149,11 +183,11 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
       // this.updateEventDraggable(event.id, true);
 
-      console.log('Event received from Socket.IO:', event);
+      console.log('Event received from Socket.IO 1 :', event);
     });
     this.socket.on('eventEditStopListener', (event: any) => {
       // Handle socket events here
-      console.log('Event received from Socket.IO:', event);
+      console.log('Event received from Socket.IO 2 :', event);
       this.updateEventDraggable(event.id, true);
 
       this.updateCurrentEvents(event);
@@ -277,6 +311,24 @@ export class CalendarComponent implements OnInit, AfterViewInit {
           allDay: event.allDay,
           extendedProps: event.extendedProps,
         };
+        // If the event is not an all-day event and the end time is undefined, set end time to one hour after the start
+        if (!newEvent.allDay && !newEvent.end) {
+          console.log("updating date before storing")
+          const input = newEvent.start;
+
+          newEvent.end = input.replace(
+            /T(\d{2}):(\d{2}):(\d{2})/,
+            (match: any, hour: any, minute: any, second: any) => {
+              // Increment the hour
+              let incrementedHour = parseInt(hour, 10) + 1;
+              // Format hour with leading zero if needed
+              let sIncrementedHour = incrementedHour.toString().padStart(2, '0');
+              // Return the new time string
+              return `T${sIncrementedHour}:${minute}:${second}`;
+            },
+          );
+        }
+        console.log("data storage of new event is ", newEvent)
         this.eventApi.getEvent(+event.id).subscribe({
           next: () => {
             console.log(newEvent);
@@ -348,7 +400,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   updateCurrentEvents(event: any) {
-    console.log('Event received from Socket.IO:', event);
+    console.log('Event received from Socket.IO 3 :', event);
 
     // Assuming event is an updated event object with new details
     const updatedEvent = {
@@ -377,33 +429,34 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       );
     }
 
-    console.log(updatedEvent);
-
     // Find the corresponding event in the calendar and update it
     let calendarApi = this.calendarComponent.getApi();
     const calendarEvent = calendarApi.getEventById(updatedEvent.id);
 
+    updatedEvent.start = new Date(updatedEvent.start)
+    updatedEvent.end = new Date(updatedEvent.end)
+
     if (calendarEvent) {
       calendarEvent.setProp('title', updatedEvent.title);
-      calendarEvent.setStart(updatedEvent.start);
-      calendarEvent.setEnd(updatedEvent.end);
+      calendarEvent.setDates(updatedEvent.start, updatedEvent.end)
       calendarEvent.setAllDay(updatedEvent.allDay);
       calendarEvent.setExtendedProp(
         'location',
         updatedEvent.extendedProps.location,
       );
-      console.log('Event updated:', updatedEvent);
+      console.log('Event updated: 1', updatedEvent);
 
       // Refresh the calendar to reflect the changes
       this.changeDetector.detectChanges();
     } else {
-      console.log('Event updated:', updatedEvent);
+      console.log('Event updated: 2', updatedEvent);
 
       calendarApi.addEvent(updatedEvent);
       console.warn(
         `Event with ID ${updatedEvent.id} not found in the calendar.`,
       );
     }
+    console.log("the newly updated event is here: ", calendarEvent)
     console.log("save this",calendarApi.getEvents());
     this.handleEvents(calendarApi.getEvents());
   }
