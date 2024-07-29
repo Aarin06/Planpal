@@ -16,7 +16,7 @@ const endpointSecret =
 
 stripeRouter.post(
   "/webhook",
-  express.raw({ type: "application/json" }), isAuthenticated,
+  express.raw({ type: "application/json" }),
   async (req, res) => {
     const sig = req.headers["stripe-signature"];
 

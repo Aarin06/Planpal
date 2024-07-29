@@ -43,7 +43,7 @@ itinerariesRouter.post("/", isAuthenticated, async (req, res, next) => {
       const itineraryCount = await Itinerary.count({
         where: { UserId: userId }
       });
-      if (itineraryCount === 3){
+      if (itineraryCount >= 3){
         return res.status(403).json({ error: "You have reached the maximum number of itinerary creations for Travel Trainee. Please return to home page." });
       }
     }
