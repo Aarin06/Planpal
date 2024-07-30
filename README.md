@@ -4,6 +4,9 @@ project-wenduosky created by GitHub Classroom
 
 # Project Title: PlanPal
 
+Youtube link: https://www.youtube.com/watch?v=hLrIZ_jIZok
+Deployment URL: https://planpal.tech/
+
 ## Team Name: Wenduo Sky
 
 ### Team Members:
